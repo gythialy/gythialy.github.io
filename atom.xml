@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="https://gythialy.github.io/"/>
-  <updated>2015-09-10T06:08:02.000Z</updated>
+  <updated>2015-09-10T06:38:33.000Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title><![CDATA[Hello World]]></title>
     <link href="https://gythialy.github.io/hello-world/"/>
     <id>https://gythialy.github.io/hello-world/</id>
-    <published>2015-09-10T06:08:02.000Z</published>
-    <updated>2015-09-10T06:08:02.000Z</updated>
+    <published>2015-09-10T06:38:33.000Z</published>
+    <updated>2015-09-10T06:38:33.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>

@@ -32,14 +32,14 @@
 <p>The script must be loaded prior to instantiating FastClick on any element of the page.</p>
 <p>To instantiate FastClick on the <code>body</code>, which is the recommended method of use:</p>
 <pre><code class="language-js">if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
 }
 </code></pre>
 <p>Or, if you're using jQuery:</p>
 <pre><code class="language-js">$(function() {
-    FastClick.attach(document.body);
+	FastClick.attach(document.body);
 });
 </code></pre>
 <p>If you're using Browserify or another CommonJS-style module system, the <code>FastClick.attach</code> function will be returned when you call <code>require('fastclick')</code>. As a result, the easiest way to use FastClick with these loaders is as follows:</p>

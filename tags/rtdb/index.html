@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo,next,gythialy,blog" />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
 
@@ -62,7 +62,7 @@
 <meta name="description" content="这里只是我的后花园，随性而写">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iKoo's Dirty life">
-<meta property="og:url" content="https://gythialy.github.io/archives/2016/01/index.html">
+<meta property="og:url" content="https://gythialy.github.io/tags/rtdb/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
 <meta property="og:description" content="这里只是我的后花园，随性而写">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -85,7 +85,7 @@
   };
 </script>
 
-  <title> Archive | iKoo's Dirty life </title>
+  <title> Tag: rtdb | iKoo's Dirty life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -97,12 +97,16 @@
 
 
 
+
+
+
+
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -131,7 +135,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -165,8 +169,6 @@
       
 
       
-      
-      
     </ul>
   
 
@@ -182,32 +184,15 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 1 post. Keep on posting.
-    </span>
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        rtdb
+        <small>Tag</small>
+      </h2>
+    </div>
 
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -215,9 +200,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/hello-world/" itemprop="url">
+            <a class="post-title-link" href="/osi-pi-api-demo-by-c/" itemprop="url">
               
-                <span itemprop="name">Hello World</span>
+                <span itemprop="name">OSI PI C API 介绍</span>
               
             </a>
         
@@ -225,9 +210,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-08T10:19:22+08:00"
-              content="2016-01-08" >
-          01-08
+              datetime="2016-03-21T13:26:01+08:00"
+              content="2016-03-21" >
+          03-21
         </time>
       </div>
 
@@ -235,13 +220,10 @@
   </article>
 
 
-
     
-
-  </section>
+  </div>
 
   
-
 
 
           </div>
@@ -280,24 +262,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">categories</span>
-              
-          </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">tags</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -341,7 +320,8 @@
           </div>
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -364,7 +344,7 @@
   &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">gythialy</span>
 </div>
@@ -385,7 +365,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -393,6 +375,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -411,34 +401,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
   
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+
   
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -452,8 +436,8 @@
 
   
   
-
   
+
   
 
 

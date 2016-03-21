@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,next,gythialy,blog" />
+  <meta name="keywords" content="PI,C,rtdb," />
 
 
 
@@ -59,15 +59,22 @@
 
 
 
-<meta name="description" content="这里只是我的后花园，随性而写">
-<meta property="og:type" content="website">
-<meta property="og:title" content="iKoo's Dirty life">
-<meta property="og:url" content="https://gythialy.github.io/index.html">
+<meta name="description" content="PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考百度百科 或者官方网站
+登录数据库
+要访问数据库，有两种方法，一种是通过用户名和密码登录，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSI PI C API 介绍">
+<meta property="og:url" content="https://gythialy.github.io/osi-pi-api-demo-by-c/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
-<meta property="og:description" content="这里只是我的后花园，随性而写">
+<meta property="og:description" content="PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考百度百科 或者官方网站
+登录数据库
+要访问数据库，有两种方法，一种是通过用户名和密码登录，">
+<meta property="og:updated_time" content="2016-03-21T06:28:28.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iKoo's Dirty life">
-<meta name="twitter:description" content="这里只是我的后花园，随性而写">
+<meta name="twitter:title" content="OSI PI C API 介绍">
+<meta name="twitter:description" content="PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考百度百科 或者官方网站
+登录数据库
+要访问数据库，有两种方法，一种是通过用户名和密码登录，">
 
 
 
@@ -85,7 +92,7 @@
   };
 </script>
 
-  <title> iKoo's Dirty life </title>
+  <title> OSI PI C API 介绍 | iKoo's Dirty life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -106,9 +113,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -185,9 +190,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -207,10 +212,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/hello-world/" itemprop="url">
-                  Hello World
-                </a>
+                OSI PI C API 介绍
               
             
           </h1>
@@ -222,7 +224,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-21T14:28:28+08:00" content="2016-03-21">
+            <time itemprop="dateCreated" datetime="2016-03-21T05:26:01+00:00" content="2016-03-21">
               2016-03-21
             </time>
           </span>
@@ -249,111 +251,7 @@
       
 
       
-        
-          
-            <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2>Quick Start</h2>
-<h3>Create a new post</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3>Run server</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3>Generate static files</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3>Deploy to remote sites</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/osi-pi-api-demo-by-c/" itemprop="url">
-                  OSI PI C API 介绍
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-21T13:26:01+08:00" content="2016-03-21">
-              2016-03-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a> 或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>
+        <p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a> 或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>
 <h2>登录数据库</h2>
 <p>要访问数据库，有两种方法，一种是通过用户名和密码登录，另一种是通过 PI Trust。官方是不建议使用密码登录的，所以在开发应用的时候，尽可能使用 PI Trust，但是国内的情况比较混乱，很多生产环境都还是使用第一次方式。</p>
 <p>下面分别介绍两种登录方法的使用</p>
@@ -395,32 +293,55 @@
 </blockquote>
 <p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// init parameters etc.</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// check server connection etc</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        tag-&gt;rval = <span class="number">0</span>;</span><br><span class="line">        tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = pisn_getsnapshot(tag-&gt;point_id, &amp;tag-&gt;rval, &amp;tag-&gt;istat, &amp;tag-&gt;time);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d"</span>, tag-&gt;name, tag, tag-&gt;rval, tag-&gt;istat, tag-&gt;time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = NOT_EXIST;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot not exist, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = INVALID;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot failed, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
 
     <div>
       
+        
+      
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/PI/" rel="tag">#PI</a>
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+            <a href="/tags/rtdb/" rel="tag">#rtdb</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -428,6 +349,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -447,8 +372,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars2.githubusercontent.com/u/773400?v=3&s=460"
@@ -524,6 +458,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">登录数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">用户名/密码登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">PI Trust 登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">初始化测点信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">查询实时数据</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -615,6 +566,167 @@
 
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 

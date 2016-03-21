@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo,next,gythialy,blog" />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
 
@@ -65,7 +65,7 @@
 <meta property="og:url" content="https://gythialy.github.io/tags/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
 <meta property="og:description" content="这里只是我的后花园，随性而写">
-<meta property="og:updated_time" content="2016-01-08T02:19:22.332Z">
+<meta property="og:updated_time" content="2016-03-21T06:28:28.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tagcloud">
 <meta name="twitter:description" content="这里只是我的后花园，随性而写">
@@ -76,7 +76,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -98,6 +98,10 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
+
+
+
+
 
 
 
@@ -138,7 +142,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -172,8 +176,6 @@
       
 
       
-      
-      
     </ul>
   
 
@@ -194,10 +196,10 @@
     
       <div class="tag-cloud">
         <div class="tag-cloud-title">
-            No tags
+            3 tags in total
         </div>
         <div class="tag-cloud-tags">
-          
+          <a href="/tags/C/" style="font-size: 12px; color: #ccc">C</a> <a href="/tags/PI/" style="font-size: 12px; color: #ccc">PI</a> <a href="/tags/rtdb/" style="font-size: 12px; color: #ccc">rtdb</a>
         </div>
       </div>
     
@@ -244,24 +246,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">categories</span>
-              
-          </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">tags</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -305,7 +304,8 @@
           </div>
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -328,7 +328,7 @@
   &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">gythialy</span>
 </div>
@@ -349,7 +349,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -357,6 +359,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -375,32 +385,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
-
-
-
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -409,9 +415,13 @@
 
 
   
-  
+
+
 
   
+  
+  
+
   
 
 

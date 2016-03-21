@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gythialy.github.io/"/>
-  <updated>2016-03-21T06:28:28.800Z</updated>
+  <updated>2016-03-21T06:37:22.858Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -16,43 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://gythialy.github.io/hello-world/"/>
-    <id>https://gythialy.github.io/hello-world/</id>
-    <published>2016-03-21T06:28:28.800Z</published>
-    <updated>2016-03-21T06:28:28.800Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Quick Start&lt;/h2&gt;
-&lt;h3&gt;Create a new post&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Run server&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Generate static files&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Deploy to remote sites&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>OSI PI C API 介绍</title>
     <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
     <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
     <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2016-03-21T06:28:28.800Z</updated>
+    <updated>2016-03-21T06:37:22.858Z</updated>
     
     <content type="html">&lt;p&gt;PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考&lt;a href=&quot;http://baike.baidu.com/view/1510581.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度百科&lt;/a&gt; 或者&lt;a href=&quot;https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方网站&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;登录数据库&lt;/h2&gt;
@@ -95,6 +63,7 @@
 &lt;p&gt;注： &lt;code&gt;pisn_getsnapshot&lt;/code&gt; 获取的时间只到秒级，如果对时间精度要求比较高，需要使用 &lt;code&gt;pisn_getsnapshotx&lt;/code&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int16_t&lt;/span&gt; getsnapshot()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// init parameters etc.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (index = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; index &amp;lt; ptbl_data-&amp;gt;point_size; index++, tag++)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// check server connection etc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        tag-&amp;gt;rval = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        tag-&amp;gt;istat = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        result = pisn_getsnapshot(tag-&amp;gt;point_id, &amp;amp;tag-&amp;gt;rval, &amp;amp;tag-&amp;gt;istat, &amp;amp;tag-&amp;gt;time);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (result == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ftrace_log(log_tag, &lt;span class=&quot;string&quot;&gt;&quot;%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d&quot;&lt;/span&gt;, tag-&amp;gt;name, tag, tag-&amp;gt;rval, tag-&amp;gt;istat, tag-&amp;gt;time);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (result == &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            tag-&amp;gt;stat = NOT_EXIST;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ftrace_log(log_tag, &lt;span class=&quot;string&quot;&gt;&quot;%s pisn_getsnapshot not exist, result=%d.&quot;&lt;/span&gt;, tag-&amp;gt;name, result);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            tag-&amp;gt;stat = INVALID;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ftrace_log(log_tag, &lt;span class=&quot;string&quot;&gt;&quot;%s pisn_getsnapshot failed, result=%d.&quot;&lt;/span&gt;, tag-&amp;gt;name, result);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; TRUE;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;---EOF---&lt;/p&gt;
 </content>
     
     <summary type="html">

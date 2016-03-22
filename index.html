@@ -208,8 +208,8 @@
             
               
                 
-                <a class="post-title-link" href="/osi-pi-api-demo-by-c/" itemprop="url">
-                  OSI PI C API 介绍
+                <a class="post-title-link" href="/edna-api-demo-by-c/" itemprop="url">
+                  eDNA C API 介绍
                 </a>
               
             
@@ -222,8 +222,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-21T13:26:01+08:00" content="2016-03-21">
-              2016-03-21
+            <time itemprop="dateCreated" datetime="2016-03-22T09:30:11+08:00" content="2016-03-22">
+              2016-03-22
             </time>
           </span>
 
@@ -236,8 +236,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
                   </a>
                 </span>
 
@@ -270,7 +270,139 @@
       
         
           
-            <p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a> 或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>
+            <h2>介绍</h2>
+<p>eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via <a href="http://www.ybsoftware.com.cn/products.asp" target="_blank" rel="external">印步</a></p>
+<h2>API</h2>
+<p>eDNA 分为两种：</p>
+<ul>
+<li>常规API：支持 C/C++/Visual Basic 等。这种方式需要自己组装报文，虽然有相关 API 函数支持，但是实际应用起来还是比较麻烦</li>
+<li>EzDNA：封装了常用的操作，只需要引入一个头文件 (<code>EzDnaApi.h</code>) 即可。</li>
+</ul>
+<blockquote>
+<p>注：两种方式都需要安装 eDNA 的 Client 程序。</p>
+</blockquote>
+<h2>示例代码</h2>
+<p>涉及到的 API 函数：</p>
+<ul>
+<li><code>DNAGoodPointFormat</code> 检查测点名称是否符合命名规范</li>
+<li><code>DoesIdExist</code> 检查测点是否存在</li>
+<li><code>DNAGetRTFull</code> 查询指定测点的实时数据</li>
+<li><code>DNAGetHSFull</code> 同上</li>
+</ul>
+<blockquote>
+<p>注： <code>DNAGetHSFull</code> 查询到的时间精度是毫秒，如果对时间有要求，建议使用此函数。但是在实际使用过程中，发现此函数有时候会查询不到数据。</p>
+</blockquote>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">edna_tag_t</span>  *tag;</span><br><span class="line">    <span class="keyword">int32_t</span>     index;</span><br><span class="line">    <span class="keyword">int32_t</span>     *buff_size;</span><br><span class="line">    <span class="keyword">int16_t</span>     counter;</span><br><span class="line">    <span class="keyword">int32_t</span>		ret;</span><br><span class="line">    <span class="keyword">int8_t</span>      log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>	szValue[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int32_t</span> ptTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int8_t</span> szmS[EDNA_LEN];</span><br><span class="line">    <span class="keyword">uint16_t</span> pusStatus;</span><br><span class="line">    <span class="keyword">int8_t</span> szStatus[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szDesc[EDNA_DESC_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szUnits[EDNA_LEN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"getsnapshot"</span>, MAX_BUFF_SIZE);</span><br><span class="line">    <span class="comment">// init parameters</span></span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// other stuff</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;flag == E_EMPTY_TAG) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// tests the string, validating it as a fully qualified eDNA point name</span></span><br><span class="line">        <span class="keyword">if</span> (DNAGoodPointFormat(tag-&gt;name) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = INVALID;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check point name is exist</span></span><br><span class="line">        <span class="keyword">if</span> (!DoesIdExist(tag-&gt;name))</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = NOT_EXIST;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// retrieves the value, time and status in their raw formats</span></span><br><span class="line">        ret = DNAGetRTFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                          EDNA_LEN, &amp;pusStatus, szStatus, EDNA_LEN, szDesc,</span><br><span class="line">                          EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line"></span><br><span class="line">        ret = DNAGetHSFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                           EDNA_LEN, &amp;tag-&gt;ms, szmS, EDNA_LEN, &amp;pusStatus, szStatus,</span><br><span class="line">                           EDNA_LEN, szDesc, EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        tag-&gt;flag = (ret == <span class="number">0</span>) ? NORMAL : OFFLINE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>---EOF---</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/osi-pi-api-demo-by-c/" itemprop="url">
+                  OSI PI C API 介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-21T13:26:01+08:00" content="2016-03-21">
+              2016-03-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
+<p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a>或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>
 <h2>登录数据库</h2>
 <p>要访问数据库，有两种方法，一种是通过用户名和密码登录，另一种是通过 PI Trust。官方是不建议使用密码登录的，所以在开发应用的时候，尽可能使用 PI Trust，但是国内的情况比较混乱，很多生产环境都还是使用第一次方式。</p>
 <p>下面分别介绍两种登录方法的使用</p>
@@ -377,7 +509,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -394,7 +526,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

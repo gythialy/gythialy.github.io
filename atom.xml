@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gythialy.github.io/"/>
-  <updated>2016-03-22T01:59:22.828Z</updated>
+  <updated>2016-03-23T04:59:55.697Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>修正 SourceTree 无法识别 msys2 中 Git</title>
+    <link href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/"/>
+    <id>https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/</id>
+    <published>2016-03-23T01:33:32.000Z</published>
+    <updated>2016-03-23T04:59:55.697Z</updated>
+    
+    <content type="html">&lt;h3&gt;问题&lt;/h3&gt;
+&lt;p&gt;SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。&lt;/p&gt;
+&lt;h3&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;其实原因很简单，因为 SourceTree 要求 Git 所在目录必须同时有 bin 和 cmd 文件夹。听起来很2是吧？知道了原因要解决起来就很简单。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;我的 msys2 安装在 &lt;code&gt;d:\msys64&lt;/code&gt;，在 SourceTree 中选择 &lt;strong&gt;系统安装的Git&lt;/strong&gt; (工具/选项/Git)&lt;/p&gt;
+&lt;p&gt;在 AppData 中的 &lt;code&gt;user.config&lt;/code&gt; 配置中 &lt;code&gt;GitSystemPath&lt;/code&gt; 节点会自动识别出 msys2 的路径
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;setting&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;GitSystemPath&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;serializeAs&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;String&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;value&lt;/span&gt;&amp;gt;&lt;/span&gt;D:\msys64\usr&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;value&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;setting&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过 &lt;a href=&quot;https://technet.microsoft.com/en-us/library/cc753194.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;mklink&lt;/a&gt; 建立一个链接&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;D:\msys64\usr&lt;/code&gt; 建立链接
+&lt;code&gt;mklink /D cmd bin&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;---EOF---&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3&gt;问题&lt;/h3&gt;
+&lt;p&gt;SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅
+    
+    </summary>
+    
+      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+    
+    
+      <category term="SourceTree" scheme="https://gythialy.github.io/tags/SourceTree/"/>
+    
+      <category term="Git" scheme="https://gythialy.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>eDNA C API 介绍</title>
     <link href="https://gythialy.github.io/edna-api-demo-by-c/"/>
     <id>https://gythialy.github.io/edna-api-demo-by-c/</id>
     <published>2016-03-22T01:30:11.000Z</published>
-    <updated>2016-03-22T01:59:22.828Z</updated>
+    <updated>2016-03-23T04:59:55.697Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via &lt;a href=&quot;http://www.ybsoftware.com.cn/products.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;印步&lt;/a&gt;&lt;/p&gt;
@@ -71,7 +113,7 @@
     <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
     <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
     <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2016-03-22T01:59:22.828Z</updated>
+    <updated>2016-03-23T04:59:55.697Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考&lt;a href=&quot;http://baike.baidu.com/view/1510581.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度百科&lt;/a&gt;或者&lt;a href=&quot;https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方网站&lt;/a&gt;&lt;/p&gt;

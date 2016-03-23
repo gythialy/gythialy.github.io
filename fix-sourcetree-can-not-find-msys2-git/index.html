@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C,eDNA,rtdb," />
+  <meta name="keywords" content="SourceTree,Git," />
 
 
 
@@ -59,19 +59,19 @@
 
 
 
-<meta name="description" content="介绍
-eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套">
+<meta name="description" content="问题
+SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eDNA C API 介绍">
-<meta property="og:url" content="https://gythialy.github.io/edna-api-demo-by-c/index.html">
+<meta property="og:title" content="修正 SourceTree 无法识别 msys2 中 Git">
+<meta property="og:url" content="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
-<meta property="og:description" content="介绍
-eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套">
+<meta property="og:description" content="问题
+SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
 <meta property="og:updated_time" content="2016-03-23T04:59:55.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eDNA C API 介绍">
-<meta name="twitter:description" content="介绍
-eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套">
+<meta name="twitter:title" content="修正 SourceTree 无法识别 msys2 中 Git">
+<meta name="twitter:description" content="问题
+SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
 
 
 
@@ -89,7 +89,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
   };
 </script>
 
-  <title> eDNA C API 介绍 | iKoo's Dirty life </title>
+  <title> 修正 SourceTree 无法识别 msys2 中 Git | iKoo's Dirty life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -209,7 +209,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
             
             
               
-                eDNA C API 介绍
+                修正 SourceTree 无法识别 msys2 中 Git
               
             
           </h1>
@@ -221,8 +221,8 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-22T01:30:11+00:00" content="2016-03-22">
-              2016-03-22
+            <time itemprop="dateCreated" datetime="2016-03-23T01:33:32+00:00" content="2016-03-23">
+              2016-03-23
             </time>
           </span>
 
@@ -235,8 +235,8 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
                   </a>
                 </span>
 
@@ -267,29 +267,22 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
       
 
       
-        <h2>介绍</h2>
-<p>eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via <a href="http://www.ybsoftware.com.cn/products.asp" target="_blank" rel="external">印步</a></p>
-<h2>API</h2>
-<p>eDNA 分为两种：</p>
-<ul>
-<li>常规API：支持 C/C++/Visual Basic 等。这种方式需要自己组装报文，虽然有相关 API 函数支持，但是实际应用起来还是比较麻烦</li>
-<li>EzDNA：封装了常用的操作，只需要引入一个头文件 (<code>EzDnaApi.h</code>) 即可。</li>
-</ul>
-<blockquote>
-<p>注：两种方式都需要安装 eDNA 的 Client 程序。</p>
-</blockquote>
-<h2>示例代码</h2>
-<p>涉及到的 API 函数：</p>
-<ul>
-<li><code>DNAGoodPointFormat</code> 检查测点名称是否符合命名规范</li>
-<li><code>DoesIdExist</code> 检查测点是否存在</li>
-<li><code>DNAGetRTFull</code> 查询指定测点的实时数据</li>
-<li><code>DNAGetHSFull</code> 同上</li>
-</ul>
-<blockquote>
-<p>注： <code>DNAGetHSFull</code> 查询到的时间精度是毫秒，如果对时间有要求，建议使用此函数。但是在实际使用过程中，发现此函数有时候会查询不到数据。</p>
-</blockquote>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">edna_tag_t</span>  *tag;</span><br><span class="line">    <span class="keyword">int32_t</span>     index;</span><br><span class="line">    <span class="keyword">int32_t</span>     *buff_size;</span><br><span class="line">    <span class="keyword">int16_t</span>     counter;</span><br><span class="line">    <span class="keyword">int32_t</span>		ret;</span><br><span class="line">    <span class="keyword">int8_t</span>      log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>	szValue[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int32_t</span> ptTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int8_t</span> szmS[EDNA_LEN];</span><br><span class="line">    <span class="keyword">uint16_t</span> pusStatus;</span><br><span class="line">    <span class="keyword">int8_t</span> szStatus[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szDesc[EDNA_DESC_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szUnits[EDNA_LEN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"getsnapshot"</span>, MAX_BUFF_SIZE);</span><br><span class="line">    <span class="comment">// init parameters</span></span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// other stuff</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;flag == E_EMPTY_TAG) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// tests the string, validating it as a fully qualified eDNA point name</span></span><br><span class="line">        <span class="keyword">if</span> (DNAGoodPointFormat(tag-&gt;name) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = INVALID;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check point name is exist</span></span><br><span class="line">        <span class="keyword">if</span> (!DoesIdExist(tag-&gt;name))</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = NOT_EXIST;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// retrieves the value, time and status in their raw formats</span></span><br><span class="line">        ret = DNAGetRTFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                          EDNA_LEN, &amp;pusStatus, szStatus, EDNA_LEN, szDesc,</span><br><span class="line">                          EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line"></span><br><span class="line">        ret = DNAGetHSFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                           EDNA_LEN, &amp;tag-&gt;ms, szmS, EDNA_LEN, &amp;pusStatus, szStatus,</span><br><span class="line">                           EDNA_LEN, szDesc, EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        tag-&gt;flag = (ret == <span class="number">0</span>) ? NORMAL : OFFLINE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h3>问题</h3>
+<p>SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。</p>
+<h3>解决方案</h3>
+<p>其实原因很简单，因为 SourceTree 要求 Git 所在目录必须同时有 bin 和 cmd 文件夹。听起来很2是吧？知道了原因要解决起来就很简单。</p>
+<ol>
+<li>
+<p>我的 msys2 安装在 <code>d:\msys64</code>，在 SourceTree 中选择 <strong>系统安装的Git</strong> (工具/选项/Git)</p>
+<p>在 AppData 中的 <code>user.config</code> 配置中 <code>GitSystemPath</code> 节点会自动识别出 msys2 的路径
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"GitSystemPath"</span> <span class="attr">serializeAs</span>=<span class="string">"String"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>D:\msys64\usr<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">setting</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>通过 <a href="https://technet.microsoft.com/en-us/library/cc753194.aspx" target="_blank" rel="external">mklink</a> 建立一个链接</p>
+<p>在 <code>D:\msys64\usr</code> 建立链接
+<code>mklink /D cmd bin</code></p>
+</li>
+</ol>
 <p>---EOF---</p>
 
       
@@ -305,11 +298,9 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag">#C</a>
+            <a href="/tags/SourceTree/" rel="tag">#SourceTree</a>
           
-            <a href="/tags/eDNA/" rel="tag">#eDNA</a>
-          
-            <a href="/tags/rtdb/" rel="tag">#rtdb</a>
+            <a href="/tags/Git/" rel="tag">#Git</a>
           
         </div>
       
@@ -318,17 +309,13 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/osi-pi-api-demo-by-c/" rel="next" title="OSI PI C API 介绍">
-                <i class="fa fa-chevron-left"></i> OSI PI C API 介绍
+              <a href="/edna-api-demo-by-c/" rel="next" title="eDNA C API 介绍">
+                <i class="fa fa-chevron-left"></i> eDNA C API 介绍
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/fix-sourcetree-can-not-find-msys2-git/" rel="prev" title="修正 SourceTree 无法识别 msys2 中 Git">
-                修正 SourceTree 无法识别 msys2 中 Git <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -478,7 +465,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

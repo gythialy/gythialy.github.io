@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gythialy.github.io/"/>
-  <updated>2016-03-23T05:09:43.244Z</updated>
+  <updated>2016-03-24T05:18:45.845Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -16,11 +16,149 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MSYS2 配置</title>
+    <link href="https://gythialy.github.io/msys2-config/"/>
+    <id>https://gythialy.github.io/msys2-config/</id>
+    <published>2016-03-24T02:25:10.000Z</published>
+    <updated>2016-03-24T05:18:45.845Z</updated>
+    
+    <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://msys2.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MSYS2&lt;/a&gt; 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。&lt;/p&gt;
+&lt;h3&gt;比较&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;特点&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Cygwin&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;MinGW/MSYS&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;MSYS2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;是否GNU&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;否&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;是&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;是&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;软件支持？&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;支持绝大多数的 GNU 软件&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;支持常用软件&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;支持大多数 GNU 软件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;更类似 Linux？&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;在 Windows 中模拟 Linux&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;实现了 Bash 等主要的 Linux 程序&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;原生 64/32bit 支持&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;GCC 编译&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;独立的 Windows/Linux 程序编译(MingGW32 交叉编译/依赖 cygwin1.dll)&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;独立的 Windows 程序编译&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;独立的 Windows 程序编译&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;中文支持&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;直接支持中文显示和输入法&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;需要配置才能支持中文显示和输入，删除一个中文字符需要删除 2 次&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;支持中文显示和输入法，中文帮助系统和中文提示（部分软件）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;运行速度&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;慢&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;快&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;快&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;安装&lt;/h2&gt;
+&lt;h3&gt;安装 MSYS2&lt;/h3&gt;
+&lt;p&gt;从官网下载 &lt;a href=&quot;https://msys2.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MSYS2&lt;/a&gt; 安装文件, 一路 Next 即可。&lt;/p&gt;
+&lt;h3&gt;安装开发环境&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;pacman -S --needed base-devel msys2-devel mingw-w64-x86_64-toolchain&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;配置&lt;/h2&gt;
+&lt;h3&gt;环境变量&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;MSYS_HOME=D:\msys64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;MINGW_HOME=D:\msys64\mingw64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LIBRARY_PATH=D:\msys64\mingw64\lib&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;镜像配置&lt;/h3&gt;
+&lt;p&gt;如果网络环境不好的话，可以增加国内的镜像，速度改进非常明显。&lt;/p&gt;
+&lt;p&gt;修改 &lt;code&gt;/etc/pacman.d/&lt;/code&gt; 文件夹中修改 &lt;code&gt;mirrorlist&lt;/code&gt; 开头的三个文件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mirrorlist.mingw32&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;##&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;## 32-bit Mingw-w64 repository mirrorlist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;##&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server=http:&lt;span class=&quot;comment&quot;&gt;//mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;## Primary&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;## msys2.org&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server = http:&lt;span class=&quot;comment&quot;&gt;//repo.msys2.org/mingw/i686&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server = http:&lt;span class=&quot;comment&quot;&gt;//downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server = http:&lt;span class=&quot;comment&quot;&gt;//www2.futureware.at/~nickoe/msys2-mirror/i686/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mirrorlist.mingw64&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight ini&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;##&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## 64-bit Mingw-w64 repository mirrorlist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;##&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt;=http://mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/x&lt;span class=&quot;number&quot;&gt;86_64&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## Primary&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## msys2.org&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt; = http://repo.msys2.org/mingw/x&lt;span class=&quot;number&quot;&gt;86_64&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt; = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/x&lt;span class=&quot;number&quot;&gt;86_64&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt; = http://www2.futureware.at/~nickoe/msys2-mirror/x&lt;span class=&quot;number&quot;&gt;86_64&lt;/span&gt;/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mirrorlist.msys&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight ini&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;##&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## MSYS2 repository mirrorlist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;##&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt;=http://mirrors3.ustc.edu.cn/msys2/REPOS/MSYS2/&lt;span class=&quot;variable&quot;&gt;$arch&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## Primary&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## msys2.org&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt; = http://repo.msys2.org/msys/&lt;span class=&quot;variable&quot;&gt;$arch&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt; = http://downloads.sourceforge.net/project/msys2/REPOS/MSYS2/&lt;span class=&quot;variable&quot;&gt;$arch&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;Server&lt;/span&gt; = http://www2.futureware.at/~nickoe/msys2-mirror/msys/&lt;span class=&quot;variable&quot;&gt;$arch&lt;/span&gt;/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;代理&lt;/h3&gt;
+&lt;p&gt;如果需要通过代理才能上网的话，可以在 &lt;code&gt;/etc/profile.d/&lt;/code&gt; 增加 &lt;code&gt;proxy.sh&lt;/code&gt;，内容如下:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight gcode&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;export http_proxy=&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_SERVER&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;:&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_PORT&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export https_proxy=&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_SERVER&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;:&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_PORT&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export ftp_proxy=&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_SERVER&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;:&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_PORT&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export HTTP_PROXY=&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_SERVER&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;:&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_PORT&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export HTTPS_PROXY=&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_SERVER&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;:&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_PORT&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export FTP_PROXY=&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_SERVER&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;:&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;PROXY_PORT&lt;span class=&quot;meta&quot;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;用户目录&lt;/h3&gt;
+&lt;p&gt;修改 &lt;code&gt;/etc/fstab&lt;/code&gt;，映射用户目录，与宿主共享配置，这样类似 gitconfig 这样的配置只需要配置一份。&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# For a description of the file format, see the Users Guide&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# http://cygwin.com/cygwin-ug-net/using.html#mount-table&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;none / cygdrive binary,&lt;span class=&quot;attr&quot;&gt;posix=&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,noacl,&lt;span class=&quot;keyword&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;C:/Users/goreng /home/goreng ntfs noacl,binary,&lt;span class=&quot;attr&quot;&gt;posix=&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;包管理&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;刷新软件包 &lt;code&gt;pacman -Sy&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装新包 &lt;code&gt;pacman -S &amp;lt;package_names|package_groups&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除 &lt;code&gt;pacman -R &amp;lt;package_names|package_groups&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;搜索 &lt;code&gt;pacman -Ss &amp;lt;name_pattern&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更多请参考 &lt;a href=&quot;https://wiki.archlinux.org/index.php/pacman&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Arch Linux wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;重新安装&lt;/h2&gt;
+&lt;p&gt;如果在使用过程中， &lt;a href=&quot;&quot;&gt;MSYS2&lt;/a&gt; 出现不可恢复的问题的时候，可以通过保存安装的 packages 到文件中，再通过此文件重新安装。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;保存现有安装包列表到 C 盘中的 &lt;code&gt;packages.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;pacman -Qqe | xargs echo &amp;gt; /c/packages.txt ; exit&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据保存的 &lt;code&gt;packages.txt&lt;/code&gt; 安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pacman -Sy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pacman --needed -S bash pacman pacman-mirrors msys2-runtime&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pacman -S --needed --force $(cat /c/packages.txt)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;坑&lt;/h2&gt;
+&lt;p&gt;如果你使用 MacType 的话，请一定在  &lt;code&gt;default.ini&lt;/code&gt; 添加 gpg/pacman 的例外。&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[UnloadDll]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg.exe&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pacman.exe&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;via #393 &lt;a href=&quot;https://github.com/Alexpux/MSYS2-packages/issues/393&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GPGME error: Invalid crypto engine&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;--EOF---&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2&gt;介绍&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://msys2.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MSYS2&lt;/a&gt; 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwi
+    
+    </summary>
+    
+      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+    
+    
+      <category term="msys2" scheme="https://gythialy.github.io/tags/msys2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>修正 SourceTree 无法识别 msys2 中 Git</title>
     <link href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/"/>
     <id>https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/</id>
     <published>2016-03-23T01:33:32.000Z</published>
-    <updated>2016-03-23T05:09:43.244Z</updated>
+    <updated>2016-03-24T05:18:45.845Z</updated>
     
     <content type="html">&lt;h3&gt;问题&lt;/h3&gt;
 &lt;p&gt;SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。&lt;/p&gt;
@@ -62,7 +200,7 @@
     <link href="https://gythialy.github.io/edna-api-demo-by-c/"/>
     <id>https://gythialy.github.io/edna-api-demo-by-c/</id>
     <published>2016-03-22T01:30:11.000Z</published>
-    <updated>2016-03-23T05:09:43.244Z</updated>
+    <updated>2016-03-24T05:18:45.845Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via &lt;a href=&quot;http://www.ybsoftware.com.cn/products.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;印步&lt;/a&gt;&lt;/p&gt;
@@ -113,7 +251,7 @@
     <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
     <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
     <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2016-03-23T05:09:43.244Z</updated>
+    <updated>2016-03-24T05:18:45.845Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考&lt;a href=&quot;http://baike.baidu.com/view/1510581.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度百科&lt;/a&gt;或者&lt;a href=&quot;https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方网站&lt;/a&gt;&lt;/p&gt;

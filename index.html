@@ -218,6 +218,228 @@
             
               
                 
+                <a class="post-title-link" href="/msys2-config/" itemprop="url">
+                  MSYS2 配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-24T10:25:10+08:00" content="2016-03-24">
+              2016-03-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
+<p><a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。</p>
+<h3>比较</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">Cygwin</th>
+<th style="text-align:left">MinGW/MSYS</th>
+<th style="text-align:left">MSYS2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">是否GNU</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">软件支持？</td>
+<td style="text-align:left">支持绝大多数的 GNU 软件</td>
+<td style="text-align:left">支持常用软件</td>
+<td style="text-align:left">支持大多数 GNU 软件</td>
+</tr>
+<tr>
+<td style="text-align:left">更类似 Linux？</td>
+<td style="text-align:left">在 Windows 中模拟 Linux</td>
+<td style="text-align:left">实现了 Bash 等主要的 Linux 程序</td>
+<td style="text-align:left">原生 64/32bit 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">GCC 编译</td>
+<td style="text-align:left">独立的 Windows/Linux 程序编译(MingGW32 交叉编译/依赖 cygwin1.dll)</td>
+<td style="text-align:left">独立的 Windows 程序编译</td>
+<td style="text-align:left">独立的 Windows 程序编译</td>
+</tr>
+<tr>
+<td style="text-align:left">中文支持</td>
+<td style="text-align:left">直接支持中文显示和输入法</td>
+<td style="text-align:left">需要配置才能支持中文显示和输入，删除一个中文字符需要删除 2 次</td>
+<td style="text-align:left">支持中文显示和输入法，中文帮助系统和中文提示（部分软件）</td>
+</tr>
+<tr>
+<td style="text-align:left">运行速度</td>
+<td style="text-align:left">慢</td>
+<td style="text-align:left">快</td>
+<td style="text-align:left">快</td>
+</tr>
+</tbody>
+</table>
+<h2>安装</h2>
+<h3>安装 MSYS2</h3>
+<p>从官网下载 <a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 安装文件, 一路 Next 即可。</p>
+<h3>安装开发环境</h3>
+<p><code>pacman -S --needed base-devel msys2-devel mingw-w64-x86_64-toolchain</code></p>
+<h2>配置</h2>
+<h3>环境变量</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSYS_HOME=D:\msys64</span><br><span class="line">MINGW_HOME=D:\msys64\mingw64</span><br><span class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</span><br></pre></td></tr></table></figure></p>
+<h3>镜像配置</h3>
+<p>如果网络环境不好的话，可以增加国内的镜像，速度改进非常明显。</p>
+<p>修改 <code>/etc/pacman.d/</code> 文件夹中修改 <code>mirrorlist</code> 开头的三个文件：</p>
+<ul>
+<li><code>mirrorlist.mingw32</code></li>
+</ul>
+<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">##</span></span><br><span class="line"><span class="meta">## 32-bit Mingw-w64 repository mirrorlist</span></span><br><span class="line"><span class="meta">##</span></span><br><span class="line">Server=http:<span class="comment">//mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686</span></span><br><span class="line"></span><br><span class="line"><span class="meta">## Primary</span></span><br><span class="line"><span class="meta">## msys2.org</span></span><br><span class="line">Server = http:<span class="comment">//repo.msys2.org/mingw/i686</span></span><br><span class="line">Server = http:<span class="comment">//downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686</span></span><br><span class="line">Server = http:<span class="comment">//www2.futureware.at/~nickoe/msys2-mirror/i686/</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>mirrorlist.mingw64</code></li>
+</ul>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## 64-bit Mingw-w64 repository mirrorlist</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/x<span class="number">86_64</span></span><br><span class="line"><span class="comment">## Primary</span></span><br><span class="line"><span class="comment">## msys2.org</span></span><br><span class="line"><span class="attr">Server</span> = http://repo.msys2.org/mingw/x<span class="number">86_64</span></span><br><span class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/x<span class="number">86_64</span></span><br><span class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/x<span class="number">86_64</span>/</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>mirrorlist.msys</code></li>
+</ul>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## MSYS2 repository mirrorlist</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MSYS2/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Primary</span></span><br><span class="line"><span class="comment">## msys2.org</span></span><br><span class="line"><span class="attr">Server</span> = http://repo.msys2.org/msys/<span class="variable">$arch</span></span><br><span class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MSYS2/<span class="variable">$arch</span></span><br><span class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/msys/<span class="variable">$arch</span>/</span><br></pre></td></tr></table></figure></p>
+<h3>代理</h3>
+<p>如果需要通过代理才能上网的话，可以在 <code>/etc/profile.d/</code> 增加 <code>proxy.sh</code>，内容如下:</p>
+<p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export https_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export ftp_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export HTTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export HTTPS_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export FTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br></pre></td></tr></table></figure></p>
+<h3>用户目录</h3>
+<p>修改 <code>/etc/fstab</code>，映射用户目录，与宿主共享配置，这样类似 gitconfig 这样的配置只需要配置一份。</p>
+<p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For a description of the file format, see the Users Guide</span></span><br><span class="line"><span class="comment"># http://cygwin.com/cygwin-ug-net/using.html#mount-table</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span></span><br><span class="line">none / cygdrive binary,<span class="attr">posix=</span><span class="number">0</span>,noacl,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></span><br><span class="line">C:/Users/goreng /home/goreng ntfs noacl,binary,<span class="attr">posix=</span><span class="number">1</span>,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h2>包管理</h2>
+<ul>
+<li>
+<p>刷新软件包 <code>pacman -Sy</code></p>
+</li>
+<li>
+<p>安装新包 <code>pacman -S &lt;package_names|package_groups&gt;</code></p>
+</li>
+<li>
+<p>删除 <code>pacman -R &lt;package_names|package_groups&gt;</code></p>
+</li>
+<li>
+<p>搜索 <code>pacman -Ss &lt;name_pattern&gt;</code></p>
+</li>
+</ul>
+<blockquote>
+<p>更多请参考 <a href="https://wiki.archlinux.org/index.php/pacman" target="_blank" rel="external">Arch Linux wiki</a>.</p>
+</blockquote>
+<h2>重新安装</h2>
+<p>如果在使用过程中， <a href="">MSYS2</a> 出现不可恢复的问题的时候，可以通过保存安装的 packages 到文件中，再通过此文件重新安装。</p>
+<ul>
+<li>保存现有安装包列表到 C 盘中的 <code>packages.txt</code></li>
+</ul>
+<p><code>pacman -Qqe | xargs echo &gt; /c/packages.txt ; exit</code></p>
+<ul>
+<li>根据保存的 <code>packages.txt</code> 安装</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</span><br><span class="line">pacman -S --needed --force $(cat /c/packages.txt)</span><br></pre></td></tr></table></figure></p>
+<h2>坑</h2>
+<p>如果你使用 MacType 的话，请一定在  <code>default.ini</code> 添加 gpg/pacman 的例外。</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[UnloadDll]</span><br><span class="line">gpg.exe</span><br><span class="line">pacman.exe</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>via #393 <a href="https://github.com/Alexpux/MSYS2-packages/issues/393" target="_blank" rel="external">GPGME error: Invalid crypto engine</a></p>
+</blockquote>
+<p>--EOF---</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/fix-sourcetree-can-not-find-msys2-git/" itemprop="url">
                   修正 SourceTree 无法识别 msys2 中 Git
                 </a>
@@ -635,7 +857,7 @@
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="https://avatars2.githubusercontent.com/u/773400?v=3&s=460"
+               src="/uploads/avatar.png"
                alt="gythialy" />
           <p class="site-author-name" itemprop="name">gythialy</p>
           <p class="site-description motion-element" itemprop="description">这里只是我的后花园，随性而写</p>
@@ -643,7 +865,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -660,7 +882,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

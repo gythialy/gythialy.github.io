@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C,eDNA,rtdb," />
+  <meta name="keywords" content="msys2," />
 
 
 
@@ -60,18 +60,96 @@
 
 
 <meta name="description" content="介绍
-eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套">
+MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。
+比较
+
+
+
+特点
+Cygwin
+MinGW/MSYS
+MSYS2
+
+
+
+
+是否GNU
+否
+是
+是
+
+
+软件支持？
+支持绝大多数的 GNU 软件
+支持常用软件
+支持大多数 GNU 软件
+
+
+更类似 Linux？
+在 Wind">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eDNA C API 介绍">
-<meta property="og:url" content="https://gythialy.github.io/edna-api-demo-by-c/index.html">
+<meta property="og:title" content="MSYS2 配置">
+<meta property="og:url" content="https://gythialy.github.io/msys2-config/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
 <meta property="og:description" content="介绍
-eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套">
+MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。
+比较
+
+
+
+特点
+Cygwin
+MinGW/MSYS
+MSYS2
+
+
+
+
+是否GNU
+否
+是
+是
+
+
+软件支持？
+支持绝大多数的 GNU 软件
+支持常用软件
+支持大多数 GNU 软件
+
+
+更类似 Linux？
+在 Wind">
 <meta property="og:updated_time" content="2016-03-24T05:18:45.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eDNA C API 介绍">
+<meta name="twitter:title" content="MSYS2 配置">
 <meta name="twitter:description" content="介绍
-eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套">
+MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。
+比较
+
+
+
+特点
+Cygwin
+MinGW/MSYS
+MSYS2
+
+
+
+
+是否GNU
+否
+是
+是
+
+
+软件支持？
+支持绝大多数的 GNU 软件
+支持常用软件
+支持大多数 GNU 软件
+
+
+更类似 Linux？
+在 Wind">
 
 
 
@@ -89,7 +167,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
   };
 </script>
 
-  <title> eDNA C API 介绍 | iKoo's Dirty life </title>
+  <title> MSYS2 配置 | iKoo's Dirty life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -219,7 +297,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
             
             
               
-                eDNA C API 介绍
+                MSYS2 配置
               
             
           </h1>
@@ -231,8 +309,8 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-22T01:30:11+00:00" content="2016-03-22">
-              2016-03-22
+            <time itemprop="dateCreated" datetime="2016-03-24T02:25:10+00:00" content="2016-03-24">
+              2016-03-24
             </time>
           </span>
 
@@ -245,8 +323,8 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
                   </a>
                 </span>
 
@@ -278,29 +356,120 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
 
       
         <h2>介绍</h2>
-<p>eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via <a href="http://www.ybsoftware.com.cn/products.asp" target="_blank" rel="external">印步</a></p>
-<h2>API</h2>
-<p>eDNA 分为两种：</p>
+<p><a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。</p>
+<h3>比较</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">Cygwin</th>
+<th style="text-align:left">MinGW/MSYS</th>
+<th style="text-align:left">MSYS2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">是否GNU</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">软件支持？</td>
+<td style="text-align:left">支持绝大多数的 GNU 软件</td>
+<td style="text-align:left">支持常用软件</td>
+<td style="text-align:left">支持大多数 GNU 软件</td>
+</tr>
+<tr>
+<td style="text-align:left">更类似 Linux？</td>
+<td style="text-align:left">在 Windows 中模拟 Linux</td>
+<td style="text-align:left">实现了 Bash 等主要的 Linux 程序</td>
+<td style="text-align:left">原生 64/32bit 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">GCC 编译</td>
+<td style="text-align:left">独立的 Windows/Linux 程序编译(MingGW32 交叉编译/依赖 cygwin1.dll)</td>
+<td style="text-align:left">独立的 Windows 程序编译</td>
+<td style="text-align:left">独立的 Windows 程序编译</td>
+</tr>
+<tr>
+<td style="text-align:left">中文支持</td>
+<td style="text-align:left">直接支持中文显示和输入法</td>
+<td style="text-align:left">需要配置才能支持中文显示和输入，删除一个中文字符需要删除 2 次</td>
+<td style="text-align:left">支持中文显示和输入法，中文帮助系统和中文提示（部分软件）</td>
+</tr>
+<tr>
+<td style="text-align:left">运行速度</td>
+<td style="text-align:left">慢</td>
+<td style="text-align:left">快</td>
+<td style="text-align:left">快</td>
+</tr>
+</tbody>
+</table>
+<h2>安装</h2>
+<h3>安装 MSYS2</h3>
+<p>从官网下载 <a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 安装文件, 一路 Next 即可。</p>
+<h3>安装开发环境</h3>
+<p><code>pacman -S --needed base-devel msys2-devel mingw-w64-x86_64-toolchain</code></p>
+<h2>配置</h2>
+<h3>环境变量</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSYS_HOME=D:\msys64</span><br><span class="line">MINGW_HOME=D:\msys64\mingw64</span><br><span class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</span><br></pre></td></tr></table></figure></p>
+<h3>镜像配置</h3>
+<p>如果网络环境不好的话，可以增加国内的镜像，速度改进非常明显。</p>
+<p>修改 <code>/etc/pacman.d/</code> 文件夹中修改 <code>mirrorlist</code> 开头的三个文件：</p>
 <ul>
-<li>常规API：支持 C/C++/Visual Basic 等。这种方式需要自己组装报文，虽然有相关 API 函数支持，但是实际应用起来还是比较麻烦</li>
-<li>EzDNA：封装了常用的操作，只需要引入一个头文件 (<code>EzDnaApi.h</code>) 即可。</li>
+<li><code>mirrorlist.mingw32</code></li>
+</ul>
+<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">##</span></span><br><span class="line"><span class="meta">## 32-bit Mingw-w64 repository mirrorlist</span></span><br><span class="line"><span class="meta">##</span></span><br><span class="line">Server=http:<span class="comment">//mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686</span></span><br><span class="line"></span><br><span class="line"><span class="meta">## Primary</span></span><br><span class="line"><span class="meta">## msys2.org</span></span><br><span class="line">Server = http:<span class="comment">//repo.msys2.org/mingw/i686</span></span><br><span class="line">Server = http:<span class="comment">//downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686</span></span><br><span class="line">Server = http:<span class="comment">//www2.futureware.at/~nickoe/msys2-mirror/i686/</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>mirrorlist.mingw64</code></li>
+</ul>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## 64-bit Mingw-w64 repository mirrorlist</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/x<span class="number">86_64</span></span><br><span class="line"><span class="comment">## Primary</span></span><br><span class="line"><span class="comment">## msys2.org</span></span><br><span class="line"><span class="attr">Server</span> = http://repo.msys2.org/mingw/x<span class="number">86_64</span></span><br><span class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/x<span class="number">86_64</span></span><br><span class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/x<span class="number">86_64</span>/</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>mirrorlist.msys</code></li>
+</ul>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## MSYS2 repository mirrorlist</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MSYS2/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Primary</span></span><br><span class="line"><span class="comment">## msys2.org</span></span><br><span class="line"><span class="attr">Server</span> = http://repo.msys2.org/msys/<span class="variable">$arch</span></span><br><span class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MSYS2/<span class="variable">$arch</span></span><br><span class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/msys/<span class="variable">$arch</span>/</span><br></pre></td></tr></table></figure></p>
+<h3>代理</h3>
+<p>如果需要通过代理才能上网的话，可以在 <code>/etc/profile.d/</code> 增加 <code>proxy.sh</code>，内容如下:</p>
+<p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export https_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export ftp_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export HTTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export HTTPS_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export FTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br></pre></td></tr></table></figure></p>
+<h3>用户目录</h3>
+<p>修改 <code>/etc/fstab</code>，映射用户目录，与宿主共享配置，这样类似 gitconfig 这样的配置只需要配置一份。</p>
+<p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For a description of the file format, see the Users Guide</span></span><br><span class="line"><span class="comment"># http://cygwin.com/cygwin-ug-net/using.html#mount-table</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span></span><br><span class="line">none / cygdrive binary,<span class="attr">posix=</span><span class="number">0</span>,noacl,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></span><br><span class="line">C:/Users/goreng /home/goreng ntfs noacl,binary,<span class="attr">posix=</span><span class="number">1</span>,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h2>包管理</h2>
+<ul>
+<li>
+<p>刷新软件包 <code>pacman -Sy</code></p>
+</li>
+<li>
+<p>安装新包 <code>pacman -S &lt;package_names|package_groups&gt;</code></p>
+</li>
+<li>
+<p>删除 <code>pacman -R &lt;package_names|package_groups&gt;</code></p>
+</li>
+<li>
+<p>搜索 <code>pacman -Ss &lt;name_pattern&gt;</code></p>
+</li>
 </ul>
 <blockquote>
-<p>注：两种方式都需要安装 eDNA 的 Client 程序。</p>
+<p>更多请参考 <a href="https://wiki.archlinux.org/index.php/pacman" target="_blank" rel="external">Arch Linux wiki</a>.</p>
 </blockquote>
-<h2>示例代码</h2>
-<p>涉及到的 API 函数：</p>
+<h2>重新安装</h2>
+<p>如果在使用过程中， <a href="">MSYS2</a> 出现不可恢复的问题的时候，可以通过保存安装的 packages 到文件中，再通过此文件重新安装。</p>
 <ul>
-<li><code>DNAGoodPointFormat</code> 检查测点名称是否符合命名规范</li>
-<li><code>DoesIdExist</code> 检查测点是否存在</li>
-<li><code>DNAGetRTFull</code> 查询指定测点的实时数据</li>
-<li><code>DNAGetHSFull</code> 同上</li>
+<li>保存现有安装包列表到 C 盘中的 <code>packages.txt</code></li>
 </ul>
+<p><code>pacman -Qqe | xargs echo &gt; /c/packages.txt ; exit</code></p>
+<ul>
+<li>根据保存的 <code>packages.txt</code> 安装</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</span><br><span class="line">pacman -S --needed --force $(cat /c/packages.txt)</span><br></pre></td></tr></table></figure></p>
+<h2>坑</h2>
+<p>如果你使用 MacType 的话，请一定在  <code>default.ini</code> 添加 gpg/pacman 的例外。</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[UnloadDll]</span><br><span class="line">gpg.exe</span><br><span class="line">pacman.exe</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>注： <code>DNAGetHSFull</code> 查询到的时间精度是毫秒，如果对时间有要求，建议使用此函数。但是在实际使用过程中，发现此函数有时候会查询不到数据。</p>
+<p>via #393 <a href="https://github.com/Alexpux/MSYS2-packages/issues/393" target="_blank" rel="external">GPGME error: Invalid crypto engine</a></p>
 </blockquote>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">edna_tag_t</span>  *tag;</span><br><span class="line">    <span class="keyword">int32_t</span>     index;</span><br><span class="line">    <span class="keyword">int32_t</span>     *buff_size;</span><br><span class="line">    <span class="keyword">int16_t</span>     counter;</span><br><span class="line">    <span class="keyword">int32_t</span>		ret;</span><br><span class="line">    <span class="keyword">int8_t</span>      log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>	szValue[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int32_t</span> ptTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int8_t</span> szmS[EDNA_LEN];</span><br><span class="line">    <span class="keyword">uint16_t</span> pusStatus;</span><br><span class="line">    <span class="keyword">int8_t</span> szStatus[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szDesc[EDNA_DESC_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szUnits[EDNA_LEN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"getsnapshot"</span>, MAX_BUFF_SIZE);</span><br><span class="line">    <span class="comment">// init parameters</span></span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// other stuff</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;flag == E_EMPTY_TAG) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// tests the string, validating it as a fully qualified eDNA point name</span></span><br><span class="line">        <span class="keyword">if</span> (DNAGoodPointFormat(tag-&gt;name) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = INVALID;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check point name is exist</span></span><br><span class="line">        <span class="keyword">if</span> (!DoesIdExist(tag-&gt;name))</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = NOT_EXIST;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// retrieves the value, time and status in their raw formats</span></span><br><span class="line">        ret = DNAGetRTFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                          EDNA_LEN, &amp;pusStatus, szStatus, EDNA_LEN, szDesc,</span><br><span class="line">                          EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line"></span><br><span class="line">        ret = DNAGetHSFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                           EDNA_LEN, &amp;tag-&gt;ms, szmS, EDNA_LEN, &amp;pusStatus, szStatus,</span><br><span class="line">                           EDNA_LEN, szDesc, EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        tag-&gt;flag = (ret == <span class="number">0</span>) ? NORMAL : OFFLINE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>---EOF---</p>
+<p>--EOF---</p>
 
       
     </div>
@@ -315,11 +484,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag">#C</a>
-          
-            <a href="/tags/eDNA/" rel="tag">#eDNA</a>
-          
-            <a href="/tags/rtdb/" rel="tag">#rtdb</a>
+            <a href="/tags/msys2/" rel="tag">#msys2</a>
           
         </div>
       
@@ -328,17 +493,13 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/osi-pi-api-demo-by-c/" rel="next" title="OSI PI C API 介绍">
-                <i class="fa fa-chevron-left"></i> OSI PI C API 介绍
+              <a href="/fix-sourcetree-can-not-find-msys2-git/" rel="next" title="修正 SourceTree 无法识别 msys2 中 Git">
+                <i class="fa fa-chevron-left"></i> 修正 SourceTree 无法识别 msys2 中 Git
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/fix-sourcetree-can-not-find-msys2-git/" rel="prev" title="修正 SourceTree 无法识别 msys2 中 Git">
-                修正 SourceTree 无法识别 msys2 中 Git <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,7 +649,7 @@ eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">安装 MSYS2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">安装开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">镜像配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">用户目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">重新安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">坑</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

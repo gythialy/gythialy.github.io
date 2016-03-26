@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gythialy.github.io/"/>
-  <updated>2016-03-24T05:18:45.845Z</updated>
+  <updated>2016-03-26T15:56:50.939Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -16,11 +16,75 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>手动下载 XCode 文档和模拟器</title>
+    <link href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"/>
+    <id>https://gythialy.github.io/download-xcode-documentation-sets-manually/</id>
+    <published>2016-03-26T15:04:45.000Z</published>
+    <updated>2016-03-26T15:56:50.939Z</updated>
+    
+    <content type="html">&lt;h2&gt;缘起&lt;/h2&gt;
+&lt;p&gt;由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。&lt;/p&gt;
+&lt;h2&gt;文档&lt;/h2&gt;
+&lt;p&gt;手动下载文档可以通过以下几步解决，via &lt;a href=&quot;https://stackoverflow.com/questions/1131119/download-xcode-documentation-sets-manually&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stackoverflow&lt;/a&gt;。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;通过这个&lt;a href=&quot;https://developer.apple.com/library/downloads/docset-index.dvtdownloadableindex&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;地址&lt;/a&gt;找到需要下载的文件的路径
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- START OS X doc set --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dict&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;fileSize&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;integer&lt;/span&gt;&amp;gt;&lt;/span&gt;931959772&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;integer&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;identifier&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;com.apple.adc.documentation.OSX&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;name&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;OS X 10.11.4 Documentation&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;source&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;userInfo&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dict&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;ActivationPredicate&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;$XCODE_VERSION &amp;amp;gt;= &#39;7.3&#39;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;Category&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;Documentation&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;IconType&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;IDEDownloadablesTypeDocSet&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;InstallPrefix&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;$(HOME)/Library/Developer/Shared/Documentation/DocSets&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;InstalledIfAllReceiptsArePresentOrNewer&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dict&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;com.apple.pkg.10.9.OSXDocset&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;10.9.0.0.1.1458364023&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dict&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;RequiresADCAuthentication&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;false&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;Summary&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;My description of content&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dict&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;version&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;key&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;1014.5&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;string&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dict&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- END OS X doc set --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;下载 &lt;code&gt;source&lt;/code&gt; 节点对应的内容，在这个示例中也就是&lt;a href=&quot;https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;，可以通过第三方的下载工具，比如 asia2 下载。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;按照 &lt;code&gt;identifier string&lt;/code&gt; + &lt;code&gt;-&lt;/code&gt; + &lt;code&gt;version string&lt;/code&gt; + &lt;code&gt;.dmg&lt;/code&gt; 的格式重命名文件，在这个示例中也就是 &lt;code&gt;com.apple.adc.documentation.OSX-1014.5.dmg&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把重命名后的文件放到 &lt;code&gt;~/Library/Caches/com.apple.dt.Xcode/Downloads/&lt;/code&gt; 中，如果没有 &lt;code&gt;Downloads&lt;/code&gt; 文件夹就创建一个，
+如果 &lt;code&gt;Downloads&lt;/code&gt; 中有后缀为 &lt;code&gt;dvtdownloadableindex&lt;/code&gt; 的文件，全部删除&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除 &lt;code&gt;~/Library/Developer/Shared/Documentation/DocSets&lt;/code&gt; 中对应的 docset&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 XCode 中 Preferences/Download 中下载对应的文档，XCode 会校验刚才复制过去的文件进行安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;模拟器&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;打开 XCode，Preferences/Download 中下载模拟器&lt;/li&gt;
+&lt;li&gt;打开 Console.app，清空日志&lt;/li&gt;
+&lt;li&gt;在 XCode 中取消下载&lt;/li&gt;
+&lt;li&gt;在 Console.app 中会看到取消的日志，其他包含完整的下载地址&lt;/li&gt;
+&lt;li&gt;通过 asia2 等第三方工具下载刚才地址中的文件&lt;/li&gt;
+&lt;li&gt;把下载好的文件复制到 &lt;code&gt;~/Library/Caches/com.apple.dt.Xcode/Downloads&lt;/code&gt; 中，如果没有 &lt;code&gt;Downloads&lt;/code&gt; 文件夹就创建一个，
+如果 &lt;code&gt;Downloads&lt;/code&gt; 中有后缀为 &lt;code&gt;dvtdownloadableindex&lt;/code&gt; 的文件，全部删除&lt;/li&gt;
+&lt;li&gt;在 XCode 中安装刚才下载的模拟器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果需要删除不需要的模拟器，可以在 &lt;code&gt;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs&lt;/code&gt; 中直接删除&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;---EOF---&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2&gt;缘起&lt;/h2&gt;
+&lt;p&gt;由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCo
+    
+    </summary>
+    
+      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+    
+    
+      <category term="OS X" scheme="https://gythialy.github.io/tags/OS-X/"/>
+    
+      <category term="XCode" scheme="https://gythialy.github.io/tags/XCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MSYS2 配置</title>
     <link href="https://gythialy.github.io/msys2-config/"/>
     <id>https://gythialy.github.io/msys2-config/</id>
     <published>2016-03-24T02:25:10.000Z</published>
-    <updated>2016-03-24T05:18:45.845Z</updated>
+    <updated>2016-03-26T15:56:50.939Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://msys2.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MSYS2&lt;/a&gt; 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。&lt;/p&gt;
@@ -158,7 +222,7 @@
     <link href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/"/>
     <id>https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/</id>
     <published>2016-03-23T01:33:32.000Z</published>
-    <updated>2016-03-24T05:18:45.845Z</updated>
+    <updated>2016-03-26T15:56:50.939Z</updated>
     
     <content type="html">&lt;h3&gt;问题&lt;/h3&gt;
 &lt;p&gt;SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。&lt;/p&gt;
@@ -200,7 +264,7 @@
     <link href="https://gythialy.github.io/edna-api-demo-by-c/"/>
     <id>https://gythialy.github.io/edna-api-demo-by-c/</id>
     <published>2016-03-22T01:30:11.000Z</published>
-    <updated>2016-03-24T05:18:45.845Z</updated>
+    <updated>2016-03-26T15:56:50.939Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via &lt;a href=&quot;http://www.ybsoftware.com.cn/products.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;印步&lt;/a&gt;&lt;/p&gt;
@@ -251,7 +315,7 @@
     <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
     <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
     <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2016-03-24T05:18:45.845Z</updated>
+    <updated>2016-03-26T15:56:50.939Z</updated>
     
     <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考&lt;a href=&quot;http://baike.baidu.com/view/1510581.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度百科&lt;/a&gt;或者&lt;a href=&quot;https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方网站&lt;/a&gt;&lt;/p&gt;

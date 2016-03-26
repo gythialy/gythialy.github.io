@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SourceTree,Git," />
+  <meta name="keywords" content="OS X,XCode," />
 
 
 
@@ -59,19 +59,37 @@
 
 
 
-<meta name="description" content="问题
-SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
+<meta name="description" content="缘起
+由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。
+文档
+手动下载文档可以通过以下几步解决，via stackoverflow。
+
+
+通过这个地址找到需要下载的文件的路径
+12345">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修正 SourceTree 无法识别 msys2 中 Git">
-<meta property="og:url" content="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/index.html">
+<meta property="og:title" content="手动下载 XCode 文档和模拟器">
+<meta property="og:url" content="https://gythialy.github.io/download-xcode-documentation-sets-manually/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
-<meta property="og:description" content="问题
-SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
+<meta property="og:description" content="缘起
+由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。
+文档
+手动下载文档可以通过以下几步解决，via stackoverflow。
+
+
+通过这个地址找到需要下载的文件的路径
+12345">
 <meta property="og:updated_time" content="2016-03-26T15:56:50.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修正 SourceTree 无法识别 msys2 中 Git">
-<meta name="twitter:description" content="问题
-SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
+<meta name="twitter:title" content="手动下载 XCode 文档和模拟器">
+<meta name="twitter:description" content="缘起
+由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。
+文档
+手动下载文档可以通过以下几步解决，via stackoverflow。
+
+
+通过这个地址找到需要下载的文件的路径
+12345">
 
 
 
@@ -89,7 +107,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
   };
 </script>
 
-  <title> 修正 SourceTree 无法识别 msys2 中 Git | iKoo's Dirty life </title>
+  <title> 手动下载 XCode 文档和模拟器 | iKoo's Dirty life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -219,7 +237,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
             
             
               
-                修正 SourceTree 无法识别 msys2 中 Git
+                手动下载 XCode 文档和模拟器
               
             
           </h1>
@@ -231,8 +249,8 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T01:33:32+00:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-03-26T15:04:45+00:00" content="2016-03-26">
+              2016-03-26
             </time>
           </span>
 
@@ -277,22 +295,44 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
       
 
       
-        <h3>问题</h3>
-<p>SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。</p>
-<h3>解决方案</h3>
-<p>其实原因很简单，因为 SourceTree 要求 Git 所在目录必须同时有 bin 和 cmd 文件夹。听起来很2是吧？知道了原因要解决起来就很简单。</p>
+        <h2>缘起</h2>
+<p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p>
+<h2>文档</h2>
+<p>手动下载文档可以通过以下几步解决，via <a href="https://stackoverflow.com/questions/1131119/download-xcode-documentation-sets-manually" target="_blank" rel="external">stackoverflow</a>。</p>
 <ol>
 <li>
-<p>我的 msys2 安装在 <code>d:\msys64</code>，在 SourceTree 中选择 <strong>系统安装的Git</strong> (工具/选项/Git)</p>
-<p>在 AppData 中的 <code>user.config</code> 配置中 <code>GitSystemPath</code> 节点会自动识别出 msys2 的路径
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"GitSystemPath"</span> <span class="attr">serializeAs</span>=<span class="string">"String"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>D:\msys64\usr<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">setting</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>通过这个<a href="https://developer.apple.com/library/downloads/docset-index.dvtdownloadableindex" target="_blank" rel="external">地址</a>找到需要下载的文件的路径
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- START OS X doc set --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>fileSize<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">integer</span>&gt;</span>931959772<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.apple.adc.documentation.OSX<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>name<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>OS X 10.11.4 Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>source<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>userInfo<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>ActivationPredicate<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$XCODE_VERSION &amp;gt;= '7.3'<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Category<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>IconType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>IDEDownloadablesTypeDocSet<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstallPrefix<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$(HOME)/Library/Developer/Shared/Documentation/DocSets<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstalledIfAllReceiptsArePresentOrNewer<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.pkg.10.9.OSXDocset<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">string</span>&gt;</span>10.9.0.0.1.1458364023<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>RequiresADCAuthentication<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">false</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Summary<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>My description of content<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>version<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>1014.5<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- END OS X doc set --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>下载 <code>source</code> 节点对应的内容，在这个示例中也就是<a href="https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg" target="_blank" rel="external">这个</a>，可以通过第三方的下载工具，比如 asia2 下载。</p>
 </li>
 <li>
-<p>通过 <a href="https://technet.microsoft.com/en-us/library/cc753194.aspx" target="_blank" rel="external">mklink</a> 建立一个链接</p>
-<p>在 <code>D:\msys64\usr</code> 建立链接
-<code>mklink /D cmd bin</code></p>
+<p>按照 <code>identifier string</code> + <code>-</code> + <code>version string</code> + <code>.dmg</code> 的格式重命名文件，在这个示例中也就是 <code>com.apple.adc.documentation.OSX-1014.5.dmg</code></p>
+</li>
+<li>
+<p>把重命名后的文件放到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads/</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个，
+如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</p>
+</li>
+<li>
+<p>删除 <code>~/Library/Developer/Shared/Documentation/DocSets</code> 中对应的 docset</p>
+</li>
+<li>
+<p>在 XCode 中 Preferences/Download 中下载对应的文档，XCode 会校验刚才复制过去的文件进行安装</p>
 </li>
 </ol>
+<h2>模拟器</h2>
+<ol>
+<li>打开 XCode，Preferences/Download 中下载模拟器</li>
+<li>打开 Console.app，清空日志</li>
+<li>在 XCode 中取消下载</li>
+<li>在 Console.app 中会看到取消的日志，其他包含完整的下载地址</li>
+<li>通过 asia2 等第三方工具下载刚才地址中的文件</li>
+<li>把下载好的文件复制到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个，
+如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</li>
+<li>在 XCode 中安装刚才下载的模拟器</li>
+</ol>
+<blockquote>
+<p>如果需要删除不需要的模拟器，可以在 <code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs</code> 中直接删除</p>
+</blockquote>
 <p>---EOF---</p>
 
       
@@ -308,9 +348,9 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
       
         <div class="post-tags">
           
-            <a href="/tags/SourceTree/" rel="tag">#SourceTree</a>
+            <a href="/tags/OS-X/" rel="tag">#OS X</a>
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/XCode/" rel="tag">#XCode</a>
           
         </div>
       
@@ -319,17 +359,13 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/edna-api-demo-by-c/" rel="next" title="eDNA C API 介绍">
-                <i class="fa fa-chevron-left"></i> eDNA C API 介绍
+              <a href="/msys2-config/" rel="next" title="MSYS2 配置">
+                <i class="fa fa-chevron-left"></i> MSYS2 配置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/msys2-config/" rel="prev" title="MSYS2 配置">
-                MSYS2 配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,7 +515,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">模拟器</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

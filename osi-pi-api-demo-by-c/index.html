@@ -29,16 +29,13 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  <link href="//fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
 
 
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="//font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
@@ -73,7 +70,7 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考百度百科或者官方网站
 登录数据库
 要访问数据库，有两种方法，一种是通过用户名和密码登">
-<meta property="og:updated_time" content="2016-03-28T06:52:58.234Z">
+<meta property="og:updated_time" content="2016-05-04T05:29:58.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OSI PI C API 介绍">
 <meta name="twitter:description" content="介绍
@@ -290,6 +287,7 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
           
           
 
+          
         </div>
       </header>
     
@@ -327,7 +325,7 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 <li><code>piut_connect</code> 连接 Server</li>
 </ul>
 <p>示例代码，功能就是根据配置参数自动判断连接方式，因为我们生产环境是个很老的现场，所以优先使用用户名/密码登录</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">error_t connect_pi(server_info_t *server)</span><br><span class="line">&#123;</span><br><span class="line">    int32_t result;</span><br><span class="line">    int32_t valid;</span><br><span class="line">    int8_t  version[SERVER_FIELD_SIZE];</span><br><span class="line">    int8_t  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    int8_t  pro_name[SERVER_FIELD_SIZE];</span><br><span class="line"></span><br><span class="line">    valid = PIREAD;</span><br><span class="line"></span><br><span class="line">    strncpy(log_tag, "connect pi", MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    if (piut_isconnected() == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        //  retrieves the version number of the PI-API.</span><br><span class="line">        if (piut_getapiversion(version, sizeof(version)) == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, "PI-API version %s", version);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (server-&gt;misc3 == NULL || strlen(server-&gt;misc3) == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            strncpy(pro_name, "pi_snap", SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            strncpy(pro_name, server-&gt;misc3, SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // sets the active PI Server node where the data for the subsequent</span><br><span class="line">        // PI-API calls will be resolved</span><br><span class="line">        result = piut_setservernode(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        if (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, "piut_setservernode: can not connect to %s", server-&gt;server_ip);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (server-&gt;usr_name != NULL &amp;&amp; strlen(server-&gt;usr_name) &gt; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            // establishes a user's access to PI System data based on a login to a configured user database</span><br><span class="line">            result = piut_login(server-&gt;usr_name, server-&gt;usr_pwd, &amp;valid);</span><br><span class="line"></span><br><span class="line">            if (result == 0)</span><br><span class="line">            &#123;</span><br><span class="line">                ftrace_log(log_tag, "piut_login: connect to %s successful, valid=%d", server-&gt;server_ip, valid);</span><br><span class="line">                return E_SUCCESS;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ferror_log(log_tag, "piut_login: connect to %s failed, ret=%d", server-&gt;server_ip, result);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //sets the global process name to the passed string</span><br><span class="line">        piut_setprocname(pro_name);</span><br><span class="line">        result = piut_connect(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        if (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ferror_log(log_tag, "piut_connect: connect to %s failed, ret=%d", server-&gt;server_ip, result);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return E_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error_t</span> connect_pi(<span class="keyword">server_info_t</span> *server)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> result;</span><br><span class="line">    <span class="keyword">int32_t</span> valid;</span><br><span class="line">    <span class="keyword">int8_t</span>  version[SERVER_FIELD_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>  pro_name[SERVER_FIELD_SIZE];</span><br><span class="line"></span><br><span class="line">    valid = PIREAD;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"connect pi"</span>, MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (piut_isconnected() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//  retrieves the version number of the PI-API.</span></span><br><span class="line">        <span class="keyword">if</span> (piut_getapiversion(version, sizeof(version)) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"PI-API version %s"</span>, version);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (server-&gt;misc3 == <span class="literal">NULL</span> || <span class="built_in">strlen</span>(server-&gt;misc3) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">strncpy</span>(pro_name, <span class="string">"pi_snap"</span>, SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">strncpy</span>(pro_name, server-&gt;misc3, SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sets the active PI Server node where the data for the subsequent</span></span><br><span class="line">        <span class="comment">// PI-API calls will be resolved</span></span><br><span class="line">        result = piut_setservernode(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"piut_setservernode: can not connect to %s"</span>, server-&gt;server_ip);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (server-&gt;usr_name != <span class="literal">NULL</span> &amp;&amp; <span class="built_in">strlen</span>(server-&gt;usr_name) &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// establishes a user's access to PI System data based on a login to a configured user database</span></span><br><span class="line">            result = piut_login(server-&gt;usr_name, server-&gt;usr_pwd, &amp;valid);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ftrace_log(log_tag, <span class="string">"piut_login: connect to %s successful, valid=%d"</span>, server-&gt;server_ip, valid);</span><br><span class="line">                return E_SUCCESS;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ferror_log(log_tag, <span class="string">"piut_login: connect to %s failed, ret=%d"</span>, server-&gt;server_ip, result);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//sets the global process name to the passed string</span></span><br><span class="line">        piut_setprocname(pro_name);</span><br><span class="line">        result = piut_connect(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ferror_log(log_tag, <span class="string">"piut_connect: connect to %s failed, ret=%d"</span>, server-&gt;server_ip, result);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return E_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2>初始化测点信息</h2>
 <p>连接上 Server 之后，需要根据测点信息，转换成数据库中对应的id，方便后面的操作</p>
 <p>涉及到的 API 函数：</p>
@@ -336,13 +334,13 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 <li><code>pipt_pointtypex</code> 根据测点号查询对应的测点类型</li>
 <li><code>pipt_displaydigits</code> 根据测点号查询显示位数</li>
 </ul>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> int16_t <span class="title">init_pi_tag</span><span class="params">(pi_tag_t *tag)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> result;</span><br><span class="line">    <span class="keyword">int8_t</span>  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"init_pi_tag"</span>, MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the point number for the given tagname</span></span><br><span class="line">    result = pipt_findpoint(tag-&gt;name, &amp;tag-&gt;point_id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] id failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = NOT_EXIST;</span><br><span class="line">        <span class="keyword">return</span> FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the data type code for the passed point number</span></span><br><span class="line">    result = pipt_pointtypex(tag-&gt;point_id, &amp;tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] typex failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = INVALID;</span><br><span class="line">        <span class="keyword">return</span> FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the display digits attribute for the passed point number</span></span><br><span class="line">    result = pipt_displaydigits(tag-&gt;point_id, &amp;tag-&gt;display_prec);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] display digits failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;display_prec = <span class="number">-5</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tag-&gt;stat = NORMAL;</span><br><span class="line">    tag-&gt;rval = (<span class="keyword">float64_t</span>) <span class="number">0.0</span>;</span><br><span class="line">    tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;ival = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ftrace_log(log_tag, <span class="string">"name:%s, id:%d, dis_prec: %d,type: %d"</span>, tag-&gt;name, tag-&gt;point_id, tag-&gt;display_prec, (<span class="keyword">int32_t</span>)tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (tag-&gt;pt_typex)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PIstring:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_blob:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PItimestamp:</span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;bsize == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/* Skip allocation if a subsequent run. */</span></span><br><span class="line">            <span class="keyword">if</span> ((tag-&gt;bval = (<span class="keyword">void</span> *)<span class="built_in">malloc</span>(BVALUE_BUFF)) == <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                error_log(log_tag, <span class="string">"malloc bval failed."</span>);</span><br><span class="line">                destory();</span><br><span class="line">                <span class="keyword">return</span> E_MALLOC_FAILED;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tag-&gt;bsize = (tag-&gt;bsize &gt; BVALUE_BUFF - <span class="number">1</span>) ? tag-&gt;bsize : BVALUE_BUFF - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">memset</span>(tag-&gt;bval, <span class="number">0</span>, (<span class="keyword">size_t</span>)(tag-&gt;bsize + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_int16:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_int32:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_digital:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:<span class="comment">/* floats, PI2 */</span></span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">/* End switch */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> int16_t <span class="title">init_pi_tag</span><span class="params">(pi_tag_t *tag)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> result;</span><br><span class="line">    <span class="keyword">int8_t</span>  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"init_pi_tag"</span>, MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the point number for the given tagname</span></span><br><span class="line">    result = pipt_findpoint(tag-&gt;name, &amp;tag-&gt;point_id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] id failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = NOT_EXIST;</span><br><span class="line">        return FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the data type code for the passed point number</span></span><br><span class="line">    result = pipt_pointtypex(tag-&gt;point_id, &amp;tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] typex failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = INVALID;</span><br><span class="line">        return FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the display digits attribute for the passed point number</span></span><br><span class="line">    result = pipt_displaydigits(tag-&gt;point_id, &amp;tag-&gt;display_prec);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] display digits failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;display_prec = <span class="number">-5</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tag-&gt;stat = NORMAL;</span><br><span class="line">    tag-&gt;rval = (<span class="keyword">float64_t</span>) <span class="number">0.0</span>;</span><br><span class="line">    tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;ival = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ftrace_log(log_tag, <span class="string">"name:%s, id:%d, dis_prec: %d,type: %d"</span>, tag-&gt;name, tag-&gt;point_id, tag-&gt;display_prec, (<span class="keyword">int32_t</span>)tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (tag-&gt;pt_typex)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PIstring:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_blob:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PItimestamp:</span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;bsize == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/* Skip allocation if a subsequent run. */</span></span><br><span class="line">            <span class="keyword">if</span> ((tag-&gt;bval = (void *)malloc(BVALUE_BUFF)) == <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                error_log(log_tag, <span class="string">"malloc bval failed."</span>);</span><br><span class="line">                destory();</span><br><span class="line">                return E_MALLOC_FAILED;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tag-&gt;bsize = (tag-&gt;bsize &gt; BVALUE_BUFF - <span class="number">1</span>) ? tag-&gt;bsize : BVALUE_BUFF - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">memset</span>(tag-&gt;bval, <span class="number">0</span>, (<span class="keyword">size_t</span>)(tag-&gt;bsize + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_int16:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_int32:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_digital:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:<span class="comment">/* floats, PI2 */</span></span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">/* End switch */</span></span><br><span class="line"></span><br><span class="line">    return TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2>查询实时数据</h2>
 <p>从快照中查询数据库，可以通过 <code>pisn_getsnapshot</code> 或者 <code>pisn_getsnapshotx</code> 查询，具体可查考 API 文档。</p>
 <blockquote>
 <p>注： <code>pisn_getsnapshot</code> 获取的时间只到秒级，如果对时间精度要求比较高，需要使用 <code>pisn_getsnapshotx</code>。</p>
 </blockquote>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// init parameters etc.</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// check server connection etc</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        tag-&gt;rval = <span class="number">0</span>;</span><br><span class="line">        tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = pisn_getsnapshot(tag-&gt;point_id, &amp;tag-&gt;rval, &amp;tag-&gt;istat, &amp;tag-&gt;time);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d"</span>, tag-&gt;name, tag, tag-&gt;rval, tag-&gt;istat, tag-&gt;time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = NOT_EXIST;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot not exist, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = INVALID;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot failed, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// init parameters etc.</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// check server connection etc</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        tag-&gt;rval = <span class="number">0</span>;</span><br><span class="line">        tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = pisn_getsnapshot(tag-&gt;point_id, &amp;tag-&gt;rval, &amp;tag-&gt;istat, &amp;tag-&gt;time);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d"</span>, tag-&gt;name, tag, tag-&gt;rval, tag-&gt;istat, tag-&gt;time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = NOT_EXIST;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot not exist, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = INVALID;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot failed, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
 
       
@@ -351,6 +349,13 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
     <div>
       
         
+      
+    </div>
+
+    <div>
+      
+        
+
       
     </div>
 
@@ -449,7 +454,7 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -466,7 +471,7 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -487,18 +492,20 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gythialy" target="_blank">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gythialy" target="_blank">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i> Twitter
+                    <i class="fa fa-twitter"></i>
                   
+                  Twitter
                 </a>
               </span>
             
@@ -509,17 +516,12 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
@@ -527,9 +529,6 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">登录数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">用户名/密码登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">PI Trust 登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">初始化测点信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">查询实时数据</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -565,8 +564,9 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
@@ -577,12 +577,6 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 
   
 
-
-  
-
-
-
-
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
@@ -590,17 +584,34 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 </script>
 
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -623,165 +634,8 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 
 
   
-  
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
 
 
 
@@ -813,7 +667,8 @@ PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于
 
   
     
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      
+      <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
       <script src="/js/src/hook-duoshuo.js"></script>
     
   

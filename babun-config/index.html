@@ -1,0 +1,724 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE" />
+
+
+
+
+
+
+
+
+
+
+  <link href="//fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+<link href="//font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="babun," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="iKoo's Dirty life" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="介绍
+babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
+
+Pre-configured Cygwin with a lot of addons
+Silent command-line installer, no admin rights required
+pact - advanced package manager (like apt-get or yu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="babun 配置">
+<meta property="og:url" content="https://gythialy.github.io/babun-config/index.html">
+<meta property="og:site_name" content="iKoo's Dirty life">
+<meta property="og:description" content="介绍
+babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
+
+Pre-configured Cygwin with a lot of addons
+Silent command-line installer, no admin rights required
+pact - advanced package manager (like apt-get or yu">
+<meta property="og:image" content="https://gythialy.github.io/uploads/conemu_1.png">
+<meta property="og:image" content="https://gythialy.github.io/uploads/babun.png">
+<meta property="og:updated_time" content="2016-05-04T05:29:58.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="babun 配置">
+<meta name="twitter:description" content="介绍
+babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
+
+Pre-configured Cygwin with a lot of addons
+Silent command-line installer, no admin rights required
+pact - advanced package manager (like apt-get or yu">
+<meta name="twitter:image" content="https://gythialy.github.io/uploads/conemu_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6266984597335049000,
+      author: 'gythialy'
+    }
+  };
+</script>
+
+  <title> babun 配置 | iKoo's Dirty life </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-75661536-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">iKoo's Dirty life</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                babun 配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-04T01:09:36+00:00" content="2016-05-04">
+              2016-05-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/babun-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="babun-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>介绍</h2>
+<p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
+<ul>
+<li>Pre-configured Cygwin with a lot of addons</li>
+<li>Silent command-line installer, no admin rights required</li>
+<li>pact - advanced package manager (like apt-get or yum)</li>
+<li>xTerm-256 compatible console</li>
+<li>HTTP(s) proxying support</li>
+<li>Plugin-oriented architecture</li>
+<li>Pre-configured git and shell</li>
+<li>Integrated oh-my-zsh</li>
+<li>Auto update feature</li>
+<li>&quot;Open Babun Here&quot; context menu entry</li>
+</ul>
+<h2>安装</h2>
+<p>下载<a href="http://projects.reficio.org/babun/download" target="_blank" rel="external">安装包</a>解压缩到任意目录后，运行 <code>install.bat</code>。也可以使用 <code>/t %target_folder%</code> 指定安装目录。</p>
+<h2>配置</h2>
+<p>既然是开箱即用，对大多数人来说当然不需要太多配置，一般需要以下两个命令：</p>
+<ul>
+<li><code>babun check</code> 用于判断环境是否正确</li>
+<li><code>babun update</code> 用于判断是否有新的更新包</li>
+</ul>
+<h2>包管理</h2>
+<p>babun 自带了叫做 <code>pact</code> 的包管理，修改自 <code>apt-cyg</code>, 但比较弱，用法如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123; ~ &#125;  » pact --help</span><br><span class="line">pact: Installs and removes Cygwin packages.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</span><br><span class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</span><br><span class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</span><br><span class="line">  &quot;pact show&quot; to show installed packages</span><br><span class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</span><br><span class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</span><br><span class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</span><br><span class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</span><br><span class="line">Options:</span><br><span class="line">  --mirror, -m &lt;url&gt; : set mirror</span><br><span class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</span><br><span class="line">  --force, -f : force the execution</span><br><span class="line">  --help</span><br><span class="line">  --version</span><br></pre></td></tr></table></figure></p>
+<h2>和 Windows 共享配置</h2>
+<ol>
+<li>添加环境变量 <code>HOME</code>，值为 Windows 的用户目录 <code>C:\Users\%USERNAME%</code></li>
+<li>启动 babun，执行 <code>babun install</code>，重启 babun</li>
+</ol>
+<blockquote>
+<p>%USERNAME% 不能包含空格。如果用户名已经有空格，参考<a href="https://cygwin.com/faq.html#faq.setup.name-with-space" target="_blank" rel="external">这里</a>解决。</p>
+</blockquote>
+<h2>代理设置</h2>
+<p>只需要取消 <code>.babunrc</code> 中的注释 (<code>%USERPROFILE%\.babunrc</code>)</p>
+<p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Uncomment this lines to <span class="keyword">set</span> up <span class="comment">your proxy</span></span><br><span class="line">export <span class="comment">http_proxy=user:password@server:port</span></span><br><span class="line">export <span class="comment">https_proxy=$http_proxy</span></span><br><span class="line">export <span class="comment">ftp_proxy=$http_proxy</span></span><br><span class="line">export <span class="comment">no_proxy=localhost</span></span><br></pre></td></tr></table></figure></p>
+<h2>镜像</h2>
+<p>修改 <code>~/.pact/pact.repo</code> 中的 <code>PACT_REPO</code> 字段</p>
+<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#PACT_REPO=http://mirrors.kernel.org/sourceware/cygwin/</span></span><br><span class="line">PACT_REPO=http:<span class="comment">//mirrors.neusoft.edu.cn/cygwin/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># POPULAR HTTP REPOSITORIES</span></span><br><span class="line"><span class="meta"># http://mirror.switch.ch/ftp/mirror/cygwin/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># POPULAR FTP REPOSITORIES</span></span><br><span class="line"><span class="meta"># ftp://mirror.switch.ch/mirror/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://ftp.inf.tu-dresden.de/software/windows/cygwin32/</span></span><br><span class="line"><span class="meta"># ftp://mirrors.kernel.org/sourceware/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://gd.tuwien.ac.at/gnu/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://ftp.iij.ad.jp/pub/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://mirror.cpsc.ucalgary.ca/cygwin.com/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># FULL LIST</span></span><br><span class="line"><span class="meta"># http://cygwin.com/mirrors.html</span></span><br></pre></td></tr></table></figure></p>
+<h2>常用开发环境配置</h2>
+<h3>Python</h3>
+<p>babun 自带的 Python2 并没有安装 pip，需要手动安装</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pact install python-setuptools python-ming</span><br><span class="line">pact install libxml2-devel libxslt-devel libyaml-devel</span><br><span class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</span><br></pre></td></tr></table></figure></p>
+<h3>Ruby</h3>
+<p>执行 <code>pact install ruby</code></p>
+<blockquote>
+<p>如果 <code>ruby -v</code> 不能返回版本，执行 <code>update.bat</code> 更新 cygwin 的版本。via <a href="https://github.com/babun/babun/issues/483" target="_blank" rel="external">Issue #483</a></p>
+</blockquote>
+<h2>FAQ</h2>
+<ul>
+<li>
+<p>compdef: unknown command or service: git
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>compinit</span><br><span class="line"><span class="variable">$ </span>cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>删除右键中的 <code>Open Babun here</code><br>
+执行 <code>babun shell-here remove</code></p>
+</li>
+<li>
+<p>与 ConEmu 集成<br>
+<code>%userprofile%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe</code>
+<img src="uploads/conemu_1.png" alt="ConEmu Settings"></p>
+</li>
+<li>
+<p>X64<br>
+官方对于 64 位的<a href="https://github.com/babun/babun/wiki/64-bit" target="_blank" rel="external">解释</a>。懒人也可以直接使用这个 <a href="https://github.com/babun/babun/pull/545" target="_blank" rel="external">PR</a> 编译的<a href="https://people.mozilla.org/%7Enchen/babun/babun-1.2.1-x86_64-dist.zip" target="_blank" rel="external">分发包</a>。有兴趣的也可以通过我合并的 <a href="https://github.com/gythialy/babun/tree/support-64-bit" target="_blank" rel="external">x64 分支</a> 自行构建。</p>
+</li>
+</ul>
+<h2>总结</h2>
+<p>总的来说，babun 比 <a href="msys2-config">MSYS2</a> 慢，包也不多，稳定性/兼容性貌似好一点。</p>
+<p>最终配置效果：</p>
+<p><img src="uploads/babun.png" alt="babun"></p>
+<p>---EOF---</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/babun/" rel="tag">#babun</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/jetty-log4j-conf/" rel="next" title="Jetty 配置 Log4J">
+                <i class="fa fa-chevron-left"></i> Jetty 配置 Log4J
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="babun-config/"
+           data-title="babun 配置" data-url="https://gythialy.github.io/babun-config/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="gythialy" />
+          <p class="site-author-name" itemprop="name">gythialy</p>
+          <p class="site-description motion-element" itemprop="description">这里只是我的后花园，随性而写</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">和 Windows 共享配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">常用开发环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.2.</span> <span class="nav-text">Ruby</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">FAQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"74230847"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

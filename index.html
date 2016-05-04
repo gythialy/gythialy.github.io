@@ -29,16 +29,13 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  <link href="//fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
 
 
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="//font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
@@ -229,6 +226,198 @@
             
               
                 
+                <a class="post-title-link" href="/babun-config/" itemprop="url">
+                  babun 配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-04T09:09:36+08:00" content="2016-05-04">
+              2016-05-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/babun-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="babun-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
+<p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
+<ul>
+<li>Pre-configured Cygwin with a lot of addons</li>
+<li>Silent command-line installer, no admin rights required</li>
+<li>pact - advanced package manager (like apt-get or yum)</li>
+<li>xTerm-256 compatible console</li>
+<li>HTTP(s) proxying support</li>
+<li>Plugin-oriented architecture</li>
+<li>Pre-configured git and shell</li>
+<li>Integrated oh-my-zsh</li>
+<li>Auto update feature</li>
+<li>&quot;Open Babun Here&quot; context menu entry</li>
+</ul>
+<h2>安装</h2>
+<p>下载<a href="http://projects.reficio.org/babun/download" target="_blank" rel="external">安装包</a>解压缩到任意目录后，运行 <code>install.bat</code>。也可以使用 <code>/t %target_folder%</code> 指定安装目录。</p>
+<h2>配置</h2>
+<p>既然是开箱即用，对大多数人来说当然不需要太多配置，一般需要以下两个命令：</p>
+<ul>
+<li><code>babun check</code> 用于判断环境是否正确</li>
+<li><code>babun update</code> 用于判断是否有新的更新包</li>
+</ul>
+<h2>包管理</h2>
+<p>babun 自带了叫做 <code>pact</code> 的包管理，修改自 <code>apt-cyg</code>, 但比较弱，用法如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123; ~ &#125;  » pact --help</span><br><span class="line">pact: Installs and removes Cygwin packages.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</span><br><span class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</span><br><span class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</span><br><span class="line">  &quot;pact show&quot; to show installed packages</span><br><span class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</span><br><span class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</span><br><span class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</span><br><span class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</span><br><span class="line">Options:</span><br><span class="line">  --mirror, -m &lt;url&gt; : set mirror</span><br><span class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</span><br><span class="line">  --force, -f : force the execution</span><br><span class="line">  --help</span><br><span class="line">  --version</span><br></pre></td></tr></table></figure></p>
+<h2>和 Windows 共享配置</h2>
+<ol>
+<li>添加环境变量 <code>HOME</code>，值为 Windows 的用户目录 <code>C:\Users\%USERNAME%</code></li>
+<li>启动 babun，执行 <code>babun install</code>，重启 babun</li>
+</ol>
+<blockquote>
+<p>%USERNAME% 不能包含空格。如果用户名已经有空格，参考<a href="https://cygwin.com/faq.html#faq.setup.name-with-space" target="_blank" rel="external">这里</a>解决。</p>
+</blockquote>
+<h2>代理设置</h2>
+<p>只需要取消 <code>.babunrc</code> 中的注释 (<code>%USERPROFILE%\.babunrc</code>)</p>
+<p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Uncomment this lines to <span class="keyword">set</span> up <span class="comment">your proxy</span></span><br><span class="line">export <span class="comment">http_proxy=user:password@server:port</span></span><br><span class="line">export <span class="comment">https_proxy=$http_proxy</span></span><br><span class="line">export <span class="comment">ftp_proxy=$http_proxy</span></span><br><span class="line">export <span class="comment">no_proxy=localhost</span></span><br></pre></td></tr></table></figure></p>
+<h2>镜像</h2>
+<p>修改 <code>~/.pact/pact.repo</code> 中的 <code>PACT_REPO</code> 字段</p>
+<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#PACT_REPO=http://mirrors.kernel.org/sourceware/cygwin/</span></span><br><span class="line">PACT_REPO=http:<span class="comment">//mirrors.neusoft.edu.cn/cygwin/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># POPULAR HTTP REPOSITORIES</span></span><br><span class="line"><span class="meta"># http://mirror.switch.ch/ftp/mirror/cygwin/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># POPULAR FTP REPOSITORIES</span></span><br><span class="line"><span class="meta"># ftp://mirror.switch.ch/mirror/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://ftp.inf.tu-dresden.de/software/windows/cygwin32/</span></span><br><span class="line"><span class="meta"># ftp://mirrors.kernel.org/sourceware/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://gd.tuwien.ac.at/gnu/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://ftp.iij.ad.jp/pub/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://mirror.cpsc.ucalgary.ca/cygwin.com/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># FULL LIST</span></span><br><span class="line"><span class="meta"># http://cygwin.com/mirrors.html</span></span><br></pre></td></tr></table></figure></p>
+<h2>常用开发环境配置</h2>
+<h3>Python</h3>
+<p>babun 自带的 Python2 并没有安装 pip，需要手动安装</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pact install python-setuptools python-ming</span><br><span class="line">pact install libxml2-devel libxslt-devel libyaml-devel</span><br><span class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</span><br></pre></td></tr></table></figure></p>
+<h3>Ruby</h3>
+<p>执行 <code>pact install ruby</code></p>
+<blockquote>
+<p>如果 <code>ruby -v</code> 不能返回版本，执行 <code>update.bat</code> 更新 cygwin 的版本。via <a href="https://github.com/babun/babun/issues/483" target="_blank" rel="external">Issue #483</a></p>
+</blockquote>
+<h2>FAQ</h2>
+<ul>
+<li>
+<p>compdef: unknown command or service: git
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>compinit</span><br><span class="line"><span class="variable">$ </span>cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>删除右键中的 <code>Open Babun here</code><br>
+执行 <code>babun shell-here remove</code></p>
+</li>
+<li>
+<p>与 ConEmu 集成<br>
+<code>%userprofile%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe</code>
+<img src="uploads/conemu_1.png" alt="ConEmu Settings"></p>
+</li>
+<li>
+<p>X64<br>
+官方对于 64 位的<a href="https://github.com/babun/babun/wiki/64-bit" target="_blank" rel="external">解释</a>。懒人也可以直接使用这个 <a href="https://github.com/babun/babun/pull/545" target="_blank" rel="external">PR</a> 编译的<a href="https://people.mozilla.org/%7Enchen/babun/babun-1.2.1-x86_64-dist.zip" target="_blank" rel="external">分发包</a>。有兴趣的也可以通过我合并的 <a href="https://github.com/gythialy/babun/tree/support-64-bit" target="_blank" rel="external">x64 分支</a> 自行构建。</p>
+</li>
+</ul>
+<h2>总结</h2>
+<p>总的来说，babun 比 <a href="msys2-config">MSYS2</a> 慢，包也不多，稳定性/兼容性貌似好一点。</p>
+<p>最终配置效果：</p>
+<p><img src="uploads/babun.png" alt="babun"></p>
+<p>---EOF---</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/jetty-log4j-conf/" itemprop="url">
                   Jetty 配置 Log4J
                 </a>
@@ -285,6 +474,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -348,6 +538,10 @@
 
           
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -446,6 +640,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -501,6 +696,10 @@
 
           
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -599,6 +798,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -737,6 +937,10 @@
       
     </div>
 
+    <div>
+      
+    </div>
+
     <footer class="post-footer">
       
 
@@ -828,6 +1032,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -861,6 +1066,10 @@
 
           
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -959,6 +1168,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -994,11 +1204,15 @@
 <blockquote>
 <p>注： <code>DNAGetHSFull</code> 查询到的时间精度是毫秒，如果对时间有要求，建议使用此函数。但是在实际使用过程中，发现此函数有时候会查询不到数据。</p>
 </blockquote>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">edna_tag_t</span>  *tag;</span><br><span class="line">    <span class="keyword">int32_t</span>     index;</span><br><span class="line">    <span class="keyword">int32_t</span>     *buff_size;</span><br><span class="line">    <span class="keyword">int16_t</span>     counter;</span><br><span class="line">    <span class="keyword">int32_t</span>		ret;</span><br><span class="line">    <span class="keyword">int8_t</span>      log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>	szValue[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int32_t</span> ptTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int8_t</span> szmS[EDNA_LEN];</span><br><span class="line">    <span class="keyword">uint16_t</span> pusStatus;</span><br><span class="line">    <span class="keyword">int8_t</span> szStatus[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szDesc[EDNA_DESC_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szUnits[EDNA_LEN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"getsnapshot"</span>, MAX_BUFF_SIZE);</span><br><span class="line">    <span class="comment">// init parameters</span></span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// other stuff</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;flag == E_EMPTY_TAG) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// tests the string, validating it as a fully qualified eDNA point name</span></span><br><span class="line">        <span class="keyword">if</span> (DNAGoodPointFormat(tag-&gt;name) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = INVALID;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check point name is exist</span></span><br><span class="line">        <span class="keyword">if</span> (!DoesIdExist(tag-&gt;name))</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = NOT_EXIST;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// retrieves the value, time and status in their raw formats</span></span><br><span class="line">        ret = DNAGetRTFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                          EDNA_LEN, &amp;pusStatus, szStatus, EDNA_LEN, szDesc,</span><br><span class="line">                          EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line"></span><br><span class="line">        ret = DNAGetHSFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                           EDNA_LEN, &amp;tag-&gt;ms, szmS, EDNA_LEN, &amp;pusStatus, szStatus,</span><br><span class="line">                           EDNA_LEN, szDesc, EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        tag-&gt;flag = (ret == <span class="number">0</span>) ? NORMAL : OFFLINE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">edna_tag_t</span>  *tag;</span><br><span class="line">    <span class="keyword">int32_t</span>     index;</span><br><span class="line">    <span class="keyword">int32_t</span>     *buff_size;</span><br><span class="line">    <span class="keyword">int16_t</span>     counter;</span><br><span class="line">    <span class="keyword">int32_t</span>		ret;</span><br><span class="line">    <span class="keyword">int8_t</span>      log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>	szValue[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int32_t</span> ptTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int8_t</span> szmS[EDNA_LEN];</span><br><span class="line">    <span class="keyword">uint16_t</span> pusStatus;</span><br><span class="line">    <span class="keyword">int8_t</span> szStatus[EDNA_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szDesc[EDNA_DESC_LEN];</span><br><span class="line">    <span class="keyword">int8_t</span> szUnits[EDNA_LEN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"getsnapshot"</span>, MAX_BUFF_SIZE);</span><br><span class="line">    <span class="comment">// init parameters</span></span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// other stuff</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;flag == E_EMPTY_TAG) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// tests the string, validating it as a fully qualified eDNA point name</span></span><br><span class="line">        <span class="keyword">if</span> (DNAGoodPointFormat(tag-&gt;name) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = INVALID;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check point name is exist</span></span><br><span class="line">        <span class="keyword">if</span> (!DoesIdExist(tag-&gt;name))</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;flag = NOT_EXIST;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// retrieves the value, time and status in their raw formats</span></span><br><span class="line">        ret = DNAGetRTFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                          EDNA_LEN, &amp;pusStatus, szStatus, EDNA_LEN, szDesc,</span><br><span class="line">                          EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line"></span><br><span class="line">        ret = DNAGetHSFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</span><br><span class="line">                           EDNA_LEN, &amp;tag-&gt;ms, szmS, EDNA_LEN, &amp;pusStatus, szStatus,</span><br><span class="line">                           EDNA_LEN, szDesc, EDNA_DESC_LEN, szUnits, EDNA_LEN);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        tag-&gt;flag = (ret == <span class="number">0</span>) ? NORMAL : OFFLINE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
 
           
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1097,6 +1311,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -1136,7 +1351,7 @@
 <li><code>piut_connect</code> 连接 Server</li>
 </ul>
 <p>示例代码，功能就是根据配置参数自动判断连接方式，因为我们生产环境是个很老的现场，所以优先使用用户名/密码登录</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">error_t connect_pi(server_info_t *server)</span><br><span class="line">&#123;</span><br><span class="line">    int32_t result;</span><br><span class="line">    int32_t valid;</span><br><span class="line">    int8_t  version[SERVER_FIELD_SIZE];</span><br><span class="line">    int8_t  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    int8_t  pro_name[SERVER_FIELD_SIZE];</span><br><span class="line"></span><br><span class="line">    valid = PIREAD;</span><br><span class="line"></span><br><span class="line">    strncpy(log_tag, "connect pi", MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    if (piut_isconnected() == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        //  retrieves the version number of the PI-API.</span><br><span class="line">        if (piut_getapiversion(version, sizeof(version)) == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, "PI-API version %s", version);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (server-&gt;misc3 == NULL || strlen(server-&gt;misc3) == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            strncpy(pro_name, "pi_snap", SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            strncpy(pro_name, server-&gt;misc3, SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // sets the active PI Server node where the data for the subsequent</span><br><span class="line">        // PI-API calls will be resolved</span><br><span class="line">        result = piut_setservernode(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        if (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, "piut_setservernode: can not connect to %s", server-&gt;server_ip);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (server-&gt;usr_name != NULL &amp;&amp; strlen(server-&gt;usr_name) &gt; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            // establishes a user's access to PI System data based on a login to a configured user database</span><br><span class="line">            result = piut_login(server-&gt;usr_name, server-&gt;usr_pwd, &amp;valid);</span><br><span class="line"></span><br><span class="line">            if (result == 0)</span><br><span class="line">            &#123;</span><br><span class="line">                ftrace_log(log_tag, "piut_login: connect to %s successful, valid=%d", server-&gt;server_ip, valid);</span><br><span class="line">                return E_SUCCESS;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ferror_log(log_tag, "piut_login: connect to %s failed, ret=%d", server-&gt;server_ip, result);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //sets the global process name to the passed string</span><br><span class="line">        piut_setprocname(pro_name);</span><br><span class="line">        result = piut_connect(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        if (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ferror_log(log_tag, "piut_connect: connect to %s failed, ret=%d", server-&gt;server_ip, result);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return E_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error_t</span> connect_pi(<span class="keyword">server_info_t</span> *server)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> result;</span><br><span class="line">    <span class="keyword">int32_t</span> valid;</span><br><span class="line">    <span class="keyword">int8_t</span>  version[SERVER_FIELD_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="keyword">int8_t</span>  pro_name[SERVER_FIELD_SIZE];</span><br><span class="line"></span><br><span class="line">    valid = PIREAD;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"connect pi"</span>, MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (piut_isconnected() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//  retrieves the version number of the PI-API.</span></span><br><span class="line">        <span class="keyword">if</span> (piut_getapiversion(version, sizeof(version)) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"PI-API version %s"</span>, version);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (server-&gt;misc3 == <span class="literal">NULL</span> || <span class="built_in">strlen</span>(server-&gt;misc3) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">strncpy</span>(pro_name, <span class="string">"pi_snap"</span>, SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">strncpy</span>(pro_name, server-&gt;misc3, SERVER_FIELD_SIZE);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sets the active PI Server node where the data for the subsequent</span></span><br><span class="line">        <span class="comment">// PI-API calls will be resolved</span></span><br><span class="line">        result = piut_setservernode(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"piut_setservernode: can not connect to %s"</span>, server-&gt;server_ip);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (server-&gt;usr_name != <span class="literal">NULL</span> &amp;&amp; <span class="built_in">strlen</span>(server-&gt;usr_name) &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// establishes a user's access to PI System data based on a login to a configured user database</span></span><br><span class="line">            result = piut_login(server-&gt;usr_name, server-&gt;usr_pwd, &amp;valid);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ftrace_log(log_tag, <span class="string">"piut_login: connect to %s successful, valid=%d"</span>, server-&gt;server_ip, valid);</span><br><span class="line">                return E_SUCCESS;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ferror_log(log_tag, <span class="string">"piut_login: connect to %s failed, ret=%d"</span>, server-&gt;server_ip, result);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//sets the global process name to the passed string</span></span><br><span class="line">        piut_setprocname(pro_name);</span><br><span class="line">        result = piut_connect(server-&gt;server_ip);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result)</span><br><span class="line">        &#123;</span><br><span class="line">            ferror_log(log_tag, <span class="string">"piut_connect: connect to %s failed, ret=%d"</span>, server-&gt;server_ip, result);</span><br><span class="line">            return E_CONNECT_FAILED;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return E_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2>初始化测点信息</h2>
 <p>连接上 Server 之后，需要根据测点信息，转换成数据库中对应的id，方便后面的操作</p>
 <p>涉及到的 API 函数：</p>
@@ -1145,17 +1360,21 @@
 <li><code>pipt_pointtypex</code> 根据测点号查询对应的测点类型</li>
 <li><code>pipt_displaydigits</code> 根据测点号查询显示位数</li>
 </ul>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> int16_t <span class="title">init_pi_tag</span><span class="params">(pi_tag_t *tag)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> result;</span><br><span class="line">    <span class="keyword">int8_t</span>  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"init_pi_tag"</span>, MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the point number for the given tagname</span></span><br><span class="line">    result = pipt_findpoint(tag-&gt;name, &amp;tag-&gt;point_id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] id failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = NOT_EXIST;</span><br><span class="line">        <span class="keyword">return</span> FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the data type code for the passed point number</span></span><br><span class="line">    result = pipt_pointtypex(tag-&gt;point_id, &amp;tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] typex failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = INVALID;</span><br><span class="line">        <span class="keyword">return</span> FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the display digits attribute for the passed point number</span></span><br><span class="line">    result = pipt_displaydigits(tag-&gt;point_id, &amp;tag-&gt;display_prec);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] display digits failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;display_prec = <span class="number">-5</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tag-&gt;stat = NORMAL;</span><br><span class="line">    tag-&gt;rval = (<span class="keyword">float64_t</span>) <span class="number">0.0</span>;</span><br><span class="line">    tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;ival = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ftrace_log(log_tag, <span class="string">"name:%s, id:%d, dis_prec: %d,type: %d"</span>, tag-&gt;name, tag-&gt;point_id, tag-&gt;display_prec, (<span class="keyword">int32_t</span>)tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (tag-&gt;pt_typex)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PIstring:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_blob:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PItimestamp:</span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;bsize == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/* Skip allocation if a subsequent run. */</span></span><br><span class="line">            <span class="keyword">if</span> ((tag-&gt;bval = (<span class="keyword">void</span> *)<span class="built_in">malloc</span>(BVALUE_BUFF)) == <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                error_log(log_tag, <span class="string">"malloc bval failed."</span>);</span><br><span class="line">                destory();</span><br><span class="line">                <span class="keyword">return</span> E_MALLOC_FAILED;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tag-&gt;bsize = (tag-&gt;bsize &gt; BVALUE_BUFF - <span class="number">1</span>) ? tag-&gt;bsize : BVALUE_BUFF - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">memset</span>(tag-&gt;bval, <span class="number">0</span>, (<span class="keyword">size_t</span>)(tag-&gt;bsize + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_int16:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_int32:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_digital:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:<span class="comment">/* floats, PI2 */</span></span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">/* End switch */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> int16_t <span class="title">init_pi_tag</span><span class="params">(pi_tag_t *tag)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> result;</span><br><span class="line">    <span class="keyword">int8_t</span>  log_tag[MAX_BUFF_SIZE];</span><br><span class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"init_pi_tag"</span>, MAX_BUFF_SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the point number for the given tagname</span></span><br><span class="line">    result = pipt_findpoint(tag-&gt;name, &amp;tag-&gt;point_id);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] id failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = NOT_EXIST;</span><br><span class="line">        return FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the data type code for the passed point number</span></span><br><span class="line">    result = pipt_pointtypex(tag-&gt;point_id, &amp;tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] typex failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;stat = INVALID;</span><br><span class="line">        return FALSE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// gets the display digits attribute for the passed point number</span></span><br><span class="line">    result = pipt_displaydigits(tag-&gt;point_id, &amp;tag-&gt;display_prec);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ftrace_log(log_tag, <span class="string">"fetch point[%s] display digits failed."</span>, tag-&gt;name);</span><br><span class="line">        tag-&gt;display_prec = <span class="number">-5</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tag-&gt;stat = NORMAL;</span><br><span class="line">    tag-&gt;rval = (<span class="keyword">float64_t</span>) <span class="number">0.0</span>;</span><br><span class="line">    tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;ival = <span class="number">0</span>;</span><br><span class="line">    tag-&gt;flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ftrace_log(log_tag, <span class="string">"name:%s, id:%d, dis_prec: %d,type: %d"</span>, tag-&gt;name, tag-&gt;point_id, tag-&gt;display_prec, (<span class="keyword">int32_t</span>)tag-&gt;pt_typex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (tag-&gt;pt_typex)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PIstring:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_blob:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_PItimestamp:</span><br><span class="line">        <span class="keyword">if</span> (tag-&gt;bsize == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/* Skip allocation if a subsequent run. */</span></span><br><span class="line">            <span class="keyword">if</span> ((tag-&gt;bval = (void *)malloc(BVALUE_BUFF)) == <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                error_log(log_tag, <span class="string">"malloc bval failed."</span>);</span><br><span class="line">                destory();</span><br><span class="line">                return E_MALLOC_FAILED;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tag-&gt;bsize = (tag-&gt;bsize &gt; BVALUE_BUFF - <span class="number">1</span>) ? tag-&gt;bsize : BVALUE_BUFF - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">memset</span>(tag-&gt;bval, <span class="number">0</span>, (<span class="keyword">size_t</span>)(tag-&gt;bsize + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_int16:</span><br><span class="line">    <span class="keyword">case</span> PI_Type_int32:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> PI_Type_digital:</span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:<span class="comment">/* floats, PI2 */</span></span><br><span class="line">        tag-&gt;bsize = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="comment">/* End switch */</span></span><br><span class="line"></span><br><span class="line">    return TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2>查询实时数据</h2>
 <p>从快照中查询数据库，可以通过 <code>pisn_getsnapshot</code> 或者 <code>pisn_getsnapshotx</code> 查询，具体可查考 API 文档。</p>
 <blockquote>
 <p>注： <code>pisn_getsnapshot</code> 获取的时间只到秒级，如果对时间精度要求比较高，需要使用 <code>pisn_getsnapshotx</code>。</p>
 </blockquote>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// init parameters etc.</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// check server connection etc</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        tag-&gt;rval = <span class="number">0</span>;</span><br><span class="line">        tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = pisn_getsnapshot(tag-&gt;point_id, &amp;tag-&gt;rval, &amp;tag-&gt;istat, &amp;tag-&gt;time);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d"</span>, tag-&gt;name, tag, tag-&gt;rval, tag-&gt;istat, tag-&gt;time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = NOT_EXIST;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot not exist, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = INVALID;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot failed, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int16_t</span> getsnapshot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// init parameters etc.</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// check server connection etc</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        tag-&gt;rval = <span class="number">0</span>;</span><br><span class="line">        tag-&gt;istat = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = pisn_getsnapshot(tag-&gt;point_id, &amp;tag-&gt;rval, &amp;tag-&gt;istat, &amp;tag-&gt;time);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d"</span>, tag-&gt;name, tag, tag-&gt;rval, tag-&gt;istat, tag-&gt;time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = NOT_EXIST;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot not exist, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tag-&gt;stat = INVALID;</span><br><span class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot failed, result=%d."</span>, tag-&gt;name, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
 
           
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1218,7 +1437,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1235,7 +1454,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1256,18 +1475,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gythialy" target="_blank">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gythialy" target="_blank">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i> Twitter
+                    <i class="fa fa-twitter"></i>
                   
+                  Twitter
                 </a>
               </span>
             
@@ -1278,9 +1499,7 @@
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
@@ -1317,8 +1536,9 @@
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
@@ -1329,12 +1549,6 @@
 
   
 
-
-  
-
-
-
-
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
@@ -1342,17 +1556,34 @@
 </script>
 
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1404,7 +1635,8 @@
 
   
     
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      
+      <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
       <script src="/js/src/hook-duoshuo.js"></script>
     
   

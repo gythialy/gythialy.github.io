@@ -29,7 +29,9 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -57,6 +59,8 @@
     
     <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
+
+
 
 
 
@@ -114,7 +118,7 @@ slf4j-log4j12">
 log4j-1.2.17.jar
 slf4j-api-1.7.9.jar
 slf4j-log4j12">
-<meta property="og:updated_time" content="2016-05-04T06:30:21.374Z">
+<meta property="og:updated_time" content="2017-03-22T05:48:09.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jetty 配置 Log4J">
 <meta name="twitter:description" content="缘起
@@ -212,7 +216,7 @@ slf4j-log4j12">
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -222,7 +226,7 @@ slf4j-log4j12">
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -232,7 +236,7 @@ slf4j-log4j12">
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -242,7 +246,7 @@ slf4j-log4j12">
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -340,6 +344,7 @@ slf4j-log4j12">
           
           
 
+          
         </div>
       </header>
     
@@ -368,32 +373,32 @@ slf4j-log4j12">
 </li>
 <li>
 <p>复制 jar 包到 Jetty 目录中 <code>lib/ext</code> 文件夹中
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-rwxr-xr-x</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>      0 <span class="selector-tag">Jul</span> 16  2010 <span class="selector-class">.donotdelete</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 489884 <span class="selector-tag">Nov</span> 19 13<span class="selector-pseudo">:06</span> <span class="selector-tag">log4j-1</span><span class="selector-class">.2</span><span class="selector-class">.17</span><span class="selector-class">.jar</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>  32121 <span class="selector-tag">Nov</span> 19 13<span class="selector-pseudo">:09</span> <span class="selector-tag">slf4j-api-1</span><span class="selector-class">.7</span><span class="selector-class">.9</span><span class="selector-class">.jar</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>   8867 <span class="selector-tag">Nov</span> 19 16<span class="selector-pseudo">:55</span> <span class="selector-tag">slf4j-log4j12-1</span><span class="selector-class">.7</span><span class="selector-class">.9</span><span class="selector-class">.jar</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-rwxr-xr-x</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>      0 <span class="selector-tag">Jul</span> 16  2010 <span class="selector-class">.donotdelete</span></div><div class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 489884 <span class="selector-tag">Nov</span> 19 13<span class="selector-pseudo">:06</span> <span class="selector-tag">log4j-1</span><span class="selector-class">.2</span><span class="selector-class">.17</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>  32121 <span class="selector-tag">Nov</span> 19 13<span class="selector-pseudo">:09</span> <span class="selector-tag">slf4j-api-1</span><span class="selector-class">.7</span><span class="selector-class">.9</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>   8867 <span class="selector-tag">Nov</span> 19 16<span class="selector-pseudo">:55</span> <span class="selector-tag">slf4j-log4j12-1</span><span class="selector-class">.7</span><span class="selector-class">.9</span><span class="selector-class">.jar</span></div></pre></td></tr></table></figure></p>
 </li>
 <li>
 <p>在 Jetty 目录中 resources 文件夹中新建 <code>log4j.properties</code></p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Basic Log4j Configuration with STDOUT and File logging</span><br><span class="line">log4j.rootLogger=DEBUG, filer</span><br><span class="line"></span><br><span class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.stdout.Target=System.out</span><br><span class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern=%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</span><br><span class="line"></span><br><span class="line">log4j.appender.filer=org.apache.log4j.RollingFileAppender</span><br><span class="line">log4j.appender.filer.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.filer.layout.ConversionPattern=%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</span><br><span class="line">log4j.appender.filer.File=$&#123;jetty.home&#125;/logs/jetty.log</span><br><span class="line">log4j.appender.filer.MaxFileSize=1MB</span><br><span class="line">log4j.appender.filer.MaxBackupIndex=20</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># Basic Log4j Configuration with STDOUT and File logging</div><div class="line">log4j.rootLogger=DEBUG, filer</div><div class="line"></div><div class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</div><div class="line">log4j.appender.stdout.Target=System.out</div><div class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.stdout.layout.ConversionPattern=%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</div><div class="line"></div><div class="line">log4j.appender.filer=org.apache.log4j.RollingFileAppender</div><div class="line">log4j.appender.filer.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.filer.layout.ConversionPattern=%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</div><div class="line">log4j.appender.filer.File=$&#123;jetty.home&#125;/logs/jetty.log</div><div class="line">log4j.appender.filer.MaxFileSize=1MB</div><div class="line">log4j.appender.filer.MaxBackupIndex=20</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>为了测试日志，配置设置的日志打印级别为DEBUG，单个文件大小为 1M，实际使用中根据具体使用场景调整。</p>
 </blockquote>
 </li>
 <li>
 <p>修改 <code>start.ini</code>，OPTIONS 中 <code>ext</code> 必须放在 <code>resources</code> 前面</p>
-<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#===========================================================</span></span><br><span class="line"><span class="comment"># Start classpath OPTIONS.</span></span><br><span class="line"><span class="comment"># These control what classes are on the classpath</span></span><br><span class="line"><span class="comment"># for a full listing do</span></span><br><span class="line"><span class="comment">#   java -jar start.jar --list-options</span></span><br><span class="line"><span class="comment">#-----------------------------------------------------------</span></span><br><span class="line"><span class="attr">OPTIONS</span>=Server,jsp,jmx,websocket,ext,resources</span><br><span class="line"><span class="comment">#-----------------------------------------------------------</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#===========================================================</span></div><div class="line"><span class="comment"># Start classpath OPTIONS.</span></div><div class="line"><span class="comment"># These control what classes are on the classpath</span></div><div class="line"><span class="comment"># for a full listing do</span></div><div class="line"><span class="comment">#   java -jar start.jar --list-options</span></div><div class="line"><span class="comment">#-----------------------------------------------------------</span></div><div class="line"><span class="attr">OPTIONS</span>=Server,jsp,jmx,websocket,ext,resources</div><div class="line"><span class="comment">#-----------------------------------------------------------</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注：如需手动设置 JVM 内存配置，需要添加 <code>--exec</code>。这样就会有一个 java 进程常在。</p>
 </blockquote>
 </li>
 <li>
 <p>创建启动脚本，原理很简单，就是设置 <code>JAVA_HOME</code> 和 <code>JETTY_HOME</code> 两个环境变量，然后调用 Jetty 自身的脚本。如果已经设置全局的环境变量，此步可省略</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk</span><br><span class="line"><span class="built_in">export</span> JETTY_HOME=/home/data/jetty</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$JETTY_HOME</span>/bin</span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">	start)</span><br><span class="line">		./jetty.sh start</span><br><span class="line">    		;;</span><br><span class="line">  	stop)</span><br><span class="line">		./jetty.sh stop</span><br><span class="line">    		;;</span><br><span class="line">	restart)</span><br><span class="line">   		./jetty.sh restart</span><br><span class="line">		;;</span><br><span class="line">	*)</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> <span class="variable">$1</span> &#123;start|stop|restart&#125;"</span></span><br><span class="line">		;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"></div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk</div><div class="line"><span class="built_in">export</span> JETTY_HOME=/home/data/jetty</div><div class="line"></div><div class="line"><span class="built_in">cd</span> <span class="variable">$JETTY_HOME</span>/bin</div><div class="line"><span class="built_in">pwd</span></div><div class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></div><div class="line">	start)</div><div class="line">		./jetty.sh start</div><div class="line">    		;;</div><div class="line">  	stop)</div><div class="line">		./jetty.sh stop</div><div class="line">    		;;</div><div class="line">	restart)</div><div class="line">   		./jetty.sh restart</div><div class="line">		;;</div><div class="line">	*)</div><div class="line">		<span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> <span class="variable">$1</span> &#123;start|stop|restart&#125;"</span></div><div class="line">		;;</div><div class="line"></div><div class="line"><span class="keyword">esac</span></div><div class="line"><span class="built_in">exit</span> 0</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>脚本中 <code>JAVA_HOME</code> 和 <code>JETTY_HOME</code> 是必须的。</p>
 </blockquote>
 </li>
 </ol>
 <h2>效果</h2>
-<p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>   27995 <span class="selector-tag">Nov</span> 30 14<span class="selector-pseudo">:51</span> 2015_11_27<span class="selector-class">.stderrout</span><span class="selector-class">.log</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>    8060 <span class="selector-tag">Nov</span> 30 14<span class="selector-pseudo">:51</span> <span class="selector-tag">EA0104-0</span><span class="selector-class">.log</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>  968686 <span class="selector-tag">Nov</span> 30 14<span class="selector-pseudo">:52</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1050948 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:57</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.1</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1048812 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:52</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.10</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1050923 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:52</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.11</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1051665 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:49</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.12</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1050713 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:47</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.13</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1051495 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:47</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.14</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1052634 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:47</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.15</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1052521 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:29</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.16</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1049512 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:29</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.17</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1051501 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:29</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.18</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1049831 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:56</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.2</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1051016 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:56</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.3</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1049532 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:56</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.4</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1052064 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:56</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.5</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1049274 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:56</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.6</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1050903 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:56</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.7</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1051740 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:52</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.8</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span> 1052915 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:52</span> <span class="selector-tag">jetty</span><span class="selector-class">.log</span><span class="selector-class">.9</span></span><br><span class="line"><span class="selector-tag">-rw-r--r--</span> 1 <span class="selector-tag">root</span> <span class="selector-tag">root</span>      55 <span class="selector-tag">Nov</span> 27 15<span class="selector-pseudo">:52</span> <span class="selector-tag">start</span><span class="selector-class">.log</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight tap"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">-rw-r--r--<span class="number"> 1 </span>root root  <span class="number"> 27995 </span>Nov<span class="number"> 30 </span>14:51 2015_11_27.stderrout.log</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root   <span class="number"> 8060 </span>Nov<span class="number"> 30 </span>14:51 EA0104-0.log</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root <span class="number"> 968686 </span>Nov<span class="number"> 30 </span>14:52 jetty.log</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1050948 </span>Nov<span class="number"> 27 </span>15:57 jetty.log.1</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1048812 </span>Nov<span class="number"> 27 </span>15:52 jetty.log.10</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1050923 </span>Nov<span class="number"> 27 </span>15:52 jetty.log.11</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1051665 </span>Nov<span class="number"> 27 </span>15:49 jetty.log.12</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1050713 </span>Nov<span class="number"> 27 </span>15:47 jetty.log.13</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1051495 </span>Nov<span class="number"> 27 </span>15:47 jetty.log.14</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1052634 </span>Nov<span class="number"> 27 </span>15:47 jetty.log.15</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1052521 </span>Nov<span class="number"> 27 </span>15:29 jetty.log.16</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1049512 </span>Nov<span class="number"> 27 </span>15:29 jetty.log.17</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1051501 </span>Nov<span class="number"> 27 </span>15:29 jetty.log.18</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1049831 </span>Nov<span class="number"> 27 </span>15:56 jetty.log.2</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1051016 </span>Nov<span class="number"> 27 </span>15:56 jetty.log.3</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1049532 </span>Nov<span class="number"> 27 </span>15:56 jetty.log.4</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1052064 </span>Nov<span class="number"> 27 </span>15:56 jetty.log.5</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1049274 </span>Nov<span class="number"> 27 </span>15:56 jetty.log.6</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1050903 </span>Nov<span class="number"> 27 </span>15:56 jetty.log.7</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1051740 </span>Nov<span class="number"> 27 </span>15:52 jetty.log.8</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 1052915 </span>Nov<span class="number"> 27 </span>15:52 jetty.log.9</div><div class="line">-rw-r--r--<span class="number"> 1 </span>root root     <span class="number"> 55 </span>Nov<span class="number"> 27 </span>15:52 start.log</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>start.log 是 start.jar 创建的，会根据 <code>etc/jetty-logging.xml</code> 中配置决定是否从定向内容。</p>
 </blockquote>
@@ -401,7 +406,7 @@ slf4j-log4j12">
 
       
     </div>
-    
+
     <div>
       
         
@@ -411,6 +416,7 @@ slf4j-log4j12">
     <div>
       
         
+
       
     </div>
 
@@ -549,18 +555,18 @@ slf4j-log4j12">
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gythialy" target="_blank">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gythialy" target="_blank">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-fw fa-twitter"></i>
                   
                   Twitter
                 </a>
@@ -573,9 +579,7 @@ slf4j-log4j12">
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
@@ -605,7 +609,7 @@ slf4j-log4j12">
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -623,8 +627,9 @@ slf4j-log4j12">
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 

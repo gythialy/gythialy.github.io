@@ -29,7 +29,9 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -57,6 +59,8 @@
     
     <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
+
+
 
 
 
@@ -92,7 +96,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
 <meta property="og:site_name" content="iKoo's Dirty life">
 <meta property="og:description" content="问题
 SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitcon">
-<meta property="og:updated_time" content="2016-05-04T06:30:21.374Z">
+<meta property="og:updated_time" content="2017-03-22T05:48:09.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修正 SourceTree 无法识别 msys2 中 Git">
 <meta name="twitter:description" content="问题
@@ -179,7 +183,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -189,7 +193,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -199,7 +203,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -209,7 +213,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -307,6 +311,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
           
           
 
+          
         </div>
       </header>
     
@@ -326,7 +331,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
 <li>
 <p>我的 msys2 安装在 <code>d:\msys64</code>，在 SourceTree 中选择 <strong>系统安装的Git</strong> (工具/选项/Git)</p>
 <p>在 AppData 中的 <code>user.config</code> 配置中 <code>GitSystemPath</code> 节点会自动识别出 msys2 的路径
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"GitSystemPath"</span> <span class="attr">serializeAs</span>=<span class="string">"String"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>D:\msys64\usr<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">setting</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"GitSystemPath"</span> <span class="attr">serializeAs</span>=<span class="string">"String"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>D:\msys64\usr<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">setting</span>&gt;</span></div></pre></td></tr></table></figure></p>
 </li>
 <li>
 <p>通过 <a href="https://technet.microsoft.com/en-us/library/cc753194.aspx" target="_blank" rel="external">mklink</a> 建立一个链接</p>
@@ -338,7 +343,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
 
       
     </div>
-    
+
     <div>
       
         
@@ -348,6 +353,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
     <div>
       
         
+
       
     </div>
 
@@ -486,18 +492,18 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gythialy" target="_blank">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gythialy" target="_blank">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-fw fa-twitter"></i>
                   
                   Twitter
                 </a>
@@ -510,9 +516,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
@@ -542,7 +546,7 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -560,8 +564,9 @@ SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 

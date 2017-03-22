@@ -29,7 +29,9 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -57,6 +59,8 @@
     
     <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
+
+
 
 
 
@@ -144,7 +148,7 @@ MSYS2
 
 更类似 Linux？
 在 Wind">
-<meta property="og:updated_time" content="2016-05-04T06:30:21.374Z">
+<meta property="og:updated_time" content="2017-03-22T05:48:09.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MSYS2 配置">
 <meta name="twitter:description" content="介绍
@@ -257,7 +261,7 @@ MSYS2
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -267,7 +271,7 @@ MSYS2
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -277,7 +281,7 @@ MSYS2
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -287,7 +291,7 @@ MSYS2
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -385,6 +389,7 @@ MSYS2
           
           
 
+          
         </div>
       </header>
     
@@ -454,28 +459,30 @@ MSYS2
 <p><code>pacman -S --needed base-devel msys2-devel mingw-w64-x86_64-toolchain</code></p>
 <h2>配置</h2>
 <h3>环境变量</h3>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSYS_HOME=D:\msys64</span><br><span class="line">MINGW_HOME=D:\msys64\mingw64</span><br><span class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MSYS_HOME=D:\msys64</div><div class="line">MINGW_HOME=D:\msys64\mingw64</div><div class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</div></pre></td></tr></table></figure></p>
 <h3>镜像配置</h3>
 <p>如果网络环境不好的话，可以增加国内的镜像，速度改进非常明显。</p>
 <p>修改 <code>/etc/pacman.d/</code> 文件夹中修改 <code>mirrorlist</code> 开头的三个文件：</p>
 <ul>
 <li><code>mirrorlist.mingw32</code></li>
 </ul>
-<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">##</span></span><br><span class="line"><span class="meta">## 32-bit Mingw-w64 repository mirrorlist</span></span><br><span class="line"><span class="meta">##</span></span><br><span class="line">Server=http:<span class="comment">//mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686</span></span><br><span class="line"></span><br><span class="line"><span class="meta">## Primary</span></span><br><span class="line"><span class="meta">## msys2.org</span></span><br><span class="line">Server = http:<span class="comment">//repo.msys2.org/mingw/i686</span></span><br><span class="line">Server = http:<span class="comment">//downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686</span></span><br><span class="line">Server = http:<span class="comment">//www2.futureware.at/~nickoe/msys2-mirror/i686/</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">##</div><div class="line">## <span class="number">32</span>-bit Mingw-w64 repository mirrorlist</div><div class="line">##</div><div class="line">Server=http:<span class="comment">//mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686</span></div><div class="line"></div><div class="line">## Primary</div><div class="line">## msys2.org</div><div class="line">Server = http:<span class="comment">//repo.msys2.org/mingw/i686</span></div><div class="line">Server = http:<span class="comment">//downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686</span></div><div class="line">Server = http:<span class="comment">//www2.futureware.at/~nickoe/msys2-mirror/i686/</span></div></pre></td></tr></table></figure></p>
 <ul>
 <li><code>mirrorlist.mingw64</code></li>
 </ul>
-<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## 64-bit Mingw-w64 repository mirrorlist</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/x<span class="number">86_64</span></span><br><span class="line"><span class="comment">## Primary</span></span><br><span class="line"><span class="comment">## msys2.org</span></span><br><span class="line"><span class="attr">Server</span> = http://repo.msys2.org/mingw/x<span class="number">86_64</span></span><br><span class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/x<span class="number">86_64</span></span><br><span class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/x<span class="number">86_64</span>/</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##</span></div><div class="line"><span class="comment">## 64-bit Mingw-w64 repository mirrorlist</span></div><div class="line"><span class="comment">##</span></div><div class="line"></div><div class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/x<span class="number">86_64</span></div><div class="line"><span class="comment">## Primary</span></div><div class="line"><span class="comment">## msys2.org</span></div><div class="line"><span class="attr">Server</span> = http://repo.msys2.org/mingw/x<span class="number">86_64</span></div><div class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/x<span class="number">86_64</span></div><div class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/x<span class="number">86_64</span>/</div></pre></td></tr></table></figure></p>
 <ul>
 <li><code>mirrorlist.msys</code></li>
 </ul>
-<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## MSYS2 repository mirrorlist</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MSYS2/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Primary</span></span><br><span class="line"><span class="comment">## msys2.org</span></span><br><span class="line"><span class="attr">Server</span> = http://repo.msys2.org/msys/<span class="variable">$arch</span></span><br><span class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MSYS2/<span class="variable">$arch</span></span><br><span class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/msys/<span class="variable">$arch</span>/</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##</span></div><div class="line"><span class="comment">## MSYS2 repository mirrorlist</span></div><div class="line"><span class="comment">##</span></div><div class="line"></div><div class="line"><span class="attr">Server</span>=http://mirrors3.ustc.edu.cn/msys2/REPOS/MSYS2/<span class="variable">$arch</span></div><div class="line"></div><div class="line"><span class="comment">## Primary</span></div><div class="line"><span class="comment">## msys2.org</span></div><div class="line"><span class="attr">Server</span> = http://repo.msys2.org/msys/<span class="variable">$arch</span></div><div class="line"><span class="attr">Server</span> = http://downloads.sourceforge.net/project/msys2/REPOS/MSYS2/<span class="variable">$arch</span></div><div class="line"><span class="attr">Server</span> = http://www2.futureware.at/~nickoe/msys2-mirror/msys/<span class="variable">$arch</span>/</div></pre></td></tr></table></figure></p>
 <h3>代理</h3>
 <p>如果需要通过代理才能上网的话，可以在 <code>/etc/profile.d/</code> 增加 <code>proxy.sh</code>，内容如下:</p>
-<p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export https_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export ftp_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export HTTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export HTTPS_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br><span class="line">export FTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export http_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export https_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export ftp_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export HTTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export HTTPS_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export FTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div></pre></td></tr></table></figure></p>
 <h3>用户目录</h3>
 <p>修改 <code>/etc/fstab</code>，映射用户目录，与宿主共享配置，这样类似 gitconfig 这样的配置只需要配置一份。</p>
-<p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For a description of the file format, see the Users Guide</span></span><br><span class="line"><span class="comment"># http://cygwin.com/cygwin-ug-net/using.html#mount-table</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span></span><br><span class="line">none / cygdrive binary,<span class="attr">posix=</span><span class="number">0</span>,noacl,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></span><br><span class="line">C:/Users/goreng /home/goreng ntfs noacl,binary,<span class="attr">posix=</span><span class="number">1</span>,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># For a description of the file format, see the Users Guide</span></div><div class="line"><span class="comment"># http://cygwin.com/cygwin-ug-net/using.html#mount-table</span></div><div class="line"></div><div class="line"><span class="comment"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span></div><div class="line">none / cygdrive binary,<span class="attr">posix=</span><span class="number">0</span>,noacl,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></div><div class="line">C:/Users /home ntfs binary,noacl,auto <span class="number">1</span> <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<h3>公用 HOME 目录</h3>
+<p>环境变量中添加 <code>MSYS2_PATH_TYPE</code> 值为 <code>inherit</code></p>
 <h2>包管理</h2>
 <ul>
 <li>
@@ -503,10 +510,10 @@ MSYS2
 <ul>
 <li>根据保存的 <code>packages.txt</code> 安装</li>
 </ul>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</span><br><span class="line">pacman -S --needed --force $(cat /c/packages.txt)</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pacman -Sy</div><div class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</div><div class="line">pacman -S --needed --force $(cat /c/packages.txt)</div></pre></td></tr></table></figure></p>
 <h2>坑</h2>
 <p>如果你使用 MacType 的话，请一定在  <code>default.ini</code> 添加 gpg/pacman 的例外。</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[UnloadDll]</span><br><span class="line">gpg.exe</span><br><span class="line">pacman.exe</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[UnloadDll]</div><div class="line">gpg.exe</div><div class="line">pacman.exe</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>via #393 <a href="https://github.com/Alexpux/MSYS2-packages/issues/393" target="_blank" rel="external">GPGME error: Invalid crypto engine</a></p>
 </blockquote>
@@ -514,7 +521,7 @@ MSYS2
 
       
     </div>
-    
+
     <div>
       
         
@@ -524,6 +531,7 @@ MSYS2
     <div>
       
         
+
       
     </div>
 
@@ -660,18 +668,18 @@ MSYS2
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gythialy" target="_blank">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gythialy" target="_blank">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-fw fa-twitter"></i>
                   
                   Twitter
                 </a>
@@ -684,9 +692,7 @@ MSYS2
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
@@ -697,7 +703,7 @@ MSYS2
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">安装 MSYS2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">安装开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">镜像配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">用户目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">重新安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">坑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">安装 MSYS2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">安装开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">镜像配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">用户目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.5.</span> <span class="nav-text">公用 HOME 目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">重新安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">坑</span></a></li></ol></div>
             
           </div>
         </section>
@@ -716,7 +722,7 @@ MSYS2
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -734,8 +740,9 @@ MSYS2
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 

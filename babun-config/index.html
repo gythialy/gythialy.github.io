@@ -29,7 +29,9 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -57,6 +59,8 @@
     
     <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
+
+
 
 
 
@@ -102,7 +106,7 @@ Silent command-line installer, no admin rights required
 pact - advanced package manager (like apt-get or yu">
 <meta property="og:image" content="https://gythialy.github.io/uploads/conemu_1.png">
 <meta property="og:image" content="https://gythialy.github.io/uploads/babun.png">
-<meta property="og:updated_time" content="2016-05-04T06:30:21.374Z">
+<meta property="og:updated_time" content="2017-03-22T05:48:09.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="babun 配置">
 <meta name="twitter:description" content="介绍
@@ -194,7 +198,7 @@ pact - advanced package manager (like apt-get or yu">
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
           </a>
@@ -204,7 +208,7 @@ pact - advanced package manager (like apt-get or yu">
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             Categories
           </a>
@@ -214,7 +218,7 @@ pact - advanced package manager (like apt-get or yu">
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -224,7 +228,7 @@ pact - advanced package manager (like apt-get or yu">
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -322,6 +326,7 @@ pact - advanced package manager (like apt-get or yu">
           
           
 
+          
         </div>
       </header>
     
@@ -357,7 +362,7 @@ pact - advanced package manager (like apt-get or yu">
 </ul>
 <h2>包管理</h2>
 <p>babun 自带了叫做 <code>pact</code> 的包管理，修改自 <code>apt-cyg</code>, 但比较弱，用法如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123; ~ &#125;  » pact --help</span><br><span class="line">pact: Installs and removes Cygwin packages.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</span><br><span class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</span><br><span class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</span><br><span class="line">  &quot;pact show&quot; to show installed packages</span><br><span class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</span><br><span class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</span><br><span class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</span><br><span class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</span><br><span class="line">Options:</span><br><span class="line">  --mirror, -m &lt;url&gt; : set mirror</span><br><span class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</span><br><span class="line">  --force, -f : force the execution</span><br><span class="line">  --help</span><br><span class="line">  --version</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123; ~ &#125;  » pact --help</div><div class="line">pact: Installs and removes Cygwin packages.</div><div class="line"></div><div class="line">Usage:</div><div class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</div><div class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</div><div class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</div><div class="line">  &quot;pact show&quot; to show installed packages</div><div class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</div><div class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</div><div class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</div><div class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</div><div class="line">Options:</div><div class="line">  --mirror, -m &lt;url&gt; : set mirror</div><div class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</div><div class="line">  --force, -f : force the execution</div><div class="line">  --help</div><div class="line">  --version</div></pre></td></tr></table></figure></p>
 <h2>和 Windows 共享配置</h2>
 <ol>
 <li>添加环境变量 <code>HOME</code>，值为 Windows 的用户目录 <code>C:\Users\%USERNAME%</code></li>
@@ -368,14 +373,14 @@ pact - advanced package manager (like apt-get or yu">
 </blockquote>
 <h2>代理设置</h2>
 <p>只需要取消 <code>.babunrc</code> 中的注释 (<code>%USERPROFILE%\.babunrc</code>)</p>
-<p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Uncomment this lines to <span class="keyword">set</span> up <span class="comment">your proxy</span></span><br><span class="line">export <span class="comment">http_proxy=user:password@server:port</span></span><br><span class="line">export <span class="comment">https_proxy=$http_proxy</span></span><br><span class="line">export <span class="comment">ftp_proxy=$http_proxy</span></span><br><span class="line">export <span class="comment">no_proxy=localhost</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this lines to set up your proxy</span></div><div class="line"><span class="built_in">export</span> http_proxy=user:password@server:port</div><div class="line"><span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></div><div class="line"><span class="built_in">export</span> ftp_proxy=<span class="variable">$http_proxy</span></div><div class="line"><span class="built_in">export</span> no_proxy=localhost</div></pre></td></tr></table></figure></p>
 <h2>镜像</h2>
 <p>修改 <code>~/.pact/pact.repo</code> 中的 <code>PACT_REPO</code> 字段</p>
-<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#PACT_REPO=http://mirrors.kernel.org/sourceware/cygwin/</span></span><br><span class="line">PACT_REPO=http:<span class="comment">//mirrors.neusoft.edu.cn/cygwin/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># POPULAR HTTP REPOSITORIES</span></span><br><span class="line"><span class="meta"># http://mirror.switch.ch/ftp/mirror/cygwin/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># POPULAR FTP REPOSITORIES</span></span><br><span class="line"><span class="meta"># ftp://mirror.switch.ch/mirror/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://ftp.inf.tu-dresden.de/software/windows/cygwin32/</span></span><br><span class="line"><span class="meta"># ftp://mirrors.kernel.org/sourceware/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://gd.tuwien.ac.at/gnu/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://ftp.iij.ad.jp/pub/cygwin/</span></span><br><span class="line"><span class="meta"># ftp://mirror.cpsc.ucalgary.ca/cygwin.com/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># FULL LIST</span></span><br><span class="line"><span class="meta"># http://cygwin.com/mirrors.html</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#PACT_REPO=http://mirrors.kernel.org/sourceware/cygwin/</span></div><div class="line">PACT_REPO=http:<span class="comment">//mirrors.neusoft.edu.cn/cygwin/</span></div><div class="line"></div><div class="line"><span class="meta"># POPULAR HTTP REPOSITORIES</span></div><div class="line"><span class="meta"># http://mirror.switch.ch/ftp/mirror/cygwin/</span></div><div class="line"></div><div class="line"><span class="meta"># POPULAR FTP REPOSITORIES</span></div><div class="line"><span class="meta"># ftp://mirror.switch.ch/mirror/cygwin/</span></div><div class="line"><span class="meta"># ftp://ftp.inf.tu-dresden.de/software/windows/cygwin32/</span></div><div class="line"><span class="meta"># ftp://mirrors.kernel.org/sourceware/cygwin/</span></div><div class="line"><span class="meta"># ftp://gd.tuwien.ac.at/gnu/cygwin/</span></div><div class="line"><span class="meta"># ftp://ftp.iij.ad.jp/pub/cygwin/</span></div><div class="line"><span class="meta"># ftp://mirror.cpsc.ucalgary.ca/cygwin.com/</span></div><div class="line"></div><div class="line"><span class="meta"># FULL LIST</span></div><div class="line"><span class="meta"># http://cygwin.com/mirrors.html</span></div></pre></td></tr></table></figure></p>
 <h2>常用开发环境配置</h2>
 <h3>Python</h3>
 <p>babun 自带的 Python2 并没有安装 pip，需要手动安装</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pact install python-setuptools python-ming</span><br><span class="line">pact install libxml2-devel libxslt-devel libyaml-devel</span><br><span class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pact install python-setuptools python-ming</div><div class="line">pact install libxml2-devel libxslt-devel libyaml-devel</div><div class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</div></pre></td></tr></table></figure></p>
 <h3>Ruby</h3>
 <p>执行 <code>pact install ruby</code></p>
 <blockquote>
@@ -385,7 +390,7 @@ pact - advanced package manager (like apt-get or yu">
 <ul>
 <li>
 <p>compdef: unknown command or service: git
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>compinit</span><br><span class="line"><span class="variable">$ </span>cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>compinit</div><div class="line"><span class="variable">$ </span>cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></div></pre></td></tr></table></figure></p>
 </li>
 <li>
 <p>删除右键中的 <code>Open Babun here</code><br>
@@ -409,7 +414,7 @@ pact - advanced package manager (like apt-get or yu">
 
       
     </div>
-    
+
     <div>
       
         
@@ -419,6 +424,7 @@ pact - advanced package manager (like apt-get or yu">
     <div>
       
         
+
       
     </div>
 
@@ -551,18 +557,18 @@ pact - advanced package manager (like apt-get or yu">
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gythialy" target="_blank">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/gythialy" target="_blank">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
                   
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-fw fa-twitter"></i>
                   
                   Twitter
                 </a>
@@ -575,9 +581,7 @@ pact - advanced package manager (like apt-get or yu">
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
@@ -607,7 +611,7 @@ pact - advanced package manager (like apt-get or yu">
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -625,8 +629,9 @@ pact - advanced package manager (like apt-get or yu">
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 

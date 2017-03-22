@@ -273,6 +273,157 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/Howto-import-export-gpg-key/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/Howto-import-export-gpg-key/" itemprop="url">
+                  GPG 导入导出 Key
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T15:26:05+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
+<h2>列出本地的所有 Key</h2>
+<p>执行 <code>gpg --list-keys</code> 列出本地所有的密钥</p>
+<p>输出结果类似</p>
+<p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> $ gpg --<span class="type">list</span>-keys /home/$USER/.gnupg/pubring.gpg </div><div class="line"> ----------------------------------- </div><div class="line">pub   <span class="number">4</span> <span class="number">096</span>R/<span class="number">375</span>A500B <span class="number">2017</span><span class="number">-03</span><span class="number">-22</span> [有效至：<span class="number">2018</span><span class="number">-03</span><span class="number">-22</span>] </div><div class="line">uid                  Goren G (Git) &lt;gythialy.koo+git@gmail.com&gt; </div><div class="line">sub   <span class="number">4096</span>R/ADB9D36C <span class="number">2017</span><span class="number">-03</span><span class="number">-22</span> [有效至：<span class="number">2018</span><span class="number">-03</span><span class="number">-22</span>]</div></pre></td></tr></table></figure></p>
+<h2>导出</h2>
+<p>根据 <code>375A500B</code> 导出相应的公钥和私钥</p>
+<p><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">output</span> <span class="comment">mygpgkey_pub</span><span class="string">.</span><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">armor</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">export</span> <span class="comment">375A500B</span></div><div class="line"><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">output</span> <span class="comment">mygpgkey_sec</span><span class="string">.</span><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">armor</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">export</span><span class="literal">-</span><span class="comment">secret</span><span class="literal">-</span><span class="comment">key</span> <span class="comment">375A500B</span></div></pre></td></tr></table></figure></p>
+<h2>导入</h2>
+<p>导入刚导入的文件</p>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gpg --<span class="keyword">import</span> ~/mygpgkey_pub.gpg</div><div class="line">gpg --allow-secret-key-<span class="keyword">import</span> --<span class="keyword">import</span> ~/mygpgkey_sec.gpg</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<p>---EOF---</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/babun-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1642,7 +1793,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1660,7 +1811,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

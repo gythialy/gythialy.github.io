@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gythialy.github.io/"/>
-  <updated>2017-03-22T07:24:22.652Z</updated>
+  <updated>2017-03-22T07:49:19.020Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -16,11 +16,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GPG 导入导出 Key</title>
+    <link href="https://gythialy.github.io/Howto-import-export-gpg-key/"/>
+    <id>https://gythialy.github.io/Howto-import-export-gpg-key/</id>
+    <published>2017-03-22T07:26:05.000Z</published>
+    <updated>2017-03-22T07:49:19.020Z</updated>
+    
+    <content type="html"><![CDATA[<p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
+<h2>列出本地的所有 Key</h2>
+<p>执行 <code>gpg --list-keys</code> 列出本地所有的密钥</p>
+<p>输出结果类似</p>
+<p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> $ gpg --<span class="type">list</span>-keys /home/$USER/.gnupg/pubring.gpg </div><div class="line"> ----------------------------------- </div><div class="line">pub   <span class="number">4</span> <span class="number">096</span>R/<span class="number">375</span>A500B <span class="number">2017</span><span class="number">-03</span><span class="number">-22</span> [有效至：<span class="number">2018</span><span class="number">-03</span><span class="number">-22</span>] </div><div class="line">uid                  Goren G (Git) &lt;gythialy.koo+git@gmail.com&gt; </div><div class="line">sub   <span class="number">4096</span>R/ADB9D36C <span class="number">2017</span><span class="number">-03</span><span class="number">-22</span> [有效至：<span class="number">2018</span><span class="number">-03</span><span class="number">-22</span>]</div></pre></td></tr></table></figure></p>
+<h2>导出</h2>
+<p>根据 <code>375A500B</code> 导出相应的公钥和私钥</p>
+<p><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">output</span> <span class="comment">mygpgkey_pub</span><span class="string">.</span><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">armor</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">export</span> <span class="comment">375A500B</span></div><div class="line"><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">output</span> <span class="comment">mygpgkey_sec</span><span class="string">.</span><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">armor</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">export</span><span class="literal">-</span><span class="comment">secret</span><span class="literal">-</span><span class="comment">key</span> <span class="comment">375A500B</span></div></pre></td></tr></table></figure></p>
+<h2>导入</h2>
+<p>导入刚导入的文件</p>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gpg --<span class="keyword">import</span> ~/mygpgkey_pub.gpg</div><div class="line">gpg --allow-secret-key-<span class="keyword">import</span> --<span class="keyword">import</span> ~/mygpgkey_sec.gpg</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<p>---EOF---</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。&lt;/p&gt;
+&lt;h2&gt;列出本地的所有 Key&lt;/h2&gt;
+&lt;p&gt;执行 &lt;code&gt;gpg --list-
+    
+    </summary>
+    
+      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+    
+    
+      <category term="gpg" scheme="https://gythialy.github.io/tags/gpg/"/>
+    
+  </entry>
+  
+  <entry>
     <title>babun 配置</title>
     <link href="https://gythialy.github.io/babun-config/"/>
     <id>https://gythialy.github.io/babun-config/</id>
     <published>2016-05-04T01:09:36.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
@@ -119,7 +155,7 @@
     <link href="https://gythialy.github.io/jetty-log4j-conf/"/>
     <id>https://gythialy.github.io/jetty-log4j-conf/</id>
     <published>2016-03-28T05:15:48.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h2>缘起</h2>
 <p>我们一台很老的装置中用了 Jetty v7.1.6，由于种种原因，不能升级新版本。某次由于一个 bug 导致一直写日志，最后把硬盘给写爆了，所以用 Log4J 记录日志，方便控制日志大小等。</p>
@@ -193,7 +229,7 @@
     <link href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"/>
     <id>https://gythialy.github.io/download-xcode-documentation-sets-manually/</id>
     <published>2016-03-26T15:04:45.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h2>缘起</h2>
 <p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p>
@@ -257,7 +293,7 @@
     <link href="https://gythialy.github.io/msys2-config/"/>
     <id>https://gythialy.github.io/msys2-config/</id>
     <published>2016-03-24T02:25:10.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p><a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。</p>
@@ -397,7 +433,7 @@
     <link href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/"/>
     <id>https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/</id>
     <published>2016-03-23T01:33:32.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h3>问题</h3>
 <p>SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。</p>
@@ -439,7 +475,7 @@
     <link href="https://gythialy.github.io/edna-api-demo-by-c/"/>
     <id>https://gythialy.github.io/edna-api-demo-by-c/</id>
     <published>2016-03-22T01:30:11.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p>eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via <a href="http://www.ybsoftware.com.cn/products.asp" target="_blank" rel="external">印步</a></p>
@@ -490,7 +526,7 @@
     <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
     <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
     <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2017-03-22T07:24:22.652Z</updated>
+    <updated>2017-03-22T07:49:19.020Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a>或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>

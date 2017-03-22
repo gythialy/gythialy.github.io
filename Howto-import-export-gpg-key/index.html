@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="babun," />
+  <meta name="keywords" content="gpg," />
 
 
 
@@ -91,34 +91,28 @@
 
 
 
-<meta name="description" content="介绍
-babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
-
-Pre-configured Cygwin with a lot of addons
-Silent command-line installer, no admin rights required
-pact - advanced package manager (like apt-get or yu">
+<meta name="description" content="在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。
+列出本地的所有 Key
+执行 gpg --list-keys 列出本地所有的密钥
+输出结果类似
+12345 $ gpg --list-keys /home/$USER/.gnupg/pubring.gpg  -------">
 <meta property="og:type" content="article">
-<meta property="og:title" content="babun 配置">
-<meta property="og:url" content="https://gythialy.github.io/babun-config/index.html">
+<meta property="og:title" content="GPG 导入导出 Key">
+<meta property="og:url" content="https://gythialy.github.io/Howto-import-export-gpg-key/index.html">
 <meta property="og:site_name" content="iKoo's Dirty life">
-<meta property="og:description" content="介绍
-babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
-
-Pre-configured Cygwin with a lot of addons
-Silent command-line installer, no admin rights required
-pact - advanced package manager (like apt-get or yu">
-<meta property="og:image" content="https://gythialy.github.io/uploads/conemu_1.png">
-<meta property="og:image" content="https://gythialy.github.io/uploads/babun.png">
+<meta property="og:description" content="在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。
+列出本地的所有 Key
+执行 gpg --list-keys 列出本地所有的密钥
+输出结果类似
+12345 $ gpg --list-keys /home/$USER/.gnupg/pubring.gpg  -------">
 <meta property="og:updated_time" content="2017-03-22T07:49:19.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="babun 配置">
-<meta name="twitter:description" content="介绍
-babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
-
-Pre-configured Cygwin with a lot of addons
-Silent command-line installer, no admin rights required
-pact - advanced package manager (like apt-get or yu">
-<meta name="twitter:image" content="https://gythialy.github.io/uploads/conemu_1.png">
+<meta name="twitter:title" content="GPG 导入导出 Key">
+<meta name="twitter:description" content="在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。
+列出本地的所有 Key
+执行 gpg --list-keys 列出本地所有的密钥
+输出结果类似
+12345 $ gpg --list-keys /home/$USER/.gnupg/pubring.gpg  -------">
 
 
 
@@ -146,13 +140,13 @@ pact - advanced package manager (like apt-get or yu">
 
 
 
-  <link rel="canonical" href="https://gythialy.github.io/babun-config/"/>
+  <link rel="canonical" href="https://gythialy.github.io/Howto-import-export-gpg-key/"/>
 
 
 
 
 
-  <title> babun 配置 | iKoo's Dirty life </title>
+  <title> GPG 导入导出 Key | iKoo's Dirty life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -290,7 +284,7 @@ pact - advanced package manager (like apt-get or yu">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/babun-config/">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/Howto-import-export-gpg-key/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="gythialy">
@@ -311,7 +305,7 @@ pact - advanced package manager (like apt-get or yu">
             
             
               
-                babun 配置
+                GPG 导入导出 Key
               
             
           </h1>
@@ -326,8 +320,8 @@ pact - advanced package manager (like apt-get or yu">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-04T01:09:36+00:00">
-                2016-05-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T07:26:05+00:00">
+                2017-03-22
               </time>
             
 
@@ -384,78 +378,17 @@ pact - advanced package manager (like apt-get or yu">
       
 
       
-        <h2>介绍</h2>
-<p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
-<ul>
-<li>Pre-configured Cygwin with a lot of addons</li>
-<li>Silent command-line installer, no admin rights required</li>
-<li>pact - advanced package manager (like apt-get or yum)</li>
-<li>xTerm-256 compatible console</li>
-<li>HTTP(s) proxying support</li>
-<li>Plugin-oriented architecture</li>
-<li>Pre-configured git and shell</li>
-<li>Integrated oh-my-zsh</li>
-<li>Auto update feature</li>
-<li>&quot;Open Babun Here&quot; context menu entry</li>
-</ul>
-<h2>安装</h2>
-<p>下载<a href="http://projects.reficio.org/babun/download" target="_blank" rel="external">安装包</a>解压缩到任意目录后，运行 <code>install.bat</code>。也可以使用 <code>/t %target_folder%</code> 指定安装目录。</p>
-<h2>配置</h2>
-<p>既然是开箱即用，对大多数人来说当然不需要太多配置，一般需要以下两个命令：</p>
-<ul>
-<li><code>babun check</code> 用于判断环境是否正确</li>
-<li><code>babun update</code> 用于判断是否有新的更新包</li>
-</ul>
-<h2>包管理</h2>
-<p>babun 自带了叫做 <code>pact</code> 的包管理，修改自 <code>apt-cyg</code>, 但比较弱，用法如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123; ~ &#125;  » pact --help</div><div class="line">pact: Installs and removes Cygwin packages.</div><div class="line"></div><div class="line">Usage:</div><div class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</div><div class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</div><div class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</div><div class="line">  &quot;pact show&quot; to show installed packages</div><div class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</div><div class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</div><div class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</div><div class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</div><div class="line">Options:</div><div class="line">  --mirror, -m &lt;url&gt; : set mirror</div><div class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</div><div class="line">  --force, -f : force the execution</div><div class="line">  --help</div><div class="line">  --version</div></pre></td></tr></table></figure></p>
-<h2>和 Windows 共享配置</h2>
-<ol>
-<li>添加环境变量 <code>HOME</code>，值为 Windows 的用户目录 <code>C:\Users\%USERNAME%</code></li>
-<li>启动 babun，执行 <code>babun install</code>，重启 babun</li>
-</ol>
-<blockquote>
-<p>%USERNAME% 不能包含空格。如果用户名已经有空格，参考<a href="https://cygwin.com/faq.html#faq.setup.name-with-space" target="_blank" rel="external">这里</a>解决。</p>
-</blockquote>
-<h2>代理设置</h2>
-<p>只需要取消 <code>.babunrc</code> 中的注释 (<code>%USERPROFILE%\.babunrc</code>)</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this lines to set up your proxy</span></div><div class="line"><span class="built_in">export</span> http_proxy=user:password@server:port</div><div class="line"><span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></div><div class="line"><span class="built_in">export</span> ftp_proxy=<span class="variable">$http_proxy</span></div><div class="line"><span class="built_in">export</span> no_proxy=localhost</div></pre></td></tr></table></figure></p>
-<h2>镜像</h2>
-<p>修改 <code>~/.pact/pact.repo</code> 中的 <code>PACT_REPO</code> 字段</p>
-<p><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#PACT_REPO=http://mirrors.kernel.org/sourceware/cygwin/</span></div><div class="line">PACT_REPO=http:<span class="comment">//mirrors.neusoft.edu.cn/cygwin/</span></div><div class="line"></div><div class="line"><span class="meta"># POPULAR HTTP REPOSITORIES</span></div><div class="line"><span class="meta"># http://mirror.switch.ch/ftp/mirror/cygwin/</span></div><div class="line"></div><div class="line"><span class="meta"># POPULAR FTP REPOSITORIES</span></div><div class="line"><span class="meta"># ftp://mirror.switch.ch/mirror/cygwin/</span></div><div class="line"><span class="meta"># ftp://ftp.inf.tu-dresden.de/software/windows/cygwin32/</span></div><div class="line"><span class="meta"># ftp://mirrors.kernel.org/sourceware/cygwin/</span></div><div class="line"><span class="meta"># ftp://gd.tuwien.ac.at/gnu/cygwin/</span></div><div class="line"><span class="meta"># ftp://ftp.iij.ad.jp/pub/cygwin/</span></div><div class="line"><span class="meta"># ftp://mirror.cpsc.ucalgary.ca/cygwin.com/</span></div><div class="line"></div><div class="line"><span class="meta"># FULL LIST</span></div><div class="line"><span class="meta"># http://cygwin.com/mirrors.html</span></div></pre></td></tr></table></figure></p>
-<h2>常用开发环境配置</h2>
-<h3>Python</h3>
-<p>babun 自带的 Python2 并没有安装 pip，需要手动安装</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pact install python-setuptools python-ming</div><div class="line">pact install libxml2-devel libxslt-devel libyaml-devel</div><div class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</div></pre></td></tr></table></figure></p>
-<h3>Ruby</h3>
-<p>执行 <code>pact install ruby</code></p>
-<blockquote>
-<p>如果 <code>ruby -v</code> 不能返回版本，执行 <code>update.bat</code> 更新 cygwin 的版本。via <a href="https://github.com/babun/babun/issues/483" target="_blank" rel="external">Issue #483</a></p>
-</blockquote>
-<h2>FAQ</h2>
-<ul>
-<li>
-<p>compdef: unknown command or service: git
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>compinit</div><div class="line"><span class="variable">$ </span>cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></div></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>删除右键中的 <code>Open Babun here</code><br>
-执行 <code>babun shell-here remove</code></p>
-</li>
-<li>
-<p>与 ConEmu 集成<br>
-<code>%userprofile%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe</code>
-<img src="/uploads/conemu_1.png" alt="ConEmu Settings"></p>
-</li>
-<li>
-<p>X64<br>
-官方对于 64 位的<a href="https://github.com/babun/babun/wiki/64-bit" target="_blank" rel="external">解释</a>。懒人也可以直接使用这个 <a href="https://github.com/babun/babun/pull/545" target="_blank" rel="external">PR</a> 编译的<a href="https://people.mozilla.org/%7Enchen/babun/babun-1.2.1-x86_64-dist.zip" target="_blank" rel="external">分发包</a>。有兴趣的也可以通过我合并的 <a href="https://github.com/gythialy/babun/tree/support-64-bit" target="_blank" rel="external">x64 分支</a> 自行构建。</p>
-</li>
-</ul>
-<h2>总结</h2>
-<p>总的来说，babun 比 <a href="msys2-config">MSYS2</a> 慢，包也不多，稳定性/兼容性貌似好一点。</p>
-<p>最终配置效果：</p>
-<p><img src="/uploads/babun.png" alt="babun"></p>
+        <p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
+<h2>列出本地的所有 Key</h2>
+<p>执行 <code>gpg --list-keys</code> 列出本地所有的密钥</p>
+<p>输出结果类似</p>
+<p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> $ gpg --<span class="type">list</span>-keys /home/$USER/.gnupg/pubring.gpg </div><div class="line"> ----------------------------------- </div><div class="line">pub   <span class="number">4</span> <span class="number">096</span>R/<span class="number">375</span>A500B <span class="number">2017</span><span class="number">-03</span><span class="number">-22</span> [有效至：<span class="number">2018</span><span class="number">-03</span><span class="number">-22</span>] </div><div class="line">uid                  Goren G (Git) &lt;gythialy.koo+git@gmail.com&gt; </div><div class="line">sub   <span class="number">4096</span>R/ADB9D36C <span class="number">2017</span><span class="number">-03</span><span class="number">-22</span> [有效至：<span class="number">2018</span><span class="number">-03</span><span class="number">-22</span>]</div></pre></td></tr></table></figure></p>
+<h2>导出</h2>
+<p>根据 <code>375A500B</code> 导出相应的公钥和私钥</p>
+<p><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">output</span> <span class="comment">mygpgkey_pub</span><span class="string">.</span><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">armor</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">export</span> <span class="comment">375A500B</span></div><div class="line"><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">output</span> <span class="comment">mygpgkey_sec</span><span class="string">.</span><span class="comment">gpg</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">armor</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">export</span><span class="literal">-</span><span class="comment">secret</span><span class="literal">-</span><span class="comment">key</span> <span class="comment">375A500B</span></div></pre></td></tr></table></figure></p>
+<h2>导入</h2>
+<p>导入刚导入的文件</p>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gpg --<span class="keyword">import</span> ~/mygpgkey_pub.gpg</div><div class="line">gpg --allow-secret-key-<span class="keyword">import</span> --<span class="keyword">import</span> ~/mygpgkey_sec.gpg</div><div class="line">`</div></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
 
       
@@ -480,7 +413,7 @@ pact - advanced package manager (like apt-get or yu">
       
         <div class="post-tags">
           
-            <a href="/tags/babun/" rel="tag"># babun</a>
+            <a href="/tags/gpg/" rel="tag"># gpg</a>
           
         </div>
       
@@ -493,8 +426,8 @@ pact - advanced package manager (like apt-get or yu">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jetty-log4j-conf/" rel="next" title="Jetty 配置 Log4J">
-                <i class="fa fa-chevron-left"></i> Jetty 配置 Log4J
+              <a href="/babun-config/" rel="next" title="babun 配置">
+                <i class="fa fa-chevron-left"></i> babun 配置
               </a>
             
           </div>
@@ -502,10 +435,6 @@ pact - advanced package manager (like apt-get or yu">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Howto-import-export-gpg-key/" rel="prev" title="GPG 导入导出 Key">
-                GPG 导入导出 Key <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -657,7 +586,7 @@ pact - advanced package manager (like apt-get or yu">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">和 Windows 共享配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">常用开发环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.2.</span> <span class="nav-text">Ruby</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">FAQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">列出本地的所有 Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">导入</span></a></li></ol></div>
             
 
           </div>

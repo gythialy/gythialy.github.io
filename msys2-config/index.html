@@ -91,97 +91,17 @@
 
 
 
-<meta name="description" content="介绍
-MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。
-比较
-
-
-
-特点
-Cygwin
-MinGW/MSYS
-MSYS2
-
-
-
-
-是否GNU
-否
-是
-是
-
-
-软件支持？
-支持绝大多数的 GNU 软件
-支持常用软件
-支持大多数 GNU 软件
-
-
-更类似 Linux？
-在 Wind">
+<meta name="description" content="介绍 MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。 比较    特点 Cygwin MinGW/MSYS MSYS2     是否GNU 否 是 是   软件支持？ 支持绝大多数的 GNU 软件 支持常用软件 支持大多数 GNU 软件   更类似 Linux？ 在 Wind">
+<meta name="keywords" content="msys2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MSYS2 配置">
 <meta property="og:url" content="https://gythialy.github.io/msys2-config/index.html">
-<meta property="og:site_name" content="iKoo's Dirty life">
-<meta property="og:description" content="介绍
-MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。
-比较
-
-
-
-特点
-Cygwin
-MinGW/MSYS
-MSYS2
-
-
-
-
-是否GNU
-否
-是
-是
-
-
-软件支持？
-支持绝大多数的 GNU 软件
-支持常用软件
-支持大多数 GNU 软件
-
-
-更类似 Linux？
-在 Wind">
-<meta property="og:updated_time" content="2017-03-22T07:49:19.020Z">
+<meta property="og:site_name" content="iKoo&#39;s Dirty life">
+<meta property="og:description" content="介绍 MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。 比较    特点 Cygwin MinGW/MSYS MSYS2     是否GNU 否 是 是   软件支持？ 支持绝大多数的 GNU 软件 支持常用软件 支持大多数 GNU 软件   更类似 Linux？ 在 Wind">
+<meta property="og:updated_time" content="2017-06-19T05:55:57.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MSYS2 配置">
-<meta name="twitter:description" content="介绍
-MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。
-比较
-
-
-
-特点
-Cygwin
-MinGW/MSYS
-MSYS2
-
-
-
-
-是否GNU
-否
-是
-是
-
-
-软件支持？
-支持绝大多数的 GNU 软件
-支持常用软件
-支持大多数 GNU 软件
-
-
-更类似 Linux？
-在 Wind">
+<meta name="twitter:description" content="介绍 MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。 比较    特点 Cygwin MinGW/MSYS MSYS2     是否GNU 否 是 是   软件支持？ 支持绝大多数的 GNU 软件 支持常用软件 支持大多数 GNU 软件   更类似 Linux？ 在 Wind">
 
 
 
@@ -505,14 +425,14 @@ MSYS2
 <p><code>pacman -S --needed base-devel msys2-devel mingw-w64-x86_64-toolchain</code></p>
 <h2>配置</h2>
 <h3>环境变量</h3>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MSYS_HOME=D:\msys64</div><div class="line">MINGW_HOME=D:\msys64\mingw64</div><div class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MSYS_HOME=D:\msys64</div><div class="line">MINGW_HOME=D:\msys64\mingw64</div><div class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</div></pre></td></tr></table></figure></p>
 <h3>镜像配置</h3>
 <p>如果网络环境不好的话，可以增加国内的镜像，速度改进非常明显。</p>
 <p>修改 <code>/etc/pacman.d/</code> 文件夹中修改 <code>mirrorlist</code> 开头的三个文件：</p>
 <ul>
 <li><code>mirrorlist.mingw32</code></li>
 </ul>
-<p><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">##</div><div class="line">## <span class="number">32</span>-bit Mingw-w64 repository mirrorlist</div><div class="line">##</div><div class="line">Server=http:<span class="comment">//mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686</span></div><div class="line"></div><div class="line">## Primary</div><div class="line">## msys2.org</div><div class="line">Server = http:<span class="comment">//repo.msys2.org/mingw/i686</span></div><div class="line">Server = http:<span class="comment">//downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686</span></div><div class="line">Server = http:<span class="comment">//www2.futureware.at/~nickoe/msys2-mirror/i686/</span></div></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">#</span></span></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 32-bit Mingw-w64 repository mirrorlist</span></span></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">#</span></span></div><div class="line">Server=http://mirrors3.ustc.edu.cn/msys2/REPOS/MINGW/i686</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment"># Primary</span></span></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># msys2.org</span></span></div><div class="line">Server = http://repo.msys2.org/mingw/i686</div><div class="line">Server = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686</div><div class="line">Server = http://www2.futureware.at/~nickoe/msys2-mirror/i686/</div></pre></td></tr></table></figure></p>
 <ul>
 <li><code>mirrorlist.mingw64</code></li>
 </ul>
@@ -526,7 +446,7 @@ MSYS2
 <p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export http_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export https_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export ftp_proxy=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export HTTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export HTTPS_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div><div class="line">export FTP_PROXY=<span class="meta">%</span>PROXY_SERVER<span class="meta">%</span>:<span class="meta">%</span>PROXY_PORT<span class="meta">%</span></div></pre></td></tr></table></figure></p>
 <h3>用户目录</h3>
 <p>修改 <code>/etc/fstab</code>，映射用户目录，与宿主共享配置，这样类似 gitconfig 这样的配置只需要配置一份。</p>
-<p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># For a description of the file format, see the Users Guide</span></div><div class="line"><span class="comment"># http://cygwin.com/cygwin-ug-net/using.html#mount-table</span></div><div class="line"></div><div class="line"><span class="comment"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span></div><div class="line">none / cygdrive binary,<span class="attr">posix=</span><span class="number">0</span>,noacl,<span class="keyword">user</span> <span class="title">0</span> <span class="number">0</span></div><div class="line">C:/Users /home ntfs binary,noacl,auto <span class="number">1</span> <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># For a description of the file format, see the Users Guide</span></div><div class="line"><span class="comment"># http://cygwin.com/cygwin-ug-net/using.html#mount-table</span></div><div class="line"></div><div class="line"><span class="comment"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span></div><div class="line">none / cygdrive binary,<span class="attribute">posix</span>=0,noacl,user 0 0</div><div class="line">C:<span class="built_in">/Users </span>/home ntfs binary,noacl,auto 1 1</div></pre></td></tr></table></figure></p>
 <h3>公用 HOME 目录</h3>
 <p>环境变量中添加 <code>MSYS2_PATH_TYPE</code> 值为 <code>inherit</code></p>
 <h2>包管理</h2>
@@ -547,6 +467,18 @@ MSYS2
 <blockquote>
 <p>更多请参考 <a href="https://wiki.archlinux.org/index.php/pacman" target="_blank" rel="external">Arch Linux wiki</a>.</p>
 </blockquote>
+<h2>安装<code>zsh</code>和<code>oh my zsh</code></h2>
+<ul>
+<li>安装<code>zsh</code></li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pacman -Syu</div><div class="line">pacman -S zsh</div></pre></td></tr></table></figure></p>
+<ul>
+<li>安装 <code>oh my zsh</code></li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>zsh 的配置文件是 <code>~/.zshrc</code>，可以通过编辑这个文件来指定主题，插件。</p>
+</blockquote>
 <h2>重新安装</h2>
 <p>如果在使用过程中， <a href="">MSYS2</a> 出现不可恢复的问题的时候，可以通过保存安装的 packages 到文件中，再通过此文件重新安装。</p>
 <ul>
@@ -556,13 +488,14 @@ MSYS2
 <ul>
 <li>根据保存的 <code>packages.txt</code> 安装</li>
 </ul>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pacman -Sy</div><div class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</div><div class="line">pacman -S --needed --force $(cat /c/packages.txt)</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pacman -Sy</div><div class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</div><div class="line">pacman -S --needed --force $(cat /c/packages.txt)</div></pre></td></tr></table></figure></p>
 <h2>坑</h2>
-<p>如果你使用 MacType 的话，请一定在  <code>default.ini</code> 添加 gpg/pacman 的例外。</p>
+<p>如果你使用 MacType 的话，请一定在  <code>default.ini</code> (MacType的配置文件) 添加 gpg/pacman 的例外。</p>
 <p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[UnloadDll]</div><div class="line">gpg.exe</div><div class="line">pacman.exe</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>via #393 <a href="https://github.com/Alexpux/MSYS2-packages/issues/393" target="_blank" rel="external">GPGME error: Invalid crypto engine</a></p>
 </blockquote>
+<p>如果你使用 VirtualBox 4.3.14+ 的话，也需要把相关进程排除。via <a href="https://donneryst.com/blog/virtualbox-4-3-12%E4%BB%A5%E5%90%8E%E7%9A%84e_fail-0x80004005%E9%97%AE%E9%A2%98.html" target="_blank" rel="external">VirtualBox 4.3.12以后的E_FAIL (0x80004005)问题</a></p>
 <p>---EOF---</p>
 
       
@@ -764,7 +697,7 @@ MSYS2
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">安装 MSYS2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">安装开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">镜像配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">用户目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.5.</span> <span class="nav-text">公用 HOME 目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">重新安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">坑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">安装 MSYS2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">安装开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">镜像配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">用户目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.5.</span> <span class="nav-text">公用 HOME 目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">安装zsh和oh my zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">重新安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">坑</span></a></li></ol></div>
             
 
           </div>

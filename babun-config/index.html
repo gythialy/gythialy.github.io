@@ -91,33 +91,19 @@
 
 
 
-<meta name="description" content="介绍
-babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
-
-Pre-configured Cygwin with a lot of addons
-Silent command-line installer, no admin rights required
-pact - advanced package manager (like apt-get or yu">
+<meta name="description" content="介绍 babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:  Pre-configured Cygwin with a lot of addons Silent command-line installer, no admin rights required pact - advanced package manager (like apt-get or yu">
+<meta name="keywords" content="babun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="babun 配置">
 <meta property="og:url" content="https://gythialy.github.io/babun-config/index.html">
-<meta property="og:site_name" content="iKoo's Dirty life">
-<meta property="og:description" content="介绍
-babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
-
-Pre-configured Cygwin with a lot of addons
-Silent command-line installer, no admin rights required
-pact - advanced package manager (like apt-get or yu">
+<meta property="og:site_name" content="iKoo&#39;s Dirty life">
+<meta property="og:description" content="介绍 babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:  Pre-configured Cygwin with a lot of addons Silent command-line installer, no admin rights required pact - advanced package manager (like apt-get or yu">
 <meta property="og:image" content="https://gythialy.github.io/uploads/conemu_1.png">
 <meta property="og:image" content="https://gythialy.github.io/uploads/babun.png">
-<meta property="og:updated_time" content="2017-03-22T07:49:19.020Z">
+<meta property="og:updated_time" content="2017-06-19T05:55:57.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="babun 配置">
-<meta name="twitter:description" content="介绍
-babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:
-
-Pre-configured Cygwin with a lot of addons
-Silent command-line installer, no admin rights required
-pact - advanced package manager (like apt-get or yu">
+<meta name="twitter:description" content="介绍 babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:  Pre-configured Cygwin with a lot of addons Silent command-line installer, no admin rights required pact - advanced package manager (like apt-get or yu">
 <meta name="twitter:image" content="https://gythialy.github.io/uploads/conemu_1.png">
 
 
@@ -408,7 +394,7 @@ pact - advanced package manager (like apt-get or yu">
 </ul>
 <h2>包管理</h2>
 <p>babun 自带了叫做 <code>pact</code> 的包管理，修改自 <code>apt-cyg</code>, 但比较弱，用法如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123; ~ &#125;  » pact --help</div><div class="line">pact: Installs and removes Cygwin packages.</div><div class="line"></div><div class="line">Usage:</div><div class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</div><div class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</div><div class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</div><div class="line">  &quot;pact show&quot; to show installed packages</div><div class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</div><div class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</div><div class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</div><div class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</div><div class="line">Options:</div><div class="line">  --mirror, -m &lt;url&gt; : set mirror</div><div class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</div><div class="line">  --force, -f : force the execution</div><div class="line">  --help</div><div class="line">  --version</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123; ~ &#125;  » pact --help</div><div class="line">pact: Installs and removes Cygwin packages.</div><div class="line"></div><div class="line">Usage:</div><div class="line">  "pact install &lt;package names&gt;" to install given packages</div><div class="line">  "pact remove &lt;package names&gt;" to remove given packages</div><div class="line">  "pact update &lt;package names&gt;" to update given packages</div><div class="line">  "pact show" to show installed packages</div><div class="line">  "pact find &lt;patterns&gt;" to find packages matching patterns</div><div class="line">  "pact describe &lt;patterns&gt;" to describe packages matching patterns</div><div class="line">  "pact packageof &lt;commands or files&gt;" to locate parent packages</div><div class="line">  "pact invalidate" to invalidate pact caches (setup.ini, etc.)</div><div class="line">Options:</div><div class="line">  --mirror, -m &lt;url&gt; : set mirror</div><div class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</div><div class="line">  --force, -f : force the execution</div><div class="line">  --help</div><div class="line">  --version</div></pre></td></tr></table></figure></p>
 <h2>和 Windows 共享配置</h2>
 <ol>
 <li>添加环境变量 <code>HOME</code>，值为 Windows 的用户目录 <code>C:\Users\%USERNAME%</code></li>
@@ -419,14 +405,14 @@ pact - advanced package manager (like apt-get or yu">
 </blockquote>
 <h2>代理设置</h2>
 <p>只需要取消 <code>.babunrc</code> 中的注释 (<code>%USERPROFILE%\.babunrc</code>)</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this lines to set up your proxy</span></div><div class="line"><span class="built_in">export</span> http_proxy=user:password@server:port</div><div class="line"><span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></div><div class="line"><span class="built_in">export</span> ftp_proxy=<span class="variable">$http_proxy</span></div><div class="line"><span class="built_in">export</span> no_proxy=localhost</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this lines to set up your proxy</span></div><div class="line"><span class="builtin-name">export</span> <span class="attribute">http_proxy</span>=user:password@server:port</div><div class="line"><span class="builtin-name">export</span> <span class="attribute">https_proxy</span>=<span class="variable">$http_proxy</span></div><div class="line"><span class="builtin-name">export</span> <span class="attribute">ftp_proxy</span>=<span class="variable">$http_proxy</span></div><div class="line"><span class="builtin-name">export</span> <span class="attribute">no_proxy</span>=localhost</div></pre></td></tr></table></figure></p>
 <h2>镜像</h2>
 <p>修改 <code>~/.pact/pact.repo</code> 中的 <code>PACT_REPO</code> 字段</p>
 <p><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#PACT_REPO=http://mirrors.kernel.org/sourceware/cygwin/</span></div><div class="line">PACT_REPO=http:<span class="comment">//mirrors.neusoft.edu.cn/cygwin/</span></div><div class="line"></div><div class="line"><span class="meta"># POPULAR HTTP REPOSITORIES</span></div><div class="line"><span class="meta"># http://mirror.switch.ch/ftp/mirror/cygwin/</span></div><div class="line"></div><div class="line"><span class="meta"># POPULAR FTP REPOSITORIES</span></div><div class="line"><span class="meta"># ftp://mirror.switch.ch/mirror/cygwin/</span></div><div class="line"><span class="meta"># ftp://ftp.inf.tu-dresden.de/software/windows/cygwin32/</span></div><div class="line"><span class="meta"># ftp://mirrors.kernel.org/sourceware/cygwin/</span></div><div class="line"><span class="meta"># ftp://gd.tuwien.ac.at/gnu/cygwin/</span></div><div class="line"><span class="meta"># ftp://ftp.iij.ad.jp/pub/cygwin/</span></div><div class="line"><span class="meta"># ftp://mirror.cpsc.ucalgary.ca/cygwin.com/</span></div><div class="line"></div><div class="line"><span class="meta"># FULL LIST</span></div><div class="line"><span class="meta"># http://cygwin.com/mirrors.html</span></div></pre></td></tr></table></figure></p>
 <h2>常用开发环境配置</h2>
 <h3>Python</h3>
 <p>babun 自带的 Python2 并没有安装 pip，需要手动安装</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pact install python-setuptools python-ming</div><div class="line">pact install libxml2-devel libxslt-devel libyaml-devel</div><div class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pact install python-setuptools python-ming</div><div class="line">pact install libxml2-devel libxslt-devel libyaml-devel</div><div class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</div></pre></td></tr></table></figure></p>
 <h3>Ruby</h3>
 <p>执行 <code>pact install ruby</code></p>
 <blockquote>
@@ -436,7 +422,7 @@ pact - advanced package manager (like apt-get or yu">
 <ul>
 <li>
 <p>compdef: unknown command or service: git
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>compinit</div><div class="line"><span class="variable">$ </span>cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> compinit</span></div><div class="line"><span class="meta">$</span><span class="bash"> cp .zcompdump .zcompdump-<span class="variable">$HOSTNAME</span>-<span class="variable">$ZSH_VERSION</span></span></div></pre></td></tr></table></figure></p>
 </li>
 <li>
 <p>删除右键中的 <code>Open Babun here</code><br>

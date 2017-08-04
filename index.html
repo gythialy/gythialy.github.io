@@ -1,28 +1,419 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>iKoo&#39;s Dirty life</title>
+<!DOCTYPE html>
+
+
+
   
-  <link href="/atom.xml" rel="self"/>
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE" />
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <link href="https://gythialy.github.io/"/>
-  <updated>2017-08-04T09:44:37.015Z</updated>
-  <id>https://gythialy.github.io/</id>
   
-  <author>
-    <name>gythialy</name>
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>GPG 导入导出 Key</title>
-    <link href="https://gythialy.github.io/Howto-import-export-gpg-key/"/>
-    <id>https://gythialy.github.io/Howto-import-export-gpg-key/</id>
-    <published>2017-03-22T07:26:05.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
     
-    <content type="html"><![CDATA[<p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo,next,gythialy,blog" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="iKoo's Dirty life" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这里只是我的后花园，随性而写">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iKoo&#39;s Dirty life">
+<meta property="og:url" content="https://gythialy.github.io/index.html">
+<meta property="og:site_name" content="iKoo&#39;s Dirty life">
+<meta property="og:description" content="这里只是我的后花园，随性而写">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iKoo&#39;s Dirty life">
+<meta name="twitter:description" content="这里只是我的后花园，随性而写">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gythialy.github.io/"/>
+
+
+
+
+
+  <title>iKoo's Dirty life</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-75661536-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iKoo's Dirty life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/Howto-import-export-gpg-key/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Howto-import-export-gpg-key/" itemprop="url">GPG 导入导出 Key</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T15:26:05+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
 <h2>列出本地的所有 Key</h2>
 <p>执行 <code>gpg --list-keys</code> 列出本地所有的密钥</p>
 <p>输出结果类似</p>
@@ -34,31 +425,148 @@
 <p>导入刚导入的文件</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gpg --import ~/mygpgkey_pub.gpg</div><div class="line">gpg --allow-secret-key-import --import ~/mygpgkey_sec.gpg</div><div class="line">`</div></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。&lt;/p&gt;
-&lt;h2&gt;列出本地的所有 Key&lt;/h2&gt;
-&lt;p&gt;执行 &lt;code&gt;gpg --list-
-    
-    </summary>
-    
-      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="gpg" scheme="https://gythialy.github.io/tags/gpg/"/>
     
-  </entry>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>babun 配置</title>
-    <link href="https://gythialy.github.io/babun-config/"/>
-    <id>https://gythialy.github.io/babun-config/</id>
-    <published>2016-05-04T01:09:36.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h2>介绍</h2>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/babun-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/babun-config/" itemprop="url">babun 配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-04T09:09:36+08:00">
+                2016-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
 <p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
 <ul>
 <li>Pre-configured Cygwin with a lot of addons</li>
@@ -131,33 +639,148 @@
 <p>最终配置效果：</p>
 <p><img src="/uploads/babun.png" alt="babun"></p>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;介绍&lt;/h2&gt;
-&lt;p&gt;babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Pre-configured Cygwin with a lot of addons&lt;/li&gt;
-&lt;li&gt;Silent command
-    
-    </summary>
-    
-      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="babun" scheme="https://gythialy.github.io/tags/babun/"/>
     
-  </entry>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>Jetty 配置 Log4J</title>
-    <link href="https://gythialy.github.io/jetty-log4j-conf/"/>
-    <id>https://gythialy.github.io/jetty-log4j-conf/</id>
-    <published>2016-03-28T05:15:48.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h2>缘起</h2>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/jetty-log4j-conf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/jetty-log4j-conf/" itemprop="url">Jetty 配置 Log4J</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-28T13:15:48+08:00">
+                2016-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>缘起</h2>
 <p>我们一台很老的装置中用了 Jetty v7.1.6，由于种种原因，不能升级新版本。某次由于一个 bug 导致一直写日志，最后把硬盘给写爆了，所以用 Log4J 记录日志，方便控制日志大小等。</p>
 <blockquote>
 <p>注：在 Jetty 最新的版本中，配置 Log4J 并不需要如此。</p>
@@ -204,34 +827,148 @@
 <p>start.log 是 start.jar 创建的，会根据 <code>etc/jetty-logging.xml</code> 中配置决定是否从定向内容。</p>
 </blockquote>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;缘起&lt;/h2&gt;
-&lt;p&gt;我们一台很老的装置中用了 Jetty v7.1.6，由于种种原因，不能升级新版本。某次由于一个 bug 导致一直写日志，最后把硬盘给写爆了，所以用 Log4J 记录日志，方便控制日志大小等。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注：在 Jetty
-    
-    </summary>
-    
-      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="Jetty" scheme="https://gythialy.github.io/tags/Jetty/"/>
     
-      <category term="Log4J" scheme="https://gythialy.github.io/tags/Log4J/"/>
+
     
-  </entry>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>手动下载 XCode 文档和模拟器</title>
-    <link href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"/>
-    <id>https://gythialy.github.io/download-xcode-documentation-sets-manually/</id>
-    <published>2016-03-26T15:04:45.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h2>缘起</h2>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/download-xcode-documentation-sets-manually/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/download-xcode-documentation-sets-manually/" itemprop="url">手动下载 XCode 文档和模拟器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-26T23:04:45+08:00">
+                2016-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>缘起</h2>
 <p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p>
 <h2>文档</h2>
 <p>手动下载文档可以通过以下几步解决，via <a href="https://stackoverflow.com/questions/1131119/download-xcode-documentation-sets-manually" target="_blank" rel="external">stackoverflow</a>。</p>
@@ -270,32 +1007,148 @@
 <p>如果需要删除不需要的模拟器，可以在 <code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs</code> 中直接删除</p>
 </blockquote>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;缘起&lt;/h2&gt;
-&lt;p&gt;由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCo
-    
-    </summary>
-    
-      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="OS X" scheme="https://gythialy.github.io/tags/OS-X/"/>
     
-      <category term="XCode" scheme="https://gythialy.github.io/tags/XCode/"/>
+
     
-  </entry>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>MSYS2 配置</title>
-    <link href="https://gythialy.github.io/msys2-config/"/>
-    <id>https://gythialy.github.io/msys2-config/</id>
-    <published>2016-03-24T02:25:10.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h2>介绍</h2>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/msys2-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/msys2-config/" itemprop="url">MSYS2 配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-24T10:25:10+08:00">
+                2016-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
 <p><a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。</p>
 <h3>比较</h3>
 <table>
@@ -425,30 +1278,148 @@
 </blockquote>
 <p>如果你使用 VirtualBox 4.3.14+ 的话，也需要把相关进程排除。via <a href="https://donneryst.com/blog/virtualbox-4-3-12%E4%BB%A5%E5%90%8E%E7%9A%84e_fail-0x80004005%E9%97%AE%E9%A2%98.html" target="_blank" rel="external">VirtualBox 4.3.12以后的E_FAIL (0x80004005)问题</a></p>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;介绍&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://msys2.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MSYS2&lt;/a&gt; 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwi
-    
-    </summary>
-    
-      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="msys2" scheme="https://gythialy.github.io/tags/msys2/"/>
     
-  </entry>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>修正 SourceTree 无法识别 msys2 中 Git</title>
-    <link href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/"/>
-    <id>https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/</id>
-    <published>2016-03-23T01:33:32.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h3>问题</h3>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/fix-sourcetree-can-not-find-msys2-git/" itemprop="url">修正 SourceTree 无法识别 msys2 中 Git</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-23T09:33:32+08:00">
+                2016-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3>问题</h3>
 <p>SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。</p>
 <h3>解决方案</h3>
 <p>其实原因很简单，因为 SourceTree 要求 Git 所在目录必须同时有 bin 和 cmd 文件夹。听起来很2是吧？知道了原因要解决起来就很简单。</p>
@@ -465,32 +1436,148 @@
 </li>
 </ol>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3&gt;问题&lt;/h3&gt;
-&lt;p&gt;SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅
-    
-    </summary>
-    
-      <category term="Notes" scheme="https://gythialy.github.io/categories/Notes/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="SourceTree" scheme="https://gythialy.github.io/tags/SourceTree/"/>
     
-      <category term="Git" scheme="https://gythialy.github.io/tags/Git/"/>
+
     
-  </entry>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>eDNA C API 介绍</title>
-    <link href="https://gythialy.github.io/edna-api-demo-by-c/"/>
-    <id>https://gythialy.github.io/edna-api-demo-by-c/</id>
-    <published>2016-03-22T01:30:11.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h2>介绍</h2>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/edna-api-demo-by-c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/edna-api-demo-by-c/" itemprop="url">eDNA C API 介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-22T09:30:11+08:00">
+                2016-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
 <p>eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via <a href="http://www.ybsoftware.com.cn/products.asp" target="_blank" rel="external">印步</a></p>
 <h2>API</h2>
 <p>eDNA 分为两种：</p>
@@ -514,34 +1601,148 @@
 </blockquote>
 <p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int16_t</span> getsnapshot()</div><div class="line">&#123;</div><div class="line">    <span class="keyword">edna_tag_t</span>  *tag;</div><div class="line">    <span class="keyword">int32_t</span>     index;</div><div class="line">    <span class="keyword">int32_t</span>     *buff_size;</div><div class="line">    <span class="keyword">int16_t</span>     counter;</div><div class="line">    <span class="keyword">int32_t</span>		ret;</div><div class="line">    <span class="keyword">int8_t</span>      log_tag[MAX_BUFF_SIZE];</div><div class="line">    <span class="keyword">int8_t</span>	szValue[EDNA_LEN];</div><div class="line">    <span class="keyword">int32_t</span> ptTime;</div><div class="line"></div><div class="line">    <span class="keyword">int8_t</span> szmS[EDNA_LEN];</div><div class="line">    <span class="keyword">uint16_t</span> pusStatus;</div><div class="line">    <span class="keyword">int8_t</span> szStatus[EDNA_LEN];</div><div class="line">    <span class="keyword">int8_t</span> szDesc[EDNA_DESC_LEN];</div><div class="line">    <span class="keyword">int8_t</span> szUnits[EDNA_LEN];</div><div class="line"></div><div class="line">    <span class="built_in">strncpy</span>(log_tag, <span class="string">"getsnapshot"</span>, MAX_BUFF_SIZE);</div><div class="line">    <span class="comment">// init parameters</span></div><div class="line">    <span class="comment">// ....</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// other stuff</span></div><div class="line">        <span class="comment">// ...</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> (tag-&gt;flag == E_EMPTY_TAG) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">        <span class="comment">// tests the string, validating it as a fully qualified eDNA point name</span></div><div class="line">        <span class="keyword">if</span> (DNAGoodPointFormat(tag-&gt;name) == <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            tag-&gt;flag = INVALID;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// check point name is exist</span></div><div class="line">        <span class="keyword">if</span> (!DoesIdExist(tag-&gt;name))</div><div class="line">        &#123;</div><div class="line">            tag-&gt;flag = NOT_EXIST;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// retrieves the value, time and status in their raw formats</span></div><div class="line">        ret = DNAGetRTFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</div><div class="line">                          EDNA_LEN, &amp;pusStatus, szStatus, EDNA_LEN, szDesc,</div><div class="line">                          EDNA_DESC_LEN, szUnits, EDNA_LEN);</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></div><div class="line"></div><div class="line">        ret = DNAGetHSFull(tag-&gt;name, &amp;tag-&gt;value, szValue, EDNA_LEN, &amp;ptTime, tag-&gt;ts,</div><div class="line">                           EDNA_LEN, &amp;tag-&gt;ms, szmS, EDNA_LEN, &amp;pusStatus, szStatus,</div><div class="line">                           EDNA_LEN, szDesc, EDNA_DESC_LEN, szUnits, EDNA_LEN);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"></div><div class="line">        tag-&gt;flag = (ret == <span class="number">0</span>) ? NORMAL : OFFLINE;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> TRUE;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;介绍&lt;/h2&gt;
-&lt;p&gt;eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使
-    
-    </summary>
-    
-      <category term="Programming" scheme="https://gythialy.github.io/categories/Programming/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="C" scheme="https://gythialy.github.io/tags/C/"/>
     
-      <category term="eDNA" scheme="https://gythialy.github.io/tags/eDNA/"/>
+
     
-      <category term="rtdb" scheme="https://gythialy.github.io/tags/rtdb/"/>
+
     
-  </entry>
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-  <entry>
-    <title>OSI PI C API 介绍</title>
-    <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
-    <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
-    <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2017-08-04T09:44:37.015Z</updated>
+  
+  
+  </article>
+
+
     
-    <content type="html"><![CDATA[<h2>介绍</h2>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/osi-pi-api-demo-by-c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/osi-pi-api-demo-by-c/" itemprop="url">OSI PI C API 介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-21T13:26:01+08:00">
+                2016-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>介绍</h2>
 <p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a>或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>
 <h2>登录数据库</h2>
 <p>要访问数据库，有两种方法，一种是通过用户名和密码登录，另一种是通过 PI Trust。官方是不建议使用密码登录的，所以在开发应用的时候，尽可能使用 PI Trust，但是国内的情况比较混乱，很多生产环境都还是使用第一次方式。</p>
@@ -584,24 +1785,664 @@
 </blockquote>
 <p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int16_t</span> getsnapshot()</div><div class="line">&#123;</div><div class="line">    <span class="comment">// init parameters etc.</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; ptbl_data-&gt;point_size; index++, tag++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// check server connection etc</span></div><div class="line">        <span class="comment">// ...</span></div><div class="line">        tag-&gt;rval = <span class="number">0</span>;</div><div class="line">        tag-&gt;istat = <span class="number">0</span>;</div><div class="line"></div><div class="line">        result = pisn_getsnapshot(tag-&gt;point_id, &amp;tag-&gt;rval, &amp;tag-&gt;istat, &amp;tag-&gt;time);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (result == <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            ftrace_log(log_tag, <span class="string">"%s[0x%p] pisn_getsnapshot, rval=%f,ival=%d,time=%d"</span>, tag-&gt;name, tag, tag-&gt;rval, tag-&gt;istat, tag-&gt;time);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">-1</span>)</div><div class="line">        &#123;</div><div class="line">            tag-&gt;stat = NOT_EXIST;</div><div class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot not exist, result=%d."</span>, tag-&gt;name, result);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            tag-&gt;stat = INVALID;</div><div class="line">            ftrace_log(log_tag, <span class="string">"%s pisn_getsnapshot failed, result=%d."</span>, tag-&gt;name, result);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> TRUE;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>---EOF---</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;介绍&lt;/h2&gt;
-&lt;p&gt;PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 
-    
-    </summary>
-    
-      <category term="Programming" scheme="https://gythialy.github.io/categories/Programming/"/>
+
+          
+        
+      
+    </div>
     
     
-      <category term="C" scheme="https://gythialy.github.io/tags/C/"/>
     
-      <category term="rtdb" scheme="https://gythialy.github.io/tags/rtdb/"/>
+
     
-      <category term="PI" scheme="https://gythialy.github.io/tags/PI/"/>
+
     
-  </entry>
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
   
-</feed>
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="gythialy" />
+          <p class="site-author-name" itemprop="name">gythialy</p>
+           
+              <p class="site-description motion-element" itemprop="description">这里只是我的后花园，随性而写</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('10');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

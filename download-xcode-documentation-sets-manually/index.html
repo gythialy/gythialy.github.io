@@ -1,4 +1,120 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="OS X,XCode,"><link rel="alternate" href="/atom.xml" title="iKoo's Dirty life" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2"><meta name="description" content="缘起 由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。 文档 手动下载文档可以通过以下几步解决，via stackoverflow。   通过这个地址找到需要下载的文件的路径 12345"><meta name="keywords" content="OS X,XCode"><meta property="og:type" content="article"><meta property="og:title" content="手动下载 XCode 文档和模拟器"><meta property="og:url" content="https://gythialy.github.io/download-xcode-documentation-sets-manually/index.html"><meta property="og:site_name" content="iKoo&#39;s Dirty life"><meta property="og:description" content="缘起 由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。 文档 手动下载文档可以通过以下几步解决，via stackoverflow。   通过这个地址找到需要下载的文件的路径 12345"><meta property="og:locale" content="en"><meta property="og:updated_time" content="2017-08-07T16:17:04.202Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="手动下载 XCode 文档和模拟器"><meta name="twitter:description" content="缘起 由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。 文档 手动下载文档可以通过以下几步解决，via stackoverflow。   通过这个地址找到需要下载的文件的路径 12345"><script type="text/javascript" id="hexo.configurations">var NexT = window.NexT || {};
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OS X,XCode," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="iKoo's Dirty life" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="缘起 由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。 文档 手动下载文档可以通过以下几步解决，via stackoverflow。   通过这个地址找到需要下载的文件的路径 12345">
+<meta name="keywords" content="OS X,XCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手动下载 XCode 文档和模拟器">
+<meta property="og:url" content="https://gythialy.github.io/download-xcode-documentation-sets-manually/index.html">
+<meta property="og:site_name" content="iKoo&#39;s Dirty life">
+<meta property="og:description" content="缘起 由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。 文档 手动下载文档可以通过以下几步解决，via stackoverflow。   通过这个地址找到需要下载的文件的路径 12345">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-07T16:21:56.812Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手动下载 XCode 文档和模拟器">
+<meta name="twitter:description" content="缘起 由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。 文档 手动下载文档可以通过以下几步解决，via stackoverflow。   通过这个地址找到需要下载的文件的路径 12345">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
@@ -17,14 +133,705 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
-  };</script><link rel="canonical" href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"><title>手动下载 XCode 文档和模拟器 | iKoo's Dirty life</title><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"/>
+
+
+
+
+
+  <title>手动下载 XCode 文档和模拟器 | iKoo's Dirty life</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-75661536-1', 'auto');
-  ga('send', 'pageview');</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="en"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">iKoo's Dirty life</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>Tags</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>Search</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="gythialy"><meta itemprop="description" content=""><meta itemprop="image" content="/uploads/avatar.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="iKoo's Dirty life"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">手动下载 XCode 文档和模拟器</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">Posted on</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-26T15:04:45+00:00">2016-03-26 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">In</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><h2>缘起</h2><p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p><h2>文档</h2><p>手动下载文档可以通过以下几步解决，via <a href="https://stackoverflow.com/questions/1131119/download-xcode-documentation-sets-manually" target="_blank" rel="external">stackoverflow</a>。</p><ol><li><p>通过这个<a href="https://developer.apple.com/library/downloads/docset-index.dvtdownloadableindex" target="_blank" rel="external">地址</a>找到需要下载的文件的路径</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- START OS X doc set --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>fileSize<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">integer</span>&gt;</span>931959772<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.apple.adc.documentation.OSX<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>name<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>OS X 10.11.4 Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>source<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>userInfo<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>ActivationPredicate<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$XCODE_VERSION &amp;gt;= '7.3'<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Category<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>IconType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>IDEDownloadablesTypeDocSet<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstallPrefix<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$(HOME)/Library/Developer/Shared/Documentation/DocSets<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstalledIfAllReceiptsArePresentOrNewer<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.pkg.10.9.OSXDocset<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">string</span>&gt;</span>10.9.0.0.1.1458364023<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>RequiresADCAuthentication<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Summary<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>My description of content<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>version<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>1014.5<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- END OS X doc set --&gt;</span></div></pre></td></tr></table></figure><p></p><p>下载 <code>source</code> 节点对应的内容，在这个示例中也就是<a href="https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg" target="_blank" rel="external">这个</a>，可以通过第三方的下载工具，比如 asia2 下载。</p></li><li><p>按照 <code>identifier string</code> + <code>-</code> + <code>version string</code> + <code>.dmg</code> 的格式重命名文件，在这个示例中也就是 <code>com.apple.adc.documentation.OSX-1014.5.dmg</code></p></li><li><p>把重命名后的文件放到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads/</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个， 如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</p></li><li><p>删除 <code>~/Library/Developer/Shared/Documentation/DocSets</code> 中对应的 docset</p></li><li><p>在 XCode 中 Preferences/Download 中下载对应的文档，XCode 会校验刚才复制过去的文件进行安装</p></li></ol><h2>模拟器</h2><ol><li>打开 XCode，Preferences/Download 中下载模拟器</li><li>打开 Console.app，清空日志</li><li>在 XCode 中取消下载</li><li>在 Console.app 中会看到取消的日志，其他包含完整的下载地址</li><li>通过 asia2 等第三方工具下载刚才地址中的文件</li><li>把下载好的文件复制到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个， 如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</li><li>在 XCode 中安装刚才下载的模拟器</li></ol><blockquote><p>如果需要删除不需要的模拟器，可以在 <code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs</code> 中直接删除</p></blockquote><p>---EOF---</p></div><footer class="post-footer"><div class="post-tags"><a href="/tags/OS-X/" rel="tag"># OS X</a> <a href="/tags/XCode/" rel="tag"># XCode</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/msys2-config/" rel="next" title="MSYS2 配置"><i class="fa fa-chevron-left"></i> MSYS2 配置</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/jetty-log4j-conf/" rel="prev" title="Jetty 配置 Log4J">Jetty 配置 Log4J <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">Table of Contents</li><li class="sidebar-nav-overview" data-target="site-overview">Overview</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="gythialy"><p class="site-author-name" itemprop="name">gythialy</p><p class="site-description motion-element" itemprop="description">这里只是我的后花园，随性而写</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives"><span class="site-state-item-count">9</span> <span class="site-state-item-name">posts</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">2</span> <span class="site-state-item-name">categories</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">15</span> <span class="site-state-item-name">tags</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/gythialy" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub </a></span><span class="links-of-author-item"><a href="https://twitter.com/gythialy" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a></span></div><div class="cc-license motion-element" itemprop="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a></div></section><!--noindex--><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">模拟器</span></a></li></ol></div></div></section><!--/noindex--></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2014 - <span itemprop="copyrightYear">2017</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">gythialy</span></div><div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div><div class="theme-info">Theme - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iKoo's Dirty life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/download-xcode-documentation-sets-manually/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iKoo's Dirty life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">手动下载 XCode 文档和模拟器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-26T15:04:45+00:00">
+                2016-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>缘起</h2>
+<p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p>
+<h2>文档</h2>
+<p>手动下载文档可以通过以下几步解决，via <a href="https://stackoverflow.com/questions/1131119/download-xcode-documentation-sets-manually" target="_blank" rel="external">stackoverflow</a>。</p>
+<ol>
+<li>
+<p>通过这个<a href="https://developer.apple.com/library/downloads/docset-index.dvtdownloadableindex" target="_blank" rel="external">地址</a>找到需要下载的文件的路径
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- START OS X doc set --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>fileSize<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">integer</span>&gt;</span>931959772<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.apple.adc.documentation.OSX<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>name<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>OS X 10.11.4 Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>source<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>userInfo<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>ActivationPredicate<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$XCODE_VERSION &amp;gt;= '7.3'<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Category<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>IconType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>IDEDownloadablesTypeDocSet<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstallPrefix<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$(HOME)/Library/Developer/Shared/Documentation/DocSets<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstalledIfAllReceiptsArePresentOrNewer<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.pkg.10.9.OSXDocset<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">string</span>&gt;</span>10.9.0.0.1.1458364023<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>RequiresADCAuthentication<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Summary<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>My description of content<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>version<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>1014.5<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- END OS X doc set --&gt;</span></div></pre></td></tr></table></figure></p>
+<p>下载 <code>source</code> 节点对应的内容，在这个示例中也就是<a href="https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg" target="_blank" rel="external">这个</a>，可以通过第三方的下载工具，比如 asia2 下载。</p>
+</li>
+<li>
+<p>按照 <code>identifier string</code> + <code>-</code> + <code>version string</code> + <code>.dmg</code> 的格式重命名文件，在这个示例中也就是 <code>com.apple.adc.documentation.OSX-1014.5.dmg</code></p>
+</li>
+<li>
+<p>把重命名后的文件放到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads/</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个，
+如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</p>
+</li>
+<li>
+<p>删除 <code>~/Library/Developer/Shared/Documentation/DocSets</code> 中对应的 docset</p>
+</li>
+<li>
+<p>在 XCode 中 Preferences/Download 中下载对应的文档，XCode 会校验刚才复制过去的文件进行安装</p>
+</li>
+</ol>
+<h2>模拟器</h2>
+<ol>
+<li>打开 XCode，Preferences/Download 中下载模拟器</li>
+<li>打开 Console.app，清空日志</li>
+<li>在 XCode 中取消下载</li>
+<li>在 Console.app 中会看到取消的日志，其他包含完整的下载地址</li>
+<li>通过 asia2 等第三方工具下载刚才地址中的文件</li>
+<li>把下载好的文件复制到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个，
+如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</li>
+<li>在 XCode 中安装刚才下载的模拟器</li>
+</ol>
+<blockquote>
+<p>如果需要删除不需要的模拟器，可以在 <code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs</code> 中直接删除</p>
+</blockquote>
+<p>---EOF---</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OS-X/" rel="tag"># OS X</a>
+          
+            <a href="/tags/XCode/" rel="tag"># XCode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/msys2-config/" rel="next" title="MSYS2 配置">
+                <i class="fa fa-chevron-left"></i> MSYS2 配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jetty-log4j-conf/" rel="prev" title="Jetty 配置 Log4J">
+                Jetty 配置 Log4J <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="gythialy" />
+          <p class="site-author-name" itemprop="name">gythialy</p>
+           
+              <p class="site-description motion-element" itemprop="description">这里只是我的后花园，随性而写</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gythialy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/gythialy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">模拟器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
-  }</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script><script type="text/javascript">// Popup Window;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
     var isfetched = false;
     var isXml = true;
     // Search DB path;
@@ -337,4 +1144,24 @@
       if (shouldDismissSearchPopup) {
         onPopupClose();
       }
-    });</script></body></html>
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

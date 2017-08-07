@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gythialy.github.io/"/>
-  <updated>2017-08-07T09:34:02.526Z</updated>
+  <updated>2017-08-07T09:42:38.914Z</updated>
   <id>https://gythialy.github.io/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="https://gythialy.github.io/jna/"/>
     <id>https://gythialy.github.io/jna/</id>
     <published>2017-08-07T09:31:21.000Z</published>
-    <updated>2017-08-07T09:34:02.526Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h3>缘起</h3>
-<p>项目中调用了第三方一个 Matlab 实现的数据清洗和机组状态评价的算法，但是对方不会除 Matlab 外的其他语言，最好就用 Matlab 生成了一个 dll/lib 文件。由于提供的接口质量真心不好，而且对方也无力修改，最终只好在其基础上用C++重新包装一下。在给我们的 Client 调用时，需要把从多数据源查询数据的细节封装掉，最终就形成了Java Client-&gt; Java Interface-&gt;C++ Interface-&gt;Matlab/C++ Interface 这样一个诡异的调用链。</p>
-<p>只是 Java 单向调用 C++ 接口，故通过 <a href="https://github.com/java-native-access/jna" title="Java Native Access" target="_blank" rel="external">JNA</a> 实现。主要设计到 JNA 的结构体封装，指针声明及取值，结构体指针定义及取值。</p>
+<p>项目中调用了第三方一个 Matlab 实现的数据清洗和机组状态评价的算法，但是对方不会除 Matlab 外的其他语言，最后只用 Matlab 生成了一个 dll/lib 文件。由于对方提供的接口质量真心不好，而且对方也无力修改。最终方案只好由我方在其基础上用 C++ 重新包装一下。在给我方 Client 调用时，需要把从多数据源查询数据的细节封装掉，最终就形成了Java Client-&gt; Java Interface-&gt;C++ Interface-&gt;Matlab/C++ Interface(第三方) 这样一个诡异的调用链。</p>
+<p>因只是 Java 单向调用 C++ 接口，故通过 <a href="https://github.com/java-native-access/jna" title="Java Native Access" target="_blank" rel="external">JNA</a> 实现。主要设计到 JNA 的结构体封装，指针声明及取值，结构体指针定义及取值。</p>
 <h3>实现</h3>
-<p>C++的封装接口逻辑非常简单，根据业务提供数据清洗和机组评价的两个接口。由于Matlab 导出的dll效率是真心差，不能每次加载，故提供 <code>init/terminator</code> 实现按需加载及停用。</p>
+<p>C++ 的封装接口逻辑非常简单，根据业务提供数据清洗和机组评价的两个接口。</p>
+<p>由于Matlab 导出的 dll 效率是真心差，尤其时加载的时候，各种抛异常，每次加载dll大约需耗时20~30s。所以不能每次加载，故提供 <code>init/terminator</code> 实现按需加载及停用。</p>
 <h4>C/C++ 头文件定义</h4>
 <p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __CALCULATOR_API_H__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __CALCULATOR_API_H__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdint&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> WIN32</span></div><div class="line"><span class="meta">#  <span class="meta-keyword">define</span> EXPORT_API __declspec(dllexport)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line"><span class="meta">#  <span class="meta-keyword">define</span> EXPORT_API </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="comment">// Random number to avoid errno conflicts</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CALCULATOR_ENOBASE 112345678</span></div><div class="line"></div><div class="line"><span class="comment">/* Calculator exceptions */</span></div><div class="line"><span class="keyword">enum</span></div><div class="line">&#123;</div><div class="line">	CALCULATOR_EXCEPTION_ILLEGAL_FUNCTION = <span class="number">0x01</span>,</div><div class="line">	CALCULATOR_EXCEPTION_ILLEGAL_PARA</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EMBXILFUN  (CALCULATOR_ENOBASE + CALCULATOR_EXCEPTION_ILLEGAL_FUNCTION)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EMBXILPARA  (CALCULATOR_ENOBASE + CALCULATOR_EXCEPTION_ILLEGAL_PARA)</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span></div><div class="line">&#123;</div><div class="line">	H2 = <span class="number">0X01</span>,</div><div class="line">	CH4,</div><div class="line">	C2H2,</div><div class="line">	C2H4,</div><div class="line">	TOTAL_HYDROCARBON,<span class="comment">//总烃</span></div><div class="line">	CO,</div><div class="line">	CO2</div><div class="line">&#125; OilChromatographyType;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 数据清洗结果</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sImproveResult</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">	<span class="keyword">int32_t</span> valid; <span class="comment">// 有效数据个数</span></div><div class="line">	<span class="keyword">float</span> validPercent; <span class="comment">// 数据有效值占比</span></div><div class="line">	<span class="keyword">float</span>* abnormalData; <span class="comment">// 异常数据</span></div><div class="line">	<span class="keyword">int32_t</span> abnormal_size; <span class="comment">// 异常数据个数</span></div><div class="line">	<span class="keyword">float</span>* optimizeData; <span class="comment">// 优化后的数据</span></div><div class="line">	<span class="keyword">int32_t</span> optimize_size; <span class="comment">// 优化数据个数</span></div><div class="line">&#125; sImproveResult, *ImproveResult;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 变压器输入参数</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sTransformer</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">	<span class="keyword">float</span> h2Value;</div><div class="line">	<span class="keyword">float</span> totalHydrocarbon; <span class="comment">// 总烃</span></div><div class="line">	<span class="keyword">float</span> c2h2Value;</div><div class="line">	<span class="keyword">float</span> coValue;</div><div class="line">	<span class="keyword">float</span> co2Value;</div><div class="line">	<span class="keyword">float</span> dielectricLoss; <span class="comment">// 介损</span></div><div class="line">	<span class="keyword">float</span> dcResistance; <span class="comment">//直阻</span></div><div class="line">	<span class="keyword">float</span> absorptance; <span class="comment">//吸收比</span></div><div class="line">	<span class="keyword">float</span> polarizeFactor; <span class="comment">// 极化系数</span></div><div class="line">	<span class="keyword">float</span> electricCapacity; <span class="comment">// 电容量</span></div><div class="line">	<span class="keyword">float</span> moisture; <span class="comment">// 微水</span></div><div class="line">	<span class="keyword">float</span> breakdownVoltage; <span class="comment">// 击穿电压</span></div><div class="line">	<span class="keyword">float</span> oilDielectricLoss; <span class="comment">// 油介损</span></div><div class="line">	<span class="keyword">float</span> interfacialTension; <span class="comment">//界面张力</span></div><div class="line">	<span class="keyword">float</span> electricResistivity; <span class="comment">//电阻率</span></div><div class="line">	<span class="keyword">int16_t</span> runningLife; <span class="comment">// 运行年限</span></div><div class="line">	<span class="keyword">float</span> ambientTemperature; <span class="comment">// 环境温度</span></div><div class="line">	<span class="keyword">float</span> jointTemperature; <span class="comment">//接头温度</span></div><div class="line">	<span class="keyword">float</span> oilTankTemperature; <span class="comment">// 油箱温度</span></div><div class="line">&#125; sTransformer, *Transformer;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 因素状态隶属度结果</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sFusionResult</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">	<span class="keyword">float</span> *h1; <span class="comment">// 油色谱</span></div><div class="line">	<span class="keyword">int16_t</span> h1_size;</div><div class="line">	<span class="keyword">float</span> *h2; <span class="comment">// 电气试验</span></div><div class="line">	<span class="keyword">int16_t</span> h2_size;</div><div class="line">	<span class="keyword">float</span> *h3; <span class="comment">// 绝缘油</span></div><div class="line">	<span class="keyword">int16_t</span> h3_size;</div><div class="line">	<span class="keyword">float</span> *h4; <span class="comment">// 其余项</span></div><div class="line">	<span class="keyword">int16_t</span> h4_size;</div><div class="line">	<span class="keyword">float</span> qz1; <span class="comment">// 油色谱权重</span></div><div class="line">	<span class="keyword">float</span> qz2; <span class="comment">// 电气试验权重</span></div><div class="line">	<span class="keyword">float</span> qz3; <span class="comment">// 绝缘油权重</span></div><div class="line">	<span class="keyword">float</span> qz4; <span class="comment">// 其余项权重</span></div><div class="line">	<span class="keyword">float</span> m; <span class="comment">// 证据融合参数</span></div><div class="line">	<span class="keyword">float</span> n; <span class="comment">// 证据融合参数</span></div><div class="line">&#125; sFusionResult, *FusionResult;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 最终评价结果</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sFactorResult</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">	<span class="keyword">float</span>* state;</div><div class="line">	<span class="keyword">int16_t</span> state_size;</div><div class="line">	<span class="keyword">int8_t</span>* comment;</div><div class="line">	<span class="keyword">int16_t</span> comment_len;</div><div class="line">&#125; sFactorResult, *FactorResult;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">	<span class="keyword">int64_t</span> time;</div><div class="line">	<span class="keyword">float</span> value;</div><div class="line">&#125; sImproveInput, *ImproveInput;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sReviewResult</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">	Transformer indexScore;</div><div class="line">	<span class="keyword">int16_t</span> indexScore_size;</div><div class="line">	FusionResult indexFusion;</div><div class="line">	FactorResult factorFusion;</div><div class="line">&#125; sReviewResult, *ReviewResult;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span></div><div class="line">&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 数据清洗</span></div><div class="line"><span class="comment">	 * @param  original[in]     原始数据起始地址</span></div><div class="line"><span class="comment">	 * @param  originalLen[in] 原始数据长度</span></div><div class="line"><span class="comment">	 * @param  result [out]      数据清洗结果</span></div><div class="line"><span class="comment">	 * @return 0:成功;非0：失败</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function">EXPORT_API int16_t <span class="title">improve_data</span><span class="params">(<span class="keyword">const</span> ImproveInput original, <span class="keyword">const</span> <span class="keyword">int32_t</span> originalLen, ImproveResult result)</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 状态评价计算</span></div><div class="line"><span class="comment">	 * @param  transformer[in]  主变参数</span></div><div class="line"><span class="comment">	 * @param  result[out]     评价结果</span></div><div class="line"><span class="comment">	 * @return  0:成功;非0：失败</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function">EXPORT_API int16_t <span class="title">review_transformer</span><span class="params">(<span class="keyword">const</span> Transformer transformer, ReviewResult result)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 初始化 dll</span></div><div class="line"><span class="comment">	 * @return [description]</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function">EXPORT_API int16_t <span class="title">init</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 根据 err num 获取异常信息描述</span></div><div class="line"><span class="comment">	 * @param  errnum[in] errnum</span></div><div class="line"><span class="comment">	 * @return  errnum 对应的异常信息描述</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function">EXPORT_API <span class="keyword">const</span> int8_t* <span class="title">calculator_strerror</span><span class="params">(<span class="keyword">int</span> errnum)</span></span>;</div><div class="line">  </div><div class="line">  	<span class="comment">/**</span></div><div class="line"><span class="comment">  	* 停止计算模块</span></div><div class="line"><span class="comment">  	**/</span></div><div class="line">  	<span class="function">EXPORT_API <span class="keyword">void</span> <span class="title">terminator</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/*__CALCULATOR_API_H__*/</span></span></div></pre></td></tr></table></figure></p>
 <h4>Java 接口定义</h4>
@@ -113,24 +114,24 @@
 </ul>
 </li>
 </ul>
-<p><code>---EOF---</code></p>
+<p>---EOF---</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;h3&gt;缘起&lt;/h3&gt;
-&lt;p&gt;项目中调用了第三方一个 Matlab 实现的数据清洗和机组状态评价的算法，但是对方不会除 Matlab 外的其他语言，最好就用 Matlab 生成了一个 dll/lib 文件。由于提供的接口质量真心不好，而且对方也无力修改，最终只好在其基础上用C++
+&lt;p&gt;项目中调用了第三方一个 Matlab 实现的数据清洗和机组状态评价的算法，但是对方不会除 Matlab 外的其他语言，最后只用 Matlab 生成了一个 dll/lib 文件。由于对方提供的接口质量真心不好，而且对方也无力修改。最终方案只好由我方在其
     
     </summary>
     
       <category term="Programming" scheme="https://gythialy.github.io/categories/Programming/"/>
     
     
+      <category term="C" scheme="https://gythialy.github.io/tags/C/"/>
+    
       <category term="Java" scheme="https://gythialy.github.io/tags/Java/"/>
     
       <category term="JNA" scheme="https://gythialy.github.io/tags/JNA/"/>
-    
-      <category term="C" scheme="https://gythialy.github.io/tags/C/"/>
     
   </entry>
   
@@ -139,7 +140,7 @@
     <link href="https://gythialy.github.io/Howto-import-export-gpg-key/"/>
     <id>https://gythialy.github.io/Howto-import-export-gpg-key/</id>
     <published>2017-03-22T07:26:05.000Z</published>
-    <updated>2017-08-07T09:34:02.522Z</updated>
+    <updated>2017-08-07T09:42:38.910Z</updated>
     
     <content type="html"><![CDATA[<p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
 <h2>列出本地的所有 Key</h2>
@@ -175,7 +176,7 @@
     <link href="https://gythialy.github.io/babun-config/"/>
     <id>https://gythialy.github.io/babun-config/</id>
     <published>2016-05-04T01:09:36.000Z</published>
-    <updated>2017-08-07T09:34:02.522Z</updated>
+    <updated>2017-08-07T09:42:38.910Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
@@ -274,7 +275,7 @@
     <link href="https://gythialy.github.io/jetty-log4j-conf/"/>
     <id>https://gythialy.github.io/jetty-log4j-conf/</id>
     <published>2016-03-28T05:15:48.000Z</published>
-    <updated>2017-08-07T09:34:02.522Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h2>缘起</h2>
 <p>我们一台很老的装置中用了 Jetty v7.1.6，由于种种原因，不能升级新版本。某次由于一个 bug 导致一直写日志，最后把硬盘给写爆了，所以用 Log4J 记录日志，方便控制日志大小等。</p>
@@ -348,7 +349,7 @@
     <link href="https://gythialy.github.io/download-xcode-documentation-sets-manually/"/>
     <id>https://gythialy.github.io/download-xcode-documentation-sets-manually/</id>
     <published>2016-03-26T15:04:45.000Z</published>
-    <updated>2017-08-07T09:34:02.522Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h2>缘起</h2>
 <p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p>
@@ -412,7 +413,7 @@
     <link href="https://gythialy.github.io/msys2-config/"/>
     <id>https://gythialy.github.io/msys2-config/</id>
     <published>2016-03-24T02:25:10.000Z</published>
-    <updated>2017-08-07T09:34:02.526Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p><a href="https://msys2.github.io/" target="_blank" rel="external">MSYS2</a> 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。</p>
@@ -565,7 +566,7 @@
     <link href="https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/"/>
     <id>https://gythialy.github.io/fix-sourcetree-can-not-find-msys2-git/</id>
     <published>2016-03-23T01:33:32.000Z</published>
-    <updated>2017-08-07T09:34:02.522Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h3>问题</h3>
 <p>SourceTree 真是一个让人又爱又恨的产品，小问题不断，但是在免费的 Git 的 GUI 里面还算优秀的。因为 TortoiseGit 对 msys2 支持不好，我又回到 SourceTree 阵营了, SourceTree 为主， CLI 辅助。 因为 SourceTree 不能识别 msys2 的 Git，虽然其自带一个内嵌的 Git，这样就导致了我需要配置两份全局的 gitconfig。</p>
@@ -607,7 +608,7 @@
     <link href="https://gythialy.github.io/edna-api-demo-by-c/"/>
     <id>https://gythialy.github.io/edna-api-demo-by-c/</id>
     <published>2016-03-22T01:30:11.000Z</published>
-    <updated>2017-08-07T09:34:02.522Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p>eDNA是一个领导性的实时/历史数据系统。eDNA采集、存储和展示大量的工程和运行信息。eDNA将深入在整个企业范围内的数据采集上来，以极高的无损压缩方式存储起来，使得以时间序列频繁变化的数据能以原有的数据精度和时间精度在线保存多达几十年。eDNA使基于运行状况的及时和准确的决策成为可能，极大地降低运行成本。eDNA具有完全分布的体系结构，让正确的人在正确的时间做出正确的决定。eDNA是一套实时的运行管理解决方案，它提供了对你的生产运行中无限制的观察和分析，使得你能够根据丰富的信息迅速地做出决策，你的一线生产能力将会大大提高。via <a href="http://www.ybsoftware.com.cn/products.asp" target="_blank" rel="external">印步</a></p>
@@ -647,9 +648,9 @@
     
       <category term="C" scheme="https://gythialy.github.io/tags/C/"/>
     
-      <category term="rtdb" scheme="https://gythialy.github.io/tags/rtdb/"/>
-    
       <category term="eDNA" scheme="https://gythialy.github.io/tags/eDNA/"/>
+    
+      <category term="rtdb" scheme="https://gythialy.github.io/tags/rtdb/"/>
     
   </entry>
   
@@ -658,7 +659,7 @@
     <link href="https://gythialy.github.io/osi-pi-api-demo-by-c/"/>
     <id>https://gythialy.github.io/osi-pi-api-demo-by-c/</id>
     <published>2016-03-21T05:26:01.000Z</published>
-    <updated>2017-08-07T09:34:02.526Z</updated>
+    <updated>2017-08-07T09:42:38.914Z</updated>
     
     <content type="html"><![CDATA[<h2>介绍</h2>
 <p>PI（Plant Information System）是由美国 OSIsoft 公司开发的一套基于 Client/Server 结构的商品化软件应用平台，是过程工业全厂信息集成的必然选择。作为工厂底层控制网络与上层管理信息系统网络连接的桥梁，PI 在工厂信息集成中扮演着特殊和重要的角色。更详细的介绍，可参考<a href="http://baike.baidu.com/view/1510581.htm" target="_blank" rel="external">百度百科</a>或者<a href="https://www.osisoft.com/software-support/what-is-pi/What_Is_PI.aspx" target="_blank" rel="external">官方网站</a></p>
@@ -717,9 +718,9 @@
     
       <category term="C" scheme="https://gythialy.github.io/tags/C/"/>
     
-      <category term="PI" scheme="https://gythialy.github.io/tags/PI/"/>
-    
       <category term="rtdb" scheme="https://gythialy.github.io/tags/rtdb/"/>
+    
+      <category term="PI" scheme="https://gythialy.github.io/tags/PI/"/>
     
   </entry>
   

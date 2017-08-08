@@ -22,7 +22,9 @@ date: 2017-08-08 13:26:13
 
 ### 配置
 
-- 在 Hexo 的`_config.yml` 中添加 Hexo 编译好后文件的git地址，如果需要同时提交到多个不同地址，可以添加多个。
+- 配置 Hexo
+
+  在 Hexo 的`_config.yml` 中添加 Hexo 编译好后文件的git地址，如果需要同时提交到多个不同地址，可以添加多个。
 
   ```yaml
   # Deployment
@@ -36,7 +38,9 @@ date: 2017-08-08 13:26:13
   ```
   > 注：`https://__GITHUB_TOKEN__@github.com/{user_name}/{git_repo}`  示例为 `https://__GITHUB_TOKEN__@github.com/gythialy/gythialy.github.io.git`
 
-- 在 Hexo 根目录添加 `.travis.yml`，内容如下：
+- 配置 travis 
+
+  在 Hexo 根目录添加 `.travis.yml`，内容如下：
 
   ```yaml
   language: node_js
@@ -68,10 +72,14 @@ date: 2017-08-08 13:26:13
   - hexo generate && gulp && hexo deploy
   ```
 
-	> 注： 因为源文件和生成的文件共用了git repo，所以需要指定只编译 源文件分支（`raw`），`master`作为编译好的文件存放路径。
+  > 注： 因为源文件和生成的文件共用了git repo，所以需要指定只编译 源文件分支（`raw`），`master`作为编译好的文件存放路径。
+  >
 
-- 在 [travis][1] 中添加变量` __GITHUB_TOKEN`__值为前面生成的 GitHub  Personal access tokens
+- 配置 travis 环境变量
 
-  [1]: https://travis-ci.org/"Travis CI"
+  在 [travis][1] 网页中添加变量` __GITHUB_TOKEN`__值为前面生成的 GitHub  Personal access tokens
+
+  [1]: https://travis-ci.org/ "Travis CI"
+
 
 ---EOF---

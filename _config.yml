@@ -90,4 +90,3 @@ deploy:
   branch: master
   name: gythialy
   email: gythialy@users.noreply.github.com
-  message: Site updated by travis: {{ now('YYYY-MM-DD HH:mm:ss') }}

@@ -14,7 +14,6 @@ before_install:
 install:
 - npm install
 
-# Notice: Replace 'YOUR NAME' and 'YOUR EMAIL'
 before_script:
 - git config --global user.name 'gythialy'
 - git config --global user.email 'gythialy@users.noreply.github.com'

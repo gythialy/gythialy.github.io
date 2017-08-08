@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gythialy/blog.svg)](https://travis-ci.org/gythialy/blog)
+[![Build Status](https://travis-ci.org/gythialy/gythialy.github.io.svg?branch=raw)](https://travis-ci.org/gythialy/gythialy.github.io)
 
 # LICENSE
 

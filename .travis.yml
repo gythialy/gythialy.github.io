@@ -1,0 +1,29 @@
+language: node_js
+
+node_js:
+- "7"
+
+branches:
+  only:
+  - raw
+
+before_install:
+- npm install -g hexo-cli
+- npm install -g gulp
+
+install:
+- npm install
+
+# Notice: Replace 'YOUR NAME' and 'YOUR EMAIL'
+before_script:
+- git config --global user.name 'gythialy'
+- git config --global user.email 'gythialy@users.noreply.github.com'
+- sed -i "s/__GITHUB_TOKEN__/${__GITHUB_TOKEN__}/" _config.yml
+# use custom theme config
+- git clone --branch v5.1.2 --depth=10  https://github.com/iissnan/hexo-theme-next.git themes/next
+- git checkout -b v5.1.2
+- cp next_config.yml ./themes/next/_config.yml
+
+script:
+- hexo generate && gulp && hexo deploy
+

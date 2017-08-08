@@ -4,8 +4,8 @@
 
 # Site
 title: iKoo's Dirty life
-subtitle:
-description: 这里只是我的后花园，随性而写
+subtitle: 这里只是我的后花园，随性而写
+description: 远在远方的风比远方更遥远...
 author: gythialy
 language: en
 timezone: Asia/Chongqing
@@ -86,7 +86,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://__GITHUB_TOKEN__@github.com/gythialy/gythialy.github.io.git
+  repo: git@github.com:gythialy/gythialy.github.io.git
   branch: master
   name: gythialy
   email: gythialy@users.noreply.github.com

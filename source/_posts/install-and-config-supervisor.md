@@ -1,6 +1,5 @@
 ---
-layout: h
-title: install and config supervisor
+title: 安装配置 Supervisor
 tags:
   - Supervisor
   - Ubuntu
@@ -31,7 +30,7 @@ date: 2017-08-10 15:17:29
 
 > 注：根据不同的系统，可能需要 root 权限执行安装
 
-<!-- more -->
+<escape><!-- more --></escape>
 
 ### 配置
 

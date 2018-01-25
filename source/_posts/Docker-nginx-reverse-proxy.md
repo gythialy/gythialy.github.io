@@ -23,6 +23,7 @@ tags:
 - 其他
 
 > 注：vking.io 是内部域名，可通过 [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) 配置。
+<escape><!-- more --></escape>
 
 ## 方案一
 

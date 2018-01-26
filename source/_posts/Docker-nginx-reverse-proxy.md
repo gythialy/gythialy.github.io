@@ -23,6 +23,7 @@ tags:
 - 其他
 
 > 注：vking.io 是内部域名，可通过 [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) 配置。
+
 <escape><!-- more --></escape>
 
 ## 方案一
@@ -154,19 +155,19 @@ server
     access_log /var/log/nginx/access.log vhost;
 }
 ```
+- gogs 启动命令 
+
+```shell
+docker container run -d --name gogs \
+    --restart always \
+    -p 10022:22  \
+    -p 10080:3000 \
+    --network gogs-net \
+    -v /srv/docker/gogs:/data \
+    gogs/gogs:latest
+```
 
 > 注： `upstream gogs.vking.io` 中的 `server` 中的 `gogs:3000` 分别指容器名称和原始expose 的端口。
->
-> ```shell
-> docker container run -d --name gogs \
->     --restart always \
-> 	-p 10022:22  -p 10080:3000 \
-> 	--network gogs-net \
-> 	-v /srv/docker/gogs:/data \
-> 	gogs/gogs:latest
-> ```
->
-> 
 
 - 启动容器
 

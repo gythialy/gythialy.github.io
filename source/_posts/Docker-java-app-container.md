@@ -7,7 +7,7 @@ tags:
 - Java
 ---
 
-最近一个项目中由于使用了不同的版本的 JDK 导致兼容问题，故把不同的应用通过 Docker 分别包装了一下，为了减少镜像大小，选用基于 [[AlpineLinux](http://alpinelinux.org/)](http://alpinelinux.org/) 的[镜像](https://github.com/anapsix/docker-alpine-java)作为基础镜像。
+最近一个项目中由于使用了不同的版本的 JDK 导致兼容问题，故把不同的应用通过 Docker 分别包装了一下，为了减少镜像大小，选用基于 [[AlpineLinux](http://alpinelinux.org/)] 的[镜像](https://github.com/anapsix/docker-alpine-java)作为基础镜像。
 
 主要完成了下面几件事情：
 

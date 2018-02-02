@@ -54,7 +54,7 @@ keywords: "Hexo,next,gythialy,blog"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: https://feeds.feedburner.com/gythialy
 
 footer:
   # Specify the date when the site was setup.

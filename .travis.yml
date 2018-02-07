@@ -4,23 +4,26 @@ node_js:
 branches:
   only:
   - raw
+addons:
+  ssh_known_hosts:
+  - github.com
+  - gist.github.com
+  - git.coding.net
 before_install:
 - openssl aes-256-cbc -K $encrypted_a7d17a00ff1b_key -iv $encrypted_a7d17a00ff1b_iv
   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
-- cp .travis/ssh_config ~/.ssh/config
 - git config --global user.name 'gythialy'
 - git config --global user.email 'gythialy@users.noreply.github.com'
-- npm install -g hexo-cli
-- npm install -g gulp
+- npm install -g hexo-cli gulp
 install:
 - npm install
 before_script:
-- git clone --branch v6.0.2 --depth=10  https://github.com/theme-next/hexo-theme-next.git
-  themes/next
+- git clone --branch v6.0.2 --depth=10  https://github.com/theme-next/hexo-theme-next.git themes/next
 - git checkout -b v6.0.2
-# - cp next_config.yml ./themes/next/_config.yml
+- git clone https://github.com/theme-next/theme-next-three --depth=1 themes/next/source/lib/three
+- git clone https://github.com/theme-next/theme-next-reading-progress --depth=1 themes/next/source/lib/reading_progress
 script:
 - hexo generate && gulp && hexo deploy

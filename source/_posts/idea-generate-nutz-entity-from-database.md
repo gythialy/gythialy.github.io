@@ -113,7 +113,7 @@ tags:
 > 注：首先需要创建数据库连接，选中要生成的 Entity 的表，右键选择 `Generate nutz POJOs.groovy` 即可。
 
 
-##后记
+## 后记
 
 代码在 IDEA 自带的 `Generate POJOs.groovy` 基础上修改而成，如果需要其他规范的实体类，比如 [JPA](http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html) 只要稍作修改即可。
 

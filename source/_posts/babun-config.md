@@ -1,3 +1,4 @@
+---
 title: babun 配置
 date: 2016-05-04 09:09:36
 categories: Notes
@@ -135,7 +136,7 @@ curl -skS https://bootstrap.pypa.io/get-pip.py | python
 
 ## 总结
 
-总的来说，babun 比 [MSYS2](msys2-config) 慢，包也不多，稳定性/兼容性貌似好一点。
+总的来说，babun 比 {% post_link msys2-config MSYS2 %} 慢，包也不多，稳定性/兼容性貌似好一点。
 
 最终配置效果：
 

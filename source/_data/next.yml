@@ -19,13 +19,17 @@ cache:
 # outside theme directory in root `source/_data`, set
 # `styles: source/_data/styles.styl`
 #custom_file_path:
+  # Default paths: layout/_custom/*
   #head: source/_data/head.swig
   #header: source/_data/header.swig
   #sidebar: source/_data/sidebar.swig
 
-  #styles: source/_data/styles.styl
-  #mixins: source/_data/mixins.styl
+  # Default path: source/css/_variables/custom.styl
   #variables: source/_data/variables.styl
+  # Default path: source/css/_mixins/custom.styl
+  #mixins: source/_data/mixins.styl
+  # Default path: source/css/_custom/custom.styl
+  #styles: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -49,7 +53,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo,next,gythialy,blog"
+keywords: "Hexo,gythialy,blog"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -77,7 +81,7 @@ footer:
     version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
-  #custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
+  #custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -89,7 +93,7 @@ footer:
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, will add site-subtitle to index page, added in main hexo config.
 # subtitle: Subtitle
@@ -275,8 +279,7 @@ symbols_count_time:
 # Declare license on posts
 post_copyright:
   enable: false
-  license: CC BY-NC-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+  license: <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a>
 
 
 # ---------------------------------------------------------------
@@ -302,7 +305,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night eighties
+highlight_theme: normal
 
 # Enable "cheers" for archive page.
 cheers_enabled: true
@@ -371,10 +374,10 @@ font:
 math:
   enable: false
 
-  # Default(false) will load mathjax/katex srcipt EVERY PAGE
-  # If you set to true, you need to add 'mathjax: true' in Front Matter of post
-  # in order to render math equations in post
-  per_page: false
+  # Default(true) will load mathjax/katex script on demand
+  # That is it only render those page who has 'mathjax: true' in Front Matter.
+  # If you set it to false, it will load mathjax/katex srcipt EVERY PAGE.
+  per_page: true
 
   engine: mathjax
   #engine: katex
@@ -454,16 +457,16 @@ valine:
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
 gitment:
-  enable: false
+  enable: true
   mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
   count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
   cleanly: false # Hide 'Powered by ...' on footer, and more
-  language: # Force language, or auto switch by theme
-  github_user: # MUST HAVE, Your Github Username
-  github_repo: # MUST HAVE, The name of the repo you use to store Gitment comments
-  client_id: # MUST HAVE, Github client id for the Gitment
-  client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  language: en-US # Force language, or auto switch by theme
+  github_user: gythialy # MUST HAVE, Your Github Username
+  github_repo: gythialy.github.io # MUST HAVE, The name of the repo you use to store Gitment comments
+  client_id: __GITHUB_GITMENT_CLIENT_ID__ # MUST HAVE, Github client id for the Gitment
+  client_secret: __GITHUB_GITMENT_CLIENT_SECRET__ # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
@@ -514,7 +517,6 @@ needmoreshare2:
 # See: https://www.google.com/webmasters/
 #google_site_verification:
 google_site_verification: rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE
-
 
 # Google Analytics
 #google_analytics:
@@ -654,6 +656,18 @@ local_search:
   trigger: auto
   # show top n results per article, show all results by setting to -1
   top_n_per_article: 10
+  # unescape html strings to the readable one
+  unescape: false
+
+# Bookmark Support
+# Dependencies: https://github.com/theme-next/theme-next-bookmark
+bookmark:
+  enable: false
+  # if auto
+  #   - save the reading position when closing the page
+  #   - or clicking the bookmark-icon
+  # if manual, only save it by clicking the bookmark-icon
+  save: auto
 
 
 # ---------------------------------------------------------------
@@ -725,7 +739,7 @@ motion:
 # Please, choose only any one variant, do not need to install both.
 # For install 2.x: https://github.com/theme-next/theme-next-fancybox
 # For install 3.x: https://github.com/theme-next/theme-next-fancybox3
-fancybox: false
+fancybox: true
 
 # Added switch option for separated repo in 6.0.0.
 # Dependencies: https://github.com/theme-next/theme-next-fastclick
@@ -737,7 +751,7 @@ lazyload: false
 
 # Progress bar in the top during page loading.
 # Dependencies: https://github.com/theme-next/theme-next-pace
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -764,10 +778,8 @@ canvas_nest: false
 # Dependencies: https://github.com/theme-next/theme-next-three
 # three_waves
 three_waves: false
-
 # canvas_lines
 canvas_lines: true
-
 # canvas_sphere
 canvas_sphere: false
 
@@ -880,4 +892,4 @@ js: js
 images: images
 
 # Theme version
-version: 6.0.1
+version: 6.0.3

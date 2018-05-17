@@ -38,6 +38,6 @@ gpg --output mygpgkey_sec.gpg --armor --export-secret-key 375A500B
 ```
 gpg --import ~/mygpgkey_pub.gpg
 gpg --allow-secret-key-import --import ~/mygpgkey_sec.gpg
-````
+```
 
 ---EOF---

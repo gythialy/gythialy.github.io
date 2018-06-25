@@ -33,6 +33,7 @@ sudo ln -sf /mnt/c/User/<windows user name> /home/goreng
 sudo chown -R goreng:goreng /home/goreng
 ```
 > `goreng` 为 WSL 用户名
+<escape><!-- more --></escape>
 
 ## 修改 Ubuntu 源
 

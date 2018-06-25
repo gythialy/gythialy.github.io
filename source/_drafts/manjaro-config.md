@@ -1,4 +1,0 @@
----
-title: manjaro-config
-tags:
----

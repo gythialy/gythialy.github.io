@@ -1,10 +1,12 @@
 ---
 title: 在一台机器上部署多个 GitHub deploy key
 tags:
-- GitHub
-- SSH
+  - GitHub
+  - SSH
 categories: Notes
+date: 2018-07-22 13:05:25
 ---
+
 
 ## 需求
 

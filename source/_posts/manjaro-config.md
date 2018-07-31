@@ -71,18 +71,19 @@ date: 2018-06-25 13:14:45
 sudo pacman -S base-devel
 ```
 
-### `yaourt`
+### `yay`
 
-在之前我们管理软件包都是使用官方为我们提供的 pacman，软件包的来源都是官方。yaourt 实际上也是一个软件包，我们可以把它看成是对 pacman 的包装，它兼容 pacman 的所有操作，最大的不同是我们可以用它方便地安装与管理 AUR 中的包，下面的许多软件包都是在 AUR 库中的，也都是使用 AUR 来安装的。具体使用，可以参考 [这里](https://archlinux.fr/yaourt-en)
+在之前我们管理软件包都是使用官方为我们提供的 pacman，软件包的来源都是官方。yaourt 实际上也是一个软件包，我们可以把它看成是对 pacman 的包装，它兼容 pacman 的所有操作，最大的不同是我们可以用它方便地安装与管理 AUR 中的包，下面的许多软件包都是在 AUR 库中的，也都是使用 AUR 来安装的。具体使用，可以参考 [这里](https://github.com/Jguer/yay)
 
 ```bash
-sudo pacman -Sy yaourt fakeroot
+sudo pacman -Sy yay fakeroot
 ```
+> 注： `yay` 默认使用的是 `pacman` 的配置，所以默认控制台是没有颜色的，需要在 `/etc/pacman.conf` 中的 `Color` 选项开启， via [#123](https://github.com/Jguer/yay/issues/123) 
 
 ### 字体
 
 ```bash
-yaourt noto-fonts noto-fonts-cjk noto-fonts-emoji wqy-microhei wqy-microhei-lite
+yay noto-fonts noto-fonts-cjk noto-fonts-emoji wqy-microhei wqy-microhei-lite
 ```
 文泉驿
 - wqy-microhei - 文泉驿微米黑，无衬线形式字体。
@@ -90,18 +91,20 @@ yaourt noto-fonts noto-fonts-cjk noto-fonts-emoji wqy-microhei wqy-microhei-lite
 
 ### 输入法
 
-目前主流的输入法框架就是 fcitx 和 iBus 两种， iBus bug 稍微多一点。输入法基本上就是 Sogou 和 Rime。 Rime 要配置，我还没找到主题配置的地方，Sogou 基本上就是开箱即用。
+目前主流的输入法框架就是 fcitx 和 iBus 两种， iBus bug 稍微多一点。输入法基本上就是 Sogou 和 Rime。 ~~Rime 要配置，我还没找到主题配置的地方，Sogou 基本上就是开箱即用。~~ 使用了一段时间后，还是把输入法改成了 Rime。
 
 ```bash
-yaourt -S fcitx-im fcitx-configtool fcitx-sogoupinyin
+yay -S ibus ibus-qt ibus-rime
 ```
 在 `~/.xprofile` 添加下面的内容
 
 ```
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -d -x
 ```
+> 注：Gnome 自带 iBus 的管理界面， 所以你只需要安装的输入法引擎, 并在 Region & Language 中的 “Input Sources” 添加进去。在你添加至少两个输入源后，GNOME 会在托盘中显示输入选择图标。
 
 ### zsh
 
@@ -112,13 +115,14 @@ yaourt zsh powerline-fonts powerline
 # 安装 oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+> 注： 也可以使用 [fish](https://fishshell.com/)，但是和 bash 是不兼容的，看个人喜好。
 
-### [Albert](https://albertlauncher.github.io/)
+### [Synapse](https://launchpad.net/synapse-project)
 
-Albert 是类似 macOS Alfred 的应用启动器。
+Synapse 是类似 macOS Alfred 的应用启动器。
 
 ```bash
-yaourt albert muparser
+yaourt synapse
 ```
 
 ### 剪贴板
@@ -127,6 +131,13 @@ yaourt albert muparser
 
 ```bash
 yaourt copyq
+```
+### 微信
+
+目前官方没有出过 Linux 版本，Linux 平台只有 Web 版。用三个选择，wine 安装 Windows 版本，Deepin 已经做过一些修改，但是这个版本的字体显示不是很好。还有两个分别是 `electronic-wechat` 和 `wewechat`，后两者都是基于 Web 版封装的，`wewechat` 更彻底一点，三个都可以通过 AUR 安装。使用体验上来说都没办法和 Windows 、macOS 平台相比，聊胜于无吧。
+
+```
+yay -S electronic-wechat wewechat deepin.com.wechat
 ```
 
 ### 其他
@@ -138,7 +149,7 @@ yaourt copyq
 - etc ...
 
 ```bash
-yaourt electronic-wechat clion gitahead...
+yaourt clion gitahead typora ieaseMusic code ...
 ```
 
 ## 备份

@@ -26,8 +26,8 @@ before_install:
 install:
 - npm install
 before_script:
-- git clone --branch v6.0.3 --depth=10  git@github.com:theme-next/hexo-theme-next.git themes/next
-- git checkout -b v6.0.3
+- git clone --branch v6.4.0 --depth=10  git@github.com:theme-next/hexo-theme-next.git themes/next
+- git checkout -b v6.4.0
 - git clone git@github.com:theme-next/theme-next-three --depth=1 themes/next/source/lib/three
 - git clone git@github.com:theme-next/theme-next-reading-progress --depth=1 themes/next/source/lib/reading_progress
 # - git clone git@github.com:theme-next/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox

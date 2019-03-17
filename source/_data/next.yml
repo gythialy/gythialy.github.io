@@ -590,8 +590,8 @@ gitalk:
   enable: true
   github_id:  gythialy # Github repo owner
   repo: gythialy.github.io # Repository name to store issues.
-  client_id: __GITHUB_GITMENT_CLIENT_ID__ # Github Application Client ID
-  client_secret: __GITHUB_GITMENT_CLIENT_SECRET__ # Github Application Client Secret
+  client_id: __GITHUB_GITALK_CLIENT_ID__ # Github Application Client ID
+  client_secret: __GITHUB_GITALK_CLIENT_SECRET__ # Github Application Client Secret
   admin_user: gythialy # GitHub repo owner and collaborators, only these guys can initialize github issues
   distraction_free_mode: true # Facebook-like distraction free mode
 

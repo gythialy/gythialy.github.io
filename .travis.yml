@@ -36,7 +36,7 @@ before_script:
   - git clone git@github.com:theme-next/theme-next-reading-progress --depth=1 themes/next/source/lib/reading_progress
   # - git clone git@github.com:theme-next/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox
   - git clone git@github.com:theme-next/theme-next-pace --depth=1 themes/next/source/lib/pace
-  - sed -i "s/__GITHUB_GITMENT_CLIENT_ID__/${Gitment_Client_Id}/" source/_data/next.yml
-  - sed -i "s/__GITHUB_GITMENT_CLIENT_SECRET__/${Gitment_Client_Secret}/" source/_data/next.yml
+  - sed -i "s/__GITHUB_GITALK_CLIENT_ID__/${Gitalk_Client_Id}/" source/_data/next.yml
+  - sed -i "s/__GITHUB_GITALK_CLIENT_SECRET__/${Gitalk_Client_Secret}/" source/_data/next.yml
 script:
   - hexo generate && gulp 'minify' && hexo deploy

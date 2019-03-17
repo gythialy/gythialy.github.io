@@ -1,38 +1,42 @@
 language: node_js
+dist: xenial
 sudo: false
+
 cache:
-  apt: true
   directories:
     - node_modules
 node_js:
-- '8'
+  - 'lts'
+
+addons:
+  apt:
+    update: true
+
 branches:
   only:
-  - raw
-addons:
-  ssh_known_hosts:
-  - github.com
-  - gist.github.com
-  - git.coding.net
+    - raw
+
 before_install:
-- openssl aes-256-cbc -K $encrypted_a7d17a00ff1b_key -iv $encrypted_a7d17a00ff1b_iv
-  -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
-- eval $(ssh-agent)
-- ssh-add ~/.ssh/id_rsa
-- git config --global user.name 'gythialy'
-- git config --global user.email 'gythialy@users.noreply.github.com'
-- npm install -g hexo-cli gulp
+  - openssl aes-256-cbc -K $encrypted_a7d17a00ff1b_key -iv $encrypted_a7d17a00ff1b_iv
+    -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - git config --global user.name 'gythialy'
+  - git config --global user.email 'gythialy@users.noreply.github.com'
+  - npm install -g hexo-cli gulp
+
 install:
-- npm install
+  - npm install
+
 before_script:
-- git clone --branch v6.4.0 --depth=10  git@github.com:theme-next/hexo-theme-next.git themes/next
-- git checkout -b v6.4.0
-- git clone git@github.com:theme-next/theme-next-three --depth=1 themes/next/source/lib/three
-- git clone git@github.com:theme-next/theme-next-reading-progress --depth=1 themes/next/source/lib/reading_progress
-# - git clone git@github.com:theme-next/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox
-- git clone git@github.com:theme-next/theme-next-pace --depth=1 themes/next/source/lib/pace
-- sed -i "s/__GITHUB_GITMENT_CLIENT_ID__/${Gitment_Client_Id}/" source/_data/next.yml
-- sed -i "s/__GITHUB_GITMENT_CLIENT_SECRET__/${Gitment_Client_Secret}/" source/_data/next.yml
+  - git clone --branch v7.0.1 --depth=10  git@github.com:theme-next/hexo-theme-next.git themes/next
+  - git checkout -b v7.0.1
+  - git clone git@github.com:theme-next/theme-next-three --depth=1 themes/next/source/lib/three
+  - git clone git@github.com:theme-next/theme-next-reading-progress --depth=1 themes/next/source/lib/reading_progress
+  # - git clone git@github.com:theme-next/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox
+  - git clone git@github.com:theme-next/theme-next-pace --depth=1 themes/next/source/lib/pace
+  - sed -i "s/__GITHUB_GITMENT_CLIENT_ID__/${Gitment_Client_Id}/" source/_data/next.yml
+  - sed -i "s/__GITHUB_GITMENT_CLIENT_SECRET__/${Gitment_Client_Secret}/" source/_data/next.yml
 script:
-- hexo generate && gulp 'minify' && hexo deploy
+  - hexo generate && gulp 'minify' && hexo deploy

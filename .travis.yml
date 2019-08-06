@@ -40,4 +40,4 @@ before_script:
   - sed -i "s/__GITHUB_GITALK_CLIENT_ID__/${Gitalk_Client_Id}/" source/_data/next.yml
   - sed -i "s/__GITHUB_GITALK_CLIENT_SECRET__/${Gitalk_Client_Secret}/" source/_data/next.yml
 script:
-  - hexo generate && hexo deploy
+  - hexo generate && hexo algolia && hexo deploy

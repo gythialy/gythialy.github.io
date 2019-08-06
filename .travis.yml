@@ -24,7 +24,7 @@ before_install:
   - ssh-add ~/.ssh/id_rsa
   - git config --global user.name 'gythialy'
   - git config --global user.email 'gythialy@users.noreply.github.com'
-  - npm install -g hexo-cli gulp
+  - npm install -g hexo-cli
 
 install:
   - npm install

@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: build and deploy
+    - name: prepare build env
       env:
         GH_ACTION_DEPLOY_KEY: ${{ secrets.GH_ACTION_DEPLOY_KEY }}
         GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
@@ -39,6 +39,8 @@ jobs:
         git clone git@github.com:theme-next/theme-next-pace --depth=1 themes/next/source/lib/pace
         sed -i "s/__GITHUB_GITALK_CLIENT_ID__/${GITALK_CLIENT_ID}/" source/_data/next.yml
         sed -i "s/__GITHUB_GITALK_CLIENT_SECRET__/${GITALK_CLIENT_SECRET}/" source/_data/next.yml
-    - name: deploy
+    - name: deploy to github 
+      env:
+        HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
       run: |
         hexo generate && hexo algolia && hexo deploy

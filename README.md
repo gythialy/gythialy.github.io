@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/gythialy/gythialy.github.io.svg?branch=raw)](https://travis-ci.org/gythialy/gythialy.github.io)
+[![Actions Status](https://github.com/gythialy/gythialy.github.io/workflows/Main%20workflow/badge.svg)](https://github.com/gythialy/gythialy.github.io/actions)
 
 # LICENSE
 

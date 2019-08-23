@@ -88,6 +88,17 @@ algolia:
   indexName: 'blog'
   chunkSize: 5000
 
+# Demo: https://utteranc.es/  http://trumandu.github.io/about/
+utteranc:
+  enable: true
+  repo: gythialy/gythialy.github.io
+  pathname: pathname
+  # theme: github-light,github-dark,github-dark-orange
+  theme: github-light
+  cdn: https://utteranc.es/client.js
+  # If you want to modify priority, please config in **hexo**
+  #priority:
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

@@ -129,4 +129,4 @@ docker logs --follow --tail 10 bitwardenr
 
 不管是 Bitwarden 还是 LastPass，只要是主密码没有泄漏，按照现在的计算机的算力是很难破解的。各种不同的无非是用户体验而已。
 
-`----EOF---`
+`---EOF---`

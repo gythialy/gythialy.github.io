@@ -4,6 +4,7 @@ tags:
   - cgo
   - Golang
   - Docker
+  - Cross Compilation
 categories: Notes
 date: 2019-04-19 17:43:43
 ---

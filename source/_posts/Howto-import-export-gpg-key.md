@@ -40,4 +40,15 @@ gpg --import ~/mygpgkey_pub.gpg
 gpg --allow-secret-key-import --import ~/mygpgkey_sec.gpg
 ```
 
+## 删除密码
+
+```
+gpg --edit-key 375A500B
+# 在弹出的界面中输入原来密码，新密码留空即可
+passwd
+# 保存修改
+save
+```
+> 如果提示 `Sorry, no terminal at all requested - can't get input` 的话，需要 把 `~/.gnupg/gpg.conf` 中的 `no-tty` 注释掉
+
 ---EOF---

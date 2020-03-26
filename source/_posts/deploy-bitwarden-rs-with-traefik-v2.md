@@ -1,6 +1,5 @@
 ---
-layout: 基于 Treafik v2 部署 Bitwarden RS
-title: deploy bitwarden with traefik v2
+title: 基于 Treafik v2 部署 Bitwarden RS
 date: 2020-03-26 11:13:30
 categories: Notes
 tags:

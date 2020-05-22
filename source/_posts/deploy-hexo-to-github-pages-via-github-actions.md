@@ -32,7 +32,7 @@ categories: Notes
 - 步骤
     - 添加部署私钥到 GitHub Actions 执行的容器中
     - 在容器中安装 Hexo 以及相关的插件
-    - 更新主题 [NexT](https://github.com/theme-next/hexo-theme-next) 的配置
+    - 更新主题 [NexT](https://github.com/next-theme/hexo-theme-next) 的配置
     - 编译静态页面
     - 推送编译好的文件到 GitHub Pages
 
@@ -42,26 +42,26 @@ categories: Notes
     name: Main workflow
 
     on:
-    push:
+      push:
         branches:
         - raw
 
     jobs:
-    build:
+      build:
 
         runs-on: ubuntu-18.04
 
         steps:
-        - uses: actions/checkout@v1
-        - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-            node-version: '10.x'
+        - uses: actions/checkout@v2
+        - name: Use Node.js lts
+          uses: actions/setup-node@v2-beta
+          with:
+            node-version: '12.x'
         - name: prepare build env
-        env:
-            GH_ACTION_DEPLOY_KEY: ${{secrets.GH_ACTION_DEPLOY_KEY}}
-            NEXT_VERSION: v7.3.0
-        run: |
+          env:
+            GH_ACTION_DEPLOY_KEY: ${{ secrets.GH_ACTION_DEPLOY_KEY }}
+            NEXT_VERSION: v8.0.0-rc.2
+          run: |
             mkdir -p ~/.ssh/
             echo "$GH_ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
@@ -70,17 +70,15 @@ categories: Notes
             git config --global user.email 'gythialy@users.noreply.github.com'
             npm i -g hexo-cli
             npm i
-            git clone --branch ${NEXT_VERSION} --depth=10  git@github.com:theme-next/hexo-theme-next.git themes/next
+            git clone --branch ${NEXT_VERSION} --depth=10  git@github.com:next-theme/hexo-theme-next.git themes/next
             git checkout -b ${NEXT_VERSION}
-            git clone git@github.com:theme-next/theme-next-three --depth=1 themes/next/source/lib/three
-            git clone git@github.com:theme-next/theme-next-reading-progress --depth=1 themes/next/source/lib/reading_progress
-            git clone git@github.com:theme-next/theme-next-algolia-instant-search --depth=1 themes/next/source/lib/algolia-instant-search
-            # git clone git@github.com:theme-next/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox
-            git clone git@github.com:theme-next/theme-next-pace --depth=1 themes/next/source/lib/pace
-        - name: deploy to github
-        env:
-            HEXO_ALGOLIA_INDEXING_KEY: ${{secrets.HEXO_ALGOLIA_INDEXING_KEY}}
-        run: |
+            git clone git@github.com:next-theme/theme-next-three --depth=1 themes/next/source/lib/three
+            # git clone git@github.com:next-theme/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox
+            git clone git@github.com:next-theme/theme-next-pace --depth=1 themes/next/source/lib/pace
+        - name: deploy to github 
+          env:
+            HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
+          run: |
             hexo generate && hexo algolia && hexo deploy
     ```
 

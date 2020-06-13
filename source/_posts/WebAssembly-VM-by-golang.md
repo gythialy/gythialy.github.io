@@ -10,7 +10,7 @@ date: 2020-06-12 10:27:06
 
 ## 背景
 
-由于 [WebAssembly Interface Types](https://bytecodealliance.github.io/wasmtime/wasm-rust.html#webassembly-interface-types) 还处于草案阶段，目前 WASM 只支持四种基本类型，本质上来说没什么大用。
+由于 [WebAssembly Interface Types](https://github.com/webassembly/interface-types) 还处于草案阶段，目前 WASM 只支持四种基本类型，本质上来说没什么大用。
 
 
 
@@ -274,5 +274,9 @@ func TestWASM(t *testing.T) {
 - 现有大多数的 WASM VM 的实现都不支持或者不完整支持 JIT/AOP，执行效率有限
 - 未来 `WebAssembly Interface Types` 等规范发布的话，更容易支持复杂业务
 -  [wasm-bindgen](https://crates.io/crates/wasm-bindgen) 已经支持 Rust 生态的 `WebAssembly Interface Types`
+
+## 参考链接
+
+- [ontology-wasm-cdt-rust](https://github.com/ontio/ontology-wasm-cdt-rust)
 
 `---EOF---`

@@ -31,7 +31,6 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -98,6 +97,22 @@ utteranc:
   cdn: https://utteranc.es/client.js
   # If you want to modify priority, please config in **hexo**
   #priority:
+
+# JavaScript 3D library.
+# Dependencies: https://github.com/next-theme/hexo-next-three
+three:
+  enable: true
+  defer: true
+  cdn:
+  waves:
+    enable: false
+    cdn:
+  lines:
+    enable: true
+    cdn:
+  sphere:
+    enable: false
+    cdn:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

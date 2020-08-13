@@ -5,7 +5,7 @@ categories: Notes
 tags:
     - Traefik
     - WebSocket
-    - Docker-compose
+    - Docker-Compose
 ---
 
 前面在 {% post_link traefik-docker-tls-config %} 中介绍了如果使用 traefik 为 docker 提供支持 SSL 的反向代理。在示例中，`qlc_wallet_server` 中 HTTP 和 WebSocket 共用了一个端口，该端口支持 SSL，可以通过 `https://api.example.com` 和 `wss://api.example.com` 访问。但是如果在同一个容器中使用不同的端口呢？如果支持，如果实现？

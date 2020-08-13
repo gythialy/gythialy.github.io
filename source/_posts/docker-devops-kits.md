@@ -4,7 +4,7 @@ date: 2018-02-09 10:39:15
 categories: Notes
 tags:
 - Docker
-- Docker Compose
+- Docker-Compose
 - Git
 - Gitea
 - DevOps

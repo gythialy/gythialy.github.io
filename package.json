@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "5.0.2"
+    "version": "5.1.1"
   },
   "dependencies": {
     "eslint": "^7.8.1",

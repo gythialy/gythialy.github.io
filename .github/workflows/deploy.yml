@@ -19,7 +19,7 @@ jobs:
     - name: prepare build env
       env:
         GH_ACTION_DEPLOY_KEY: ${{ secrets.GH_ACTION_DEPLOY_KEY }}
-        NEXT_VERSION: v8.0.0
+        NEXT_VERSION: v8.1.0
       run: |
         mkdir -p ~/.ssh/
         echo "$GH_ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa

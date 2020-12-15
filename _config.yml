@@ -33,7 +33,10 @@ default_layout: post
 titlecase: false # Transform title into titlecase
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 highlight:
@@ -86,17 +89,6 @@ algolia:
   apiKey: 'e73d44bdbab9679f54756f40db7d3dd9'
   indexName: 'blog'
   chunkSize: 5000
-
-# Demo: https://utteranc.es/  http://trumandu.github.io/about/
-utteranc:
-  enable: true
-  repo: gythialy/gythialy.github.io
-  pathname: pathname
-  # theme: github-light,github-dark,github-dark-orange
-  theme: github-light
-  cdn: https://utteranc.es/client.js
-  # If you want to modify priority, please config in **hexo**
-  #priority:
 
 # JavaScript 3D library.
 # Dependencies: https://github.com/next-theme/hexo-next-three

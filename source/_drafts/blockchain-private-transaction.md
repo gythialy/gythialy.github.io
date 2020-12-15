@@ -12,7 +12,7 @@ categories: Notes
 ## 解决思路
 
 ### Hyper Ledger
-
+![](network.diagram.1.png)
 ### Ethereum
 
 ## 结语

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="为了能够让人类阅读和编辑 WebAssembly，wasm 二进制格式提供了相应的文本表示。这是一种用来在文本编辑器、浏览器开发者工具等工具中显示的中间形式。本文用基本语法的方式解释了这种文本表示是如何工作的，以及它是如何与它表示的底层字节码，及在 JavaScript 中表示 wasm 的封装对象关联起来的。 本质上，这种文本形式更类似于处理器的汇编指令。 S - 表达式不论是二进制还是文本格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebAssembly S 表达式">
+<meta property="og:url" content="https://gythialy.github.io/WebAssembly-s-expression/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="为了能够让人类阅读和编辑 WebAssembly，wasm 二进制格式提供了相应的文本表示。这是一种用来在文本编辑器、浏览器开发者工具等工具中显示的中间形式。本文用基本语法的方式解释了这种文本表示是如何工作的，以及它是如何与它表示的底层字节码，及在 JavaScript 中表示 wasm 的封装对象关联起来的。 本质上，这种文本形式更类似于处理器的汇编指令。 S - 表达式不论是二进制还是文本格式">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-28T08:21:19.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.298Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="WASM">
+<meta property="article:tag" content="WebAssembly">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/WebAssembly-s-expression/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>WebAssembly S 表达式 | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#S-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">S - 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">节点类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="nav-number">2.</span> <span class="nav-text">工具链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WABT-WebAssembly-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="nav-number">2.1.</span> <span class="nav-text">WABT: WebAssembly 二进制工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binaryen"><span class="nav-number">2.2.</span> <span class="nav-text">Binaryen</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/WebAssembly-s-expression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WebAssembly S 表达式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-28 16:21:19" itemprop="dateCreated datePublished" datetime="2020-05-28T16:21:19+08:00">2020-05-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>为了能够让人类阅读和编辑 WebAssembly，wasm 二进制格式提供了相应的文本表示。这是一种用来在文本编辑器、浏览器开发者工具等工具中显示的中间形式。本文用基本语法的方式解释了这种文本表示是如何工作的，以及它是如何与它表示的底层字节码，及在 JavaScript 中表示 wasm 的封装对象关联起来的。</p>
+<p>本质上，这种文本形式更类似于处理器的汇编指令。</p>
+<h2 id="S-表达式"><a href="#S-表达式" class="headerlink" title="S - 表达式"></a>S - 表达式</h2><p>不论是二进制还是文本格式，WebAssembly 代码中的基本单元是一个模块。在文本格式中，一个模块被表示为一个大的 S - 表达式。</p>
+<p>S - 表达式是一个非常古老和非常简单的用来表示树的文本格式。因此，我们可以把一个模块想象为一棵由描述了模块结构和代码的节点组成的树。不过，与一门编程语言的抽象语法树不同的是，WebAssembly 的树是相当平的，也就是大部分包含了指令列表。</p>
+<p>首先，让我们看下 S - 表达式长什么样。树上的每个一个节点都有一对括号——(…)——包围。括号内的第一个标签告诉你该节点的类型，其后跟随的是由空格分隔的属性或孩子节点列表。</p>
+<p>S - 表达式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(module (memory 1) (func))</span><br></pre></td></tr></table></figure>
+
+<p>这条表达式，表示一棵根节点为 “模块（module）” 的树，该树有两个孩子节点，分别是 属性为 1 的 “内存（memory）” 节点 和 一个 “函数（func）” 节点。<br><escape><span id="more"></span></escape></p>
+<h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><table>
+<thead>
+<tr>
+<th>节点</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>module</td>
+<td>根节点，即 Module</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>Memory</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Memory 初始值</td>
+</tr>
+<tr>
+<td>table</td>
+<td>Table</td>
+</tr>
+<tr>
+<td>elem</td>
+<td>Table 初始值</td>
+</tr>
+<tr>
+<td>import</td>
+<td>导入对象</td>
+</tr>
+<tr>
+<td>export</td>
+<td>到处对象</td>
+</tr>
+<tr>
+<td>type</td>
+<td>函数签名</td>
+</tr>
+<tr>
+<td>global</td>
+<td>全局变量</td>
+</tr>
+<tr>
+<td>func</td>
+<td>函数</td>
+</tr>
+<tr>
+<td>param</td>
+<td>函数参数</td>
+</tr>
+<tr>
+<td>result</td>
+<td>函数返回值</td>
+</tr>
+<tr>
+<td>local</td>
+<td>局部变量</td>
+</tr>
+<tr>
+<td>start</td>
+<td>开始函数</td>
+</tr>
+</tbody></table>
+<h2 id="工具链"><a href="#工具链" class="headerlink" title="工具链"></a>工具链</h2><p>WebAssembly 由很多工具来支持开发者构建处理源文件输出二进制文件。如果你是一个写编译器的人、想尝试低级代码或只想尝试使用原始的 WebAssembly 格式进行试验，这些工具适合你。</p>
+<h3 id="WABT-WebAssembly-二进制工具"><a href="#WABT-WebAssembly-二进制工具" class="headerlink" title="WABT: WebAssembly 二进制工具"></a><a target="_blank" rel="noopener" href="https://github.com/WebAssembly/wabt">WABT</a>: WebAssembly 二进制工具</h3><p> wabt 可以将二进制的 WebAssembly 代码和人类可以阅读的文本格式代码相互转换。文本格式代码类似于 S-表达式，这种文本格式的代码可以方便 WebAssembly 的编译器输出并进行分析和调试。</p>
+<ul>
+<li><p>wasm2wat</p>
+<p>将 WebAssembly 二进制转换为 S-表达式。输入二进制文件，输出一个包含可以读文本的文件 (<code>.wat</code>)。开发者可以编辑文本文件，然后再将其转换为二进制文件，比如优化算法、追踪问题、插入调试语句等等。</p>
+</li>
+<li><p>wat2wasm</p>
+<p>和 wasm2wat 是反的，将 <code>.wat</code> 文件转换为二进制的 WebAssembly 文件。使用 wasm2wast 和 wast2wasm 可以掌控 WebAssembly 的二进制代码。</p>
+</li>
+<li><p>wasm-interp</p>
+<p>实现了基于堆栈机的解释器，直接解释 WebAssembly 二进制文件。和浏览器将 WebAssembly 二进制通过 JIT 转换成目标机器的原生代码不一样的是，它不需要加载时间。这个解释器对单元测试、检测二进制文件可用性等等很有用。是脱离浏览器的一个环境。</p>
+</li>
+</ul>
+<h3 id="Binaryen"><a href="#Binaryen" class="headerlink" title="Binaryen"></a>Binaryen</h3><p>  <a target="_blank" rel="noopener" href="https://github.com/WebAssembly/binaryen">Binaryen</a> 是一套全面的工具，用作将 WebAssembly 作为输出格式定位的编译器的后端。它具有 C API 和一套自己的逻辑程序的中间表示 (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Intermediate_representation">IR</a>)，并可以在 IR 上执行一些优化，支持代码合并等。</p>
+<p>  比如，binaryen 使用了 <a target="_blank" rel="noopener" href="https://github.com/WebAssembly/binaryen/blob/master/src/asm2wasm.h">asm2wasm</a> 作为编译器，将 asm.js 转换成 WebAssembly 文件。它还支持 LLVM 编译器的基础架构，可以将 Rust 转换成 WebAssembly。</p>
+<p>  通过 binaryen，可以进行编译、优化，它提供了一个壳，可以解释 WebAssembly 代码，汇编和反汇编，可以将 asm.js 和 LLVM <code>.s</code> 文件转换成 WebAssembly 等等。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; learn-wasm.wast</span></span><br><span class="line"></span><br><span class="line">(<span class="name">module</span></span><br><span class="line">  <span class="comment">;; In WebAssembly, everything is included in a module. Moreover, everything</span></span><br><span class="line">  <span class="comment">;; can be expressed as an s-expression. Alternatively, there is the</span></span><br><span class="line">  <span class="comment">;; &quot;stack machine&quot; syntax, but that is not compatible with Binaryen</span></span><br><span class="line">  <span class="comment">;; intermediate representation (IR) syntax.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; The Binaryen IR format is *mostly* compatible with WebAssembly text format.</span></span><br><span class="line">  <span class="comment">;; There are some small differences:</span></span><br><span class="line">  <span class="comment">;; local_set -&gt; local.set</span></span><br><span class="line">  <span class="comment">;; local_get -&gt; local.get</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; We have to enclose code in functions</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">;; 在 WebAssembly 中，所有的内容都包含在一个模块中。此外，所有的内容可以用 s-表达式来表示。</span></span><br><span class="line">  <span class="comment">;; 另外，还可以用 &quot;堆栈机&quot; 语法，但这与 Binaryen 中间表示 (IR) 语法不兼容。</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; Binaryen IR 格式与 WebAssembly 文本格式 * 基本兼容，有一些小的区别。</span></span><br><span class="line">  <span class="comment">;; local_set -&gt; local.set</span></span><br><span class="line">  <span class="comment">;; local_get -&gt; local.get</span></span><br><span class="line"></span><br><span class="line"> 	<span class="comment">;; Data Types</span></span><br><span class="line">  (<span class="name">func</span> $data_types</span><br><span class="line">    <span class="comment">;; WebAssembly 只有四种类型:</span></span><br><span class="line">    <span class="comment">;; i32 - 32 bit integer</span></span><br><span class="line">    <span class="comment">;; i64 - 64 bit integer (not supported in JavaScript)</span></span><br><span class="line">    <span class="comment">;; f32 - 32 bit floating point</span></span><br><span class="line">    <span class="comment">;; f64 - 64 bit floating point</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">;; 我们可以通过 &quot;local&quot; 关键字定义本地变量</span></span><br><span class="line">    <span class="comment">;; 我们必须在函数使用之前定义好所有的变量</span></span><br><span class="line"></span><br><span class="line">    (<span class="name">local</span> $int_32 i32)</span><br><span class="line">    (<span class="name">local</span> $int_64 i64)</span><br><span class="line">    (<span class="name">local</span> $float_32 f32)</span><br><span class="line">    (<span class="name">local</span> $float_64 f64)</span><br><span class="line"></span><br><span class="line">		<span class="comment">;; 这些未初始化的变量，可以通过 &lt;type&gt;.const 设置它们的值:</span></span><br><span class="line"></span><br><span class="line">    (<span class="name">local</span>.set $int_32 (<span class="name">i32</span>.const <span class="number">16</span>))</span><br><span class="line">    (<span class="name">local</span>.set $int_32 (<span class="name">i64</span>.const <span class="number">128</span>))</span><br><span class="line">    (<span class="name">local</span>.set $float_32 (<span class="name">f32</span>.const <span class="number">3.14</span>))</span><br><span class="line">    (<span class="name">local</span>.set $float_64 (<span class="name">f64</span>.const <span class="number">1.28</span>))</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">;; 基本操作</span></span><br><span class="line">  (<span class="name">func</span> $basic_operations</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; 在 WebAssembly 中，一切都是 S-表达式，包括计算或者获取一些变量的值</span></span><br><span class="line"></span><br><span class="line">    (<span class="name">local</span> $add_result i32)</span><br><span class="line">    (<span class="name">local</span> $mult_result f64)</span><br><span class="line"></span><br><span class="line">    (<span class="name">local</span>.set $add_result (<span class="name">i32</span>.add (<span class="name">i32</span>.const <span class="number">2</span>) (<span class="name">i32</span>.const <span class="number">4</span>)))</span><br><span class="line">    <span class="comment">;; add_result 的值现在是 6!</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">;; 我们必须保证每个操作的类型正确</span></span><br><span class="line">    <span class="comment">;; (local.set $mult_result (f32.mul (f32.const 2.0) (f32.const 4.0))) ;; WRONG! mult_result is f64!</span></span><br><span class="line">    (<span class="name">local</span>.set $mult_result (<span class="name">f64</span>.mul (<span class="name">f64</span>.const <span class="number">2.0</span>) (<span class="name">f64</span>.const <span class="number">4.0</span>)))</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; WebAssembly has some builtin operations, like basic math and bitshifting.</span></span><br><span class="line">    <span class="comment">;; Notably, it does not have built in trigonometric functions.</span></span><br><span class="line">    <span class="comment">;; In order to get access to these functions, we have to either</span></span><br><span class="line">    <span class="comment">;; - implement them ourselves (not recommended)</span></span><br><span class="line">    <span class="comment">;; - import them from elsewhere (later on)</span></span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">;; 函数</span></span><br><span class="line">  <span class="comment">;; 通过 `param` 关键字定义参数, 通过 `result` 关键字定义返回值</span></span><br><span class="line">  <span class="comment">;; 栈中的唯一值就是最终的返回值</span></span><br><span class="line">  <span class="comment">;; 通过 `call` 关键字调用其他函数</span></span><br><span class="line"></span><br><span class="line">  (<span class="name">func</span> $get_16 (<span class="name">result</span> i32)</span><br><span class="line">    (<span class="name">i32</span>.const <span class="number">16</span>)</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  (<span class="name">func</span> $add (<span class="name">param</span> $param0 i32) (<span class="name">param</span> $param1 i32) (<span class="name">result</span> i32)</span><br><span class="line">    (<span class="name">i32</span>.add</span><br><span class="line">      (<span class="name">local</span>.get $param0)</span><br><span class="line">      (<span class="name">local</span>.get $param1)</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  (<span class="name">func</span> $double_16 (<span class="name">result</span> i32)</span><br><span class="line">    (<span class="name">i32</span>.mul</span><br><span class="line">      (<span class="name">i32</span>.const <span class="number">2</span>)</span><br><span class="line">      (<span class="name">call</span> $get_16))</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">;; Up until now, we haven&#x27;t be able to print anything out, nor do we have</span></span><br><span class="line">  <span class="comment">;; access to higher level math functions (pow, exp, or trig functions).</span></span><br><span class="line">  <span class="comment">;; Moreover, we haven&#x27;t been able to use any of the WASM functions in Javascript!</span></span><br><span class="line">  <span class="comment">;; The way we get those functions into WebAssembly</span></span><br><span class="line">  <span class="comment">;; looks different whether we&#x27;re in a Node.js or browser environment.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; 可以通过 Binaryen 优化输入二进制文件:</span></span><br><span class="line">  <span class="comment">;; wasm-opt learn-wasm.wasm -o learn-wasm.opt.wasm -O3 --rse</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; With our compiled WebAssembly, we can now load it into Node.js:</span></span><br><span class="line">  <span class="comment">;; const fs = require(&#x27;fs&#x27;)</span></span><br><span class="line">  <span class="comment">;; const instantiate = async function (inFilePath, _importObject) &#123;</span></span><br><span class="line">  <span class="comment">;;  var importObject = &#123;</span></span><br><span class="line">  <span class="comment">;;     console: &#123;</span></span><br><span class="line">  <span class="comment">;;       log: (x) =&gt; console.log(x),</span></span><br><span class="line">  <span class="comment">;;     &#125;,</span></span><br><span class="line">  <span class="comment">;;     math: &#123;</span></span><br><span class="line">  <span class="comment">;;       cos: (x) =&gt; Math.cos(x),</span></span><br><span class="line">  <span class="comment">;;     &#125;</span></span><br><span class="line">  <span class="comment">;;   &#125;</span></span><br><span class="line">  <span class="comment">;;  importObject = Object.assign(importObject, _importObject)</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;;  var buffer = fs.readFileSync(inFilePath)</span></span><br><span class="line">  <span class="comment">;;  var module = await WebAssembly.compile(buffer)</span></span><br><span class="line">  <span class="comment">;;  var instance = await WebAssembly.instantiate(module, importObject)</span></span><br><span class="line">  <span class="comment">;;  return instance.exports</span></span><br><span class="line">  <span class="comment">;; &#125;</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;; const main = function () &#123;</span></span><br><span class="line">  <span class="comment">;;   var wasmExports = await instantiate(&#x27;learn-wasm.wasm&#x27;)</span></span><br><span class="line">  <span class="comment">;;   wasmExports.print_args(1, 0)</span></span><br><span class="line">  <span class="comment">;; &#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; The following snippet gets the functions from the importObject we defined</span></span><br><span class="line">  <span class="comment">;; in the JavaScript instantiate async function, and then exports a function</span></span><br><span class="line">  <span class="comment">;; &quot;print_args&quot; that we can call from Node.js</span></span><br><span class="line"></span><br><span class="line">  (<span class="name">import</span> <span class="string">&quot;console&quot;</span> <span class="string">&quot;log&quot;</span> (<span class="name">func</span> $print_i32 (<span class="name">param</span> i32)))</span><br><span class="line">  (<span class="name">import</span> <span class="string">&quot;math&quot;</span> <span class="string">&quot;cos&quot;</span> (<span class="name">func</span> $cos (<span class="name">param</span> f64) (<span class="name">result</span> f64)))</span><br><span class="line"></span><br><span class="line">  (<span class="name">func</span> $print_args (<span class="name">param</span> $arg0 i32) (<span class="name">param</span> $arg1 i32)</span><br><span class="line">    (<span class="name">call</span> $print_i32 (<span class="name">local</span>.get $arg0))</span><br><span class="line">    (<span class="name">call</span> $print_i32 (<span class="name">local</span>.get $arg1))</span><br><span class="line">  )</span><br><span class="line">  (<span class="name">export</span> <span class="string">&quot;print_args&quot;</span> (<span class="name">func</span> $print_args))</span><br><span class="line"></span><br><span class="line">  <span class="comment">;; Loading in data from WebAssembly memory.</span></span><br><span class="line">  <span class="comment">;; Say that we want to apply the cosine function to a Javascript array.</span></span><br><span class="line">  <span class="comment">;; We need to be able to access the allocated array, and iterate through it.</span></span><br><span class="line">  <span class="comment">;; This example will modify the input array inplace.</span></span><br><span class="line">  <span class="comment">;; f64.load and f64.store expect the location of a number in memory *in bytes*.</span></span><br><span class="line">  <span class="comment">;; If we want to access the 3rd element of an array, we have to pass something</span></span><br><span class="line">  <span class="comment">;; like (i32.mul (i32.const 8) (i32.const 2)) to the f64.store function.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; In JavaScript, we would call `apply_cos64` as follows</span></span><br><span class="line">  <span class="comment">;; (using the instantiate function from earlier):</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;; const main = function () &#123;</span></span><br><span class="line">  <span class="comment">;;   var wasm = await instantiate(&#x27;learn-wasm.wasm&#x27;)</span></span><br><span class="line">  <span class="comment">;;   var n = 100</span></span><br><span class="line">  <span class="comment">;;   const memory = new Float64Array(wasm.memory.buffer, 0, n)</span></span><br><span class="line">  <span class="comment">;;   for (var i=0; i&lt;n; i++) &#123;</span></span><br><span class="line">  <span class="comment">;;     memory[i] = i;</span></span><br><span class="line">  <span class="comment">;;   &#125;</span></span><br><span class="line">  <span class="comment">;;   wasm.apply_cos64(n)</span></span><br><span class="line">  <span class="comment">;; &#125;</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;; This function will not work if we allocate a Float32Array on the JavaScript</span></span><br><span class="line">  <span class="comment">;; side.</span></span><br><span class="line"></span><br><span class="line">  (<span class="name">memory</span> (<span class="name">export</span> <span class="string">&quot;memory&quot;</span>) <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">  (<span class="name">func</span> $apply_cos64 (<span class="name">param</span> $array_length i32)</span><br><span class="line">    <span class="comment">;; declare the loop counter</span></span><br><span class="line">    (<span class="name">local</span> $idx i32)</span><br><span class="line">    <span class="comment">;; declare the counter that will allow us to access memory</span></span><br><span class="line">    (<span class="name">local</span> $idx_bytes i32)</span><br><span class="line">    <span class="comment">;; constant expressing the number of bytes in a f64 number.</span></span><br><span class="line">    (<span class="name">local</span> $bytes_per_double i32)</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; declare a variable for storing the value loaded from memory</span></span><br><span class="line">    (<span class="name">local</span> $temp_f64 f64)</span><br><span class="line"></span><br><span class="line">    (<span class="name">local</span>.set $idx (<span class="name">i32</span>.const <span class="number">0</span>))</span><br><span class="line">    (<span class="name">local</span>.set $idx_bytes (<span class="name">i32</span>.const <span class="number">0</span>)) <span class="comment">;; not entirely necessary</span></span><br><span class="line">    (<span class="name">local</span>.set $bytes_per_double (<span class="name">i32</span>.const <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">    (<span class="name">block</span></span><br><span class="line">      (<span class="name">loop</span></span><br><span class="line">        <span class="comment">;; this sets idx_bytes to bytes offset of the value we&#x27;re interested in.</span></span><br><span class="line">        (<span class="name">local</span>.set $idx_bytes (<span class="name">i32</span>.mul (<span class="name">local</span>.get $idx) (<span class="name">local</span>.get $bytes_per_double)))</span><br><span class="line"></span><br><span class="line">        <span class="comment">;; get the value of the array from memory:</span></span><br><span class="line">        (<span class="name">local</span>.set $temp_f64 (<span class="name">f64</span>.load (<span class="name">local</span>.get $idx_bytes)))</span><br><span class="line"></span><br><span class="line">        <span class="comment">;; now apply the cosine function:</span></span><br><span class="line">        (<span class="name">local</span>.set $temp_64 (<span class="name">call</span> $cos (<span class="name">local</span>.get $temp_64)))</span><br><span class="line"></span><br><span class="line">        <span class="comment">;; now store the result at the same location in memory:</span></span><br><span class="line">        (<span class="name">f64</span>.store</span><br><span class="line">          (<span class="name">local</span>.get $idx_bytes)</span><br><span class="line">          (<span class="name">local</span>.get $temp_64))</span><br><span class="line"></span><br><span class="line">        <span class="comment">;; do it all in one step instead</span></span><br><span class="line">        (<span class="name">f64</span>.store</span><br><span class="line">          (<span class="name">local</span>.get $idx_bytes)</span><br><span class="line">          (<span class="name">call</span> $cos</span><br><span class="line">            (<span class="name">f64</span>.load</span><br><span class="line">              (<span class="name">local</span>.get $idx_bytes))))</span><br><span class="line"></span><br><span class="line">        <span class="comment">;; increment the loop counter</span></span><br><span class="line">        (<span class="name">local</span>.set $idx (<span class="name">i32</span>.add (<span class="name">local</span>.get $idx) (<span class="name">i32</span>.const <span class="number">1</span>)))</span><br><span class="line"></span><br><span class="line">        <span class="comment">;; stop the loop if the loop counter is equal the array length</span></span><br><span class="line">        (<span class="name">br_if</span> <span class="number">1</span> (<span class="name">i32</span>.eq (<span class="name">local</span>.get $idx) (<span class="name">local</span>.get $array_length)))</span><br><span class="line">        (<span class="name">br</span> <span class="number">0</span>)</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">  (<span class="name">export</span> <span class="string">&quot;apply_cos64&quot;</span> (<span class="name">func</span> $apply_cos64))</span><br><span class="line"></span><br><span class="line">  <span class="comment">;; Wasm is a stack-based language, but for returning values more complicated</span></span><br><span class="line">  <span class="comment">;; than an int/float, a separate memory stack has to be manually managed. One</span></span><br><span class="line">  <span class="comment">;; approach is to use a mutable global to store the stack_ptr. We give</span></span><br><span class="line">  <span class="comment">;; ourselves 1MiB of memstack and grow it downwards.</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;; Below is a demonstration of how this C code **might** be written by hand</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;;   typedef struct &#123;</span></span><br><span class="line">  <span class="comment">;;       int a;</span></span><br><span class="line">  <span class="comment">;;       int b;</span></span><br><span class="line">  <span class="comment">;;   &#125; sum_struct_t;</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;;   sum_struct_t sum_struct_create(int a, int b) &#123;</span></span><br><span class="line">  <span class="comment">;;     return (sum_struct_t)&#123;a, b&#125;;</span></span><br><span class="line">  <span class="comment">;;   &#125;</span></span><br><span class="line">  <span class="comment">;;</span></span><br><span class="line">  <span class="comment">;;   int sum_local() &#123;</span></span><br><span class="line">  <span class="comment">;;     sum_struct_t s = sum_struct_create(40, 2);</span></span><br><span class="line">  <span class="comment">;;     return s.a + s.b;</span></span><br><span class="line">  <span class="comment">;;   &#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">;; Unlike C, we must manage our own memory stack. We reserve 1MiB</span></span><br><span class="line">  (<span class="name">global</span> $memstack_ptr (<span class="name">mut</span> i32) (<span class="name">i32</span>.const <span class="number">65536</span>))</span><br><span class="line"></span><br><span class="line">  <span class="comment">;; Structs can only be returned by reference</span></span><br><span class="line">  (<span class="name">func</span> $sum_struct_create</span><br><span class="line">        (<span class="name">param</span> $sum_struct_ptr i32)</span><br><span class="line">        (<span class="name">param</span> $var$a i32)</span><br><span class="line">        (<span class="name">param</span> $var$b i32)</span><br><span class="line">    <span class="comment">;; c// sum_struct_ptr-&gt;a = a;</span></span><br><span class="line">    (<span class="name">i32</span>.store</span><br><span class="line">      (<span class="name">get_local</span> $sum_struct_ptr)</span><br><span class="line">      (<span class="name">get_local</span> $var$a)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; c// sum_struct_ptr-&gt;b = b;</span></span><br><span class="line">    (<span class="name">i32</span>.store offset=4</span><br><span class="line">      (<span class="name">get_local</span> $sum_struct_ptr)</span><br><span class="line">      (<span class="name">get_local</span> $var$b)</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  (<span class="name">func</span> $sum_local (<span class="name">result</span> i32)</span><br><span class="line">    (<span class="name">local</span> $var$sum_struct$a i32)</span><br><span class="line">    (<span class="name">local</span> $var$sum_struct$b i32)</span><br><span class="line">    (<span class="name">local</span> $local_memstack_ptr i32)</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; reserve memstack space</span></span><br><span class="line">    (<span class="name">i32</span>.sub</span><br><span class="line">      (<span class="name">get_global</span> $memstack_ptr)</span><br><span class="line">      (<span class="name">i32</span>.const <span class="number">8</span>)</span><br><span class="line">    )</span><br><span class="line">    tee_local $local_memstack_ptr <span class="comment">;; tee both stores and returns given value</span></span><br><span class="line">    set_global $memstack_ptr</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; call the function, storing the result in the memstack</span></span><br><span class="line">    (<span class="name">call</span> $sum_struct_create</span><br><span class="line">      ((<span class="comment">;$sum_struct_ptr=;) get_local $local_memstack_ptr)</span></span><br><span class="line">      ((<span class="comment">;$var$a=;) i32.const 40)</span></span><br><span class="line">      ((<span class="comment">;$var$b=;) i32.const 2)</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; retrieve values from struct</span></span><br><span class="line">    (<span class="name">set_local</span> $var$sum_struct$a</span><br><span class="line">      (<span class="name">i32</span>.load offset=0 (<span class="name">get_local</span> $local_memstack_ptr))</span><br><span class="line">    )</span><br><span class="line">    (<span class="name">set_local</span> $var$sum_struct$b</span><br><span class="line">      (<span class="name">i32</span>.load offset=4 (<span class="name">get_local</span> $local_memstack_ptr))</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment">;; unreserve memstack space</span></span><br><span class="line">    (<span class="name">set_global</span> $memstack_ptr</span><br><span class="line">        (<span class="name">i32</span>.add</span><br><span class="line">          (<span class="name">get_local</span> $local_memstack_ptr)</span><br><span class="line">          (<span class="name">i32</span>.const <span class="number">8</span>)</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    (<span class="name">i32</span>.add</span><br><span class="line">      (<span class="name">get_local</span> $var$sum_struct$a)</span><br><span class="line">      (<span class="name">get_local</span> $var$sum_struct$b)</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">  <span class="comment">;; 导出函数</span></span><br><span class="line">  (<span class="name">export</span> <span class="string">&quot;sum_local&quot;</span> (<span class="name">func</span> $sum_local))</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/WebAssembly/Understanding_the_text_format">Understanding WebAssembly text format</a></li>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/30396640/">WebAssembly 标准入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://learnxinyminutes.com/docs/wasm/">Learn WebAssembly in Y minutes</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WASM/" rel="tag"><i class="fa fa-tag"></i> WASM</a>
+              <a href="/tags/WebAssembly/" rel="tag"><i class="fa fa-tag"></i> WebAssembly</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Introduction-WebAssembly/" rel="prev" title="WebAssembly 介绍">
+                  <i class="fa fa-chevron-left"></i> WebAssembly 介绍
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/WebAssembly-VM-by-golang/" rel="next" title="Golang 实现 WebAssembly VM">
+                  Golang 实现 WebAssembly VM <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="需求编译 Golang 程序时自动更新版本号，主版本号手动指定，子版本号通过 Git rev 和编译时间自动更新 实现方法Go Linker在 go tool link 中有选项可以设置在编译时设置字符串或者未初始化的变量  -X importpath.name&#x3D;value    Set the value of the string variable in importpath named na">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang 编译时自动更新版本号">
+<meta property="og:url" content="https://gythialy.github.io/golang-auto-build-version/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="需求编译 Golang 程序时自动更新版本号，主版本号手动指定，子版本号通过 Git rev 和编译时间自动更新 实现方法Go Linker在 go tool link 中有选项可以设置在编译时设置字符串或者未初始化的变量  -X importpath.name&#x3D;value    Set the value of the string variable in importpath named na">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-04-06T03:23:37.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.298Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="Golang">
+<meta property="article:tag" content="DevOps">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/golang-auto-build-version/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Golang 编译时自动更新版本号 | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-Linker"><span class="nav-number">2.1.</span> <span class="nav-text">Go Linker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#example1"><span class="nav-number">2.1.1.</span> <span class="nav-text">example1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#example2"><span class="nav-number">2.1.2.</span> <span class="nav-text">example2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-%E5%A4%A7%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">echo 大法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/golang-auto-build-version/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Golang 编译时自动更新版本号
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-06 11:23:37" itemprop="dateCreated datePublished" datetime="2019-04-06T11:23:37+08:00">2019-04-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>编译 Golang 程序时自动更新版本号，主版本号手动指定，子版本号通过 Git rev 和编译时间自动更新</p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><h3 id="Go-Linker"><a href="#Go-Linker" class="headerlink" title="Go Linker"></a>Go Linker</h3><p>在 <a target="_blank" rel="noopener" href="https://golang.org/cmd/link/">go tool link</a> 中有选项可以设置在编译时设置字符串或者未初始化的变量</p>
+<blockquote>
+<p>-X importpath.name=value<br>    Set the value of the string variable in importpath named name to value.<br>    This is only effective if the variable is declared in the source code either uninitialized<br>    or initialized to a constant string expression. -X will not work if the initializer makes<br>    a function call or refers to other variables.<br>    Note that before Go 1.5 this option took two separate arguments.</p>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h4 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h4><p>版本号等变量定义在 <code>main.go</code> 中</p>
+<ul>
+<li>定义变量</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	version   = <span class="string">&quot;&quot;</span></span><br><span class="line">	gitRev    = <span class="string">&quot;&quot;</span></span><br><span class="line">	buildTime = <span class="string">&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;example1: %s-%s.%s\n&quot;</span>, version, gitRev, buildTime)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>编译</p>
+<p>  通过 <code>-ldflags</code> 指定需要修改的值，示例中 <code>$&#123;VERSION&#125;</code> 为 <code>0.0.1</code></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build -ldflags &quot;-X main.version=$&#123;VERSION&#125; -X main.gitRev=$(git rev-parse --short HEAD) -X main.buildTime=$(date +&#x27;%Y-%m-%d_%T&#x27;)&quot; -o build/example1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ .&#x2F;build&#x2F;example1</span><br><span class="line">example1: 0.0.1-1dc7d91.2019-04-06_10:54:30</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h4><p>在生成环境中估计没多少是这么定义变量的，下面来个实际点的示例。假设配置在 <code>config</code> 包下的 <code>version.go</code>, 目录结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── build</span><br><span class="line">│   └── example2</span><br><span class="line">├── config</span><br><span class="line">│   └── version.go</span><br><span class="line">├── go.mod</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>定义变量 (<code>version.go</code>)</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> config</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    Version   = <span class="string">&quot;&quot;</span></span><br><span class="line">    GitRev    = <span class="string">&quot;&quot;</span></span><br><span class="line">    BuildTime = <span class="string">&quot;&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用 (<code>main.go</code>)</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/gythialy/autoversion/config&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;example2: %s-%s.%s\n&quot;</span>, config.Version, config.GitRev, config.BuildTime)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>模块定义 (<code>go.mod</code>)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module github.com&#x2F;gythialy&#x2F;autoversion</span><br><span class="line"></span><br><span class="line">go 1.12</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找导入路径</p>
+<p>  对于不在 <code>main</code> 包下的变量，我们需要先知道其导入路径。此步骤可以通过 <code>go tool nm</code> 实现，完整示例如下：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜ go build -o build/example2</span><br><span class="line">➜ go tool nm build/example2 | grep -i version</span><br><span class="line">11737c0 B github.com/gythialy/autoversion/config.BuildTime</span><br><span class="line">11737d0 B github.com/gythialy/autoversion/config.GitRev</span><br><span class="line">11737e0 B github.com/gythialy/autoversion/config.Version</span><br><span class="line">116d400 D runtime.buildVersion</span><br><span class="line">118ef0c B runtime.processorVersionInfo</span><br></pre></td></tr></table></figure>
+
+<p>  根据查找的信息可知，import path 为 <code>github.com/gythialy/autoversion/config</code> 下面就可以更新此路径下的变量了</p>
+</li>
+<li><p>再次编译</p>
+<p>  通过 <code>-ldflags</code> 指定需要修改的值，示例中 <code>$&#123;VERSION&#125;</code> 为 <code>0.0.1</code></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go build -ldflags &quot;-X github.com/gythialy/autoversion/config.Version=$&#123;VERSION&#125; \</span><br><span class="line">-X github.com/gythialy/autoversion/config.GitRev=$(git rev-parse --short HEAD) \</span><br><span class="line">-X github.com/gythialy/autoversion/config.BuildTime=$(date +&#x27;%Y-%m-%d_%T&#x27;)&quot; -o build/example2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜ ./build/example2</span><br><span class="line">example2: 0.0.1-cce7ea2.2019-04-06_10:53:03</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="echo-大法"><a href="#echo-大法" class="headerlink" title="echo 大法"></a>echo 大法</h3><p>基本思路就是预先定义出变量，在编译时通过 <code>echo</code> 覆盖文件中内容。</p>
+<ul>
+<li><p>定义变量</p>
+  <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> goqlc</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> GITREV = <span class="string">&quot;2fd25d2&quot;</span></span><br><span class="line"><span class="keyword">const</span> VERSION = <span class="string">&quot;0.0.5&quot;</span></span><br><span class="line"><span class="keyword">const</span> BUILDTIME = <span class="string">&quot;2019-02-14_18:02:35&quot;</span></span><br><span class="line"><span class="keyword">const</span> MAINNET = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译时覆盖文件</p>
+  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">update-version:</span></span><br><span class="line">    @echo <span class="string">&quot;package goqlc&quot;</span> &gt; <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/version.go</span><br><span class="line">    @echo  <span class="string">&quot;&quot;</span>&gt;&gt; <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/version.go</span><br><span class="line">    @echo <span class="string">&quot;const GITREV = \&quot;&quot;</span><span class="variable">$(GITREV)</span><span class="string">&quot;\&quot;&quot;</span> &gt;&gt; <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/version.go</span><br><span class="line">    @echo <span class="string">&quot;const VERSION = \&quot;&quot;</span><span class="variable">$(VERSION)</span><span class="string">&quot;\&quot;&quot;</span> &gt;&gt; <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/version.go</span><br><span class="line">    @echo <span class="string">&quot;const BUILDTIME = \&quot;&quot;</span><span class="variable">$(BUILDTIME)</span><span class="string">&quot;\&quot;&quot;</span> &gt;&gt; <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/version.go</span><br><span class="line">    @echo <span class="string">&quot;const MAINNET = true&quot;</span> &gt;&gt; <span class="variable">$(<span class="built_in">shell</span> pwd)</span>/version.go</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过 go link 只可以更新 <code>string</code> 类型的变量，但是支持 makefile 中多个任务进行。<code>echo</code> 覆盖文件更灵活，对变量类型没有限制，但是通过 <code>make -j</code> 指定多任务同时编译时，会有问题。所以选择哪种办法，可根据自己使用场景自行决定。</p>
+<p><code>---EOF---</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Golang/" rel="tag"><i class="fa fa-tag"></i> Golang</a>
+              <a href="/tags/DevOps/" rel="tag"><i class="fa fa-tag"></i> DevOps</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/github-keyword/" rel="prev" title="GitHub review 常用缩写">
+                  <i class="fa fa-chevron-left"></i> GitHub review 常用缩写
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/cgo-cross-compile/" rel="next" title="cgo 交叉编译">
+                  cgo 交叉编译 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

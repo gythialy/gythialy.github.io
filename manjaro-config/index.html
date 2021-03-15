@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="Manjaro 是一款基于 Arch Linux、对用户友好、全球排名第 1 的 Linux 发行版。（排名数据源于 DistroWatch） 在 Linux 圈，Arch 的确是一个异常强大的发行版。它有 3 个无与伦比的优势：  滚动更新可以使软件保持最新； AUR 软件仓库有着世界上最齐全的 Linux 软件 丰富的 wiki 和活跃的社区让所有问题都可以快速得到满意的答案  为了解决 Ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manjaro 安装及配置">
+<meta property="og:url" content="https://gythialy.github.io/manjaro-config/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="Manjaro 是一款基于 Arch Linux、对用户友好、全球排名第 1 的 Linux 发行版。（排名数据源于 DistroWatch） 在 Linux 圈，Arch 的确是一个异常强大的发行版。它有 3 个无与伦比的优势：  滚动更新可以使软件保持最新； AUR 软件仓库有着世界上最齐全的 Linux 软件 丰富的 wiki 和活跃的社区让所有问题都可以快速得到满意的答案  为了解决 Ar">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-06-25T05:14:45.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.302Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="Manjaro">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/manjaro-config/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Manjaro 安装及配置 | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C-U-%E7%9B%98%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.2.</span> <span class="nav-text">制作 U 盘启动盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8"><span class="nav-number">1.3.</span> <span class="nav-text">关闭安全启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">更新源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">常用软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GNU-toolchain"><span class="nav-number">4.1.</span> <span class="nav-text">GNU toolchain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yay"><span class="nav-number">4.2.</span> <span class="nav-text">yay</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">4.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh"><span class="nav-number">4.5.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Synapse"><span class="nav-number">4.6.</span> <span class="nav-text">Synapse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%AA%E8%B4%B4%E6%9D%BF"><span class="nav-number">4.7.</span> <span class="nav-text">剪贴板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1"><span class="nav-number">4.8.</span> <span class="nav-text">微信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.9.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD"><span class="nav-number">5.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/manjaro-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Manjaro 安装及配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-06-25 13:14:45" itemprop="dateCreated datePublished" datetime="2018-06-25T13:14:45+08:00">2018-06-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://manjaro.org/">Manjaro</a> 是一款基于 Arch Linux、对用户友好、全球排名第 1 的 Linux 发行版。（排名数据源于 <a target="_blank" rel="noopener" href="http://distrowatch.com/">DistroWatch</a>）</p>
+<p>在 Linux 圈，<a target="_blank" rel="noopener" href="https://www.archlinux.org/">Arch</a> 的确是一个异常强大的发行版。它有 3 个无与伦比的优势：</p>
+<ul>
+<li>滚动更新可以使软件保持最新；</li>
+<li><a target="_blank" rel="noopener" href="https://aur.archlinux.org/">AUR</a> 软件仓库有着世界上最齐全的 Linux 软件</li>
+<li>丰富的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/">wiki</a> 和活跃的社区让所有问题都可以快速得到满意的答案</li>
+</ul>
+<p>为了解决 ArchLinux 的复杂安装，Manjaro 应运而生！</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p>可以从 <a target="_blank" rel="noopener" href="https://manjaro.org/get-manjaro/">官方</a> 下载镜像，官方支持 Xfore, KDE, GNOME 三种桌面环境，社区版有更多桌面环境支持。根据个人喜好选择，我对 GNOME 版本比较熟悉，所以下载了 GNOME 版。也可以从 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/manjaro-cd/">清华大学开源镜像</a> 下载。</p>
+<blockquote>
+<p>注： 清华的镜像比官方镜像稍微旧一些。</p>
+</blockquote>
+<h3 id="制作-U-盘启动盘"><a href="#制作-U-盘启动盘" class="headerlink" title="制作 U 盘启动盘"></a>制作 U 盘启动盘</h3><ul>
+<li>Windows<br>  Manjaro 官方手册推荐用 <a target="_blank" rel="noopener" href="https://rufus.akeo.ie/">Rufus</a> 制作启动盘，可惜一直没成功，最后使用 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/usbwriter/">USBwriter</a> 一步到位。</li>
+<li>Linux<br>  <code>sudo dd bs=4M if=/path/to/manjaro.iso of=/dev/sd[drive letter] status=progress</code>  [drive letter] 为 U 盘盘符。</li>
+</ul>
+<p><escape><span id="more"></span></escape></p>
+<h3 id="关闭安全启动"><a href="#关闭安全启动" class="headerlink" title="关闭安全启动"></a>关闭安全启动</h3><p><a target="_blank" rel="noopener" href="https://www.mi.com/mibookpro/">小米笔记本 Pro 15.6″</a> 需要关闭安全启动才能启动。首先插入 U 盘，然后按开机键，并在开机过程中按 F2，会进入 UEFI 设置：</p>
+<p>安全 -&gt; 设置密码<br>安全 -&gt; 关闭 Secure Boot<br>点击设置密码，但是把 “新密码” 一栏留空，可以实现重置密码</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>因为小米这台笔记本一直处于吃灰状态，所以安装非常简单，基本上就是无脑下一步就可以了，直接抹掉所有数据。如果是和 Windows 双系统的话，所以需要在不破坏已有引导文件的情况下来安装，因此选择手动分区。<br>在具体分区时需要将启动盘挂载到 win10 建立的 esp 分区上，挂载点设置为 <code>/boot/efi</code> 标记选择 boot 和 esp 其他的分区和挂载根据自己需要划分。</p>
+<h2 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h2><ul>
+<li>执行下面的命令从官方的源列表中对中国源进行测速和设置  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -gb testing -c China</span><br></pre></td></tr></table></figure></li>
+<li>增加 Arch Linux CN 源<br>  在 <code>/etc/pacman.conf</code> 文件末尾添加两行  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server &#x3D; https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;archlinuxcn&#x2F;$arch</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：需要安装 <code>archlinuxcn-keyring</code> 包以导入 GPG key，否则的话 key 验证失败会无法安装的</p>
+</blockquote>
+</li>
+<li>更新系统<br>  <code>sudo pacman -Syu</code></li>
+</ul>
+<h2 id="常用软件安装"><a href="#常用软件安装" class="headerlink" title="常用软件安装"></a>常用软件安装</h2><h3 id="GNU-toolchain"><a href="#GNU-toolchain" class="headerlink" title="GNU toolchain"></a>GNU toolchain</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S base-devel</span><br></pre></td></tr></table></figure>
+
+<h3 id="yay"><a href="#yay" class="headerlink" title="yay"></a><code>yay</code></h3><p>在之前我们管理软件包都是使用官方为我们提供的 pacman，软件包的来源都是官方。yaourt 实际上也是一个软件包，我们可以把它看成是对 pacman 的包装，它兼容 pacman 的所有操作，最大的不同是我们可以用它方便地安装与管理 AUR 中的包，下面的许多软件包都是在 AUR 库中的，也都是使用 AUR 来安装的。具体使用，可以参考 <a target="_blank" rel="noopener" href="https://github.com/Jguer/yay">这里</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy yay fakeroot</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注： <code>yay</code> 默认使用的是 <code>pacman</code> 的配置，所以默认控制台是没有颜色的，需要在 <code>/etc/pacman.conf</code> 中的 <code>Color</code> 选项开启， via <a target="_blank" rel="noopener" href="https://github.com/Jguer/yay/issues/123">#123</a> </p>
+</blockquote>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay noto-fonts noto-fonts-cjk noto-fonts-emoji wqy-microhei wqy-microhei-lite</span><br></pre></td></tr></table></figure>
+<p>文泉驿</p>
+<ul>
+<li>wqy-microhei - 文泉驿微米黑，无衬线形式字体。</li>
+<li>wqy-microhei-lite - 文泉驿微米黑 light 版（笔画更细）</li>
+</ul>
+<h3 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h3><p>目前主流的输入法框架就是 fcitx 和 iBus 两种， iBus bug 稍微多一点。输入法基本上就是 Sogou 和 Rime。 <del>Rime 要配置，我还没找到主题配置的地方，Sogou 基本上就是开箱即用。</del> 使用了一段时间后，还是把输入法改成了 Rime。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S ibus ibus-qt ibus-rime</span><br></pre></td></tr></table></figure>
+<p>在 <code>~/.xprofile</code> 添加下面的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export GTK_IM_MODULE&#x3D;ibus</span><br><span class="line">export XMODIFIERS&#x3D;@im&#x3D;ibus</span><br><span class="line">export QT_IM_MODULE&#x3D;ibus</span><br><span class="line">ibus-daemon -d -x</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：Gnome 自带 iBus 的管理界面， 所以你只需要安装的输入法引擎, 并在 Region &amp; Language 中的 “Input Sources” 添加进去。在你添加至少两个输入源后，GNOME 会在托盘中显示输入选择图标。</p>
+</blockquote>
+<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>zsh 是默认 shell bash 的替代品之一，它的特点是插件多配置方便，兼容 bash 脚本并且支持更强大的高亮与补全。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yaourt zsh powerline-fonts powerline</span><br><span class="line"><span class="comment"># 安装 oh-my-zsh</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注： 也可以使用 <a target="_blank" rel="noopener" href="https://fishshell.com/">fish</a>，但是和 bash 是不兼容的，看个人喜好。</p>
+</blockquote>
+<h3 id="Synapse"><a href="#Synapse" class="headerlink" title="Synapse"></a><a target="_blank" rel="noopener" href="https://launchpad.net/synapse-project">Synapse</a></h3><p>Synapse 是类似 macOS Alfred 的应用启动器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt synapse</span><br></pre></td></tr></table></figure>
+
+<h3 id="剪贴板"><a href="#剪贴板" class="headerlink" title="剪贴板"></a>剪贴板</h3><p><a target="_blank" rel="noopener" href="https://hluk.github.io/CopyQ/">CopyQ</a> 是一个剪贴板管理工具，类似 <a target="_blank" rel="noopener" href="https://ditto-cp.sourceforge.io/">Ditto</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt copyq</span><br></pre></td></tr></table></figure>
+<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><p>目前官方没有出过 Linux 版本，Linux 平台只有 Web 版。用三个选择，wine 安装 Windows 版本，Deepin 已经做过一些修改，但是这个版本的字体显示不是很好。还有两个分别是 <code>electronic-wechat</code> 和 <code>wewechat</code>，后两者都是基于 Web 版封装的，<code>wewechat</code> 更彻底一点，三个都可以通过 AUR 安装。使用体验上来说都没办法和 Windows 、macOS 平台相比，聊胜于无吧。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S electronic-wechat wewechat deepin.com.wechat</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>配置 SSH</li>
+<li>配置 Git</li>
+<li>配置 gpg</li>
+<li>安装 IDE (Jetbrains …)</li>
+<li>etc …</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt clion gitahead typora ieaseMusic code ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p>简单配置了一下 Timeshift，整体体验远不如 macOS TimeMachine，不过毕竟价格差异在这里，还要什么自行车。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>总的来说， Manjaro 安装方便，有 AUR 加持，安装包非常方便，作为主力开发环境使用了一段时间总体觉得还可以。搭建开发环境来说，基本与 macOS 相当，有些环境需要 sudo，这点不如 Brew，不过稍微配置还说有版本实现的。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.manjaro.org/index.php?title=Burn_an_ISO_File#Writing_to_a_USB_Stick_in_Linux">Writing_to_a_USB_Stick_in_Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Xiaomi_Mi_Notebook_Air_13.3_(2016)">Xiaomi Mi Notebook Air 13.3</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Fonts_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Fonts</a></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Manjaro/" rel="tag"><i class="fa fa-tag"></i> Manjaro</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/clion-wsl/" rel="prev" title="Clion WSL 工具链配置">
+                  <i class="fa fa-chevron-left"></i> Clion WSL 工具链配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/howto-debug-angular-with-vscode/" rel="next" title="使用 Visual Studio Code 调试 Angular 工程">
+                  使用 Visual Studio Code 调试 Angular 工程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

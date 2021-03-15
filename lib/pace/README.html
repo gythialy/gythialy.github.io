@@ -1,0 +1,67 @@
+<h1 id="Hexo-Word-Counter"><a href="#Hexo-Word-Counter" class="headerlink" title="Hexo Word Counter"></a>Hexo Word Counter</h1><p><a href="https://github.com/next-theme/hexo-word-counter/actions?query=workflow:Linter"><img src="https://img.shields.io/github/workflow/status/next-theme/hexo-word-counter/Linter?style=flat-square" alt="Build Status"></a><br><a href="https://www.npmjs.com/package/hexo-word-counter"><img src="https://img.shields.io/npm/v/hexo-word-counter?style=flat-square" alt="npm-image"></a><br><a href="https://hexo.io/"><img src="https://img.shields.io/badge/hexo-%3E%3D%203.0-blue?style=flat-square" alt="hexo-image"></a><br><a href="LICENSE"><img src="https://img.shields.io/npm/l/hexo-word-counter?style=flat-square" alt="lic-image"></a></p>
+<p>Symbols count and time to read for articles in Hexo blog.</p>
+<p>Better than <a href="https://github.com/ierhyna/hexo-reading-time"><code>hexo-reading-time</code></a> and faster than <a href="https://github.com/willin/hexo-wordcount"><code>hexo-wordcount</code></a>. No external dependencies.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p><img src="https://img.shields.io/github/languages/code-size/next-theme/hexo-word-counter?style=flat-square" alt="size-image"><br><a href="https://www.npmjs.com/package/hexo-word-counter"><img src="https://img.shields.io/npm/dm/hexo-word-counter?style=flat-square" alt="dm-image"></a><br><a href="https://www.npmjs.com/package/hexo-word-counter"><img src="https://img.shields.io/npm/dt/hexo-word-counter?style=flat-square" alt="dt-image"></a></p>
+<pre><code class="bash">$ npm install hexo-word-counter
+$ hexo clean
+</code></pre>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>You can set options of hexo-word-counter in the <strong>Hexo’s <code>_config.yml</code></strong> (which locates in the root dir of your blog):</p>
+<pre><code class="yml">symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+  awl: 4
+  wpm: 275
+  suffix: &quot;mins.&quot;
+</code></pre>
+<p>If <code>symbols_count_time</code> option is not specified, the default parameters will be used.</p>
+<h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><ul>
+<li><code>awl</code> – Average Word Length (chars count in word). Default: <code>4</code>. You can check this <a href="https://charactercounttool.com/">here</a>.<ul>
+<li>CN &asymp; <code>2</code></li>
+<li>EN &asymp; <code>5</code></li>
+<li>RU &asymp; <code>6</code></li>
+</ul>
+</li>
+<li><code>wpm</code> – Words Per Minute. Default: <code>275</code>. You can check this <a href="https://wordcounter.net/">here</a>.<ul>
+<li>Slow &asymp; <code>200</code></li>
+<li>Normal &asymp; <code>275</code></li>
+<li>Fast &asymp; <code>350</code></li>
+</ul>
+</li>
+<li><code>suffix</code> – If time to read less then 60 minutes, added suffix as string parameter.<br>If not defined, <code>mins.</code> will be used as default.</li>
+<li><code>exclude_codeblock</code> – Allow to exclude all content inside code blocks for more accurate words counting.<br>If not defined, <code>false</code> will be used as default.</li>
+</ul>
+<p><strong>Note for Chinese users:</strong> because in Chinese language average word length about <code>~1.5</code> and if you at most cases write posts in Chinese (without mixed English), recommended to set <code>awl</code> to <code>2</code> and <code>wpm</code> to <code>300</code>.<br>But if you usualy mix your posts with English, <code>awl</code> to <code>4</code> and <code>wpm</code> to <code>275</code> will be nice.</p>
+<h3 id="NexT-theme"><a href="#NexT-theme" class="headerlink" title="NexT theme"></a>NexT theme</h3><p>This plugin integrated in «NexT» and after plugin enabled in main Hexo config, you may adjust options in NexT config:</p>
+<pre><code class="yml">symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: false
+</code></pre>
+<h2 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h2><pre><code class="bash">$ cd hexo
+$ git clone https://github.com/next-theme/hexo-word-counter.git node_modules/hexo-word-counter
+$ cd node_modules/hexo-word-counter
+</code></pre>
+<h3 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h3><pre><code class="bash">$ npm install mocha chai --save-dev
+$ npm test
+</code></pre>
+<h3 id="Tests-with-coverage"><a href="#Tests-with-coverage" class="headerlink" title="Tests with coverage"></a>Tests with coverage</h3><pre><code class="bash">$ npm install -g nyc
+$ nyc --print both node_modules/.bin/_mocha -- test/index.js
+</code></pre>
+<h3 id="Templates"><a href="#Templates" class="headerlink" title="Templates"></a>Templates</h3><h4 id="Symbols-Count"><a href="#Symbols-Count" class="headerlink" title="Symbols Count"></a>Symbols Count</h4><pre><code class="js">{{ symbolsCount(post) }}
+</code></pre>
+<h4 id="Symbols-Time"><a href="#Symbols-Time" class="headerlink" title="Symbols Time"></a>Symbols Time</h4><pre><code class="js">{{ symbolsTime(post) }}
+</code></pre>
+<p>Or with predefined parameters:</p>
+<pre><code class="js">{{ symbolsTime(post, awl, wpm, suffix) }}
+</code></pre>
+<h4 id="Symbols-Count-Total"><a href="#Symbols-Count-Total" class="headerlink" title="Symbols Count Total"></a>Symbols Count Total</h4><pre><code class="js">{{ symbolsCountTotal(site) }}
+</code></pre>
+<h4 id="Symbols-Time-Total"><a href="#Symbols-Time-Total" class="headerlink" title="Symbols Time Total"></a>Symbols Time Total</h4><pre><code class="js">{{ symbolsTimeTotal(site) }}
+</code></pre>
+<p>Or with predefined parameters:</p>
+<pre><code class="js">{{ symbolsTimeTotal(site, awl, wpm, suffix) }}
+</code></pre>
+<h4 id="Renderers-syntax"><a href="#Renderers-syntax" class="headerlink" title="Renderers syntax"></a>Renderers syntax</h4><p>SWIG / Nunjucks: <code>{{</code> <code>template</code> <code>}}</code><br>EJS: <code>&lt;%-</code> <code>template</code> <code>%&gt;</code><br>Jade: <code>span=</code> <code>template</code></p>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="缘起之前一个项目做预研的时候搞了个树莓派 3B，测试完之后，一直处于吃灰状态。刚好最近经常给小朋友打印东西，家里那台老的 HP P1106 不支持无线打印，每次都接 USB 才能打印，让人无比烦躁。于是乎抽空把打印机接到树莓派上，利用 cups 做成无线打印。 安装系统烧镜像 官网 下载最新的镜像 可以通过 dd 把镜像复制到 SD 卡中，具体方法参考 官方指南 也可以通过 Etcher，brew">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吃灰派复活记">
+<meta property="og:url" content="https://gythialy.github.io/refresh-raspberry/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="缘起之前一个项目做预研的时候搞了个树莓派 3B，测试完之后，一直处于吃灰状态。刚好最近经常给小朋友打印东西，家里那台老的 HP P1106 不支持无线打印，每次都接 USB 才能打印，让人无比烦躁。于是乎抽空把打印机接到树莓派上，利用 cups 做成无线打印。 安装系统烧镜像 官网 下载最新的镜像 可以通过 dd 把镜像复制到 SD 卡中，具体方法参考 官方指南 也可以通过 Etcher，brew">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gythialy.github.io/uploads/snapshot_cups_printers.png">
+<meta property="article:published_time" content="2019-11-28T05:54:55.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.302Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="raspberry">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gythialy.github.io/uploads/snapshot_cups_printers.png">
+
+
+<link rel="canonical" href="https://gythialy.github.io/refresh-raspberry/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>吃灰派复活记 | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%98%E8%B5%B7"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%83%A7%E9%95%9C%E5%83%8F"><span class="nav-number">2.1.</span> <span class="nav-text">烧镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-WIFI"><span class="nav-number">2.2.</span> <span class="nav-text">配置 WIFI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8-ssh"><span class="nav-number">2.3.</span> <span class="nav-text">启用 ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">2.4.</span> <span class="nav-text">修改配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-cups"><span class="nav-number">3.</span> <span class="nav-text">安装 cups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%89%93%E5%8D%B0%E6%9C%BA%E9%A9%B1%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">安装打印机驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VNC-%E7%99%BB%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">VNC 登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/refresh-raspberry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          吃灰派复活记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-28 13:54:55" itemprop="dateCreated datePublished" datetime="2019-11-28T13:54:55+08:00">2019-11-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>之前一个项目做预研的时候搞了个树莓派 3B，测试完之后，一直处于吃灰状态。刚好最近经常给小朋友打印东西，家里那台老的 HP P1106 不支持无线打印，每次都接 USB 才能打印，让人无比烦躁。于是乎抽空把打印机接到树莓派上，利用 cups 做成无线打印。</p>
+<h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><h3 id="烧镜像"><a href="#烧镜像" class="headerlink" title="烧镜像"></a>烧镜像</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">官网</a> 下载最新的镜像</li>
+<li>可以通过 <code>dd</code> 把镜像复制到 SD 卡中，具体方法参考 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">官方指南</a></li>
+<li>也可以通过 <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">Etcher</a>，<code>brew cask install balenaetcher</code> 即可，傻瓜式操作<br><escape><span id="more"></span></escape><h3 id="配置-WIFI"><a href="#配置-WIFI" class="headerlink" title="配置 WIFI"></a>配置 WIFI</h3></li>
+</ul>
+<p>在 <code>boot</code> 分区，创建文件 <code>wpa_supplicant.conf</code>，内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">country&#x3D;CN</span><br><span class="line">ctrl_interface&#x3D;DIR&#x3D;&#x2F;var&#x2F;run&#x2F;wpa_supplicant GROUP&#x3D;netdev</span><br><span class="line">update_config&#x3D;1</span><br><span class="line"></span><br><span class="line">network&#x3D;&#123;</span><br><span class="line">    ssid&#x3D;&quot;wifi_ssid&quot;</span><br><span class="line">    psk&#x3D;&quot;wifi_password&quot;</span><br><span class="line">    priority&#x3D;1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体参数说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#ssid: WIFI ssid</span><br><span class="line">#psk: WIFI 密码</span><br><span class="line">#priority: 连接优先级，数字越大优先级越高（不可以是负数）</span><br><span class="line">#scan_ssid: 连接隐藏 WiFi 时需要指定该值为 1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; WiFi 没有密码</span><br><span class="line">network&#x3D;&#123;</span><br><span class="line">    ssid&#x3D;&quot;WIFI ssid&quot;</span><br><span class="line">    key_mgmt&#x3D;NONE</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; WiFi 使用 WEP 加密</span><br><span class="line">network&#x3D;&#123;</span><br><span class="line">    ssid&#x3D;&quot;WIFI ssid&quot;</span><br><span class="line">    key_mgmt&#x3D;NONE</span><br><span class="line">    wep_key0&#x3D;&quot;WIFI password&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; WiFi 使用 WPA&#x2F;WPA2 加密</span><br><span class="line">network&#x3D;&#123;</span><br><span class="line">    ssid&#x3D;&quot;WIFI ssid&quot;</span><br><span class="line">    key_mgmt&#x3D;WPA-PSK</span><br><span class="line">    psk&#x3D;&quot;WIFI password&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启用-ssh"><a href="#启用-ssh" class="headerlink" title="启用 ssh"></a>启用 ssh</h3><p>在 SD 卡的根目录创建空文件 ssh，可通过 <code>touch ssh</code> 实现</p>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>签名的步骤都完成后就可以把 SD 卡插入到树莓派中了，上电开机了。在路由中查看树莓派中分配到的 IP ，可以在路由中把树莓派的 IP 固定下来，方便后面登录。</p>
+<ul>
+<li><code>ssh pi@10.10.50.42</code> 登录到树莓派中，默认密码为 <code>raspberry</code></li>
+<li><code>sudo raspi-config</code> 可以修改一些系统配置，比如修改密码、开启 VNC 服务<blockquote>
+<p>我一般会添加 SSH key 省得后面每次登录输入密码</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="安装-cups"><a href="#安装-cups" class="headerlink" title="安装 cups"></a>安装 cups</h2><ul>
+<li><code>sudo apt-get update &amp;&amp; sudo apt-get install cups</code> 安装 cups</li>
+<li><code>sudo usermod -a -G lpadmin pi</code> 运行当前 pi 用户配置 cups</li>
+<li><code>sudo service cups stop</code> 关闭 cups 服务</li>
+<li><code>sudo cp /etc/cups/cupsd.conf /etc/cups/cupsd.conf.bak</code> 备份默认配置</li>
+<li><code>sudo vi /etc/cups/cupsd.conf</code> 修改 cups 的配置，允许在浏览器添加打印机，可参考 <a target="_blank" rel="noopener" href="https://gist.github.com/gythialy/634c4b23876dc411a9aeb185ef037c54">我的配置</a>。这个配置在局域网的话应该是通用的，允许来自局域网的请求</li>
+<li><code>sudo service cups start</code> 启动 cups 服务</li>
+<li>在浏览器通过 <code>http://raspberry_pi_ip:631</code> 应该就可以添加打印机了</li>
+</ul>
+<h2 id="安装打印机驱动"><a href="#安装打印机驱动" class="headerlink" title="安装打印机驱动"></a>安装打印机驱动</h2><p>由于我的打印机是 <a target="_blank" rel="noopener" href="https://developers.hp.com/hp-linux-imaging-and-printing/models/laserjet/hp_laserjet_professional_p1106">HP LaserJet Professional p1106</a>，官方并没有提供 Linux 的驱动，所以需要安装第三方的驱动 <a target="_blank" rel="noopener" href="http://foo2zjs.rkkda.com/">foo2zjs</a>，这个驱动支持 HP P1102，但我的P1106用起来也没什么问题。</p>
+<ul>
+<li><p>编译安装 foo2zjs:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span> &amp;&amp; \</span><br><span class="line">wget -O foo2zjs.tar.gz http://foo2zjs.rkkda.com/foo2zjs.tar.gz &amp;&amp; \</span><br><span class="line">tar zxf foo2zjs.tar.gz &amp;&amp; <span class="built_in">cd</span> foo2zjs &amp;&amp; \</span><br><span class="line">make &amp;&amp; sudo make install &amp;&amp; sudo make install-hotplug &amp;&amp; sudo make cups</span><br></pre></td></tr></table></figure></li>
+<li><p><code>sudo service cups start</code> 启动 cups 服务</p>
+</li>
+<li><p>在浏览器通过 <code>http://raspberry_pi_ip:631</code> 应该就可以添加打印机了</p>
+</li>
+<li><p>这时候在系统里面添加打印机应该就能发现<br>  <img src="/uploads/snapshot_cups_printers.png"></p>
+</li>
+</ul>
+<h2 id="VNC-登录"><a href="#VNC-登录" class="headerlink" title="VNC 登录"></a>VNC 登录</h2><ul>
+<li>开启 VNC server后, 可以通过 <code>brew cask install vnc-viewer</code> 安装 VNC client。</li>
+<li>在 VNC Viewer中添加树莓派的 IP 地址即可登录树莓派的桌面</li>
+</ul>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>除了上面提到的操作之外，我额外配置了 zsh，docker 等，由于都是常规 Linux 操作再次就不再赘述了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">➜ neofetch</span><br><span class="line">  &#96;.::&#x2F;&#x2F;&#x2F;+:&#x2F;-.        --&#x2F;&#x2F;&#x2F;+&#x2F;&#x2F;-:&#96;&#96;    pi@raspberrypi</span><br><span class="line"> &#96;+oooooooooooo:   &#96;+oooooooooooo:    --------------</span><br><span class="line">  &#x2F;oooo++&#x2F;&#x2F;ooooo:  ooooo+&#x2F;&#x2F;+ooooo.    OS: Raspbian GNU&#x2F;Linux 10 (buster) armv7l</span><br><span class="line">  &#96;+ooooooo:-:oo-  +o+::&#x2F;ooooooo:     Host: Raspberry Pi 3 Model B Rev 1.2</span><br><span class="line">   &#96;:oooooooo+&#96;&#96;    &#96;.oooooooo+-      Kernel: 4.19.75-v7+</span><br><span class="line">     &#96;:++ooo&#x2F;.        :+ooo+&#x2F;.&#96;       Uptime: 3 days, 23 hours, 19 mins</span><br><span class="line">        ...&#96;  &#96;.----.&#96; &#96;&#96;..           Packages: 1494 (dpkg)</span><br><span class="line">     .::::-&#96;&#96;:::::::::.&#96;-:::-&#96;        Shell: zsh 5.7.1</span><br><span class="line">    -:::-&#96;   .:::::::-&#96;  &#96;-:::-       Terminal: &#x2F;dev&#x2F;pts&#x2F;0</span><br><span class="line">   &#96;::.  &#96;.--.&#96;  &#96;&#96; &#96;.---.&#96;&#96;.::&#96;      CPU: BCM2835 (4) @ 1.200GHz</span><br><span class="line">       .::::::::&#96;  -::::::::&#96; &#96;       Memory: 203MiB &#x2F; 926MiB</span><br><span class="line"> .::&#96; .:::::::::- &#96;::::::::::&#96;&#96;::.</span><br><span class="line">-:::&#96; ::::::::::.  ::::::::::.&#96;:::-</span><br><span class="line">::::  -::::::::.   &#96;-::::::::  ::::</span><br><span class="line">-::-   .-:::-.&#96;&#96;....&#96;&#96;.-::-.   -::-</span><br><span class="line"> .. &#96;&#96;       .::::::::.     &#96;..&#96;..</span><br><span class="line">   -:::-&#96;   -::::::::::&#96;  .:::::&#96;</span><br><span class="line">   :::::::&#96; -::::::::::&#96; :::::::.</span><br><span class="line">   .:::::::  -::::::::. ::::::::</span><br><span class="line">    &#96;-:::::&#96;   ..--.&#96;   ::::::.</span><br><span class="line">      &#96;...&#96;  &#96;...--..&#96;  &#96;...&#96;</span><br><span class="line">            .::::::::::</span><br><span class="line">             &#96;.-::::-&#96;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>---EOF---</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/raspberry/" rel="tag"><i class="fa fa-tag"></i> raspberry</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/goreleaser-cgo-cross-compile/" rel="prev" title="goreleaser 支持 cgo 交叉编译">
+                  <i class="fa fa-chevron-left"></i> goreleaser 支持 cgo 交叉编译
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/docker-tips/" rel="next" title="Docker tips">
+                  Docker tips <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="源码之前，了无秘密...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="机械境">
+<meta property="og:url" content="https://gythialy.github.io/page/5/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="源码之前，了无秘密...">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="gythialy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/page/5/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+<title>机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/install-and-config-supervisor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/install-and-config-supervisor/" class="post-title-link" itemprop="url">安装配置 Supervisor</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-10 15:17:29" itemprop="dateCreated datePublished" datetime="2017-08-10T15:17:29+08:00">2017-08-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="在线安装"><a href="#在线安装" class="headerlink" title="在线安装"></a>在线安装</h3><ul>
+<li><p>通过 <code>Setuptools</code>安装</p>
+<p><code>easy_install supervisor</code></p>
+</li>
+<li><p>Ubuntu 安装</p>
+<p><code>sudo apt-get install supervisor </code></p>
+</li>
+</ul>
+<h3 id="离线安装"><a href="#离线安装" class="headerlink" title="离线安装"></a>离线安装</h3><ul>
+<li>从 <a target="_blank" rel="noopener" href="http://pypi.python.org/pypi/supervisor">PyPi</a> 下载 <code>supervisor</code>离线包</li>
+<li>下载依赖项<ul>
+<li>setuptools (latest) from <a target="_blank" rel="noopener" href="http://pypi.python.org/pypi/setuptools">http://pypi.python.org/pypi/setuptools</a>.</li>
+<li>meld3 (latest) from <a target="_blank" rel="noopener" href="http://www.plope.com/software/meld3/">http://www.plope.com/software/meld3/</a>.</li>
+</ul>
+</li>
+<li>分别通过 <code>python setup.py install</code> 安装</li>
+</ul>
+<blockquote>
+<p>注：根据不同的系统，可能需要 root 权限执行安装</p>
+</blockquote>
+<p><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/install-and-config-supervisor/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/travis-add-ssh-key/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/travis-add-ssh-key/" class="post-title-link" itemprop="url">在 travis 添加 ssh key</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-10 10:19:25" itemprop="dateCreated datePublished" datetime="2017-08-10T10:19:25+08:00">2017-08-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="生成-SSH-key"><a href="#生成-SSH-key" class="headerlink" title="生成 SSH key"></a>生成 SSH key</h3><ul>
+<li><p>生成</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;&lt;your_email&gt;&quot; -f github_deploy_key -N &#x27;&#x27;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注： 这里使用 <code>github_deploy_key</code> 作为存储的名字</p>
+</blockquote>
+</li>
+</ul>
+<p>这会生成两个文件</p>
+<ul>
+<li><p>公钥  <code>github_deploy_key.pub</code></p>
+</li>
+<li><p>私钥 <code>github_deploy_key</code></p>
+</li>
+<li><p>拷贝公钥到剪贴板</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Copies the contents of the id_rsa.pub file to your clipboard</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> clip &lt; ~/.ssh/github_deploy_key.pub</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果是做为项目的部署公钥，需要添加到项目中，以 GitHub 为例，添加公钥的时候需要勾上 <code>Allow Write Access</code></p>
+</blockquote>
+</li>
+<li><p>删除 <code>github_deploy_key.pub</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm github_deploy_key.pub</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-The-Travis-Client"><a href="#安装-The-Travis-Client" class="headerlink" title="安装 The Travis Client"></a>安装 <a target="_blank" rel="noopener" href="https://github.com/travis-ci/travis.rb">The Travis Client</a></h3></li>
+<li><p>首先确保已经安装好 Ruby(1.9.3+)，官方推荐 2.0.0 </p>
+</li>
+<li><p> 执行 <code>gem install travis -v 1.8.8 --no-rdoc --no-ri</code> 安装 travis client</p>
+</li>
+<li><p>检查安装是否正确 <code>travis version</code></p>
+</li>
+</ul>
+<h3 id="加密-SSH-key"><a href="#加密-SSH-key" class="headerlink" title="加密 SSH key"></a>加密 SSH key</h3><ul>
+<li><p>加密文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt-file github_deploy_key</span><br></pre></td></tr></table></figure>
+
+<p>加密后的文件为 <code>github_deploy_key.enc</code></p>
+<p>会输出类似的结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">encrypting github_deploy_key for &lt;username&gt;/&lt;repository&gt;</span><br><span class="line">storing result as github_deploy_key.enc</span><br><span class="line">storing secure env variables for decryption</span><br><span class="line"></span><br><span class="line">openssl aes-256-cbc -K $encrypted_XXXXXXXXXXXX_key -iv $encrypted_XXXXXXXXXXXX_iv -in github_deploy_key.enc -out github_deploy_key -d</span><br><span class="line"></span><br><span class="line">Pro Tip: You can add it automatically by running with --add.</span><br><span class="line"></span><br><span class="line">Make sure to add github_deploy_key.enc to the git repository.</span><br><span class="line">Make sure not to add github_deploy_key to the git repository.</span><br><span class="line">Commit all changes to your .travis.yml.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注： 如果是 GitHub 项目，建议先通过 <code>travis login</code>  登录，然后再通过 <code>travis encrypt-file github_deploy_key -add</code> 加密，travis Client 会自动更新 <code>.traivs.yaml</code>并且在 travis 中自动添加变量 <code>encrypted_XXXXXXXXXXXX_key</code>  和 <code>encrypted_XXXXXXXXXXXX_iv</code></p>
+</blockquote>
+</li>
+<li><p>删除 <code>github_deploy_key</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f github_deploy_key</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ul>
+<h3 id="修改-travis-yaml"><a href="#修改-travis-yaml" class="headerlink" title="修改 .travis.yaml"></a>修改 <code>.travis.yaml</code></h3><p>在 <code>before_install</code> 添加如下内容：</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">before_install:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="string">-K</span> <span class="string">$encrypted_a7d17a00ff1b_key</span> <span class="string">-iv</span> <span class="string">$encrypted_a7d17a00ff1b_iv</span></span><br><span class="line">  <span class="string">-in</span> <span class="string">.travis/github_deploy_key.enc</span> <span class="string">-out</span> <span class="string">~/.ssh/github_deploy_key</span> <span class="string">-d</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/github_deploy_key</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">eval</span> <span class="string">$(ssh-agent)</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">ssh-add</span> <span class="string">~/.ssh/github_deploy_key</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">cp</span> <span class="string">.travis/ssh_config</span> <span class="string">~/.ssh/config</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&#x27;gythialy&#x27;</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&#x27;gythialy@users.noreply.github.com&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注： 步骤如下：通过openssl 解密文件并输出到 <code>~/.ssh/github_deploy_key</code> 中；设定 <code>~/.ssh/github_deploy_key</code> 文件权限并添加到 <code>ssh-agent</code> 中</p>
+</blockquote>
+<p><code>ssh_config</code>内容，主要是防止首次连接的时候，会弹出提示。如果有其他的地址，参考此设置即可。</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Host</span> <span class="string">github.com</span></span><br><span class="line">    <span class="string">User</span> <span class="string">git</span></span><br><span class="line">    <span class="string">StrictHostKeyChecking</span> <span class="literal">no</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">~/.ssh/github_deploy_key</span></span><br><span class="line">    <span class="string">IdentitiesOnly</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">Host</span> <span class="string">gitcafe.com</span></span><br><span class="line">    <span class="string">User</span> <span class="string">git</span></span><br><span class="line">    <span class="string">StrictHostKeyChecking</span> <span class="literal">no</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">~/.ssh/github_deploy_key</span></span><br><span class="line">    <span class="string">IdentitiesOnly</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">Host</span> <span class="string">git.coding.net</span></span><br><span class="line">    <span class="string">User</span> <span class="string">git</span></span><br><span class="line">    <span class="string">StrictHostKeyChecking</span> <span class="literal">no</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">~/.ssh/github_deploy_key</span></span><br><span class="line">    <span class="string">IdentitiesOnly</span> <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>至此，就成功在 travis 中添加了SSH密钥且能建立链接。可用于且不限于：</p>
+<ul>
+<li>推送 CI 编译后的文件/结果</li>
+<li>免费构建私有项目（这个可能会违反TOS，不建议…）</li>
+<li>etc….</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/articles/connecting-to-github-with-ssh/">Connecting to GitHub with SSH</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.travis-ci.com/user/encrypting-files/">Encrypting Files</a></li>
+</ul>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/auto-deploy-hexo-by-travis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/auto-deploy-hexo-by-travis/" class="post-title-link" itemprop="url">通过 travis 自动部署 Hexo</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-08 13:26:13" itemprop="dateCreated datePublished" datetime="2017-08-08T13:26:13+08:00">2017-08-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li><p>生成 GitHub 的 <a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Personal access tokens</a>，需要有 repo 相关权限</p>
+</li>
+<li><p>安装 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">Git deployer plugin for Hexo</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li><p>配置 Hexo</p>
+<p>在 Hexo 的<code>_config.yml</code> 中添加 Hexo 编译好后文件的git地址，如果需要同时提交到多个不同地址，可以添加多个。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://__GITHUB_TOKEN__@github.com/&#123;user_name&#125;/&#123;git_repo&#125;</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">gythialy</span></span><br><span class="line">  <span class="attr">email:</span> <span class="string">gythialy@users.noreply.github.com</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：<code>https://__GITHUB_TOKEN__@github.com/&#123;user_name&#125;/&#123;git_repo&#125;</code>  示例为 <code>https://__GITHUB_TOKEN__@github.com/gythialy/gythialy.github.io.git</code></p>
+</blockquote>
+</li>
+<li><p>配置 travis </p>
+<p>在 Hexo 根目录添加 <code>.travis.yml</code>，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&quot;7&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">raw</span></span><br><span class="line"></span><br><span class="line"><span class="attr">before_install:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">gulp</span></span><br><span class="line"></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line"><span class="attr">before_script:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&#x27;gythialy&#x27;</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&#x27;gythialy@users.noreply.github.com&#x27;</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">sed</span> <span class="string">-i</span> <span class="string">&quot;s/__GITHUB_TOKEN__/$&#123;__GITHUB_TOKEN__&#125;/&quot;</span> <span class="string">_config.yml</span></span><br><span class="line"><span class="comment"># use custom theme config</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">clone</span> <span class="string">--branch</span> <span class="string">v5.1.2</span> <span class="string">--depth=10</span>  <span class="string">https://github.com/iissnan/hexo-theme-next.git</span> <span class="string">themes/next</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">checkout</span> <span class="string">-b</span> <span class="string">v5.1.2</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">cp</span> <span class="string">next_config.yml</span> <span class="string">./themes/next/_config.yml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span> <span class="string">&amp;&amp;</span> <span class="string">gulp</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注： 因为源文件和生成的文件共用了git repo，所以需要指定只编译 源文件分支（<code>raw</code>），<code>master</code>作为编译好的文件存放路径。</p>
+</blockquote>
+</li>
+<li><p>配置 travis 环境变量</p>
+<p>在 <a target="_blank" rel="noopener" href="https://travis-ci.org/" title="Travis CI">travis</a> 网页中添加变量<code> __GITHUB_TOKEN</code>__值为前面生成的 GitHub  Personal access tokens</p>
+</li>
+</ul>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/jna/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/jna/" class="post-title-link" itemprop="url">Java 通过 JNA 调用 C/C++ 接口</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-07 17:31:21" itemprop="dateCreated datePublished" datetime="2017-08-07T17:31:21+08:00">2017-08-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>项目中调用了第三方一个 Matlab 实现的数据清洗和机组状态评价的算法，但是对方不会除 Matlab 外的其他语言，最后只用 Matlab 生成了一个 dll/lib 文件。由于对方提供的接口质量真心不好，而且对方也无力修改。最终方案只好由我方在其基础上用 C++ 重新包装一下。在给我方 Client 调用时，需要把从多数据源查询数据的细节封装掉，最终就形成了Java Client-&gt; Java Interface-&gt;C++ Interface-&gt;Matlab/C++ Interface(第三方) 这样一个诡异的调用链。</p>
+<p>因只是 Java 单向调用 C++ 接口，故通过 <a target="_blank" rel="noopener" href="https://github.com/java-native-access/jna" title="Java Native Access">JNA</a> 实现。主要设计到 JNA 的结构体封装，指针声明及取值，结构体指针定义及取值。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>C++ 的封装接口逻辑非常简单，根据业务提供数据清洗和机组评价的两个接口。</p>
+<p>由于Matlab 导出的 dll 效率是真心差，尤其时加载的时候，各种抛异常，每次加载dll大约需耗时20~30s。所以不能每次加载，故提供 <code>init/terminator</code> 实现按需加载及停用。</p>
+<h4 id="C-C-头文件定义"><a href="#C-C-头文件定义" class="headerlink" title="C/C++ 头文件定义"></a>C/C++ 头文件定义</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __CALCULATOR_API_H__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __CALCULATOR_API_H__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdint&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> WIN32</span></span><br><span class="line"><span class="meta">#  <span class="meta-keyword">define</span> EXPORT_API __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#  <span class="meta-keyword">define</span> EXPORT_API </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Random number to avoid errno conflicts</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CALCULATOR_ENOBASE 112345678</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Calculator exceptions */</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	CALCULATOR_EXCEPTION_ILLEGAL_FUNCTION = <span class="number">0x01</span>,</span><br><span class="line">	CALCULATOR_EXCEPTION_ILLEGAL_PARA</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EMBXILFUN  (CALCULATOR_ENOBASE + CALCULATOR_EXCEPTION_ILLEGAL_FUNCTION)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EMBXILPARA  (CALCULATOR_ENOBASE + CALCULATOR_EXCEPTION_ILLEGAL_PARA)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	H2 = <span class="number">0X01</span>,</span><br><span class="line">	CH4,</span><br><span class="line">	C2H2,</span><br><span class="line">	C2H4,</span><br><span class="line">	TOTAL_HYDROCARBON,<span class="comment">//总烃</span></span><br><span class="line">	CO,</span><br><span class="line">	CO2</span><br><span class="line">&#125; OilChromatographyType;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据清洗结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sImproveResult</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int32_t</span> valid; <span class="comment">// 有效数据个数</span></span><br><span class="line">	<span class="keyword">float</span> validPercent; <span class="comment">// 数据有效值占比</span></span><br><span class="line">	<span class="keyword">float</span>* abnormalData; <span class="comment">// 异常数据</span></span><br><span class="line">	<span class="keyword">int32_t</span> abnormal_size; <span class="comment">// 异常数据个数</span></span><br><span class="line">	<span class="keyword">float</span>* optimizeData; <span class="comment">// 优化后的数据</span></span><br><span class="line">	<span class="keyword">int32_t</span> optimize_size; <span class="comment">// 优化数据个数</span></span><br><span class="line">&#125; sImproveResult, *ImproveResult;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 变压器输入参数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sTransformer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">float</span> h2Value;</span><br><span class="line">	<span class="keyword">float</span> totalHydrocarbon; <span class="comment">// 总烃</span></span><br><span class="line">	<span class="keyword">float</span> c2h2Value;</span><br><span class="line">	<span class="keyword">float</span> coValue;</span><br><span class="line">	<span class="keyword">float</span> co2Value;</span><br><span class="line">	<span class="keyword">float</span> dielectricLoss; <span class="comment">// 介损</span></span><br><span class="line">	<span class="keyword">float</span> dcResistance; <span class="comment">//直阻</span></span><br><span class="line">	<span class="keyword">float</span> absorptance; <span class="comment">//吸收比</span></span><br><span class="line">	<span class="keyword">float</span> polarizeFactor; <span class="comment">// 极化系数</span></span><br><span class="line">	<span class="keyword">float</span> electricCapacity; <span class="comment">// 电容量</span></span><br><span class="line">	<span class="keyword">float</span> moisture; <span class="comment">// 微水</span></span><br><span class="line">	<span class="keyword">float</span> breakdownVoltage; <span class="comment">// 击穿电压</span></span><br><span class="line">	<span class="keyword">float</span> oilDielectricLoss; <span class="comment">// 油介损</span></span><br><span class="line">	<span class="keyword">float</span> interfacialTension; <span class="comment">//界面张力</span></span><br><span class="line">	<span class="keyword">float</span> electricResistivity; <span class="comment">//电阻率</span></span><br><span class="line">	<span class="keyword">int16_t</span> runningLife; <span class="comment">// 运行年限</span></span><br><span class="line">	<span class="keyword">float</span> ambientTemperature; <span class="comment">// 环境温度</span></span><br><span class="line">	<span class="keyword">float</span> jointTemperature; <span class="comment">//接头温度</span></span><br><span class="line">	<span class="keyword">float</span> oilTankTemperature; <span class="comment">// 油箱温度</span></span><br><span class="line">&#125; sTransformer, *Transformer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 因素状态隶属度结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sFusionResult</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">float</span> *h1; <span class="comment">// 油色谱</span></span><br><span class="line">	<span class="keyword">int16_t</span> h1_size;</span><br><span class="line">	<span class="keyword">float</span> *h2; <span class="comment">// 电气试验</span></span><br><span class="line">	<span class="keyword">int16_t</span> h2_size;</span><br><span class="line">	<span class="keyword">float</span> *h3; <span class="comment">// 绝缘油</span></span><br><span class="line">	<span class="keyword">int16_t</span> h3_size;</span><br><span class="line">	<span class="keyword">float</span> *h4; <span class="comment">// 其余项</span></span><br><span class="line">	<span class="keyword">int16_t</span> h4_size;</span><br><span class="line">	<span class="keyword">float</span> qz1; <span class="comment">// 油色谱权重</span></span><br><span class="line">	<span class="keyword">float</span> qz2; <span class="comment">// 电气试验权重</span></span><br><span class="line">	<span class="keyword">float</span> qz3; <span class="comment">// 绝缘油权重</span></span><br><span class="line">	<span class="keyword">float</span> qz4; <span class="comment">// 其余项权重</span></span><br><span class="line">	<span class="keyword">float</span> m; <span class="comment">// 证据融合参数</span></span><br><span class="line">	<span class="keyword">float</span> n; <span class="comment">// 证据融合参数</span></span><br><span class="line">&#125; sFusionResult, *FusionResult;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 最终评价结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sFactorResult</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">float</span>* state;</span><br><span class="line">	<span class="keyword">int16_t</span> state_size;</span><br><span class="line">	<span class="keyword">int8_t</span>* comment;</span><br><span class="line">	<span class="keyword">int16_t</span> comment_len;</span><br><span class="line">&#125; sFactorResult, *FactorResult;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int64_t</span> time;</span><br><span class="line">	<span class="keyword">float</span> value;</span><br><span class="line">&#125; sImproveInput, *ImproveInput;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sReviewResult</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	Transformer indexScore;</span><br><span class="line">	<span class="keyword">int16_t</span> indexScore_size;</span><br><span class="line">	FusionResult indexFusion;</span><br><span class="line">	FactorResult factorFusion;</span><br><span class="line">&#125; sReviewResult, *ReviewResult;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 数据清洗</span></span><br><span class="line"><span class="comment">	 * @param  original[in]     原始数据起始地址</span></span><br><span class="line"><span class="comment">	 * @param  originalLen[in] 原始数据长度</span></span><br><span class="line"><span class="comment">	 * @param  result [out]      数据清洗结果</span></span><br><span class="line"><span class="comment">	 * @return 0:成功;非0：失败</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">EXPORT_API <span class="keyword">int16_t</span> <span class="title">improve_data</span><span class="params">(<span class="keyword">const</span> ImproveInput original, <span class="keyword">const</span> <span class="keyword">int32_t</span> originalLen, ImproveResult result)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 状态评价计算</span></span><br><span class="line"><span class="comment">	 * @param  transformer[in]  主变参数</span></span><br><span class="line"><span class="comment">	 * @param  result[out]     评价结果</span></span><br><span class="line"><span class="comment">	 * @return  0:成功;非0：失败</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">EXPORT_API <span class="keyword">int16_t</span> <span class="title">review_transformer</span><span class="params">(<span class="keyword">const</span> Transformer transformer, ReviewResult result)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 初始化 dll</span></span><br><span class="line"><span class="comment">	 * @return [description]</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">EXPORT_API <span class="keyword">int16_t</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据 err num 获取异常信息描述</span></span><br><span class="line"><span class="comment">	 * @param  errnum[in] errnum</span></span><br><span class="line"><span class="comment">	 * @return  errnum 对应的异常信息描述</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">EXPORT_API <span class="keyword">const</span> <span class="keyword">int8_t</span>* <span class="title">calculator_strerror</span><span class="params">(<span class="keyword">int</span> errnum)</span></span>;</span><br><span class="line">  </span><br><span class="line">  	<span class="comment">/**</span></span><br><span class="line"><span class="comment">  	* 停止计算模块</span></span><br><span class="line"><span class="comment">  	**/</span></span><br><span class="line">  	<span class="function">EXPORT_API <span class="keyword">void</span> <span class="title">terminator</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/*__CALCULATOR_API_H__*/</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Java-接口定义"><a href="#Java-接口定义" class="headerlink" title="Java 接口定义"></a>Java 接口定义</h4><ul>
+<li><p><code>CalculatorApi</code></p>
+<p><code>CalculatorApi</code> 提供与 C++ 头文件中声明一致的函数定义，继承 <code>Library</code></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.jna.Library;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CalculatorApi</span> <span class="keyword">extends</span> <span class="title">Library</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">improve_data</span><span class="params">(ImproveInputWrapper.ByReference original, <span class="keyword">int</span> originalLen, ImproveResultWrapper result)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">review_transformer</span><span class="params">(TransformerWrapper transformer, ReviewResult result)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">terminator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>FactorResultWrapper</code></p>
+<p>作为 C++ 中 结构体 <code>FactorResult</code>的封装类，需要继承<code>Structure</code>，原始 <code>state</code>定义为 <code>float *</code>，通过 <code>Pointer</code> 与其对应。必须要实现 <code>getFieldOrder</code>,其中字段的顺序必须和 C++ 中保持一致，且所有相关字段必须要设成 <code>Public</code> 。使用的时候，用的引用传递，所以必须要实现<code>Structure.ByReference</code>接口。具体代码实现如下：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.jna.Pointer;</span><br><span class="line"><span class="keyword">import</span> com.sun.jna.Structure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactorResultWrapper</span> <span class="keyword">extends</span> <span class="title">Structure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;String&gt; FIELDS_ORDER = createFieldsOrder(<span class="string">&quot;state&quot;</span>, <span class="string">&quot;state_size&quot;</span>, <span class="string">&quot;comment&quot;</span>, <span class="string">&quot;comment_len&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> Pointer state;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> state_size;</span><br><span class="line">    <span class="keyword">public</span> String comment;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> comment_len;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByReference</span> <span class="keyword">extends</span> <span class="title">FactorResultWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByReference</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByValue</span> <span class="keyword">extends</span> <span class="title">FactorResultWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByValue</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FactorResultWrapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getFieldOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FIELDS_ORDER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>FusionResultWrapper</code></p>
+<p>作为 C++ 中 结构体 <code>FusionResult</code>的封装类，定义同上。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.jna.Pointer;</span><br><span class="line"><span class="keyword">import</span> com.sun.jna.Structure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FusionResultWrapper</span> <span class="keyword">extends</span> <span class="title">Structure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;String&gt; FIELDS_ORDER = createFieldsOrder(<span class="string">&quot;h1&quot;</span>, <span class="string">&quot;h1_size&quot;</span>, <span class="string">&quot;h2&quot;</span>, <span class="string">&quot;h2_size&quot;</span>, <span class="string">&quot;h3&quot;</span>, <span class="string">&quot;h3_size&quot;</span>,</span><br><span class="line">            <span class="string">&quot;h4&quot;</span>, <span class="string">&quot;h4_size&quot;</span>, <span class="string">&quot;qz1&quot;</span>, <span class="string">&quot;qz2&quot;</span>, <span class="string">&quot;qz3&quot;</span>, <span class="string">&quot;qz4&quot;</span>, <span class="string">&quot;m&quot;</span>, <span class="string">&quot;n&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> Pointer h1;    <span class="comment">// 油色谱</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> h1_size;</span><br><span class="line">    <span class="keyword">public</span> Pointer h2;    <span class="comment">// 电气试验</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> h2_size;</span><br><span class="line">    <span class="keyword">public</span> Pointer h3;    <span class="comment">// 绝缘油</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> h3_size;</span><br><span class="line">    <span class="keyword">public</span> Pointer h4;    <span class="comment">// 其余项</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> h4_size;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> qz1;    <span class="comment">// 油色谱权重</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> qz2;    <span class="comment">// 电气试验权重</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> qz3;    <span class="comment">// 绝缘油权重</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> qz4;    <span class="comment">// 其余项权重</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> m;    <span class="comment">// 证据融合参数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> n;    <span class="comment">// 证据融合参数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByReference</span> <span class="keyword">extends</span> <span class="title">FusionResultWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByReference</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByValue</span> <span class="keyword">extends</span> <span class="title">FusionResultWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByValue</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getFieldOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FIELDS_ORDER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>ImproveInputWrapper</code></p>
+<p>作为 C++ 中 结构体 <code>ImproveInput</code>的封装类，就是基本类型映射。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.jna.Structure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImproveInputWrapper</span> <span class="keyword">extends</span> <span class="title">Structure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;String&gt; FIELDS_ORDER = createFieldsOrder(<span class="string">&quot;time&quot;</span>, <span class="string">&quot;value&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">long</span> time;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImproveInputWrapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByReference</span> <span class="keyword">extends</span> <span class="title">ImproveInputWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByReference</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getFieldOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FIELDS_ORDER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>ImproveResultWrapper</code></p>
+<p>作为 C++ 中 结构体<code> ImproveResult</code>的封装类</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.jna.Pointer;</span><br><span class="line"><span class="keyword">import</span> com.sun.jna.Structure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImproveResultWrapper</span> <span class="keyword">extends</span> <span class="title">Structure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;String&gt; FIELDS_ORDER = createFieldsOrder(<span class="string">&quot;valid&quot;</span>, <span class="string">&quot;validPercent&quot;</span>, <span class="string">&quot;abnormalData&quot;</span>, <span class="string">&quot;abnormal_size&quot;</span>, <span class="string">&quot;optimizeData&quot;</span>, <span class="string">&quot;optimize_size&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> valid;            <span class="comment">// 有效数据个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> validPercent;        <span class="comment">// 数据有效值占比</span></span><br><span class="line">    <span class="keyword">public</span> Pointer abnormalData;    <span class="comment">// 异常数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> abnormal_size;    <span class="comment">// 异常数据个数</span></span><br><span class="line">    <span class="keyword">public</span> Pointer optimizeData;    <span class="comment">// 优化后的数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> optimize_size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByReference</span> <span class="keyword">extends</span> <span class="title">ImproveResultWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByReference</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getFieldOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FIELDS_ORDER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>ReviewResult</code></p>
+<p>作为 C++ 中 结构体<code> ReviewResult</code>的封装类，此处包含多个结构体指针，需要通过 <code>ByReference</code>来声明，且需要分配内存。比如 <code>TransformerWrapper.ByReference indexScore</code>，需要通过 <code>toArray</code>分配内存 </p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.jna.Memory;</span><br><span class="line"><span class="keyword">import</span> com.sun.jna.Native;</span><br><span class="line"><span class="keyword">import</span> com.sun.jna.Structure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReviewResult</span> <span class="keyword">extends</span> <span class="title">Structure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> STATE_SIZE = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;String&gt; FIELDS_ORDER = createFieldsOrder(<span class="string">&quot;indexScore&quot;</span>, <span class="string">&quot;indexScore_size&quot;</span>, <span class="string">&quot;indexFusion&quot;</span>, <span class="string">&quot;factorFusion&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> TransformerWrapper.ByReference indexScore;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> indexScore_size;</span><br><span class="line">    <span class="keyword">public</span> FusionResultWrapper.ByReference indexFusion;</span><br><span class="line">    <span class="keyword">public</span> FactorResultWrapper.ByReference factorFusion;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReviewResult</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">if</span> (indexScore_size == <span class="number">0</span>)</span><br><span class="line">            indexScore_size = STATE_SIZE;</span><br><span class="line">        indexScore = <span class="keyword">new</span> TransformerWrapper.ByReference();</span><br><span class="line">        TransformerWrapper[] wrappers = (TransformerWrapper[]) indexScore.toArray(indexScore_size);</span><br><span class="line">        <span class="keyword">for</span> (TransformerWrapper wrapper : wrappers) &#123;</span><br><span class="line">            wrapper.h2Value = <span class="number">0f</span>;</span><br><span class="line">            wrapper.totalHydrocarbon = <span class="number">0f</span>;        <span class="comment">// 总烃</span></span><br><span class="line">            wrapper.c2h2Value = <span class="number">0f</span>;</span><br><span class="line">            wrapper.coValue = <span class="number">0f</span>;</span><br><span class="line">            wrapper.co2Value = <span class="number">0f</span>;</span><br><span class="line">            wrapper.dielectricLoss = <span class="number">0f</span>;        <span class="comment">// 介损</span></span><br><span class="line">            wrapper.dcResistance = <span class="number">0f</span>;        <span class="comment">//直阻</span></span><br><span class="line">            wrapper.absorptance = <span class="number">0f</span>;            <span class="comment">//吸收比</span></span><br><span class="line">            wrapper.polarizeFactor = <span class="number">0f</span>;        <span class="comment">// 极化系数</span></span><br><span class="line">            wrapper.electricCapacity = <span class="number">0f</span>;        <span class="comment">// 电容量</span></span><br><span class="line">            wrapper.moisture = <span class="number">0f</span>;            <span class="comment">// 微水</span></span><br><span class="line">            wrapper.breakdownVoltage = <span class="number">0f</span>;    <span class="comment">// 击穿电压</span></span><br><span class="line">            wrapper.oilDielectricLoss = <span class="number">0f</span>;    <span class="comment">// 油介损</span></span><br><span class="line">            wrapper.interfacialTension = <span class="number">0f</span>;    <span class="comment">//界面张力</span></span><br><span class="line">            wrapper.electricResistivity = <span class="number">0f</span>; <span class="comment">//电阻率</span></span><br><span class="line">            wrapper.runningLife = <span class="number">0</span>;        <span class="comment">// 运行年限</span></span><br><span class="line">            wrapper.ambientTemperature = <span class="number">0f</span>;    <span class="comment">// 环境温度</span></span><br><span class="line">            wrapper.jointTemperature = <span class="number">0f</span>;        <span class="comment">//接头温度</span></span><br><span class="line">            wrapper.oilTankTemperature = <span class="number">0f</span>;    <span class="comment">// 油箱温度</span></span><br><span class="line">        &#125;</span><br><span class="line">        indexFusion = <span class="keyword">new</span> FusionResultWrapper.ByReference();</span><br><span class="line">        indexFusion.h1 = <span class="keyword">new</span> Memory(STATE_SIZE * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        indexFusion.h1_size = STATE_SIZE;</span><br><span class="line">        indexFusion.h2 = <span class="keyword">new</span> Memory(STATE_SIZE * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        indexFusion.h2_size = STATE_SIZE;</span><br><span class="line">        indexFusion.h3 = <span class="keyword">new</span> Memory(STATE_SIZE * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        indexFusion.h3_size = STATE_SIZE;</span><br><span class="line">        indexFusion.h4 = <span class="keyword">new</span> Memory(STATE_SIZE * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        indexFusion.h4_size = STATE_SIZE;</span><br><span class="line">        factorFusion = <span class="keyword">new</span> FactorResultWrapper.ByReference();</span><br><span class="line">        factorFusion.state = <span class="keyword">new</span> Memory(STATE_SIZE * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        factorFusion.state_size = STATE_SIZE;</span><br><span class="line">        factorFusion.comment = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        factorFusion.comment_len = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByReference</span> <span class="keyword">extends</span> <span class="title">ReviewResult</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByReference</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getFieldOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FIELDS_ORDER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>TransformerWrapper</code></p>
+<p>作为 C++ 中 结构体<code> Transformer</code>的封装类</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.jna.Structure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransformerWrapper</span> <span class="keyword">extends</span> <span class="title">Structure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;String&gt; FIELDS_ORDER = createFieldsOrder(<span class="string">&quot;h2Value&quot;</span>, <span class="string">&quot;totalHydrocarbon&quot;</span>, <span class="string">&quot;c2h2Value&quot;</span>, <span class="string">&quot;coValue&quot;</span>, <span class="string">&quot;co2Value&quot;</span>, <span class="string">&quot;dielectricLoss&quot;</span>,</span><br><span class="line">            <span class="string">&quot;dcResistance&quot;</span>, <span class="string">&quot;absorptance&quot;</span>, <span class="string">&quot;polarizeFactor&quot;</span>, <span class="string">&quot;electricCapacity&quot;</span>, <span class="string">&quot;moisture&quot;</span>, <span class="string">&quot;breakdownVoltage&quot;</span>,</span><br><span class="line">            <span class="string">&quot;oilDielectricLoss&quot;</span>, <span class="string">&quot;interfacialTension&quot;</span>, <span class="string">&quot;electricResistivity&quot;</span>, <span class="string">&quot;runningLife&quot;</span>, <span class="string">&quot;ambientTemperature&quot;</span>,</span><br><span class="line">            <span class="string">&quot;jointTemperature&quot;</span>, <span class="string">&quot;oilTankTemperature&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> h2Value;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> totalHydrocarbon;        <span class="comment">// 总烃</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> c2h2Value;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> coValue;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> co2Value;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> dielectricLoss;        <span class="comment">// 介损</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> dcResistance;        <span class="comment">//直阻</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> absorptance;            <span class="comment">//吸收比</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> polarizeFactor;        <span class="comment">// 极化系数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> electricCapacity;        <span class="comment">// 电容量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> moisture;            <span class="comment">// 微水</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> breakdownVoltage;    <span class="comment">// 击穿电压</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> oilDielectricLoss;    <span class="comment">// 油介损</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> interfacialTension;    <span class="comment">//界面张力</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> electricResistivity; <span class="comment">//电阻率</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">short</span> runningLife;        <span class="comment">// 运行年限</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> ambientTemperature;    <span class="comment">// 环境温度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> jointTemperature;        <span class="comment">//接头温度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> oilTankTemperature;    <span class="comment">// 油箱温度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByReference</span> <span class="keyword">extends</span> <span class="title">TransformerWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByReference</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ByValue</span> <span class="keyword">extends</span> <span class="title">TransformerWrapper</span> <span class="keyword">implements</span> <span class="title">Structure</span>.<span class="title">ByValue</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TransformerWrapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getFieldOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FIELDS_ORDER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>CalculatorImpl</code></p>
+<p>Java 接口的实现类，首先需要从 Jar 中解压 dll 到指定目录，然后通过此目录加载 dll。依赖关系为 Java 接口通过 JNA 加载<code>calculator.dll</code> ，而<code>calculator.dll</code>依赖 <code>pingjia.dll</code>和另外一个dll。</p>
+<p>三个dll必须在同一目录下， JNA 只需要加载 <code>calculator.dll</code>。因为此处只是在 WIN32 平台执行，所以加载时，通过 <code>Native.loadLibrary</code> 加载的时候，在文件名前加了 <code>/</code>，否则 JNA 会在文件前增加平台相关的perfix导致加载失败。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatorImpl</span> <span class="keyword">implements</span> <span class="title">Calculator</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Log LOGGER = Logs.getLog(CalculatorImpl.class);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> CalculatorApi CALCULATOR_API;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String current = System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line">            File matlab = <span class="keyword">new</span> File(current, <span class="string">&quot;matlab&quot;</span>);</span><br><span class="line">            System.setProperty(<span class="string">&quot;java.library.path&quot;</span>, matlab.getPath());</span><br><span class="line">            System.setProperty(<span class="string">&quot;jna.library.path&quot;</span>, matlab.getPath());</span><br><span class="line">          	<span class="comment">// 从 Jar 包 resources 中解压 dll 到指定目录 </span></span><br><span class="line">          	<span class="comment">// Files.createDirIfNoExists(matlab);</span></span><br><span class="line">            <span class="comment">// Files.clearDir(matlab);</span></span><br><span class="line">         	</span><br><span class="line">           	<span class="comment">// 加载 dll 并映射成 Java 接口</span></span><br><span class="line">            CALCULATOR_API = Native.loadLibrary(<span class="string">&quot;/calculator.dll&quot;</span>, CalculatorApi.class);</span><br><span class="line">          	<span class="comment">// 初始化dll (C++ 实现)</span></span><br><span class="line">            <span class="keyword">int</span> ret = CALCULATOR_API.init();</span><br><span class="line">            LOGGER.debugf(<span class="string">&quot;init calculator (%d)&quot;</span>, ret);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            LOGGER.error(e.getMessage(), e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li><code>improveData </code> 数据清洗，需要根据Java Wrapper的接口，组织数据，内存都在 Java 端分配，由 Java 端负责回收。<code>Pointer</code>的内存分配，通过 <code>new Memory(size)</code>来分配。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> TwoTuple&lt;String, CalculationResult&gt; <span class="title">improveData</span><span class="params">(String label, List&lt;TwoTuple&lt;String, Float&gt;&gt; values)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> CalculatorException </span>&#123;</span><br><span class="line">        ImproveInputWrapper.ByReference inputsRef = <span class="keyword">new</span> ImproveInputWrapper.ByReference();</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> valueSize = values.size();</span><br><span class="line">        ImproveInputWrapper[] inputs = (ImproveInputWrapper[]) inputsRef.toArray(valueSize);</span><br><span class="line">        LOGGER.debug(label + <span class="string">&quot; inputs: &quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; valueSize; i++) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TwoTuple&lt;String, Float&gt; entry = values.get(i);</span><br><span class="line">                Date date = FORMATTER.parse(entry.getKey());</span><br><span class="line">                inputs[i].time = date.getTime();</span><br><span class="line">                inputs[i].value = entry.getValue();</span><br><span class="line">                LOGGER.debugf(<span class="string">&quot;%d: %s(%d) -&gt; %f&quot;</span>, i, entry.getKey(), inputs[i].time, inputs[i].value);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">                LOGGER.error(e.getMessage(), e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ImproveResultWrapper.ByReference impResultRef = <span class="keyword">new</span> ImproveResultWrapper.ByReference();</span><br><span class="line">        impResultRef.abnormalData = <span class="keyword">new</span> Memory(valueSize * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        impResultRef.abnormalData.setFloat(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        impResultRef.optimizeData = <span class="keyword">new</span> Memory(valueSize * Native.getNativeSize(Float.TYPE));</span><br><span class="line">        impResultRef.optimizeData.setFloat(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        impResultRef.abnormal_size = <span class="number">0</span>;</span><br><span class="line">        impResultRef.validPercent = <span class="number">0</span>;</span><br><span class="line">        impResultRef.optimize_size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> flag = CALCULATOR_API.improve_data(inputsRef, inputs.length, impResultRef);</span><br><span class="line">        LOGGER.debug(<span class="string">&quot;improve_data flag: &quot;</span> + flag);</span><br><span class="line">        CalculationResult.CalculationResultBuilder builder = CalculationResult.CalculationResultBuilder</span><br><span class="line">                .aCalculationResult().withOriginalData(values);</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>) &#123;</span><br><span class="line"> builder.withValidPercent(impResultRef.validPercent).withValidSize(impResultRef.valid);</span><br><span class="line">            <span class="keyword">int</span> abnormalSize = impResultRef.abnormal_size;</span><br><span class="line">            LOGGER.debug(<span class="string">&quot;abnormalSize: &quot;</span> + abnormalSize);</span><br><span class="line">            <span class="keyword">if</span> (abnormalSize &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">float</span>[] abnormalValues = impResultRef.abnormalData.getFloatArray(<span class="number">0</span>, abnormalSize);</span><br><span class="line">                builder.withAbnormalData(Collections.unmodifiableList(Lang.array2list(abnormalValues, Float.class)));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                builder.withAbnormalData(Collections.&lt;Float&gt;emptyList());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> optimizeSize = impResultRef.optimize_size;</span><br><span class="line">            LOGGER.debug(<span class="string">&quot;optimizeSize: &quot;</span> + optimizeSize);</span><br><span class="line">            <span class="keyword">if</span> (optimizeSize &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">float</span>[] optimizeValues = impResultRef.optimizeData.getFloatArray(<span class="number">0</span>, optimizeSize);</span><br><span class="line">                builder.withOptimizeData(Collections.unmodifiableList(Lang.array2list(optimizeValues, Float.class)));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                builder.withOptimizeData(Collections.&lt;Float&gt;emptyList());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        CalculationResult result = builder.build();</span><br><span class="line">        LOGGER.debug(result);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TwoTuple&lt;&gt;(label, result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>reviewTransformer</code> 机组状态评价，获取 <code>float *</code>的数据时候的，需要通过 <code>getFloatArray</code> 获取数据。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> TransformerResult <span class="title">reviewTransformer</span><span class="params">(Map&lt;String, Float&gt; values)</span> <span class="keyword">throws</span> CalculatorException </span>&#123;</span><br><span class="line">        TransformerWrapper.ByReference transformerRef = <span class="keyword">new</span> TransformerWrapper.ByReference();</span><br><span class="line">        setTransformer(transformerRef, values);</span><br><span class="line"></span><br><span class="line">        ReviewResult.ByReference reviewResultRef = <span class="keyword">new</span> ReviewResult.ByReference();</span><br><span class="line">        <span class="keyword">int</span> flag = CALCULATOR_API.review_transformer(transformerRef, reviewResultRef);</span><br><span class="line">        LOGGER.debugf(<span class="string">&quot;review_transformer flag: %d&quot;</span>, flag);</span><br><span class="line"></span><br><span class="line">        TransformerResult result = <span class="keyword">new</span> TransformerResult();</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">float</span>[] states = reviewResultRef.factorFusion.state.getFloatArray(<span class="number">0</span>,</span><br><span class="line">                    reviewResultRef.factorFusion.state_size);</span><br><span class="line">            result.setState(states).setComment(reviewResultRef.factorFusion.comment);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">float</span>[] h1 = reviewResultRef.indexFusion.h1.getFloatArray(<span class="number">0</span>, reviewResultRef.indexFusion.h1_size);</span><br><span class="line">            result.setH1(h1);</span><br><span class="line">            <span class="keyword">float</span>[] h2 = reviewResultRef.indexFusion.h2.getFloatArray(<span class="number">0</span>, reviewResultRef.indexFusion.h2_size);</span><br><span class="line">            result.setH2(h2);</span><br><span class="line">            <span class="keyword">float</span>[] h3 = reviewResultRef.indexFusion.h3.getFloatArray(<span class="number">0</span>, reviewResultRef.indexFusion.h3_size);</span><br><span class="line">            result.setH3(h3);</span><br><span class="line">            <span class="keyword">float</span>[] h4 = reviewResultRef.indexFusion.h4.getFloatArray(<span class="number">0</span>, reviewResultRef.indexFusion.h4_size);</span><br><span class="line">            result.setH4(h4);</span><br><span class="line">            result.setQz1(reviewResultRef.indexFusion.qz1).setQz2(reviewResultRef.indexFusion.qz2)</span><br><span class="line">                    .setQz3(reviewResultRef.indexFusion.qz3).setQz4(reviewResultRef.indexFusion.qz4)</span><br><span class="line">                    .setM(reviewResultRef.indexFusion.m).setN(reviewResultRef.indexFusion.n);</span><br><span class="line"></span><br><span class="line">            TransformerWrapper[] wrappers = (TransformerWrapper[]) reviewResultRef.indexScore.toArray(reviewResultRef.indexScore_size);</span><br><span class="line">            Transformer[] transformers = transformerWrapperToTransformer(wrappers);</span><br><span class="line">            result.setTransformers(transformers);</span><br><span class="line">            LOGGER.debug(<span class="string">&quot;transfer review result.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>优点<ul>
+<li>Java 端不需要编写C/C++代码</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>需要编写与 C/C++ 对应的结构体映射，碰到复杂的结构体工作量不小</li>
+<li>结构体指针/数据通过 <code>toArray</code>获取数据时，效率较低，尤其时数据量比较大的时候</li>
+<li>如果时C/C++端分配的内存，Java 端管理不了，如果C/C++不提供显式回收接口，会导致内存泄露</li>
+<li>代码不规范，破坏了OO封装性，比如 field 必须要 Public</li>
+<li>需要实现 <code>Structure.ByReference</code>接口，这些明显都可以通过注解来解决</li>
+</ul>
+</li>
+</ul>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/Howto-import-export-gpg-key/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Howto-import-export-gpg-key/" class="post-title-link" itemprop="url">GPG 导入导出 Key</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-03-22 15:26:05" itemprop="dateCreated datePublished" datetime="2017-03-22T15:26:05+08:00">2017-03-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在多台电脑上操作的时候经常会涉及到 GPG 公钥/私钥的导入导出，比方说 GitHub 支持 GPG 加密 Commit，在多台电脑上使用相同的 Key 可以省去很多配置工作。</p>
+<h2 id="列出本地的所有-Key"><a href="#列出本地的所有-Key" class="headerlink" title="列出本地的所有 Key"></a>列出本地的所有 Key</h2><p>执行 <code>gpg --list-keys</code> 列出本地所有的密钥</p>
+<p>输出结果类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> $ gpg --list-keys &#x2F;home&#x2F;$USER&#x2F;.gnupg&#x2F;pubring.gpg </span><br><span class="line"> ----------------------------------- </span><br><span class="line">pub   4 096R&#x2F;375A500B 2017-03-22 [有效至：2018-03-22] </span><br><span class="line">uid                  Goren G (Git) &lt;gythialy.koo+git@gmail.com&gt; </span><br><span class="line">sub   4096R&#x2F;ADB9D36C 2017-03-22 [有效至：2018-03-22]</span><br></pre></td></tr></table></figure>
+
+<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p>根据 <code>375A500B</code> 导出相应的公钥和私钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gpg --output mygpgkey_pub.gpg --armor --export 375A500B</span><br><span class="line">gpg --output mygpgkey_sec.gpg --armor --export-secret-key 375A500B</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>导入刚导入的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gpg --import ~&#x2F;mygpgkey_pub.gpg</span><br><span class="line">gpg --allow-secret-key-import --import ~&#x2F;mygpgkey_sec.gpg</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除密码"><a href="#删除密码" class="headerlink" title="删除密码"></a>删除密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gpg --edit-key 375A500B</span><br><span class="line"># 在弹出的界面中输入原来密码，新密码留空即可</span><br><span class="line">passwd</span><br><span class="line"># 保存修改</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果提示 <code>Sorry, no terminal at all requested - can&#39;t get input</code> 的话，需要 把 <code>~/.gnupg/gpg.conf</code> 中的 <code>no-tty</code> 注释掉</p>
+</blockquote>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/babun-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/babun-config/" class="post-title-link" itemprop="url">babun 配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-05-04 09:09:36" itemprop="dateCreated datePublished" datetime="2016-05-04T09:09:36+08:00">2016-05-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>babun 号称是开箱即用的，本质是上就是 cygwin 加上了一些预设的配置。特性如下:</p>
+<ul>
+<li>Pre-configured Cygwin with a lot of addons</li>
+<li>Silent command-line installer, no admin rights required</li>
+<li>pact - advanced package manager (like apt-get or yum)</li>
+<li>xTerm-256 compatible console</li>
+<li>HTTP(s) proxying support</li>
+<li>Plugin-oriented architecture</li>
+<li>Pre-configured git and shell</li>
+<li>Integrated oh-my-zsh</li>
+<li>Auto update feature</li>
+<li>“Open Babun Here” context menu entry</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载<a target="_blank" rel="noopener" href="http://projects.reficio.org/babun/download">安装包</a>解压缩到任意目录后，运行 <code>install.bat</code>。也可以使用 <code>/t %target_folder%</code> 指定安装目录。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>既然是开箱即用，对大多数人来说当然不需要太多配置，一般需要以下两个命令：</p>
+<ul>
+<li><code>babun check</code> 用于判断环境是否正确</li>
+<li><code>babun update</code> 用于判断是否有新的更新包</li>
+</ul>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>babun 自带了叫做 <code>pact</code> 的包管理，修改自 <code>apt-cyg</code>, 但比较弱，用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123; ~ &#125;  » pact --help</span><br><span class="line">pact: Installs and removes Cygwin packages.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  &quot;pact install &lt;package names&gt;&quot; to install given packages</span><br><span class="line">  &quot;pact remove &lt;package names&gt;&quot; to remove given packages</span><br><span class="line">  &quot;pact update &lt;package names&gt;&quot; to update given packages</span><br><span class="line">  &quot;pact show&quot; to show installed packages</span><br><span class="line">  &quot;pact find &lt;patterns&gt;&quot; to find packages matching patterns</span><br><span class="line">  &quot;pact describe &lt;patterns&gt;&quot; to describe packages matching patterns</span><br><span class="line">  &quot;pact packageof &lt;commands or files&gt;&quot; to locate parent packages</span><br><span class="line">  &quot;pact invalidate&quot; to invalidate pact caches (setup.ini, etc.)</span><br><span class="line">Options:</span><br><span class="line">  --mirror, -m &lt;url&gt; : set mirror</span><br><span class="line">  --invalidate, -i       : invalidates pact caches (setup.ini, etc.)</span><br><span class="line">  --force, -f : force the execution</span><br><span class="line">  --help</span><br><span class="line">  --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="和-Windows-共享配置"><a href="#和-Windows-共享配置" class="headerlink" title="和 Windows 共享配置"></a>和 Windows 共享配置</h2><ol>
+<li>添加环境变量 <code>HOME</code>，值为 Windows 的用户目录 <code>C:\Users\%USERNAME%</code></li>
+<li>启动 babun，执行 <code>babun install</code>，重启 babun</li>
+</ol>
+<blockquote>
+<p>%USERNAME% 不能包含空格。如果用户名已经有空格，参考<a target="_blank" rel="noopener" href="https://cygwin.com/faq.html#faq.setup.name-with-space">这里</a>解决。</p>
+</blockquote>
+<h2 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a>代理设置</h2><p>只需要取消 <code>.babunrc</code> 中的注释 (<code>%USERPROFILE%\.babunrc</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Uncomment this lines to set up your proxy</span><br><span class="line">export http_proxy&#x3D;user:password@server:port</span><br><span class="line">export https_proxy&#x3D;$http_proxy</span><br><span class="line">export ftp_proxy&#x3D;$http_proxy</span><br><span class="line">export no_proxy&#x3D;localhost</span><br></pre></td></tr></table></figure>
+
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p>修改 <code>~/.pact/pact.repo</code> 中的 <code>PACT_REPO</code> 字段  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#PACT_REPO&#x3D;http:&#x2F;&#x2F;mirrors.kernel.org&#x2F;sourceware&#x2F;cygwin&#x2F;</span><br><span class="line">PACT_REPO&#x3D;http:&#x2F;&#x2F;mirrors.neusoft.edu.cn&#x2F;cygwin&#x2F;</span><br><span class="line"></span><br><span class="line"># POPULAR HTTP REPOSITORIES</span><br><span class="line"># http:&#x2F;&#x2F;mirror.switch.ch&#x2F;ftp&#x2F;mirror&#x2F;cygwin&#x2F;</span><br><span class="line"></span><br><span class="line"># POPULAR FTP REPOSITORIES</span><br><span class="line"># ftp:&#x2F;&#x2F;mirror.switch.ch&#x2F;mirror&#x2F;cygwin&#x2F;</span><br><span class="line"># ftp:&#x2F;&#x2F;ftp.inf.tu-dresden.de&#x2F;software&#x2F;windows&#x2F;cygwin32&#x2F;</span><br><span class="line"># ftp:&#x2F;&#x2F;mirrors.kernel.org&#x2F;sourceware&#x2F;cygwin&#x2F;</span><br><span class="line"># ftp:&#x2F;&#x2F;gd.tuwien.ac.at&#x2F;gnu&#x2F;cygwin&#x2F;</span><br><span class="line"># ftp:&#x2F;&#x2F;ftp.iij.ad.jp&#x2F;pub&#x2F;cygwin&#x2F;</span><br><span class="line"># ftp:&#x2F;&#x2F;mirror.cpsc.ucalgary.ca&#x2F;cygwin.com&#x2F;</span><br><span class="line"></span><br><span class="line"># FULL LIST</span><br><span class="line"># http:&#x2F;&#x2F;cygwin.com&#x2F;mirrors.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用开发环境配置"><a href="#常用开发环境配置" class="headerlink" title="常用开发环境配置"></a>常用开发环境配置</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>babun 自带的 Python2 并没有安装 pip，需要手动安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pact install python-setuptools python-ming</span><br><span class="line">pact install libxml2-devel libxslt-devel libyaml-devel</span><br><span class="line">curl -skS https://bootstrap.pypa.io/get-pip.py | python</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h3><p>执行 <code>pact install ruby</code></p>
+<blockquote>
+<p>如果 <code>ruby -v</code> 不能返回版本，执行 <code>update.bat</code> 更新 cygwin 的版本。via <a target="_blank" rel="noopener" href="https://github.com/babun/babun/issues/483">Issue #483</a></p>
+</blockquote>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li><p>compdef: unknown command or service: git</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ compinit</span><br><span class="line">$ cp .zcompdump .zcompdump-$HOSTNAME-$ZSH_VERSION</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除右键中的 <code>Open Babun here</code><br>  执行 <code>babun shell-here remove</code></p>
+</li>
+<li><p>与 ConEmu 集成<br>  <code>%userprofile%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe</code><br>  <img src="/uploads/conemu_1.png" alt="ConEmu Settings"></p>
+</li>
+<li><p>X64<br>  官方对于 64 位的<a target="_blank" rel="noopener" href="https://github.com/babun/babun/wiki/64-bit">解释</a>。懒人也可以直接使用这个 <a target="_blank" rel="noopener" href="https://github.com/babun/babun/pull/545">PR</a> 编译的<a target="_blank" rel="noopener" href="https://people.mozilla.org/%7Enchen/babun/babun-1.2.1-x86_64-dist.zip">分发包</a>。有兴趣的也可以通过我合并的 <a target="_blank" rel="noopener" href="https://github.com/gythialy/babun/tree/support-64-bit">x64 分支</a> 自行构建。</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说，babun 比 <a href="/msys2-config/" title="MSYS2">MSYS2</a> 慢，包也不多，稳定性/兼容性貌似好一点。</p>
+<p>最终配置效果：</p>
+<p><img src="/uploads/babun.png" alt="babun"></p>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/jetty-log4j-conf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/jetty-log4j-conf/" class="post-title-link" itemprop="url">Jetty 配置 Log4J</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-03-28 13:15:48" itemprop="dateCreated datePublished" datetime="2016-03-28T13:15:48+08:00">2016-03-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>我们一台很老的装置中用了 Jetty v7.1.6，由于种种原因，不能升级新版本。某次由于一个 bug 导致一直写日志，最后把硬盘给写爆了，所以用 Log4J 记录日志，方便控制日志大小等。</p>
+<blockquote>
+<p>注：在 Jetty 最新的版本中，配置 Log4J 并不需要如此。</p>
+</blockquote>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
+<li><p>下载 Log4J</p>
+<ul>
+<li>log4j-1.2.17.jar</li>
+<li>slf4j-api-1.7.9.jar</li>
+<li>slf4j-log4j12-1.7.9.jar</li>
+</ul>
+</li>
+<li><p>复制 jar 包到 Jetty 目录中 <code>lib/ext</code> 文件夹中</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x 1 root root      0 Jul 16  2010 .donotdelete</span><br><span class="line">-rw-r--r-- 1 root root 489884 Nov 19 13:06 log4j-1.2.17.jar</span><br><span class="line">-rw-r--r-- 1 root root  32121 Nov 19 13:09 slf4j-api-1.7.9.jar</span><br><span class="line">-rw-r--r-- 1 root root   8867 Nov 19 16:55 slf4j-log4j12-1.7.9.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 Jetty 目录中 resources 文件夹中新建 <code>log4j.properties</code></p>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Basic Log4j Configuration with STDOUT and File logging</span></span><br><span class="line"><span class="meta">log4j.rootLogger</span>=<span class="string">DEBUG, filer</span></span><br><span class="line"></span><br><span class="line"><span class="meta">log4j.appender.stdout</span>=<span class="string">org.apache.log4j.ConsoleAppender</span></span><br><span class="line"><span class="meta">log4j.appender.stdout.Target</span>=<span class="string">System.out</span></span><br><span class="line"><span class="meta">log4j.appender.stdout.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.stdout.layout.ConversionPattern</span>=<span class="string">%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</span></span><br><span class="line"></span><br><span class="line"><span class="meta">log4j.appender.filer</span>=<span class="string">org.apache.log4j.RollingFileAppender</span></span><br><span class="line"><span class="meta">log4j.appender.filer.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.filer.layout.ConversionPattern</span>=<span class="string">%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</span></span><br><span class="line"><span class="meta">log4j.appender.filer.File</span>=<span class="string">$&#123;jetty.home&#125;/logs/jetty.log</span></span><br><span class="line"><span class="meta">log4j.appender.filer.MaxFileSize</span>=<span class="string">1MB</span></span><br><span class="line"><span class="meta">log4j.appender.filer.MaxBackupIndex</span>=<span class="string">20</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>为了测试日志，配置设置的日志打印级别为DEBUG，单个文件大小为 1M，实际使用中根据具体使用场景调整。</p>
+</blockquote>
+</li>
+<li><p>修改 <code>start.ini</code>，OPTIONS 中 <code>ext</code> 必须放在 <code>resources</code> 前面</p>
+ <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#===========================================================</span></span><br><span class="line"><span class="comment"># Start classpath OPTIONS.</span></span><br><span class="line"><span class="comment"># These control what classes are on the classpath</span></span><br><span class="line"><span class="comment"># for a full listing do</span></span><br><span class="line"><span class="comment">#   java -jar start.jar --list-options</span></span><br><span class="line"><span class="comment">#-----------------------------------------------------------</span></span><br><span class="line"><span class="attr">OPTIONS</span>=Server,jsp,jmx,websocket,ext,resources</span><br><span class="line"><span class="comment">#-----------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：如需手动设置 JVM 内存配置，需要添加 <code>--exec</code>。这样就会有一个 java 进程常在。</p>
+</blockquote>
+</li>
+<li><p>创建启动脚本，原理很简单，就是设置 <code>JAVA_HOME</code> 和 <code>JETTY_HOME</code> 两个环境变量，然后调用 Jetty 自身的脚本。如果已经设置全局的环境变量，此步可省略</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk</span><br><span class="line"><span class="built_in">export</span> JETTY_HOME=/home/data/jetty</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$JETTY_HOME</span>/bin</span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	start)</span><br><span class="line">		./jetty.sh start</span><br><span class="line">    		;;</span><br><span class="line">  	stop)</span><br><span class="line">		./jetty.sh stop</span><br><span class="line">    		;;</span><br><span class="line">	restart)</span><br><span class="line">   		./jetty.sh restart</span><br><span class="line">		;;</span><br><span class="line">	*)</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> <span class="variable">$1</span> &#123;start|stop|restart&#125;&quot;</span></span><br><span class="line">		;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>脚本中 <code>JAVA_HOME</code> 和 <code>JETTY_HOME</code> 是必须的。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root   27995 Nov 30 14:51 2015_11_27.stderrout.log</span><br><span class="line">-rw-r--r-- 1 root root    8060 Nov 30 14:51 EA0104-0.log</span><br><span class="line">-rw-r--r-- 1 root root  968686 Nov 30 14:52 jetty.log</span><br><span class="line">-rw-r--r-- 1 root root 1050948 Nov 27 15:57 jetty.log.1</span><br><span class="line">-rw-r--r-- 1 root root 1048812 Nov 27 15:52 jetty.log.10</span><br><span class="line">-rw-r--r-- 1 root root 1050923 Nov 27 15:52 jetty.log.11</span><br><span class="line">-rw-r--r-- 1 root root 1051665 Nov 27 15:49 jetty.log.12</span><br><span class="line">-rw-r--r-- 1 root root 1050713 Nov 27 15:47 jetty.log.13</span><br><span class="line">-rw-r--r-- 1 root root 1051495 Nov 27 15:47 jetty.log.14</span><br><span class="line">-rw-r--r-- 1 root root 1052634 Nov 27 15:47 jetty.log.15</span><br><span class="line">-rw-r--r-- 1 root root 1052521 Nov 27 15:29 jetty.log.16</span><br><span class="line">-rw-r--r-- 1 root root 1049512 Nov 27 15:29 jetty.log.17</span><br><span class="line">-rw-r--r-- 1 root root 1051501 Nov 27 15:29 jetty.log.18</span><br><span class="line">-rw-r--r-- 1 root root 1049831 Nov 27 15:56 jetty.log.2</span><br><span class="line">-rw-r--r-- 1 root root 1051016 Nov 27 15:56 jetty.log.3</span><br><span class="line">-rw-r--r-- 1 root root 1049532 Nov 27 15:56 jetty.log.4</span><br><span class="line">-rw-r--r-- 1 root root 1052064 Nov 27 15:56 jetty.log.5</span><br><span class="line">-rw-r--r-- 1 root root 1049274 Nov 27 15:56 jetty.log.6</span><br><span class="line">-rw-r--r-- 1 root root 1050903 Nov 27 15:56 jetty.log.7</span><br><span class="line">-rw-r--r-- 1 root root 1051740 Nov 27 15:52 jetty.log.8</span><br><span class="line">-rw-r--r-- 1 root root 1052915 Nov 27 15:52 jetty.log.9</span><br><span class="line">-rw-r--r-- 1 root root      55 Nov 27 15:52 start.log</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>start.log 是 start.jar 创建的，会根据 <code>etc/jetty-logging.xml</code> 中配置决定是否从定向内容。</p>
+</blockquote>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/download-xcode-documentation-sets-manually/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/download-xcode-documentation-sets-manually/" class="post-title-link" itemprop="url">手动下载 XCode 文档和模拟器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-03-26 23:04:45" itemprop="dateCreated datePublished" datetime="2016-03-26T23:04:45+08:00">2016-03-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>由于众所周知的原因，也就是 Apple 的云真的很烂，App Store 还能通过 DNS 等手段加速更新。对于 XCode 简直就是噩梦，挂不挂都是一个样子，非常慢。不幸中之大幸，虽然 XCode 本身下载很慢，但是可以手动下载好之后，通过 XCode 安装。</p>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>手动下载文档可以通过以下几步解决，via <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1131119/download-xcode-documentation-sets-manually">stackoverflow</a>。</p>
+<ol>
+<li><p>通过这个<a target="_blank" rel="noopener" href="https://developer.apple.com/library/downloads/docset-index.dvtdownloadableindex">地址</a>找到需要下载的文件的路径</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- START OS X doc set --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>fileSize<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">integer</span>&gt;</span>931959772<span class="tag">&lt;/<span class="name">integer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.apple.adc.documentation.OSX<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>name<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>OS X 10.11.4 Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>source<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>userInfo<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>ActivationPredicate<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$XCODE_VERSION <span class="symbol">&amp;gt;</span>= &#x27;7.3&#x27;<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Category<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>Documentation<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>IconType<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>IDEDownloadablesTypeDocSet<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstallPrefix<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>$(HOME)/Library/Developer/Shared/Documentation/DocSets<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>InstalledIfAllReceiptsArePresentOrNewer<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.pkg.10.9.OSXDocset<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">string</span>&gt;</span>10.9.0.0.1.1458364023<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>RequiresADCAuthentication<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">false</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>Summary<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>My description of content<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>version<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>1014.5<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- END OS X doc set --&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 下载 <code>source</code> 节点对应的内容，在这个示例中也就是<a target="_blank" rel="noopener" href="https://devimages.apple.com.edgekey.net/docsets/20160321/031-52211-A.dmg">这个</a>，可以通过第三方的下载工具，比如 asia2 下载。</p>
+</li>
+<li><p>按照 <code>identifier string</code> + <code>-</code> + <code>version string</code> + <code>.dmg</code> 的格式重命名文件，在这个示例中也就是 <code>com.apple.adc.documentation.OSX-1014.5.dmg</code></p>
+</li>
+<li><p>把重命名后的文件放到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads/</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个，<br>如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</p>
+</li>
+<li><p>删除 <code>~/Library/Developer/Shared/Documentation/DocSets</code> 中对应的 docset</p>
+</li>
+<li><p>在 XCode 中 Preferences/Download 中下载对应的文档，XCode 会校验刚才复制过去的文件进行安装</p>
+</li>
+</ol>
+<h2 id="模拟器"><a href="#模拟器" class="headerlink" title="模拟器"></a>模拟器</h2><ol>
+<li>打开 XCode，Preferences/Download 中下载模拟器</li>
+<li>打开 Console.app，清空日志</li>
+<li>在 XCode 中取消下载</li>
+<li>在 Console.app 中会看到取消的日志，其他包含完整的下载地址</li>
+<li>通过 asia2 等第三方工具下载刚才地址中的文件</li>
+<li>把下载好的文件复制到 <code>~/Library/Caches/com.apple.dt.Xcode/Downloads</code> 中，如果没有 <code>Downloads</code> 文件夹就创建一个，<br>如果 <code>Downloads</code> 中有后缀为 <code>dvtdownloadableindex</code> 的文件，全部删除</li>
+<li>在 XCode 中安装刚才下载的模拟器</li>
+</ol>
+<blockquote>
+<p>如果需要删除不需要的模拟器，可以在 <code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs</code> 中直接删除</p>
+</blockquote>
+<p>—EOF—</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://gythialy.github.io/page/5/',]
+      });
+      });
+  </script>
+
+
+</body>
+</html>

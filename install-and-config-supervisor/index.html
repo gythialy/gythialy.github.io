@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="在线安装 通过 Setuptools安装 easy_install supervisor  Ubuntu 安装 sudo apt-get install supervisor    离线安装 从 PyPi 下载 supervisor离线包 下载依赖项 setuptools (latest) from http:&#x2F;&#x2F;pypi.python.org&#x2F;pypi&#x2F;setuptools. meld3 (la">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装配置 Supervisor">
+<meta property="og:url" content="https://gythialy.github.io/install-and-config-supervisor/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="在线安装 通过 Setuptools安装 easy_install supervisor  Ubuntu 安装 sudo apt-get install supervisor    离线安装 从 PyPi 下载 supervisor离线包 下载依赖项 setuptools (latest) from http:&#x2F;&#x2F;pypi.python.org&#x2F;pypi&#x2F;setuptools. meld3 (la">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-10T07:17:29.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.298Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="Supervisor">
+<meta property="article:tag" content="Ubuntu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/install-and-config-supervisor/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>安装配置 Supervisor | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">在线安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">离线安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML-RPC-API-Documentation"><span class="nav-number">5.</span> <span class="nav-text">XML-RPC API Documentation</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/install-and-config-supervisor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          安装配置 Supervisor
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-10 15:17:29" itemprop="dateCreated datePublished" datetime="2017-08-10T15:17:29+08:00">2017-08-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="在线安装"><a href="#在线安装" class="headerlink" title="在线安装"></a>在线安装</h3><ul>
+<li><p>通过 <code>Setuptools</code>安装</p>
+<p><code>easy_install supervisor</code></p>
+</li>
+<li><p>Ubuntu 安装</p>
+<p><code>sudo apt-get install supervisor </code></p>
+</li>
+</ul>
+<h3 id="离线安装"><a href="#离线安装" class="headerlink" title="离线安装"></a>离线安装</h3><ul>
+<li>从 <a target="_blank" rel="noopener" href="http://pypi.python.org/pypi/supervisor">PyPi</a> 下载 <code>supervisor</code>离线包</li>
+<li>下载依赖项<ul>
+<li>setuptools (latest) from <a target="_blank" rel="noopener" href="http://pypi.python.org/pypi/setuptools">http://pypi.python.org/pypi/setuptools</a>.</li>
+<li>meld3 (latest) from <a target="_blank" rel="noopener" href="http://www.plope.com/software/meld3/">http://www.plope.com/software/meld3/</a>.</li>
+</ul>
+</li>
+<li>分别通过 <code>python setup.py install</code> 安装</li>
+</ul>
+<blockquote>
+<p>注：根据不同的系统，可能需要 root 权限执行安装</p>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li><p>生成默认配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建配置文件目录</span></span><br><span class="line">mkdir -p /etc/supervisor</span><br><span class="line"><span class="meta">#</span><span class="bash"> 生成默认配置</span></span><br><span class="line">sudo sh -c &#x27;/usr/local/bin/echo_supervisord_conf  &gt; /etc/supervisor/supervisor.conf&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:jx-ws]</span><br><span class="line">command                 &#x3D; &#x2F;bin&#x2F;bash jx-ws</span><br><span class="line">directory               &#x3D; &#x2F;home&#x2F;$&#123;user.home&#125;&#x2F;opt&#x2F;jx-ws-shadow-1.0.0&#x2F;bin</span><br><span class="line">autostart               &#x3D; true</span><br><span class="line">autorestart             &#x3D; true</span><br><span class="line">stdout_logfile          &#x3D; &#x2F;var&#x2F;log&#x2F;ws&#x2F;out.log</span><br><span class="line">stdout_logfile_maxbytes &#x3D; 50MB</span><br><span class="line">stderr_logfile          &#x3D; &#x2F;var&#x2F;log&#x2F;ws&#x2F;err.log</span><br><span class="line">stderr_logfile_maxbytes &#x3D; 10MB</span><br></pre></td></tr></table></figure>
+
+<p>说明: </p>
+<ul>
+<li>如果启动的程序为 shell，需要在前面增加 <code>/bin/bash</code></li>
+<li><code>directory</code> 设置为可执行程序的上级目录</li>
+<li>log目录不会自动创建，需手动创建，但是日志文件会自动生成</li>
+<li>Java 中通过 <code>user.dir</code>获取到的目录为 <code>supervisor</code> 的目录，如需获取程序所在 jar 的运行目录需自行处理</li>
+<li>启动需要 root 权限，可通过 <code>sudo supervisord -c /etc/supervisor/supervisor.conf</code> 指定配置路径</li>
+</ul>
+</li>
+</ul>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><ul>
+<li><p>启动 <code>sudo supervisord -c /etc/supervisor/supervisor.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">supervisord -- run a set of applications as daemons.</span><br><span class="line"></span><br><span class="line">Usage: /usr/bin/supervisord [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">-c/--configuration FILENAME -- configuration file</span><br><span class="line">-n/--nodaemon -- run in the foreground (same as &#x27;nodaemon=true&#x27; in config file)</span><br><span class="line">-h/--help -- print this usage message and exit</span><br><span class="line">-v/--version -- print supervisord version number and exit</span><br><span class="line">-u/--user USER -- run supervisord as this user (or numeric uid)</span><br><span class="line">-m/--umask UMASK -- use this umask for daemon subprocess (default is 022)</span><br><span class="line">-d/--directory DIRECTORY -- directory to chdir to when daemonized</span><br><span class="line">-l/--logfile FILENAME -- use FILENAME as logfile path</span><br><span class="line">-y/--logfile_maxbytes BYTES -- use BYTES to limit the max size of logfile</span><br><span class="line">-z/--logfile_backups NUM -- number of backups to keep when max bytes reached</span><br><span class="line">-e/--loglevel LEVEL -- use LEVEL as log level (debug,info,warn,error,critical)</span><br><span class="line">-j/--pidfile FILENAME -- write a pid file for the daemon process to FILENAME</span><br><span class="line">-i/--identifier STR -- identifier used for this instance of supervisord</span><br><span class="line">-q/--childlogdir DIRECTORY -- the log directory for child process logs</span><br><span class="line">-k/--nocleanup --  prevent the process from performing cleanup (removal of</span><br><span class="line">                   old automatic child log files) at startup.</span><br><span class="line">-a/--minfds NUM -- the minimum number of file descriptors for start success</span><br><span class="line">-t/--strip_ansi -- strip ansi escape codes from process output</span><br><span class="line">--minprocs NUM  -- the minimum number of processes available for start success</span><br><span class="line">--profile_options OPTIONS -- run supervisord under profiler and output</span><br><span class="line">                             results based on OPTIONS, which  is a comma-sep&#x27;d</span><br><span class="line">                             list of &#x27;cumulative&#x27;, &#x27;calls&#x27;, and/or &#x27;callers&#x27;,</span><br><span class="line">                             e.g. &#x27;cumulative,callers&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看状态 <code>sudo supervisorctl status</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl -- control applications run by supervisord from the cmd line.</span><br><span class="line"></span><br><span class="line">Usage: /usr/bin/supervisorctl [options] [action [arguments]]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">-c/--configuration FILENAME -- configuration file path (default /etc/supervisord.conf)</span><br><span class="line">-h/--help -- print usage message and exit</span><br><span class="line">-i/--interactive -- start an interactive shell after executing commands</span><br><span class="line">-s/--serverurl URL -- URL on which supervisord server is listening</span><br><span class="line">     (default &quot;http://localhost:9001&quot;).</span><br><span class="line">-u/--username USERNAME -- username to use for authentication with server</span><br><span class="line">-p/--password PASSWORD -- password to use for authentication with server</span><br><span class="line">-r/--history-file -- keep a readline history (if readline is available)</span><br><span class="line"></span><br><span class="line">action [arguments] -- see below</span><br><span class="line"></span><br><span class="line">Actions are commands like &quot;tail&quot; or &quot;stop&quot;.  If -i is specified or no action is</span><br><span class="line">specified on the command line, a &quot;shell&quot; interpreting actions typed</span><br><span class="line">interactively is started.  Use the action &quot;help&quot; to find out about available</span><br><span class="line">actions.</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="XML-RPC-API-Documentation"><a href="#XML-RPC-API-Documentation" class="headerlink" title="XML-RPC API Documentation"></a><a target="_blank" rel="noopener" href="http://supervisord.org/api.html">XML-RPC API Documentation</a></h3><ul>
+<li><p>配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[inet_http_server]        ; inet (TCP) server disabled by default</span><br><span class="line">port&#x3D;127.0.0.1:9001       ; (ip_address:port specifier, *:port for all iface)</span><br><span class="line">username&#x3D;ops              ; (default is no username (open server))</span><br><span class="line">password&#x3D;vipshop          ; (default is no password (open server))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xmlrpclib</span><br><span class="line">server = xmlrpclib.Server(<span class="string">&#x27;http://ops:vipshop@127.0.0.1:9001/RPC2&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询API 支持的接口</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">methods = server.system.listMethods()</span><br><span class="line"><span class="built_in">print</span> methods</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>—EOF—</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Supervisor/" rel="tag"><i class="fa fa-tag"></i> Supervisor</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/travis-add-ssh-key/" rel="prev" title="在 travis 添加 ssh key">
+                  <i class="fa fa-chevron-left"></i> 在 travis 添加 ssh key
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Docker-nginx-reverse-proxy/" rel="next" title="Docker nginx 反向代理设置">
+                  Docker nginx 反向代理设置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

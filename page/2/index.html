@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="源码之前，了无秘密...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="机械境">
+<meta property="og:url" content="https://gythialy.github.io/page/2/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="源码之前，了无秘密...">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="gythialy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/page/2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+<title>机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/non-root-user-inside-a-Docker-container/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/non-root-user-inside-a-Docker-container/" class="post-title-link" itemprop="url">Docker 容器内以非 root 用户运行</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-23 10:08:15" itemprop="dateCreated datePublished" datetime="2020-03-23T10:08:15+08:00">2020-03-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>在 Dockerfile 中，如果我们不显式指明用户，进行权限处理，那么默认的 Dockerfile 生成的镜像，在运行时会以 root 身份进入 ENTRYPOINT，进而执行 CMD。因此，以 root 身份启动 container 是一件很危险的事情。尽管，docker 容器内的 root 与宿主 host 本身的 root 并不一定具有一样的权限，但是在容器内部的 root 拥有和宿主机一样的 UID(<code>UID 0</code>)。如果以 priviledge 的方式运行 container，那么两者将会一样，从而产生巨大的安全隐患。</p>
+<p>简而言之，出于安全的考虑，需要在 Dockerfile 的 ENTRYPOINT 之前，也就是运行 application 之前，进行用户切换。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Build gqlc in a stock Go builder container</span></span><br><span class="line"><span class="keyword">FROM</span> qlcchain/go-qlc-builder:latest as builder</span><br><span class="line"></span><br><span class="line"><span class="keyword">ARG</span> BUILD_ACT=build</span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> . /qlcchain/go-qlc</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">cd</span> /qlcchain/go-qlc &amp;&amp; make clean <span class="variable">$&#123;BUILD_ACT&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pull gqlc into a second stage deploy alpine container</span></span><br><span class="line"><span class="keyword">FROM</span> alpine:<span class="number">3.11</span>.<span class="number">3</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> maintainer=<span class="string">&quot;developers@qlink.mobi&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> QLCHOME /qlcchain</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk --no-cache add ca-certificates &amp;&amp; \</span></span><br><span class="line"><span class="bash">    addgroup qlcchain &amp;&amp; \</span></span><br><span class="line"><span class="bash">    adduser -S -G qlcchain qlcchain -s /bin/sh -h <span class="string">&quot;<span class="variable">$QLCHOME</span>&quot;</span> &amp;&amp; \</span></span><br><span class="line"><span class="bash">    chown -R qlcchain:qlcchain <span class="string">&quot;<span class="variable">$QLCHOME</span>&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">USER</span> qlcchain</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> <span class="variable">$QLCHOME</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /qlcchain/go-qlc/build/gqlc /usr/<span class="built_in">local</span>/bin/gqlc</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">9734</span> <span class="number">9735</span> <span class="number">9736</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">&quot;gqlc&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> [<span class="string">&quot;<span class="variable">$QLCHOME</span>&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>主要思路如下：</p>
+<ul>
+<li>一阶段构建需要执行的 app 可执行程序</li>
+<li>二阶段创建用户及用户组，拷贝一阶段的编译出来的文件</li>
+<li>切换到刚创建出来的用户，执行 <code>ENTRYPOINT</code> 和 <code>CMD</code></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/docker-tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/docker-tips/" class="post-title-link" itemprop="url">Docker tips</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-10 18:38:46" itemprop="dateCreated datePublished" datetime="2020-03-10T18:38:46+08:00">2020-03-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="环境变量换行"><a href="#环境变量换行" class="headerlink" title="环境变量换行"></a>环境变量换行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># base64 编码</span></span><br><span class="line"><span class="built_in">export</span> PRIVATE_KEY=$(cat ~/private_key.gpg | base64)</span><br><span class="line"><span class="comment"># 用的时候，base64解码</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;PRIVATE_KEY&#125;</span>&quot;</span> | base64 -d &gt;<span class="string">&quot;<span class="variable">$key_file</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用别名"><a href="#常用别名" class="headerlink" title="常用别名"></a>常用别名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ------------------------------------</span></span><br><span class="line"><span class="comment"># Docker alias and function</span></span><br><span class="line"><span class="comment"># ------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get latest container ID</span></span><br><span class="line"><span class="built_in">alias</span> dl=<span class="string">&quot;docker ps -l -q&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get container process</span></span><br><span class="line"><span class="built_in">alias</span> dps=<span class="string">&quot;docker ps&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get process included stop container</span></span><br><span class="line"><span class="built_in">alias</span> dpa=<span class="string">&quot;docker ps -a&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get images</span></span><br><span class="line"><span class="built_in">alias</span> di=<span class="string">&quot;docker images&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get container IP</span></span><br><span class="line"><span class="built_in">alias</span> dip=<span class="string">&quot;docker inspect --format &#x27;&#123;&#123; .NetworkSettings.IPAddress &#125;&#125;&#x27;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Run deamonized container, e.g., $dkd base /bin/echo hello</span></span><br><span class="line"><span class="built_in">alias</span> dkd=<span class="string">&quot;docker run -d -P&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Run interactive container, e.g., $dki base /bin/bash</span></span><br><span class="line"><span class="built_in">alias</span> dki=<span class="string">&quot;docker run -i -t -P&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Execute interactive container, e.g., $dex base /bin/bash</span></span><br><span class="line"><span class="built_in">alias</span> dex=<span class="string">&quot;docker exec -i -t&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop all containers</span></span><br><span class="line"><span class="function"><span class="title">dstop</span></span>() &#123; docker stop $(docker ps -a -q); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all containers</span></span><br><span class="line"><span class="function"><span class="title">drm</span></span>() &#123; docker rm $(docker ps -a -q); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop and Remove all containers</span></span><br><span class="line"><span class="built_in">alias</span> drmf=<span class="string">&#x27;docker stop $(docker ps -a -q) &amp;&amp; docker rm $(docker ps -a -q)&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all images</span></span><br><span class="line"><span class="function"><span class="title">dri</span></span>() &#123; docker rmi $(docker images -q); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Dockerfile build, e.g., $dbu tcnksm/test </span></span><br><span class="line"><span class="function"><span class="title">dbu</span></span>() &#123; docker build -t=<span class="variable">$1</span> .; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show all alias related docker</span></span><br><span class="line"><span class="function"><span class="title">dalias</span></span>() &#123; <span class="built_in">alias</span> | grep <span class="string">&#x27;docker&#x27;</span> | sed <span class="string">&quot;s/^\([^=]*\)=\(.*\)/\1 =&gt; \2/&quot;</span>| sed <span class="string">&quot;s/[&#x27;|\&#x27;]//g&quot;</span> | sort; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Bash into running container</span></span><br><span class="line"><span class="function"><span class="title">dbash</span></span>() &#123; docker <span class="built_in">exec</span> -it $(docker ps -aqf <span class="string">&quot;name=<span class="variable">$1</span>&quot;</span>) bash; &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/refresh-raspberry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/refresh-raspberry/" class="post-title-link" itemprop="url">吃灰派复活记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-28 13:54:55" itemprop="dateCreated datePublished" datetime="2019-11-28T13:54:55+08:00">2019-11-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>之前一个项目做预研的时候搞了个树莓派 3B，测试完之后，一直处于吃灰状态。刚好最近经常给小朋友打印东西，家里那台老的 HP P1106 不支持无线打印，每次都接 USB 才能打印，让人无比烦躁。于是乎抽空把打印机接到树莓派上，利用 cups 做成无线打印。</p>
+<h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><h3 id="烧镜像"><a href="#烧镜像" class="headerlink" title="烧镜像"></a>烧镜像</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">官网</a> 下载最新的镜像</li>
+<li>可以通过 <code>dd</code> 把镜像复制到 SD 卡中，具体方法参考 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">官方指南</a></li>
+<li>也可以通过 <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">Etcher</a>，<code>brew cask install balenaetcher</code> 即可，傻瓜式操作<br><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/refresh-raspberry/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/goreleaser-cgo-cross-compile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/goreleaser-cgo-cross-compile/" class="post-title-link" itemprop="url">goreleaser 支持 cgo 交叉编译</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-08 16:41:54" itemprop="dateCreated datePublished" datetime="2019-10-08T16:41:54+08:00">2019-10-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>在 <a href="/cgo-cross-compile/" title="cgo 交叉编译">cgo 交叉编译</a> 中通过 xgo + Docker 实现 Cgo 的交叉编译。由于原版 xgo 不支持 go mod，而且作者貌似也没支持的打算，所有我自己维护了一个 <a target="_blank" rel="noopener" href="https://github.com/gythialy/xgo">xgo</a>。使用了一段时间下来看，除了编译速度有点慢意外，其他还好。这也是跟我们的使用方式有关，我们需要根据不同的 <code>tags</code> 来编译不不同的版本，xgo 每次编译都要构建一个 Docker 实例，然后下载引用的库等等一大堆重复操作，导致整个编译时间拉长。</p>
+<p>既然有很多重复操作，那就换个思路，只构建一个实例，把编译环境准备好，然后在这个实例中把要编译的内容，一次编译出来。<a target="_blank" rel="noopener" href="https://github.com/goreleaser/goreleaser">goreleaser</a>，支持编译发布 golang 的二进制文件，同时也支持发布 Docker 镜像，但是这不是重点，这里不再赘述。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>由于需要支持 macOS 就需要安装 OSX 的 SDK，在 xgo 是自己构建的基础镜像。这里通过 Docker 官方提供的 <a target="_blank" rel="noopener" href="https://github.com/docker/golang-cross">golang-cross</a> 来作为基础镜像支持 macOS 平台，顺便规避一下版权的问题。在此基础上安装 mingw 支持 Windows x64/i386，以及 arm-gcc 等。剩下的就是一些常规操作了，比如安装 goreleaser，更新 golang 运行时等，完整的 <a target="_blank" rel="noopener" href="https://github.com/gythialy/golang-cross/blob/master/Dockerfile">Dockerfile</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --privileged \</span><br><span class="line">  -v <span class="variable">$PWD</span>:/go/src/github.com/qlcchain/go-qlc \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">  -w /go/src/github.com/qlcchain/go-qlc \</span><br><span class="line">  goreng/golang-cross goreleaser --snapshot --rm-dist</span><br></pre></td></tr></table></figure>
+
+<p>当然也是可以添加到 makefile 中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">snapshot:</span><br><span class="line">	docker run --rm --privileged \</span><br><span class="line">    -v $(CURDIR):&#x2F;go-qlc \</span><br><span class="line">    -v &#x2F;var&#x2F;run&#x2F;docker.sock:&#x2F;var&#x2F;run&#x2F;docker.sock \</span><br><span class="line">	-v $(GOPATH)&#x2F;src:&#x2F;go&#x2F;src \</span><br><span class="line">    -w &#x2F;go-qlc \</span><br><span class="line">    goreng&#x2F;golang-cross:$(GO_BUILDER_VERSION) \</span><br><span class="line">    goreleaser --snapshot --rm-dist</span><br></pre></td></tr></table></figure>
+
+<p>使用的时候，只需要执行 <code>make snapshot</code> 即可。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>使用新的镜像之后，整体编译速度有了比较大幅度的提升，得益于 goreleaser 对打包的支持，原来自己实现 shell 打包生成 checksum 的操作，都有现成的支持。</p>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/traefik-multiple-ports-with-ssl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/traefik-multiple-ports-with-ssl/" class="post-title-link" itemprop="url">traefik 多端口 SSL 配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-09-02 11:17:44" itemprop="dateCreated datePublished" datetime="2019-09-02T11:17:44+08:00">2019-09-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>前面在 <a href="/traefik-docker-tls-config/" title="traefik 配置 docker 容器支持 HTTPS">traefik 配置 docker 容器支持 HTTPS</a> 中介绍了如果使用 traefik 为 docker 提供支持 SSL 的反向代理。在示例中，<code>qlc_wallet_server</code> 中 HTTP 和 WebSocket 共用了一个端口，该端口支持 SSL，可以通过 <code>https://api.example.com</code> 和 <code>wss://api.example.com</code> 访问。但是如果在同一个容器中使用不同的端口呢？如果支持，如果实现？</p>
+<p>答案显然是可以支持的，但是我翻遍官方文档也没找到具体的说明。其实在 <a href="/deploy-bitwarden-rs-with-traefik/" title="基于 Treafik 部署 Bitwarden RS">基于 Treafik 部署 Bitwarden RS</a> 中部署 Bitwarden 的时候，已经使用了，在一个容器中，bitwarden-RS 通过 80 端口提供 RESTful 的接口，同时通过 3012 端口提供 Websocket 连接用来推送数据变化的通知。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">labels:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.enable=true</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.web.frontend.rule=Host:bitwarden.example.com</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.web.port=80</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.hub.frontend.rule=Host:bitwarden.example.com;Path:/notifications/hub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.hub.port=3012</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.hub.protocol=ws</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">traefik.docker.network=traefik</span></span><br></pre></td></tr></table></figure>
+
+<p>定义两个不同的实例，<code>web</code> 和 <code>hub</code>，分别指定端口，hub 是 WebSocket ，需要手动指定 <code>protocol</code>。一定要注意的是，千万不能手动指定 <code>backend</code>。要不然 traefik 就会这个容器中对这两个端口做负载均衡。</p>
+<p><code>--EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/deploy-hexo-to-github-pages-via-github-actions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/deploy-hexo-to-github-pages-via-github-actions/" class="post-title-link" itemprop="url">通过 GitHub Actions 自动部署 Hexo</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-23 20:14:27" itemprop="dateCreated datePublished" datetime="2019-08-23T20:14:27+08:00">2019-08-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/about-github-actions">GitHub Actions</a> 由 GitHub 官方推出的工作流工具。典型的应用场景应该是 CI/CD，类似 Travis 的用法。这里介绍响应 git push 事件触发 Hexo 编译静态页面并推送到 GitHub Pages 的用法。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li>生成 ssh 部署私钥  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -f ~/.ssh/github-actions-deploy</span><br></pre></td></tr></table></figure></li>
+<li>在 GitHub repo 的 <code>Settings/Deploy keys</code> 中添加刚刚生成的公钥</li>
+<li>在 GitHub repo 的 <code>Settings/Secrets</code> 中添加 <code>GH_ACTION_DEPLOY_KEY</code>，值为刚刚生成的私钥</li>
+</ul>
+<h3 id="编写-GitHub-Actions"><a href="#编写-GitHub-Actions" class="headerlink" title="编写 GitHub Actions"></a>编写 GitHub Actions</h3><ul>
+<li><p>在项目的根目录添加 <code>deploy.yml</code>，目录结构如下</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.github</span><br><span class="line">└── workflows</span><br><span class="line">└── deploy.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>步骤</p>
+<ul>
+<li>添加部署私钥到 GitHub Actions 执行的容器中</li>
+<li>在容器中安装 Hexo 以及相关的插件</li>
+<li>更新主题 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">NexT</a> 的配置</li>
+<li>编译静态页面</li>
+<li>推送编译好的文件到 GitHub Pages</li>
+</ul>
+</li>
+<li><p>编写部署的 action</p>
+  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Main</span> <span class="string">workflow</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">raw</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-18.04</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="string">lts</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v2-beta</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;12.x&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">prepare</span> <span class="string">build</span> <span class="string">env</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">GH_ACTION_DEPLOY_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GH_ACTION_DEPLOY_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">NEXT_VERSION:</span> <span class="string">v8.0.0-rc.2</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">mkdir</span> <span class="string">-p</span> <span class="string">~/.ssh/</span></span><br><span class="line">        <span class="string">echo</span> <span class="string">&quot;$GH_ACTION_DEPLOY_KEY&quot;</span> <span class="string">&gt;</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line">        <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line">        <span class="string">ssh-keyscan</span> <span class="string">github.com</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/known_hosts</span></span><br><span class="line">        <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&#x27;gythialy&#x27;</span></span><br><span class="line">        <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&#x27;gythialy@users.noreply.github.com&#x27;</span></span><br><span class="line">        <span class="string">npm</span> <span class="string">i</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line">        <span class="string">npm</span> <span class="string">i</span></span><br><span class="line">        <span class="string">git</span> <span class="string">clone</span> <span class="string">--branch</span> <span class="string">$&#123;NEXT_VERSION&#125;</span> <span class="string">--depth=10</span>  <span class="string">git@github.com:next-theme/hexo-theme-next.git</span> <span class="string">themes/next</span></span><br><span class="line">        <span class="string">git</span> <span class="string">checkout</span> <span class="string">-b</span> <span class="string">$&#123;NEXT_VERSION&#125;</span></span><br><span class="line">        <span class="string">git</span> <span class="string">clone</span> <span class="string">git@github.com:next-theme/theme-next-three</span> <span class="string">--depth=1</span> <span class="string">themes/next/source/lib/three</span></span><br><span class="line">        <span class="comment"># git clone git@github.com:next-theme/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox</span></span><br><span class="line">        <span class="string">git</span> <span class="string">clone</span> <span class="string">git@github.com:next-theme/theme-next-pace</span> <span class="string">--depth=1</span> <span class="string">themes/next/source/lib/pace</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">deploy</span> <span class="string">to</span> <span class="string">github</span> </span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">HEXO_ALGOLIA_INDEXING_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.HEXO_ALGOLIA_INDEXING_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">hexo</span> <span class="string">generate</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">algolia</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>总的来说，就部署 Hexo 而言，速度比 <a href="/auto-deploy-hexo-by-travis/" title="Travis 部署">Travis 部署</a> 速度更快一点，同时由于现在还处于测试阶段，功能相对还是比较欠缺一点。不过作为一站式的功能来说，还是不错的。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/workflow-syntax-for-github-actions">Workflow syntax for GitHub Actions</a></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/deploy-bitwarden-rs-with-traefik/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/deploy-bitwarden-rs-with-traefik/" class="post-title-link" itemprop="url">基于 Treafik 部署 Bitwarden RS</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-06-08 18:15:21" itemprop="dateCreated datePublished" datetime="2019-06-08T18:15:21+08:00">2019-06-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a target="_blank" rel="noopener" href="https://bitwarden.com/">Bitwarden</a> 是一个类似 1Password 和 LastPass 的开源密码管理软件，<a target="_blank" rel="noopener" href="https://github.com/dani-garcia/bitwarden_rs">Bitwarden RS</a> 是基于 Rust 语言的一个实现，更轻量一些，可能效率也会更高一点点，并且是完全兼容官方 App 的，比如各种浏览器扩展，手机 App 等。</p>
+<p>TL;DR</p>
+<h3 id="Bitwarden-RS-已完成功能"><a href="#Bitwarden-RS-已完成功能" class="headerlink" title="Bitwarden RS 已完成功能"></a>Bitwarden RS 已完成功能</h3><ul>
+<li>Basic single user functionality</li>
+<li>Organizations support</li>
+<li>Attachments</li>
+<li>Vault API support</li>
+<li>Serving the static files for Vault interface</li>
+<li>Website icons API</li>
+<li>Authenticator and U2F support</li>
+<li>YubiKey OTP</li>
+</ul>
+<p>简而言之就是日常用用是差不多的，离官方实现还有点路要走。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>一个域名</li>
+<li>一台公网服务器</li>
+<li>docker-compose  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜ docker-compose version</span><br><span class="line">docker-compose version 1.23.2, build 1110ad01</span><br><span class="line">docker-py version: 3.6.0</span><br><span class="line">CPython version: 3.6.6</span><br><span class="line">OpenSSL version: OpenSSL 1.1.0h  27 Mar 2018</span><br></pre></td></tr></table></figure></li>
+<li>traefik<br>  traefik 配置证书，可以参考 <a href="/traefik-docker-tls-config/" title="traefik 配置 docker 容器支持 HTTPS">traefik 配置 docker 容器支持 HTTPS</a>，这里就不赘述了。</li>
+</ul>
+<p><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/deploy-bitwarden-rs-with-traefik/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/cgo-cross-compile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/cgo-cross-compile/" class="post-title-link" itemprop="url">cgo 交叉编译</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-19 17:43:43" itemprop="dateCreated datePublished" datetime="2019-04-19T17:43:43+08:00">2019-04-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>Go 语言除了语法精炼、并发支持好外，还有一个优点就是可以调用 C 代码。可以直接在 Go 源代码里写 C 代码，也可以引 C 语言的外部库。这样在性能遇到瓶颈的地方可以重写，或者某些功能 Go 和第三方还缺失，但 C 语言有现成的库就可以直接用了。</p>
+<p>官方 Cgo 这块目前有一篇 <a target="_blank" rel="noopener" href="https://blog.golang.org/c-go-cgo">博客</a> 和 <a target="_blank" rel="noopener" href="https://golang.org/cmd/cgo/">命令行文档</a>。比如 sqlite 的 golang 驱动 <a target="_blank" rel="noopener" href="https://github.com/mattn/go-sqlite3">go-sqlite3</a> 就是基于 Cgo 的实现。编译本地版本，Go 本身已经支持得非常好，基本不需要额外设置，直接通过 <code>go build</code> 编译即可，但是要想编译其他平台的二进制版本，就需要跨平台的 <code>$(CC)</code>, <code>$(CXX)</code> 支持。</p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>按照 Cgo 的编译思路，基本思路就是必须有一个跨平台的 C/C++ 编译器才可能实现交叉编译。</p>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><ul>
+<li><p>安装编译器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install FiloSottile/musl-cross/musl-cross</span><br><span class="line">brew install mingw-w64</span><br></pre></td></tr></table></figure></li>
+<li><p>编译</p>
+<p>在 <code>Make</code> 文件中指定 <code>$(CC)</code>,<code>$(GCC)</code> 为 <code>musl-cross</code> 提供的编译器，编译安装</p>
+</li>
+</ul>
+<blockquote>
+<p>注：此方案未验证，有兴趣的可以自行研究</p>
+</blockquote>
+<p><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cgo-cross-compile/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://gythialy.github.io/page/2/',]
+      });
+      });
+  </script>
+
+
+</body>
+</html>

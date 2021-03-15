@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?p2f version='1.0.0'?>
+<p2f version='1.0.0'>
+  <ius size='13'>
+    <iu id='org.eclipse.buildship.feature.group' name='Buildship: Eclipse Plug-ins for Gradle' version='2.1.2.v20170807-1324'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/oxygen'/>
+      </repositories>
+    </iu>
+    <iu id='com.genuitec.eclipse.theming.designer.feature.feature.group' name='DevStyle - Icon Designer' version='1.10.0.201712201137'>
+      <repositories size='1'>
+        <repository location='http://www.genuitec.com/updates/webclipse/oxygen/'/>
+      </repositories>
+    </iu>
+    <iu id='com.genuitec.eclipse.theming.feature.feature.group' name='DevStyle (includes Darkest Dark Theme)' version='1.10.0.201712201137'>
+      <repositories size='1'>
+        <repository location='http://www.genuitec.com/updates/webclipse/oxygen/'/>
+      </repositories>
+    </iu>
+    <iu id='net.sf.eclipsecs.feature.group' name='Eclipse Checkstyle Plug-in' version='8.7.0.201801170953'>
+      <repositories size='1'>
+        <repository location='http://eclipse-cs.sourceforge.net/update/'/>
+      </repositories>
+    </iu>
+    <iu id='org.sf.feeling.decompiler.cfr.feature.group' name='Enhanced Class Decompiler CFR Extension (Optional)' version='3.0.0.201709092115'>
+      <repositories size='1'>
+        <repository location='https://ecd-plugin.github.io/update/'/>
+      </repositories>
+    </iu>
+    <iu id='org.freejava.javasourceattacher.feature.feature.group' name='Java Source Attacher Feature' version='1.2.8.0'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/tha/eclipserepo/'/>
+      </repositories>
+    </iu>
+    <iu id='org.jetbrains.kotlin.feature.feature.group' name='Kotlin' version='0.8.2.v20170314-0957'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/last/'/>
+      </repositories>
+    </iu>
+    <iu id='org.sonarlint.eclipse.feature.feature.group' name='SonarLint for Eclipse' version='3.3.1.201712071600'>
+      <repositories size='1'>
+        <repository location='https://eclipse-uc.sonarlint.org'/>
+      </repositories>
+    </iu>
+    <iu id='com.helospark.SparkBuilderGeneratorFeature.feature.group' name='SparkBuilderGeneratorFeature' version='0.0.13.201712202108'>
+      <repositories size='1'>
+        <repository location='http://helospark.com/eclipse_plugin/SparkBuilderGeneratorPlugin'/>
+      </repositories>
+    </iu>
+    <iu id='com.github.spotbugs.plugin.eclipse.feature.group' name='SpotBugs' version='3.1.1.r201712011030-903b7a0'>
+      <repositories size='1'>
+        <repository location='https://spotbugs.github.io/eclipse/'/>
+      </repositories>
+    </iu>
+    <iu id='org.testng.eclipse.feature.group' name='TestNG' version='6.13.0.201712040650'>
+      <repositories size='1'>
+        <repository location='http://beust.com/eclipse'/>
+      </repositories>
+    </iu>
+    <iu id='org.testng.eclipse.maven.feature.feature.group' name='TestNG M2E (Maven) Integration (Optional)' version='6.13.0.201712040650'>
+      <repositories size='1'>
+        <repository location='http://beust.com/eclipse'/>
+      </repositories>
+    </iu>
+    <iu id='org.ucdetector.feature.feature.group' name='UCDetector' version='2.0.0'>
+      <repositories size='1'>
+        <repository location='http://ucdetector.sourceforge.net/update/'/>
+      </repositories>
+    </iu>
+  </ius>
+</p2f>

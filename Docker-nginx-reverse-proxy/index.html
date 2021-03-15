@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="缘起最近在公司搭建了一个基于 Gogs 的代码管理系统，以及基于 Kanboard 的任务管理系统等几个内部系统。由于部署在同一台机器上，基于不同的端口区分不同的服务。比如：  Git 服务 http:&#x2F;&#x2F;10.10.1.110:10080  任务管理系统 http:&#x2F;&#x2F;10.10.1.110:8888 其他   为了更好的使用，通过内部域名区分，比如 ：  Git 服务 http:&#x2F;&#x2F;gogs.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker nginx 反向代理设置">
+<meta property="og:url" content="https://gythialy.github.io/Docker-nginx-reverse-proxy/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="缘起最近在公司搭建了一个基于 Gogs 的代码管理系统，以及基于 Kanboard 的任务管理系统等几个内部系统。由于部署在同一台机器上，基于不同的端口区分不同的服务。比如：  Git 服务 http:&#x2F;&#x2F;10.10.1.110:10080  任务管理系统 http:&#x2F;&#x2F;10.10.1.110:8888 其他   为了更好的使用，通过内部域名区分，比如 ：  Git 服务 http:&#x2F;&#x2F;gogs.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-01-25T04:59:53.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.298Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="Proxy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/Docker-nginx-reverse-proxy/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Docker nginx 反向代理设置 | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%98%E8%B5%B7"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="nav-number">2.</span> <span class="nav-text">方案一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="nav-number">3.</span> <span class="nav-text">方案二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8"><span class="nav-number">4.</span> <span class="nav-text">延伸</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/Docker-nginx-reverse-proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker nginx 反向代理设置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-01-25 12:59:53" itemprop="dateCreated datePublished" datetime="2018-01-25T12:59:53+08:00">2018-01-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>最近在公司搭建了一个基于 <a target="_blank" rel="noopener" href="https://gogs.io/">Gogs</a> 的代码管理系统，以及基于 <a target="_blank" rel="noopener" href="https://kanboard.org/">Kanboard</a> 的任务管理系统等几个内部系统。由于部署在同一台机器上，基于不同的端口区分不同的服务。比如：</p>
+<ul>
+<li>Git 服务 <code>http://10.10.1.110:10080 </code></li>
+<li>任务管理系统<code> http://10.10.1.110:8888</code></li>
+<li>其他 </li>
+</ul>
+<p>为了更好的使用，通过内部域名区分，比如 ：</p>
+<ul>
+<li>Git 服务 <code>http://gogs.vking.io </code></li>
+<li>任务管理系统 <code>http://task.vking.io</code></li>
+<li>其他</li>
+</ul>
+<blockquote>
+<p>注：vking.io 是内部域名，可通过 <a target="_blank" rel="noopener" href="http://www.thekelleys.org.uk/dnsmasq/doc.html">dnsmasq</a> 配置。</p>
+</blockquote>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><p>现有服务都是通过  <a target="_blank" rel="noopener" href="https://www.docker.com/">Docker</a>  部署，<a target="_blank" rel="noopener" href="https://www.nginx.com/">nginx</a> 同样通过 Docker 部署，使用官方提供的镜像即可。</p>
+<ul>
+<li>新建 nginx 配置文件， <code>nginx.conf</code>，存放路径为 <code>/srv/docker/nginx/nginx.conf</code></li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># user  nginx;</span></span><br><span class="line"><span class="attribute">worker_processes</span>  auto;</span><br><span class="line"></span><br><span class="line"><span class="attribute">error_log</span>  /var/log/nginx/error.log <span class="literal">warn</span>;</span><br><span class="line"><span class="attribute">pid</span>        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       /etc/nginx/mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">log_format</span>  main  <span class="string">&#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># daemon off;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>新建反向代理设置文件 <code>reverse-proxy.conf </code>，存放路径为 <code>/srv/docker/nginx/conf.d/reverse-proxy.conf</code></li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If we receive X-Forwarded-Proto, pass it through; otherwise, pass along the</span></span><br><span class="line"><span class="comment"># scheme used to connect to this server</span></span><br><span class="line"><span class="attribute">map</span> $http_x_forwarded_proto $proxy_x_forwarded_proto &#123;</span><br><span class="line">  <span class="attribute">default</span> $http_x_forwarded_proto;</span><br><span class="line">  &#x27;&#x27;      $scheme;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># If we receive X-Forwarded-Port, pass it through; otherwise, pass along the</span></span><br><span class="line"><span class="comment"># server port the client connected to</span></span><br><span class="line"><span class="attribute">map</span> $http_x_forwarded_port $proxy_x_forwarded_port &#123;</span><br><span class="line">  <span class="attribute">default</span> $http_x_forwarded_port;</span><br><span class="line">  &#x27;&#x27;      $server_port;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># If we receive Upgrade, set Connection to &quot;upgrade&quot;; otherwise, delete any</span></span><br><span class="line"><span class="comment"># Connection header that may have been passed to this server</span></span><br><span class="line"><span class="attribute">map</span> $http_upgrade $proxy_connection &#123;</span><br><span class="line">  <span class="attribute">default</span> upgrade;</span><br><span class="line">  &#x27;&#x27; close;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># Apply fix for very long server names</span></span><br><span class="line"><span class="attribute">server_names_hash_bucket_size</span> <span class="number">128</span>;</span><br><span class="line"><span class="comment"># Default dhparam</span></span><br><span class="line"><span class="attribute">ssl_dhparam</span> /etc/nginx/dhparam/dhparam.pem;</span><br><span class="line"><span class="comment"># Set appropriate X-Forwarded-Ssl header</span></span><br><span class="line"><span class="attribute">map</span> $scheme $proxy_x_forwarded_ssl &#123;</span><br><span class="line">  <span class="attribute">default</span> <span class="literal">off</span>;</span><br><span class="line">  <span class="attribute">https</span> <span class="literal">on</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="attribute">gzip_types</span> text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;</span><br><span class="line"><span class="attribute">log_format</span> vhost <span class="string">&#x27;$host $remote_addr - $remote_user [$time_local] &#x27;</span></span><br><span class="line">                 <span class="string">&#x27;&quot;$request&quot; $status $body_bytes_sent &#x27;</span></span><br><span class="line">                 <span class="string">&#x27;&quot;$http_referer&quot; &quot;$http_user_agent&quot;&#x27;</span>;</span><br><span class="line"><span class="attribute">access_log</span> <span class="literal">off</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTP 1.1 support</span></span><br><span class="line"><span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line"><span class="attribute">proxy_buffering</span> <span class="literal">off</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Host $http_host;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Upgrade $http_upgrade;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Connection $proxy_connection;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Real-IP $remote_addr;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Forwarded-Proto $proxy_x_forwarded_proto;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Forwarded-Ssl $proxy_x_forwarded_ssl;</span><br><span class="line"><span class="attribute">proxy_set_header</span> X-Forwarded-Port $proxy_x_forwarded_port;</span><br><span class="line"><span class="comment"># Mitigate httpoxy attack (see README for details)</span></span><br><span class="line"><span class="attribute">proxy_set_header</span> Proxy <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">server_name</span> _; <span class="comment"># This is just an invalid value which will never trigger on a real hostname.</span></span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">access_log</span> /var/log/nginx/access.log vhost;</span><br><span class="line">	<span class="attribute">return</span> <span class="number">503</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># gogs.vking.io</span></span><br><span class="line"><span class="attribute">upstream</span> gogs.vking.io &#123;</span><br><span class="line">	<span class="comment"># gogs</span></span><br><span class="line">	<span class="attribute">server</span> gogs:<span class="number">3000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">server_name</span> gogs.vking.io;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://gogs.vking.io;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/access.log vhost;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># task.vking.io</span></span><br><span class="line"><span class="attribute">upstream</span> task.vking.io &#123;</span><br><span class="line">    <span class="comment"># kanboard</span></span><br><span class="line">    <span class="attribute">server</span> kanboard:<span class="number">80</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">server_name</span> task.vking.io;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://task.vking.io;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/access.log vhost;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>gogs 启动命令 </li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d --name gogs \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 10022:22  \</span><br><span class="line">    -p 10080:3000 \</span><br><span class="line">    --network gogs-net \</span><br><span class="line">    -v /srv/docker/gogs:/data \</span><br><span class="line">    gogs/gogs:latest</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注： <code>upstream gogs.vking.io</code> 中的 <code>server</code> 中的 <code>gogs:3000</code> 分别指容器名称和原始expose 的端口。</p>
+</blockquote>
+<ul>
+<li>启动容器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d --name nginx \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 80:80 \</span><br><span class="line">    --network gogs-net \</span><br><span class="line">    -v /srv/docker/nginx/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">    -v /srv/docker/nginx/conf.d:/etc/nginx/conf.d \</span><br><span class="line">    nginx:alpines</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：<code>--network gogs-net</code> 指定三个容器在同一网络，如果用默认的 <code>bridge</code>的话，不需要设置</p>
+</blockquote>
+<h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><p>因为这些服务都是部署在一台机器上的，可以通过 Docker 的自动服务发现部署，原理<a target="_blank" rel="noopener" href="http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/">见此</a>。</p>
+<ul>
+<li><p>gogs</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d --name gogs \</span><br><span class="line">    --restart always \</span><br><span class="line">	-p 10022:22  -p 10080:3000 \</span><br><span class="line">	--network gogs-net \</span><br><span class="line">	-e VIRTUAL_HOST=gogs.vking.io \</span><br><span class="line">	-e VIRTUAL_PORT=3000 \</span><br><span class="line">	-v /opt/docker/gogs:/data \</span><br><span class="line">	gogs/gogs:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Kanboard</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d --name kanboard \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 8888:80 \</span><br><span class="line">    --network gogs-net \</span><br><span class="line">    -e VIRTUAL_HOST=task.vking.io \</span><br><span class="line">    -e VIRTUAL_PORT=80 \</span><br><span class="line">    -v /srv/docker/kanboard/data:/var/www/app/data \</span><br><span class="line">    -v /srv/docker/kanboard/plugins:/var/www/app/plugins \</span><br><span class="line">    kanboard/kanboard:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nginx</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d --name nginx \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 80:80 \</span><br><span class="line">    --network gogs-net \</span><br><span class="line">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span><br><span class="line">    jwilder/nginx-proxy:alpine</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<blockquote>
+<p>注：关键是容器通过 <code>-e VIRTUAL_HOST</code> 指定 url，通过 <code>-e VIRTUAL_PORT=80</code> 指定端口，同样端口也必须是原始镜像 expose 的端口。</p>
+</blockquote>
+<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><p>目前服务都是通过 shell 启动，可改成通过 <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/">Docker Compose</a> 统一编排任务，把 dnsmasq+nginx+gogs+… 等统一管理。如果是部署在公网上的话，还可以把 SSL 证书到期自动刷新等一起编排。</p>
+<p><code>---EOF---</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
+              <a href="/tags/Proxy/" rel="tag"><i class="fa fa-tag"></i> Proxy</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/install-and-config-supervisor/" rel="prev" title="安装配置 Supervisor">
+                  <i class="fa fa-chevron-left"></i> 安装配置 Supervisor
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Docker-Private-registry/" rel="next" title="搭建 Docker 私有镜像">
+                  搭建 Docker 私有镜像 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

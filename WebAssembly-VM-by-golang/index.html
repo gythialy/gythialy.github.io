@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="背景由于 WebAssembly Interface Types 还处于草案阶段，目前 WASM 只支持四种基本类型，本质上来说没什么大用。 在实际的开发中，数据结构肯定是远比 i32,i64,f32,f64 这四种基本类型来得复杂的，至少可能是一个复杂的结构体。比如，我需要把一组 key&#x2F;value 存起来，然后可以通过 key 查询到对应的 value。按照目前的 WASM 的规范，这个实现都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang 实现 WebAssembly VM">
+<meta property="og:url" content="https://gythialy.github.io/WebAssembly-VM-by-golang/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="背景由于 WebAssembly Interface Types 还处于草案阶段，目前 WASM 只支持四种基本类型，本质上来说没什么大用。 在实际的开发中，数据结构肯定是远比 i32,i64,f32,f64 这四种基本类型来得复杂的，至少可能是一个复杂的结构体。比如，我需要把一组 key&#x2F;value 存起来，然后可以通过 key 查询到对应的 value。按照目前的 WASM 的规范，这个实现都">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-12T02:27:06.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.298Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="WASM">
+<meta property="article:tag" content="WebAssembly">
+<meta property="article:tag" content="Golang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/WebAssembly-VM-by-golang/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Golang 实现 WebAssembly VM | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WASM-%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">WASM 二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rust-%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.1.</span> <span class="nav-text">Rust 实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wat-%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">wat 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VM-%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">VM 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/WebAssembly-VM-by-golang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Golang 实现 WebAssembly VM
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-12 10:27:06" itemprop="dateCreated datePublished" datetime="2020-06-12T10:27:06+08:00">2020-06-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于 <a target="_blank" rel="noopener" href="https://github.com/webassembly/interface-types">WebAssembly Interface Types</a> 还处于草案阶段，目前 WASM 只支持四种基本类型，本质上来说没什么大用。</p>
+<p>在实际的开发中，数据结构肯定是远比 <code>i32,i64,f32,f64</code> 这四种基本类型来得复杂的，至少可能是一个复杂的结构体。比如，我需要把一组 key/value 存起来，然后可以通过 key 查询到对应的 value。按照目前的 WASM 的规范，这个实现都是比较麻烦的。key/value 可能是字符串或者其他结构，但是不管什么类型，在内存都是按照字节序的方式存储，所以只需要把类型编码成字节序放到内存中，这样这个结构就可以转化成内存的起始地址（指针）和数据长度，这两个值就是 <code>i32/i64</code>，并且都是 WASM 支持的类型。</p>
+<p>函数声明</p>
+<ul>
+<li><p>对外 API</p>
+<p>为了对调用者友好，调用这不需要处理 <code>slice</code> 的地址</p>
+</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 把 key/value 写入存储</span></span><br><span class="line">  <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_write</span></span>(key: &amp;[<span class="built_in">u8</span>], val: &amp;[<span class="built_in">u8</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据 key 查询对应的 value</span></span><br><span class="line">  <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_read</span></span>(key: &amp;[<span class="built_in">u8</span>]) -&gt; <span class="built_in">Option</span>&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">u8</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>内部接口</li>
+</ul>
+<p>在虚拟机中注入这两个 <code>host function</code> 来实现具体的逻辑</p>
+  <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_read</span></span>(</span><br><span class="line">            key: *<span class="keyword">const</span> <span class="built_in">u8</span>,</span><br><span class="line">            klen: <span class="built_in">u32</span>,</span><br><span class="line">            val: *<span class="keyword">mut</span> <span class="built_in">u8</span>,</span><br><span class="line">            vlen: <span class="built_in">u32</span>,</span><br><span class="line">            offset: <span class="built_in">u32</span>,</span><br><span class="line">        ) -&gt; <span class="built_in">u32</span>;</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_write</span></span>(key: *<span class="keyword">const</span> <span class="built_in">u8</span>, klen: <span class="built_in">u32</span>, val: *<span class="keyword">const</span> <span class="built_in">u8</span>, vlen: <span class="built_in">u32</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="WASM-二进制"><a href="#WASM-二进制" class="headerlink" title="WASM 二进制"></a>WASM 二进制</h2><h3 id="Rust-实现"><a href="#Rust-实现" class="headerlink" title="Rust 实现"></a>Rust 实现</h3><p><code>invoke</code> 作为对外的入口点，调用此函数，就可以实现把 key/val 存储起来，然后通过 key 查询对应的 val</p>
+<ul>
+<li><p>Cargo.toml</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[package]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;example01&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;gythialy &lt;gythialy.koo+github@gmail.com&gt;&quot;</span>]</span><br><span class="line"><span class="attr">edition</span> = <span class="string">&quot;2018&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span></span><br><span class="line"></span><br><span class="line"><span class="section">[lib]</span></span><br><span class="line"><span class="attr">crate-type</span> = [<span class="string">&quot;cdylib&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[dependencies]</span></span><br><span class="line"></span><br><span class="line"><span class="section">[profile.release]</span></span><br><span class="line"><span class="attr">lto</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">opt-level</span> = <span class="string">&#x27;s&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lib.rs</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mod</span> env &#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_read</span></span>(</span><br><span class="line">            key: *<span class="keyword">const</span> <span class="built_in">u8</span>,</span><br><span class="line">            klen: <span class="built_in">u32</span>,</span><br><span class="line">            val: *<span class="keyword">mut</span> <span class="built_in">u8</span>,</span><br><span class="line">            vlen: <span class="built_in">u32</span>,</span><br><span class="line">            offset: <span class="built_in">u32</span>,</span><br><span class="line">        ) -&gt; <span class="built_in">u32</span>;</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_write</span></span>(key: *<span class="keyword">const</span> <span class="built_in">u8</span>, klen: <span class="built_in">u32</span>, val: *<span class="keyword">const</span> <span class="built_in">u8</span>, vlen: <span class="built_in">u32</span>);</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_delete</span></span>(key: *<span class="keyword">const</span> <span class="built_in">u8</span>, klen: <span class="built_in">u32</span>);</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_debug</span></span>(val: *<span class="keyword">const</span> <span class="built_in">u8</span>, len: <span class="built_in">u32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_write</span></span>(key: &amp;[<span class="built_in">u8</span>], val: &amp;[<span class="built_in">u8</span>]) &#123;</span><br><span class="line">    <span class="keyword">unsafe</span> &#123;</span><br><span class="line">        env::qlcchain_storage_write(</span><br><span class="line">            key.as_ptr(),</span><br><span class="line">            key.len() <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">            val.as_ptr(),</span><br><span class="line">            val.len() <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_delete</span></span>(key: &amp;[<span class="built_in">u8</span>]) &#123;</span><br><span class="line">    <span class="keyword">unsafe</span> &#123;</span><br><span class="line">        env::qlcchain_storage_delete(key.as_ptr(), key.len() <span class="keyword">as</span> <span class="built_in">u32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_read</span></span>(key: &amp;[<span class="built_in">u8</span>]) -&gt; <span class="built_in">Option</span>&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">u8</span>&gt;&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> INITIAL: <span class="built_in">usize</span> = <span class="number">32</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> val = <span class="built_in">vec!</span>[<span class="number">0</span>; INITIAL];</span><br><span class="line">    <span class="keyword">let</span> size = <span class="keyword">unsafe</span> &#123;</span><br><span class="line">        env::qlcchain_storage_read(</span><br><span class="line">            key.as_ptr(),</span><br><span class="line">            key.len() <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">            val.as_mut_ptr(),</span><br><span class="line">            val.len() <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">            <span class="number">0</span>,</span><br><span class="line">        )</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> size == core::<span class="built_in">u32</span>::MAX &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> size = size <span class="keyword">as</span> <span class="built_in">usize</span>;</span><br><span class="line">    val.resize(size, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> size &gt; INITIAL &#123;</span><br><span class="line">        <span class="keyword">let</span> value = &amp;<span class="keyword">mut</span> val[INITIAL..];</span><br><span class="line">        <span class="built_in">debug_assert!</span>(value.len() == size - INITIAL);</span><br><span class="line">        <span class="keyword">unsafe</span> &#123;</span><br><span class="line">            env::qlcchain_storage_read(</span><br><span class="line">                key.as_ptr(),</span><br><span class="line">                key.len() <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">                value.as_mut_ptr(),</span><br><span class="line">                value.len() <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">                INITIAL <span class="keyword">as</span> <span class="built_in">u32</span>,</span><br><span class="line">            )</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="literal">Some</span>(val)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">debug</span></span>(val: &amp;[<span class="built_in">u8</span>]) &#123;</span><br><span class="line">    <span class="keyword">unsafe</span> &#123;</span><br><span class="line">        env::qlcchain_debug(val.as_ptr(), val.len() <span class="keyword">as</span> <span class="built_in">u32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[no_mangle]</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">invoke</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> key = <span class="string">&quot;key01&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> val = <span class="string">&quot;val01&quot;</span>;</span><br><span class="line">    storage_write(key.as_bytes(), val.as_bytes());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(val) = storage_read(key.as_bytes()) &#123;</span><br><span class="line">        debug(val.as_slice());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUSTFLAGS=&quot;-C link-arg=-zstack-size=32768&quot; cargo build --release --target wasm32-unknown-unknown</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="wat-文件"><a href="#wat-文件" class="headerlink" title="wat 文件"></a><code>wat</code> 文件</h3><script src="//gist.github.com/gythialy/40e05f90ef5809590e1c6ade70692424.js"></script>
+
+<h2 id="VM-实现"><a href="#VM-实现" class="headerlink" title="VM 实现"></a>VM 实现</h2><p><a target="_blank" rel="noopener" href="https://github.com/mathetake/gasm">gasm</a> 作为 WASM v1 的最小实现，支持解析执行 WASM 二进制文件和注入 <code>host function</code>。做为 WASM VM MVP 在此基础上做一些简单的封装。</p>
+<ol>
+<li>根据刚才 Rust 中的定义的函数名注入 <code>host function</code>，比如 <code>qlcchain_storage_write</code> 对应 <code>qlcSetDataFun</code></li>
+<li>根据回调中的 key/value 的起始地址和长度，获取响应的字节序，就可以解码出对应的数据结构</li>
+<li>也可以根据 key/value 的内存地址，修改相应的数据</li>
+</ol>
+<p>完整的测试代码</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;bytes&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;io/ioutil&quot;</span></span><br><span class="line">	<span class="string">&quot;reflect&quot;</span></span><br><span class="line">	<span class="string">&quot;testing&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;github.com/mathetake/gasm/hostfunc&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/mathetake/gasm/wasi&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/mathetake/gasm/wasm&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/stretchr/testify/require&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestWASM</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">  <span class="comment">// 读取 WASM 二进制文件</span></span><br><span class="line">	buf, err := ioutil.ReadFile(<span class="string">&quot;../data/example.wasm&quot;</span>)</span><br><span class="line">	require.NoError(t, err)</span><br><span class="line"></span><br><span class="line">	mod, err := wasm.DecodeModule(bytes.NewBuffer(buf))</span><br><span class="line">	require.NoError(t, err)</span><br><span class="line"></span><br><span class="line">	cache := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>, <span class="number">0</span>)</span><br><span class="line">	qlcSetDataFun := <span class="function"><span class="keyword">func</span><span class="params">(vm *wasm.VirtualMachine)</span> <span class="title">reflect</span>.<span class="title">Value</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> reflect.ValueOf(<span class="function"><span class="keyword">func</span><span class="params">(keyPtr, keyLen, valPtr, valLen <span class="keyword">uint32</span>)</span></span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">&quot;set mem: key:(%d,%d); val:(%d,%d)\n&quot;</span>, keyPtr, keyLen, valPtr, valLen)</span><br><span class="line">			memory := vm.Memory</span><br><span class="line">			key := memory[keyPtr : keyPtr+keyLen]</span><br><span class="line">			data := memory[valPtr : valPtr+valLen]</span><br><span class="line">			cache[<span class="keyword">string</span>(key)] = <span class="keyword">string</span>(data)</span><br><span class="line">			fmt.Printf(<span class="string">&quot;decoce: %s[%s]\n&quot;</span>, <span class="keyword">string</span>(key), <span class="keyword">string</span>(data))</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	qlcGetDataFun := <span class="function"><span class="keyword">func</span><span class="params">(vm *wasm.VirtualMachine)</span> <span class="title">reflect</span>.<span class="title">Value</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> reflect.ValueOf(<span class="function"><span class="keyword">func</span><span class="params">(keyPtr, keyLen, valPtr, valLen, offset <span class="keyword">uint32</span>)</span> <span class="title">uint32</span></span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">&quot;get mem: key:(%d,%d); val:(%d,%d),offset:%d\n&quot;</span>, keyPtr, keyLen, valPtr, valLen, offset)</span><br><span class="line">			memory := vm.Memory</span><br><span class="line">			key := memory[keyPtr : keyPtr+keyLen]</span><br><span class="line">			keyStr := <span class="keyword">string</span>(key)</span><br><span class="line">			<span class="keyword">if</span> v, ok := cache[keyStr]; ok &#123;</span><br><span class="line">				data := []<span class="keyword">byte</span>(v)</span><br><span class="line">				<span class="comment">// <span class="doctag">FIXME:</span> check mem length</span></span><br><span class="line">				<span class="built_in">copy</span>(memory[valPtr:], data[offset:offset+valLen])</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">uint32</span>(<span class="built_in">len</span>(data))</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	qlcDebug := <span class="function"><span class="keyword">func</span><span class="params">(vm *wasm.VirtualMachine)</span> <span class="title">reflect</span>.<span class="title">Value</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> reflect.ValueOf(<span class="function"><span class="keyword">func</span><span class="params">(valPtr, valLen <span class="keyword">uint32</span>)</span></span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">&quot;debug: %d, %d\n&quot;</span>, valPtr, valLen)</span><br><span class="line">			memory := vm.Memory</span><br><span class="line">			data := memory[valPtr : valLen+valPtr]</span><br><span class="line">			fmt.Println(<span class="keyword">string</span>(data))</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	builder := hostfunc.NewModuleBuilderWith(wasi.Modules)</span><br><span class="line">	builder.MustSetFunction(<span class="string">&quot;env&quot;</span>, <span class="string">&quot;qlcchain_storage_write&quot;</span>, qlcSetDataFun)</span><br><span class="line">	builder.MustSetFunction(<span class="string">&quot;env&quot;</span>, <span class="string">&quot;qlcchain_storage_read&quot;</span>, qlcGetDataFun)</span><br><span class="line">	builder.MustSetFunction(<span class="string">&quot;env&quot;</span>, <span class="string">&quot;qlcchain_debug&quot;</span>, qlcDebug)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构建 WASM VM</span></span><br><span class="line">	vm, err := wasm.NewVM(mod, builder.Done())</span><br><span class="line">	require.NoError(t, err)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用 `invoke`</span></span><br><span class="line">	_, _, err = vm.ExecExportedFunction(<span class="string">&quot;invoke&quot;</span>)</span><br><span class="line">	require.NoError(t, err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><ul>
+<li>WASM v1 支持的内容有限，想实现更高级的功能需要做不少额外的工作，但也不是不可能</li>
+<li>现有大多数的 WASM VM 的实现都不支持或者不完整支持 JIT/AOP，执行效率有限</li>
+<li>未来 <code>WebAssembly Interface Types</code> 等规范发布的话，更容易支持复杂业务</li>
+<li> <a target="_blank" rel="noopener" href="https://crates.io/crates/wasm-bindgen">wasm-bindgen</a> 已经支持 Rust 生态的 <code>WebAssembly Interface Types</code></li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ontio/ontology-wasm-cdt-rust">ontology-wasm-cdt-rust</a></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WASM/" rel="tag"><i class="fa fa-tag"></i> WASM</a>
+              <a href="/tags/WebAssembly/" rel="tag"><i class="fa fa-tag"></i> WebAssembly</a>
+              <a href="/tags/Golang/" rel="tag"><i class="fa fa-tag"></i> Golang</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/WebAssembly-s-expression/" rel="prev" title="WebAssembly S 表达式">
+                  <i class="fa fa-chevron-left"></i> WebAssembly S 表达式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/self-updating-github-profile/" rel="next" title="自动更新 GitHub Profile">
+                  自动更新 GitHub Profile <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

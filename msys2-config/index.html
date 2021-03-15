@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="介绍MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。 比较   特点 Cygwin MinGW&#x2F;MSYS MSYS2    是否GNU 否 是 是   软件支持？ 支持绝大多数的 GNU 软件 支持常用软件 支持大多数 GNU 软件   更类似 Linux？ 在 Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSYS2 配置">
+<meta property="og:url" content="https://gythialy.github.io/msys2-config/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="介绍MSYS2 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。 比较   特点 Cygwin MinGW&#x2F;MSYS MSYS2    是否GNU 否 是 是   软件支持？ 支持绝大多数的 GNU 软件 支持常用软件 支持大多数 GNU 软件   更类似 Linux？ 在 Windows">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-03-24T02:25:10.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.302Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="msys2">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/msys2-config/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>MSYS2 配置 | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83"><span class="nav-number">1.1.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-MSYS2"><span class="nav-number">2.1.</span> <span class="nav-text">安装 MSYS2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">2.2.</span> <span class="nav-text">安装开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">镜像配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95"><span class="nav-number">3.4.</span> <span class="nav-text">用户目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E7%94%A8-HOME-%E7%9B%AE%E5%BD%95"><span class="nav-number">3.5.</span> <span class="nav-text">公用 HOME 目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85zsh%E5%92%8Coh-my-zsh"><span class="nav-number">5.</span> <span class="nav-text">安装zsh和oh my zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85"><span class="nav-number">6.</span> <span class="nav-text">重新安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%91"><span class="nav-number">7.</span> <span class="nav-text">坑</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/msys2-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MSYS2 配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-03-24 10:25:10" itemprop="dateCreated datePublished" datetime="2016-03-24T10:25:10+08:00">2016-03-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a target="_blank" rel="noopener" href="https://msys2.github.io/">MSYS2</a> 是 MSYS 的一个升级版, 准确的说是集成了 pacman 和 Mingw-w64的 Cygwin 升级版。与 MSYS 最大的区别是移植了 Pacman。</p>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><table>
+<thead>
+<tr>
+<th align="left">特点</th>
+<th align="left">Cygwin</th>
+<th align="left">MinGW/MSYS</th>
+<th align="left">MSYS2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">是否GNU</td>
+<td align="left">否</td>
+<td align="left">是</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">软件支持？</td>
+<td align="left">支持绝大多数的 GNU 软件</td>
+<td align="left">支持常用软件</td>
+<td align="left">支持大多数 GNU 软件</td>
+</tr>
+<tr>
+<td align="left">更类似 Linux？</td>
+<td align="left">在 Windows 中模拟 Linux</td>
+<td align="left">实现了 Bash 等主要的 Linux 程序</td>
+<td align="left">原生 64/32bit 支持</td>
+</tr>
+<tr>
+<td align="left">GCC 编译</td>
+<td align="left">独立的 Windows/Linux 程序编译(MingGW32 交叉编译/依赖 cygwin1.dll)</td>
+<td align="left">独立的 Windows 程序编译</td>
+<td align="left">独立的 Windows 程序编译</td>
+</tr>
+<tr>
+<td align="left">中文支持</td>
+<td align="left">直接支持中文显示和输入法</td>
+<td align="left">需要配置才能支持中文显示和输入，删除一个中文字符需要删除 2 次</td>
+<td align="left">支持中文显示和输入法，中文帮助系统和中文提示（部分软件）</td>
+</tr>
+<tr>
+<td align="left">运行速度</td>
+<td align="left">慢</td>
+<td align="left">快</td>
+<td align="left">快</td>
+</tr>
+</tbody></table>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装-MSYS2"><a href="#安装-MSYS2" class="headerlink" title="安装 MSYS2"></a>安装 MSYS2</h3><p>从官网下载 <a target="_blank" rel="noopener" href="https://msys2.github.io/">MSYS2</a> 安装文件, 一路 Next 即可。</p>
+<h3 id="安装开发环境"><a href="#安装开发环境" class="headerlink" title="安装开发环境"></a>安装开发环境</h3><p><code>pacman -S --needed base-devel msys2-devel mingw-w64-x86_64-toolchain</code></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSYS_HOME=D:\msys64</span><br><span class="line">MINGW_HOME=D:\msys64\mingw64</span><br><span class="line">LIBRARY_PATH=D:\msys64\mingw64\lib</span><br></pre></td></tr></table></figure>
+
+<h3 id="镜像配置"><a href="#镜像配置" class="headerlink" title="镜像配置"></a>镜像配置</h3><p>如果网络环境不好的话，可以增加国内的镜像，速度改进非常明显。</p>
+<p>修改 <code>/etc/pacman.d/</code> 文件夹中修改 <code>mirrorlist</code> 开头的三个文件：</p>
+<ul>
+<li><code>mirrorlist.mingw32</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">##</span><br><span class="line">## 32-bit Mingw-w64 repository mirrorlist</span><br><span class="line">##</span><br><span class="line">Server&#x3D;http:&#x2F;&#x2F;mirrors3.ustc.edu.cn&#x2F;msys2&#x2F;REPOS&#x2F;MINGW&#x2F;i686</span><br><span class="line"></span><br><span class="line">## Primary</span><br><span class="line">## msys2.org</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;repo.msys2.org&#x2F;mingw&#x2F;i686</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;downloads.sourceforge.net&#x2F;project&#x2F;msys2&#x2F;REPOS&#x2F;MINGW&#x2F;i686</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;www2.futureware.at&#x2F;~nickoe&#x2F;msys2-mirror&#x2F;i686&#x2F;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>mirrorlist.mingw64</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">##</span><br><span class="line">## 64-bit Mingw-w64 repository mirrorlist</span><br><span class="line">##</span><br><span class="line"></span><br><span class="line">Server&#x3D;http:&#x2F;&#x2F;mirrors3.ustc.edu.cn&#x2F;msys2&#x2F;REPOS&#x2F;MINGW&#x2F;x86_64</span><br><span class="line">## Primary</span><br><span class="line">## msys2.org</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;repo.msys2.org&#x2F;mingw&#x2F;x86_64</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;downloads.sourceforge.net&#x2F;project&#x2F;msys2&#x2F;REPOS&#x2F;MINGW&#x2F;x86_64</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;www2.futureware.at&#x2F;~nickoe&#x2F;msys2-mirror&#x2F;x86_64&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>mirrorlist.msys</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">##</span><br><span class="line">## MSYS2 repository mirrorlist</span><br><span class="line">##</span><br><span class="line"></span><br><span class="line">Server&#x3D;http:&#x2F;&#x2F;mirrors3.ustc.edu.cn&#x2F;msys2&#x2F;REPOS&#x2F;MSYS2&#x2F;$arch</span><br><span class="line"></span><br><span class="line">## Primary</span><br><span class="line">## msys2.org</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;repo.msys2.org&#x2F;msys&#x2F;$arch</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;downloads.sourceforge.net&#x2F;project&#x2F;msys2&#x2F;REPOS&#x2F;MSYS2&#x2F;$arch</span><br><span class="line">Server &#x3D; http:&#x2F;&#x2F;www2.futureware.at&#x2F;~nickoe&#x2F;msys2-mirror&#x2F;msys&#x2F;$arch&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>如果需要通过代理才能上网的话，可以在 <code>/etc/profile.d/</code> 增加 <code>proxy.sh</code>，内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy&#x3D;%PROXY_SERVER%:%PROXY_PORT%</span><br><span class="line">export https_proxy&#x3D;%PROXY_SERVER%:%PROXY_PORT%</span><br><span class="line">export ftp_proxy&#x3D;%PROXY_SERVER%:%PROXY_PORT%</span><br><span class="line">export HTTP_PROXY&#x3D;%PROXY_SERVER%:%PROXY_PORT%</span><br><span class="line">export HTTPS_PROXY&#x3D;%PROXY_SERVER%:%PROXY_PORT%</span><br><span class="line">export FTP_PROXY&#x3D;%PROXY_SERVER%:%PROXY_PORT%</span><br></pre></td></tr></table></figure>
+
+<h3 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h3><p>修改 <code>/etc/fstab</code>，映射用户目录，与宿主共享配置，这样类似 gitconfig 这样的配置只需要配置一份。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># For a description of the file format, see the Users Guide</span><br><span class="line"># http:&#x2F;&#x2F;cygwin.com&#x2F;cygwin-ug-net&#x2F;using.html#mount-table</span><br><span class="line"></span><br><span class="line"># DO NOT REMOVE NEXT LINE. It remove cygdrive prefix from path</span><br><span class="line">none &#x2F; cygdrive binary,posix&#x3D;0,noacl,user 0 0</span><br><span class="line">C:&#x2F;Users &#x2F;home ntfs binary,noacl,auto 1 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="公用-HOME-目录"><a href="#公用-HOME-目录" class="headerlink" title="公用 HOME 目录"></a>公用 HOME 目录</h3><p>环境变量中添加 <code>MSYS2_PATH_TYPE</code> 值为 <code>inherit</code></p>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><ul>
+<li><p>刷新软件包 <code>pacman -Sy</code></p>
+</li>
+<li><p>安装新包 <code>pacman -S &lt;package_names|package_groups&gt;</code></p>
+</li>
+<li><p>删除 <code>pacman -R &lt;package_names|package_groups&gt;</code></p>
+</li>
+<li><p>搜索 <code>pacman -Ss &lt;name_pattern&gt;</code></p>
+</li>
+</ul>
+<blockquote>
+<p>更多请参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/pacman">Arch Linux wiki</a>.</p>
+</blockquote>
+<h2 id="安装zsh和oh-my-zsh"><a href="#安装zsh和oh-my-zsh" class="headerlink" title="安装zsh和oh my zsh"></a>安装<code>zsh</code>和<code>oh my zsh</code></h2><ul>
+<li>安装<code>zsh</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 <code>oh my zsh</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zsh 的配置文件是 <code>~/.zshrc</code>，可以通过编辑这个文件来指定主题，插件。</p>
+</blockquote>
+<h2 id="重新安装"><a href="#重新安装" class="headerlink" title="重新安装"></a>重新安装</h2><p>如果在使用过程中， <a href="">MSYS2</a> 出现不可恢复的问题的时候，可以通过保存安装的 packages 到文件中，再通过此文件重新安装。</p>
+<ul>
+<li>保存现有安装包列表到 C 盘中的 <code>packages.txt</code></li>
+</ul>
+<p><code>pacman -Qqe | xargs echo &gt; /c/packages.txt ; exit</code></p>
+<ul>
+<li>根据保存的 <code>packages.txt</code> 安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br><span class="line">pacman --needed -S bash pacman pacman-mirrors msys2-runtime</span><br><span class="line">pacman -S --needed --force $(cat /c/packages.txt)</span><br></pre></td></tr></table></figure>
+
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>如果你使用 MacType 的话，请一定在  <code>default.ini</code> (MacType的配置文件) 添加 gpg/pacman 的例外。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[UnloadDll]</span></span><br><span class="line">gpg.exe</span><br><span class="line">pacman.exe</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>via #393 <a target="_blank" rel="noopener" href="https://github.com/Alexpux/MSYS2-packages/issues/393">GPGME error: Invalid crypto engine</a></p>
+</blockquote>
+<p>如果你使用 VirtualBox 4.3.14+ 的话，也需要把相关进程排除。via <a target="_blank" rel="noopener" href="https://donneryst.com/blog/virtualbox-4-3-12%E4%BB%A5%E5%90%8E%E7%9A%84e_fail-0x80004005%E9%97%AE%E9%A2%98.html">VirtualBox 4.3.12以后的E_FAIL (0x80004005)问题</a></p>
+<p>—EOF—</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/msys2/" rel="tag"><i class="fa fa-tag"></i> msys2</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/fix-sourcetree-can-not-find-msys2-git/" rel="prev" title="修正 SourceTree 无法识别 msys2 中 Git">
+                  <i class="fa fa-chevron-left"></i> 修正 SourceTree 无法识别 msys2 中 Git
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/download-xcode-documentation-sets-manually/" rel="next" title="手动下载 XCode 文档和模拟器">
+                  手动下载 XCode 文档和模拟器 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

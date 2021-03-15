@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="源码之前，了无秘密...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="机械境">
+<meta property="og:url" content="https://gythialy.github.io/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="源码之前，了无秘密...">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="gythialy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gythialy.github.io/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+<title>机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/cross-the-valley-of-despair/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/cross-the-valley-of-despair/" class="post-title-link" itemprop="url">穿越绝望之谷？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-04 14:18:24" itemprop="dateCreated datePublished" datetime="2021-01-04T14:18:24+08:00">2021-01-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Nonsense/" itemprop="url" rel="index"><span itemprop="name">Nonsense</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在回顾 2020 的计划的时候，发现有不少任务进展不尽如人意。抛开 COVID-19 的影响，事实上这方面的影响确实也很小。经过反思，比较大的差别，在 2020 年的计划中有几件事情是之前很少涉猎的。但是在处理这些问题时，并没能摆正自己的心态，缺少对行业的敬畏之心。</p>
+<p>这让我想起之前很火的 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%84%A7%E5%AF%A7-%E5%85%8B%E9%AD%AF%E6%A0%BC%E6%95%88%E6%87%89">邓宁-克鲁格心理效应</a>，其描述的是一种认知偏差。貌似我就属于了这种情况，在新的领域错误地预估了自己的实力，按照过往经验做了一些错误的决策，导致了最终的失败。在反思的过程中，我觉得我就是回到了绝望之谷。</p>
+<p><img src="/cross-the-valley-of-despair/Dunning%E2%80%93Kruger_Effect_01.svg"></p>
+<p>有意思的是，在 <a target="_blank" rel="noopener" href="https://book.douban.com/subject/10831893/">《指月录》</a>，卷二十八中有 “见山是山，见山不是山，见山还是山。” 的说法。我觉得这两者有异曲同工之妙。</p>
+<p>原文如下：</p>
+<blockquote>
+<h2 id="吉州青原惟信禅师"><a href="#吉州青原惟信禅师" class="headerlink" title="吉州青原惟信禅师"></a>吉州青原惟信禅师</h2><p>上堂。老僧三十年前。未参禅时。见山是山。见水是水。及至后来亲见知识。有个入处。见山不是山。见水不是水。而今得个休歇处。依前见山只是山。见水只是水。大众。这三般见解。是同是别。有人缁素得出。许汝亲见老僧 (更参三十年迥无入处在)。</p>
+</blockquote>
+<p>当然了我也不是什么禅宗高手，也没有多深入的研究，姑妄言之：</p>
+<ul>
+<li><p>人生第一重界：看山是山，看水是水。对看到事物的初步感受，因为这时候人没有太多复杂的观念在里面，可谓初识世界，纯洁无瑕。眼睛看见什么就是什么，山就是山，水就是水，没有 “弱水三千，只取一瓢饮” 之说，山水虫鱼，万事万物都是它自己本身。</p>
+</li>
+<li><p>人生第二重界：看山不是山，看水不是是水。看到世间万物之后，开始对他们进行思考，我们不再停留于简单的第一印象，我们开始探寻事情背后更深层的东西。于是我们说 “白马非马”，“陋室不陋”、“花非花，雾非雾”，山水虫鱼，万事万物都不是它自己本身。经历过见山不是山的阶段，就是经过困惑、怀疑，好像对又好像不对的阶段，要仔细推敲，思考，心中似乎已找到答案，却又不敢肯定的过程。</p>
+</li>
+<li><p>人生第三重界：看山是山，看水是水。放下一切，万法随缘。这里所说的看山是山，看水是水，已经不是简单的重复，而是经过初识，迷惑之后的大悟，是我们留下好的文化认知，把不好的观念摒除之后的山水，是更有韵味的山水。</p>
+</li>
+</ul>
+<p>其实不管是说开悟之坡，还是第三层的看山是山，看水是水，都不是那么容易到达的境界。对应到编程的阶段，也就是第一阶段，熟练使用某一门语言，会用一些别人写的框架，了解基本的套路和架式。第二阶段，深入理解底层的原理，知其然并知其所以然，能写一些框架 / 库之类的给别人用，第三阶段，不在局限语言本身，能全局把握整个系统的设计，把自己世界观映射到系统，一花一世界吧。一、二阶段应该都属于术，第三阶段才是道。应该大多数人都到不了第三阶段吧，但是如何从第二阶段到第三阶段呢？自觉就是经验和练习，参与更多地实践，但真的如此么？比如软件有设计模式，前人根据经验总结出各种套路，供新手快速入门。看起来就是经验非常重要，很多时候也是高级工程师和初级工程师的差别。在现代医学上，在临床决策的时候，有通过 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%BE%AA%E8%AF%81%E5%8C%BB%E5%AD%A6">循证医学（ESB）</a> 辅助决策，其和与传统医学的不同处是，它并不依赖于经验主义或过往案例，提倡使用正式且明确的方法来分析证据，并提供给决策者。详细的细节，可以查看 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3TSNwlKLDfc">科普视频</a>。当然了不同的行业有很多差别，不能教条地死搬硬套，这套方法论的核心应该就是把不确定性的东西转化成可回答的问题，然后逐步论证。</p>
+<p>一点胡思乱想，记录下，等有新想法了再更新。</p>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/macos-boot-wtg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/macos-boot-wtg/" class="post-title-link" itemprop="url">macOS 引导 Windows To Go</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-12-30 10:11:26" itemprop="dateCreated datePublished" datetime="2020-12-30T10:11:26+08:00">2020-12-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>虽然我日常的工作都是在 MacBook Pro (13-inch, 2018, Four Thunderbolt 3 Ports) 上完成的，也用得还算比较顺手。但是还是有偶尔需要 Windows Only 的需求，比如小米的解锁 Bootloader 的工具就只有 Win 版。本来还有一台 DELL XPS13 作为备用机，由于某些原因主板进水了，在官方修了一次，回来没用几次之后又再次挂了，懒得再修了，就一直在吃灰。鉴于我之前有个 256 G 的 Windows To Go 的 USB 盘，想这再废物利用一下。</p>
+<p>主要诉求如下，把原来的 WTG 中的 Windows 10 升级到最新的版本可以用 WLS2，可以作为单独的 WTG 运行，也可以通过虚拟机的方式挂载到 macOS 下应个急。思路如下，在 Windows 中安装 Boot Camp 驱动，在 macOS 中可以 VMware Fusion 中可以作为 Boot Camp 分区引导。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="Windows-10-镜像"><a href="#Windows-10-镜像" class="headerlink" title="Windows 10 镜像"></a>Windows 10 镜像</h3><p>可以在 <a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN I tell you</a> 下载，这个是完全是合法的，不涉及任何盗版的问题。</p>
+<h3 id="VMware-Fusion"><a href="#VMware-Fusion" class="headerlink" title="VMware Fusion"></a>VMware Fusion</h3><ul>
+<li>注册 <a target="_blank" rel="noopener" href="https://www.vmware.com/products/fusion.html">VMware Fusion</a>，个人免费使用</li>
+<li><code>brew install --cask vmware-fusion</code> 安装 VMware Fusion</li>
+<li>用刚注册的序列号激活 VMware Fusion</li>
+</ul>
+<h3 id="Boot-Camp"><a href="#Boot-Camp" class="headerlink" title="Boot Camp"></a>Boot Camp</h3><ul>
+<li>Make sure that your Mac is connected to the Internet.</li>
+<li>Open Boot Camp Assistant, which is in the Utilities folder of your Applications folder.</li>
+<li>From the menu bar at the top of your screen, choose Action &gt; Download Windows Support Software, then choose your USB flash drive as the save destination. When the download completes, quit Boot Camp Assistant.</li>
+</ul>
+<h3 id="制作-WTG"><a href="#制作-WTG" class="headerlink" title="制作 WTG"></a>制作 WTG</h3><ul>
+<li>Windows</li>
+</ul>
+<p>在 Windows 下制作 WTG 有一堆工具了，<a target="_blank" rel="noopener" href="https://www.easyuefi.com/wintousb/">WinToUSB</a> 算是比较傻瓜式的。安装之后，按照向导即可。</p>
+<ul>
+<li>macOS</li>
+</ul>
+<p>可以通过 VMware Fusion 安装一个 Windows 虚拟机，然后在虚拟机里面安装 WinToUSB 来制作 WTG 的盘。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>WTG 制作完成后，只安装 Boot Camp 下载的驱动。如果出现 “Boot Camp is unsupported on this computer model” 错误，可参考 <a target="_blank" rel="noopener" href="https://www.imore.com/how-fix-boot-camp-unsupported-computer-model-error">How to fix the ‘Boot Camp is unsupported on this computer model’ error on Mac</a> 解决。</p>
+<h2 id="在-macOS-中启动-WTG"><a href="#在-macOS-中启动-WTG" class="headerlink" title="在 macOS 中启动 WTG"></a>在 macOS 中启动 WTG</h2><ul>
+<li><p>在 System Preferences-&gt;Security &amp; Privacy-&gt;Full Disk Access 中启用 com.vmware.DiskHelper<br><img src="/macos-boot-wtg/1.png"></p>
+</li>
+<li><p>在 VMware Fusion 中启动，具体步骤可以参考 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/1014618">Launching your Boot Camp partition in VMware Fusion</a></p>
+</li>
+<li><p>启用 CPU 虚拟化<br><img src="/macos-boot-wtg/2.png"></p>
+</li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li>WTG 不能升级？<ul>
+<li>将 <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PortableOperatingSystem</code> 的值修改为 0</li>
+<li>在虚拟机中启动 WTG，就可以升级</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/en-us/HT204923">Download and install Windows support software on your Mac</a></li>
+<li><a target="_blank" rel="noopener" href="https://bbs.luobotou.org/thread-12414-1-1.html">[教程] Windows To Go 系统升级（2018.8.27 更新）</a></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/deploy-ethereum-by-openethereum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/deploy-ethereum-by-openethereum/" class="post-title-link" itemprop="url">基于 openethereum 部署以太网节点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-09-04 10:12:51" itemprop="dateCreated datePublished" datetime="2020-09-04T10:12:51+08:00">2020-09-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>以太坊 Parity 客户端是除 Geth 之外使用量最高的一款以太坊客户端，使用的是 Rust 语言，现在改名为 <a target="_blank" rel="noopener" href="https://github.com/openethereum/openethereum">openethereum</a> 了。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">openethereum:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">openethereum/openethereum:v3.0.1</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">openethereum</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;30303:30303&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;30303:30303/udp&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:8545:8545&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:8546:8546&quot;</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">openethereum</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./chaindata:/chaindata</span></span><br><span class="line">    <span class="attr">stop_signal:</span> <span class="string">SIGINT</span></span><br><span class="line">    <span class="attr">stop_grace_period:</span> <span class="string">2m</span></span><br><span class="line">    <span class="attr">command:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--no-download</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--base-path=/chaindata</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--jsonrpc-interface=all</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--jsonrpc-cors=all</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--ws-interface=all</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--ws-origins=all</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--no-ipc</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--scale-verifiers</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--num-verifiers=4</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--pruning=fast</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--pruning-memory=512</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--cache-size-db=1024</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--cache-size-blocks=128</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--cache-size-queue=512</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--cache-size-state=256</span></span><br><span class="line">    <span class="attr">logging:</span></span><br><span class="line">      <span class="attr">driver:</span> <span class="string">&quot;json-file&quot;</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">max-size:</span> <span class="string">&quot;2m&quot;</span></span><br><span class="line">        <span class="attr">max-file:</span> <span class="string">&quot;10&quot;</span></span><br></pre></td></tr></table></figure>
+<p><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/deploy-ethereum-by-openethereum/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/self-updating-github-profile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/self-updating-github-profile/" class="post-title-link" itemprop="url">自动更新 GitHub Profile</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-13 13:43:12" itemprop="dateCreated datePublished" datetime="2020-08-13T13:43:12+08:00">2020-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>在 GitHub 建一个和用户名同名的仓库，仓库中 <code>README.md</code> 的内容就会显示在账户首页。如果 <code>README.md</code> 中的内容是动态更新的，那么首页的内容也就是动态更新的。</p>
+<p>根据此思路，只要通过 GitHub Actions 去动态更新 <code>README.md</code> 即可。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>这里以我仓库的内容为例，自动同步博客的内容；统计 GitHub 的贡献记录。</p>
+<ul>
+<li>同步博客标题，只需要抓取 RSS 转换成 <code>README.md</code> 即可</li>
+<li>GitHub 的统计，可以通过 <a target="_blank" rel="noopener" href="https://github.com/anuraghazra/github-readme-stats">anuraghazra/github-readme-stats</a> 完成，这个本身就是动态的了，配置一下即可</li>
+</ul>
+<h3 id="更新脚本"><a href="#更新脚本" class="headerlink" title="更新脚本"></a>更新脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line">feed = requests.get(<span class="string">&#x27;https://gythialy.github.io/atom.xml&#x27;</span>).text</span><br><span class="line">root = ET.fromstring(feed)</span><br><span class="line">nsfeed = &#123;<span class="string">&#x27;nsfeed&#x27;</span>: <span class="string">&#x27;http://www.w3.org/2005/Atom&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;README.md&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">r&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">## Hi there 👋</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 🔭 I’m currently working on [@QLC Chain](https://github.com/qlcchain)</span></span><br><span class="line"><span class="string">- 🌱 I’m currently learning [Rust](https://github.com/rust-lang/rust)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## Latest blog posts</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> entry <span class="keyword">in</span> root.findall(<span class="string">&#x27;nsfeed:entry&#x27;</span>, nsfeed)[:<span class="number">5</span>]:</span><br><span class="line">        text = entry.find(<span class="string">&#x27;nsfeed:title&#x27;</span>, nsfeed).text</span><br><span class="line">        url = entry.find(<span class="string">&#x27;nsfeed:link&#x27;</span>, nsfeed).attrib[<span class="string">&#x27;href&#x27;</span>]</span><br><span class="line">        published = entry.find(<span class="string">&#x27;nsfeed:published&#x27;</span>, nsfeed).text[:<span class="number">10</span>]</span><br><span class="line">        f.write(<span class="string">&#x27;- &#123;&#125; [&#123;&#125;](&#123;&#125;)\n&#x27;</span>.<span class="built_in">format</span>(published, text, url))</span><br><span class="line"></span><br><span class="line">    f.write(<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">[&gt;&gt;&gt; More blog posts](https://gythialy.github.io/)</span></span><br><span class="line"><span class="string">## Statistics</span></span><br><span class="line"><span class="string">![Goren&#x27;s github stats](https://github-readme-stats.vercel.app/api?username=gythialy&amp;count_private=true&amp;show_icons=true)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Build</span> <span class="string">README</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span>  <span class="string">&#x27;0 10 * * *&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Check</span> <span class="string">out</span> <span class="string">repo</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Python</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-python@v2</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">python-version:</span> <span class="number">3.8</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">pip</span> <span class="string">caching</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">~/.cache/pip</span></span><br><span class="line">        <span class="attr">key:</span> <span class="string">$&#123;&#123;runner.os&#125;&#125;-pip-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/requirements.txt&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">$&#123;&#123;runner.os&#125;&#125;-pip-</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Python</span> <span class="string">dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">python</span> <span class="string">-m</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">-r</span> <span class="string">requirements.txt</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Update</span> <span class="string">README</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|-</span></span><br><span class="line">        <span class="string">python</span> <span class="string">build.py</span></span><br><span class="line">        <span class="string">cat</span> <span class="string">README.md</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Commit</span> <span class="string">and</span> <span class="string">push</span> <span class="string">if</span> <span class="string">changed</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|-</span></span><br><span class="line">        <span class="string">git</span> <span class="string">diff</span></span><br><span class="line">        <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&quot;readme-bot@example.com&quot;</span></span><br><span class="line">        <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&quot;README-bot&quot;</span></span><br><span class="line">        <span class="string">git</span> <span class="string">add</span> <span class="string">-A</span></span><br><span class="line">        <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">&quot;🤖 Updated README.md&quot;</span> <span class="string">||</span> <span class="string">exit</span> <span class="number">0</span></span><br><span class="line">        <span class="string">git</span> <span class="string">push</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=23807881">Building a self-updating profile README for GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/simonw/simonw">simonw</a></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/WebAssembly-VM-by-golang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/WebAssembly-VM-by-golang/" class="post-title-link" itemprop="url">Golang 实现 WebAssembly VM</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-12 10:27:06" itemprop="dateCreated datePublished" datetime="2020-06-12T10:27:06+08:00">2020-06-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于 <a target="_blank" rel="noopener" href="https://github.com/webassembly/interface-types">WebAssembly Interface Types</a> 还处于草案阶段，目前 WASM 只支持四种基本类型，本质上来说没什么大用。</p>
+<p>在实际的开发中，数据结构肯定是远比 <code>i32,i64,f32,f64</code> 这四种基本类型来得复杂的，至少可能是一个复杂的结构体。比如，我需要把一组 key/value 存起来，然后可以通过 key 查询到对应的 value。按照目前的 WASM 的规范，这个实现都是比较麻烦的。key/value 可能是字符串或者其他结构，但是不管什么类型，在内存都是按照字节序的方式存储，所以只需要把类型编码成字节序放到内存中，这样这个结构就可以转化成内存的起始地址（指针）和数据长度，这两个值就是 <code>i32/i64</code>，并且都是 WASM 支持的类型。</p>
+<p>函数声明</p>
+<ul>
+<li><p>对外 API</p>
+<p>为了对调用者友好，调用这不需要处理 <code>slice</code> 的地址</p>
+</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 把 key/value 写入存储</span></span><br><span class="line">  <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_write</span></span>(key: &amp;[<span class="built_in">u8</span>], val: &amp;[<span class="built_in">u8</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据 key 查询对应的 value</span></span><br><span class="line">  <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">storage_read</span></span>(key: &amp;[<span class="built_in">u8</span>]) -&gt; <span class="built_in">Option</span>&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">u8</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>内部接口</li>
+</ul>
+<p>在虚拟机中注入这两个 <code>host function</code> 来实现具体的逻辑</p>
+  <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_read</span></span>(</span><br><span class="line">            key: *<span class="keyword">const</span> <span class="built_in">u8</span>,</span><br><span class="line">            klen: <span class="built_in">u32</span>,</span><br><span class="line">            val: *<span class="keyword">mut</span> <span class="built_in">u8</span>,</span><br><span class="line">            vlen: <span class="built_in">u32</span>,</span><br><span class="line">            offset: <span class="built_in">u32</span>,</span><br><span class="line">        ) -&gt; <span class="built_in">u32</span>;</span><br><span class="line">        <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">qlcchain_storage_write</span></span>(key: *<span class="keyword">const</span> <span class="built_in">u8</span>, klen: <span class="built_in">u32</span>, val: *<span class="keyword">const</span> <span class="built_in">u8</span>, vlen: <span class="built_in">u32</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/WebAssembly-VM-by-golang/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/WebAssembly-s-expression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/WebAssembly-s-expression/" class="post-title-link" itemprop="url">WebAssembly S 表达式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-28 16:21:19" itemprop="dateCreated datePublished" datetime="2020-05-28T16:21:19+08:00">2020-05-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>为了能够让人类阅读和编辑 WebAssembly，wasm 二进制格式提供了相应的文本表示。这是一种用来在文本编辑器、浏览器开发者工具等工具中显示的中间形式。本文用基本语法的方式解释了这种文本表示是如何工作的，以及它是如何与它表示的底层字节码，及在 JavaScript 中表示 wasm 的封装对象关联起来的。</p>
+<p>本质上，这种文本形式更类似于处理器的汇编指令。</p>
+<h2 id="S-表达式"><a href="#S-表达式" class="headerlink" title="S - 表达式"></a>S - 表达式</h2><p>不论是二进制还是文本格式，WebAssembly 代码中的基本单元是一个模块。在文本格式中，一个模块被表示为一个大的 S - 表达式。</p>
+<p>S - 表达式是一个非常古老和非常简单的用来表示树的文本格式。因此，我们可以把一个模块想象为一棵由描述了模块结构和代码的节点组成的树。不过，与一门编程语言的抽象语法树不同的是，WebAssembly 的树是相当平的，也就是大部分包含了指令列表。</p>
+<p>首先，让我们看下 S - 表达式长什么样。树上的每个一个节点都有一对括号——(…)——包围。括号内的第一个标签告诉你该节点的类型，其后跟随的是由空格分隔的属性或孩子节点列表。</p>
+<p>S - 表达式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(module (memory 1) (func))</span><br></pre></td></tr></table></figure>
+
+<p>这条表达式，表示一棵根节点为 “模块（module）” 的树，该树有两个孩子节点，分别是 属性为 1 的 “内存（memory）” 节点 和 一个 “函数（func）” 节点。<br><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/WebAssembly-s-expression/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/Introduction-WebAssembly/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Introduction-WebAssembly/" class="post-title-link" itemprop="url">WebAssembly 介绍</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-23 14:11:59" itemprop="dateCreated datePublished" datetime="2020-04-23T14:11:59+08:00">2020-04-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WebAssembly 是一种运行在现代网络浏览器中的新型代码，并且提供新的性能特性和效果。它设计的目的不是为了手写代码而是为诸如 C、C++ 和 Rust 等低级源语言提供一个高效的编译目标。对于网络平台而言，这具有巨大的意义——为客户端 app 提供了一种在网络平台以接近本地速度的方式运行多种语言编写的代码的方式。JavaScript 框架不但可以使用 WebAssembly 获得巨大性能优势和新特性，而且还能使得各种功能保持对网络开发者的易用性。简而言之，WebAssembly 可以为 Javascript 提供由 C/C++ 等更高效的语言编写的库。</p>
+<h2 id="前世今生"><a href="#前世今生" class="headerlink" title="前世今生"></a>前世今生</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>业务需求越来越复杂，前端的开发逻辑越来越复杂，相应的代码量随之变的越来越多，整个项目的起步的时间越来越长。在性能不好的电脑上，启动一个前端的项目甚至要花上十多秒。除了逻辑复杂、代码量大，还有另一个原因是 JavaScript 这门语言本身的缺陷，JavaScript 没有静态变量类型。这门解释型编程语言的作者 Brendan Eich，仓促的创造了这门如果被广泛使用的语言，以至于 JavaScript 的发展史甚至在某种层面上变成了填坑史。</p>
+<h3 id="asm-js"><a href="#asm-js" class="headerlink" title="asm.js"></a>asm.js</h3><p>为了解决这个问题，WebAssembly 的前身，asm.js 诞生了。asm.js 是一个 Javascript 的严格子集，合理合法的 asm.js 代码一定是合理合法的 JavaScript 代码，但是反之就不成立。同 WebAssembly 一样，asm.js 不是用来给各位用手一行一行撸的代码，asm.js 是一个编译目标。它的可读性、可读性虽然比 WebAssembly 好，但是对于开发者来说，仍然是无法接受的。</p>
+<p>无论 asm.js 对静态类型的问题做的再好，它始终逃不过要经过 Parser，要经过 ByteCode Compiler，而这两步是 JavaScript 代码在引擎执行过程当中消耗时间最多的两步。而 WebAssembly 不用经过这两步。这就是 WebAssembly 比 asm.js 更快的原因。</p>
+<h3 id="WebAssembly-横空出世"><a href="#WebAssembly-横空出世" class="headerlink" title="WebAssembly 横空出世"></a>WebAssembly 横空出世</h3><p>在 2015 年，我们迎来了 WebAssembly，是经过编译器编译之后的代码，体积小、起步快。在语法上完全脱离 JavaScript，同时具有沙盒化的执行环境。WebAssembly 同样的强制静态类型，是 C/C++/Rust 的编译目标。</p>
+<blockquote>
+<p>2019 年 12 月 5 日 — 万维网联盟（W3C）宣布 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/wasm-core-1/">WebAssembly 核心规范</a> 成为正式标准</p>
+</blockquote>
+<h2 id="工具链"><a href="#工具链" class="headerlink" title="工具链"></a>工具链</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/AssemblyScript/assemblyscript">AssemblyScript</a><br>支持直接将 TypeScript 编译成 WebAssembly</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kripken/emscripten">Emscripten</a><br>将其 C/C++ 编译成 WebAssembly</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/WebAssembly/wabt">WABT</a><br>将 WebAssembly 在字节码和文本格式相互转换的一个工具，方便开发者去理解这个 wasm 到底是在做什么事。</li>
+<li><a target="_blank" rel="noopener" href="https://webassembly.studio/">WebAssembly Studio</a><br>在线 IDE，支持 C/C++/Rust</li>
+</ul>
+<h2 id="关键概念"><a href="#关键概念" class="headerlink" title="关键概念"></a>关键概念</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>表示一个已经被浏览器编译为可执行机器码的 WebAssembly 二进制代码。一个模块是无状态的，并且像一个二进制大对象（Blob）一样能够被缓存到 IndexedDB 中或者在 windows 和 workers 之间进行共享（通过 <code>postMessage()</code> 函数）。一个模块能够像一个 ES2015 的模块一样声明导入和导出。</p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>ArrayBuffer(浏览器 WASM 虚拟机实现），大小可变。本质上是连续的字节数组，WebAssembly 的低级内存存取指令可以对它进行读写操作。</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>带类型数组，大小可变。表格中的项存储了不能作为原始字节存储在内存里的对象的引用（为了安全和可移植性的原因）。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>一个模块及其在运行时使用的所有状态，包括内存、表格和一系列导入值。一个实例就像一个已经被加载到一个拥有一组特定导入的特定的全局变量的 ES2015 模块。</p>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><img src="/uploads/wasm_1/wasm_lifecycle.png" alt="wasm lifecycle"></p>
+<ol>
+<li>通过工具链把其他语言 (C++、Go、 Rust) 编译成 WebAssembly 汇编格式 <code>.wasm</code> 文件</li>
+<li>在网页中使用 <code>fetch</code>、<code>XMLHttpRequest</code> 等获取 <code>wasm</code> 文件</li>
+<li>将 <code>.wasm</code> 编译为模块，编译过程中进行合法性检查</li>
+<li>实例化，初始化导入对象，创建模块的实例</li>
+<li>执行实例的导出函数，完成所需操作</li>
+</ol>
+<h2 id="虚拟机体系"><a href="#虚拟机体系" class="headerlink" title="虚拟机体系"></a>虚拟机体系</h2><p><img src="/uploads/wasm_1/wasm_system.png" alt="wasm vm system"></p>
+<p>WebAssembly 模块在运行时由以下几部分组成，如上图所示</p>
+<ol>
+<li>一个全局类型数，与很多语言不同，在 WebAssembly 中 “类型” 指的并非数据类型，而是函数签名，函数签名定义了函数的参数个数参数类型返回值类型; 某个函 数签名在类型数组中的下标 (或者说位置) 称为类型索引</li>
+<li>一个全局函数数组，其中容纳了所有的函数，包括导入的函数以及模块内部定 义的函数，某个函数在函数数组中的下标称为函数索引</li>
+<li>一个全局变量数组，其中容纳了所有的全局变量包括导入的全局变量以及 模块内部定义的全局变量，某个全局变量在全局变量数组的下标称为全局变量索引</li>
+<li>一个全局表格对象，表格也是一个数组，其中存储了元素 (目前元素类型只能 为函数) 的引用，某个元素在表格中的下标称为元素索引。</li>
+<li>一个全局内存对象</li>
+<li>一个运行时栈</li>
+<li>函数执行时可以访问一个局部变量数组，其中容纳了函数所有的局部变量，某 个局部变量在局部变量数组中的下标称为局部变量索引</li>
+</ol>
+<blockquote>
+<p>在 WebAssembly 中，操作某个具体的对象（比如读写某个全局变量）都是通过其索引完成。在当前版本中，所有的索引都是 32 位整形数。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts">WebAssembly Concepts</a></li>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/30396640/">WebAssembly 标准入门</a></li>
+</ul>
+<p><code>---EOF---</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/deploy-bitwarden-rs-with-traefik-v2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/deploy-bitwarden-rs-with-traefik-v2/" class="post-title-link" itemprop="url">基于 Treafik v2 部署 Bitwarden RS</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-26 11:13:30" itemprop="dateCreated datePublished" datetime="2020-03-26T11:13:30+08:00">2020-03-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>之前在 <a href="/deploy-bitwarden-rs-with-traefik/" title="traefik 基于 Treafik 部署 Bitwarden RS">traefik 基于 Treafik 部署 Bitwarden RS</a> 中简单介绍了如何基于 Traefik 部署 Bitwarden RS。Treafik 的官方文档一如既往地混乱，甚至有些地方前后不一致，让人看得云里雾里的。</p>
+<h3 id="Traefik-v2-的新特性"><a href="#Traefik-v2-的新特性" class="headerlink" title="Traefik v2 的新特性"></a>Traefik v2 的新特性</h3><ul>
+<li>Providers<br>是指你正在使用的集群技术 (Kubernetes, Docker, Consul, Mesos 等)</li>
+<li>Entrypoints<br>是最基本的配置，指监听请求的端口.</li>
+<li>Services<br>是在你的基础设施上的运行的软件，通过 services 配置如何路由到真正的应用程序</li>
+<li>Routers<br>将传入的请求和你的 service 连接起来. 他们持有的 rules 决定哪个 service 将处理对应的请求</li>
+<li>Middleware<br>中间件是可以在请求被 service 处理之前对其进行更新的组件。Traefik 提供了一些开箱即用的中间件来处理 认证、速率限制、断路器、白名单、缓冲等等</li>
+</ul>
+<h3 id="Traefik-v2-配置"><a href="#Traefik-v2-配置" class="headerlink" title="Traefik v2 配置"></a>Traefik v2 配置</h3><p><img src="https://docs.traefik.io/assets/img/static-dynamic-configuration.png" alt="configuration"></p>
+<p>配置分为静态配置和动态配置:</p>
+<ul>
+<li>静态配置: 启动的时候加载。包括 Entrypoints、Provider 连接信息</li>
+<li>动态配置: 运行时可动态读取改变的。包括 Routes、Services、Middlewares、Certificates</li>
+</ul>
+<p><escape>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/deploy-bitwarden-rs-with-traefik-v2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://gythialy.github.io/',]
+      });
+      });
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gythialy.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"BAF0AECXFH","apiKey":"e73d44bdbab9679f54756f40db7d3dd9","indexName":"blog","hits":{"per_page":10}}};
+  </script>
+<meta name="description" content="介绍traefik 是一款开源的反向代理与负载均衡工具。它最大的优点是能够与常见的微服务系统直接整合，可以实现自动化动态配置。目前支持 Docker, Swarm, Mesos&#x2F;Marathon, Mesos, Kubernetes, Consul, Etcd, Zookeeper, BoltDB, Rest API 等等后端模型。 为什么选择 traefik？  Golang 编写，单文件部署，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="traefik 配置 docker 容器支持 HTTPS">
+<meta property="og:url" content="https://gythialy.github.io/traefik-docker-tls-config/index.html">
+<meta property="og:site_name" content="机械境">
+<meta property="og:description" content="介绍traefik 是一款开源的反向代理与负载均衡工具。它最大的优点是能够与常见的微服务系统直接整合，可以实现自动化动态配置。目前支持 Docker, Swarm, Mesos&#x2F;Marathon, Mesos, Kubernetes, Consul, Etcd, Zookeeper, BoltDB, Rest API 等等后端模型。 为什么选择 traefik？  Golang 编写，单文件部署，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gythialy.github.io/uploads/traefik_architecture.png">
+<meta property="article:published_time" content="2018-08-05T11:13:54.000Z">
+<meta property="article:modified_time" content="2021-03-15T10:23:55.302Z">
+<meta property="article:author" content="gythialy">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Traefik">
+<meta property="article:tag" content="ACME">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gythialy.github.io/uploads/traefik_architecture.png">
+
+
+<link rel="canonical" href="https://gythialy.github.io/traefik-docker-tls-config/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>traefik 配置 docker 容器支持 HTTPS | 机械境</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75661536-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-75661536-1');
+      }
+    </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="机械境" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">机械境</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">这里只是我的后花园，随性而写</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="gythialy"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">gythialy</p>
+  <div class="site-description" itemprop="description">源码之前，了无秘密...</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gythialy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gythialy.koo+blog@gmail.com" title="E-Mail → mailto:gythialy.koo+blog@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/gythialy" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://feeds.feedburner.com/gythialy" title="RSS → https:&#x2F;&#x2F;feeds.feedburner.com&#x2F;gythialy" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gythialy.github.io/traefik-docker-tls-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="gythialy">
+      <meta itemprop="description" content="源码之前，了无秘密...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机械境">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          traefik 配置 docker 容器支持 HTTPS
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-08-05 19:13:54" itemprop="dateCreated datePublished" datetime="2018-08-05T19:13:54+08:00">2018-08-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-15 18:23:55" itemprop="dateModified" datetime="2021-03-15T18:23:55+08:00">2021-03-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a target="_blank" rel="noopener" href="https://traefik.io/">traefik</a> 是一款开源的反向代理与负载均衡工具。它最大的优点是能够与常见的微服务系统直接整合，可以实现自动化动态配置。目前支持 Docker, Swarm, Mesos/Marathon, Mesos, Kubernetes, Consul, Etcd, Zookeeper, BoltDB, Rest API 等等后端模型。</p>
+<p>为什么选择 traefik？</p>
+<ul>
+<li>Golang 编写，单文件部署，与系统无关，同时也提供小尺寸 Docker 镜像。</li>
+<li>支持 Docker/Etcd 后端，天然连接我们的微服务集群。</li>
+<li>内置 Web UI，管理相对方便。</li>
+<li>自动配置 ACME(Let’s Encrypt) 证书功能。</li>
+<li>性能尚可，我们也没有到压榨 LB 性能的阶段，易用性更重要。</li>
+<li>Restful API 支持。</li>
+<li>支持后端健康状态检查，根据状态自动配置。</li>
+<li>支持动态加载配置文件和 graceful 重启。</li>
+<li>支持 WebSocket 和 HTTP/2。</li>
+</ul>
+<p>借用官网的图，一图以蔽之<br><img src="/uploads/traefik_architecture.png"></p>
+<p><escape><span id="more"></span></escape></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>使用场景作为一个基于 <a target="_blank" rel="noopener" href="https://angular.io/">Angular</a> 的单页 App，与后端 Server通过 RESTful 接口通信，前后端都需要提供 https 支持。使用场景很简单，暂时也没有负载均衡。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>根据 traefik 的官方文档中关于 <a target="_blank" rel="noopener" href="https://docs.traefik.io/configuration/acme/">ACME</a> 的说明, <a target="_blank" rel="noopener" href="https://www.cloudflare.com/">Cloudflare</a> 是支持宽域名自动发证书的。</p>
+<ul>
+<li>把域名的 DNS 改成 Cloudflare 的</li>
+<li>需要的是账户的邮箱地址和 Globel API key</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>traefik 的配置文件。可以挂载到 docker 容器上</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># debug = true</span></span><br><span class="line"><span class="attr">logLevel</span> = <span class="string">&quot;ERROR&quot;</span> <span class="comment">#DEBUG, INFO, WARN, ERROR, FATAL, PANIC</span></span><br><span class="line"><span class="attr">InsecureSkipVerify</span> = <span class="literal">true</span> </span><br><span class="line"><span class="attr">defaultEntryPoints</span> = [<span class="string">&quot;https&quot;</span>, <span class="string">&quot;http&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># WEB interface of Traefik - it will show web page with overview of frontend and backend configurations </span></span><br><span class="line"><span class="section">[web]</span></span><br><span class="line"><span class="attr">address</span> = <span class="string">&quot;:8080&quot;</span></span><br><span class="line">  <span class="section">[web.auth.basic]</span></span><br><span class="line">  <span class="attr">usersFile</span> = <span class="string">&quot;/shared/.htpasswd&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Force HTTPS</span></span><br><span class="line"><span class="section">[entryPoints]</span></span><br><span class="line">  <span class="section">[entryPoints.http]</span></span><br><span class="line">  <span class="attr">address</span> = <span class="string">&quot;:80&quot;</span></span><br><span class="line">    <span class="section">[entryPoints.http.redirect]</span></span><br><span class="line">    <span class="attr">entryPoint</span> = <span class="string">&quot;https&quot;</span></span><br><span class="line">  <span class="section">[entryPoints.https]</span></span><br><span class="line">  <span class="attr">address</span> = <span class="string">&quot;:443&quot;</span></span><br><span class="line">    <span class="section">[entryPoints.https.tls]</span></span><br><span class="line">  <span class="section">[entryPoints.ws]</span></span><br><span class="line">  <span class="section">[entryPoints.wss]</span></span><br><span class="line"></span><br><span class="line"><span class="section">[file]</span></span><br><span class="line">  <span class="attr">watch</span> = <span class="literal">true</span></span><br><span class="line">  <span class="attr">filename</span> = <span class="string">&quot;/etc/traefik/rules.toml&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Let&#x27;s encrypt configuration</span></span><br><span class="line"><span class="section">[acme]</span></span><br><span class="line"><span class="attr">email</span> = <span class="string">&quot;yong.gu@qlink.mobi&quot;</span> <span class="comment">#any email id will work</span></span><br><span class="line"><span class="attr">storage</span>=<span class="string">&quot;/etc/traefik/acme/acme.json&quot;</span></span><br><span class="line"><span class="attr">entryPoint</span> = <span class="string">&quot;https&quot;</span></span><br><span class="line"><span class="attr">acmeLogging</span>=<span class="literal">true</span> </span><br><span class="line"><span class="attr">onDemand</span> = <span class="literal">false</span> <span class="comment">#create certificate when container is created</span></span><br><span class="line"><span class="section">[acme.dnsChallenge]</span></span><br><span class="line">  <span class="attr">provider</span> = <span class="string">&quot;cloudflare&quot;</span></span><br><span class="line">  <span class="attr">delayBeforeCheck</span> = <span class="number">0</span></span><br><span class="line"><span class="section">[[acme.domains]]</span></span><br><span class="line">   <span class="attr">main</span> = <span class="string">&quot;example.com&quot;</span></span><br><span class="line"><span class="section">[[acme.domains]]</span></span><br><span class="line">   <span class="attr">main</span> = <span class="string">&quot;*.example.com&quot;</span></span><br><span class="line">   </span><br><span class="line"><span class="comment"># Connection to docker host system (docker.sock)</span></span><br><span class="line"><span class="section">[docker]</span></span><br><span class="line"><span class="attr">endpoint</span> = <span class="string">&quot;unix:///var/run/docker.sock&quot;</span></span><br><span class="line"><span class="attr">domain</span> = <span class="string">&quot;example.com&quot;</span></span><br><span class="line"><span class="attr">watch</span> = <span class="literal">true</span></span><br><span class="line"><span class="comment"># This will hide all docker containers that don&#x27;t have explicitly  </span></span><br><span class="line"><span class="comment"># set label to &quot;enable&quot;</span></span><br><span class="line"><span class="attr">exposedbydefault</span> = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：需要发证书的域名在 <code>acme.domains</code> 中配置，这里以 <code>example.com</code> 为例。</p>
+</blockquote>
+<p>docker-compose.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.5&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">qlc_wallet_server:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">qlcwallet-server:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">qlc_wallet_server</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:8888:8888&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">qlcwallet</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">traefik</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_PASS=/run/secrets/db_root_password</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">bind</span></span><br><span class="line">        <span class="attr">source:</span> <span class="string">./wallet-server/.env</span></span><br><span class="line">        <span class="attr">target:</span> <span class="string">/app/config/.env</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">bind</span></span><br><span class="line">        <span class="attr">source:</span> <span class="string">./wallet-server/logs</span></span><br><span class="line">        <span class="attr">target:</span> <span class="string">/var/log/wallet-server</span></span><br><span class="line">    <span class="attr">secrets:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db_root_password</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.enable=true&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.backend=qlc_wallet_server&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.api.port=8888&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.api.frontend.rule=Host:api.example.com&quot;</span> </span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.docker.network=traefik&quot;</span></span><br><span class="line">  </span><br><span class="line">  <span class="attr">qlc_wallet:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">qlcwallet:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">qlcwallet</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:4200:80&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">qlcwallet</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">traefik</span></span><br><span class="line">    <span class="attr">depends_on:</span> </span><br><span class="line">        <span class="bullet">-</span> <span class="string">qlc_wallet_server</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.enable=true&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.backend=qlc_wallet&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.port=80&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.frontend.rule=Host:wallet.example.com&quot;</span>  </span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.docker.network=traefik&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">traefik:</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">traefik</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">traefik:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">traefik</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">domainname:</span> <span class="string">example.com</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">qlcwallet</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">traefik</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;443:443&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CLOUDFLARE_EMAIL=/run/secrets/traefik_user</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CLOUDFLARE_API_KEY=/run/secrets/traefik_api</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.enable=true&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.backend=traefik&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.frontend.rule=Host:traefik.example.com&quot;</span>  </span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.port=8080&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;traefik.docker.network=traefik&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock:ro</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./traefik:/etc/traefik</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./shared:/shared</span></span><br><span class="line">    <span class="attr">secrets:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">traefik_api</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">traefik_user</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">qlcwallet:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">qlcwallet</span></span><br><span class="line">  <span class="attr">traefik:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">traefik</span></span><br><span class="line"></span><br><span class="line"><span class="attr">secrets:</span></span><br><span class="line">  <span class="attr">db_root_password:</span></span><br><span class="line">    <span class="attr">file:</span> <span class="string">./secrets/db_password.txt</span></span><br><span class="line">  <span class="attr">traefik_api:</span></span><br><span class="line">    <span class="attr">file:</span> <span class="string">./secrets/api.txt</span></span><br><span class="line">  <span class="attr">traefik_user:</span></span><br><span class="line">    <span class="attr">file:</span> <span class="string">./secrets/user.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>这部分包含三部分</p>
+<ul>
+<li>qlc_wallet_server RESTful 服务器</li>
+<li>qlc_wallet Angular 应用</li>
+<li>traefik traefik 本身自带一个简单的 Web 后台，绑定在 8080 端口，可以选择性开启。</li>
+</ul>
+<p>这里以 labels 的形式配置，生产环境建议通过 <code>toml</code> 文件的方式配置，这样修改配置不要重启容器。traefik 默认是不会把容器对外发布的，需要手动设置。<code>traefik.port</code> 需要设置成容器内部端口，而不是绑定的外部端口。 </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说，traefik 配置简单，可以非常快速的搭建测试环境，很方便地支持宽域名证书。另外官方说是支持单容器多端口绑定到不同的 url 上的，但是我一直没试成功。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/Traefik/" rel="tag"><i class="fa fa-tag"></i> Traefik</a>
+              <a href="/tags/ACME/" rel="tag"><i class="fa fa-tag"></i> ACME</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/setup-multiple-github-deploy-keys-in-one-machine/" rel="prev" title="在一台机器上部署多个 GitHub deploy key">
+                  <i class="fa fa-chevron-left"></i> 在一台机器上部署多个 GitHub deploy key
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zsh-config/" rel="next" title="使用 antigen 管理 Zsh 配置">
+                  使用 antigen 管理 Zsh 配置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments">
+    <div id="utterances-container"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gythialy</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><script defer src="/lib/three.js"></script><script defer src="/lib/lines.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4.8.2/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4.8.7/dist/instantsearch.production.min.js"></script><script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "gythialy/gythialy.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('#utterances-container').appendChild(script);
+});
+</script>
+
+</body>
+</html>

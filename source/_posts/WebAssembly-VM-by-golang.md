@@ -174,7 +174,11 @@ date: 2020-06-12 10:27:06
 
 ### `wat` 文件
 
-{% gist gythialy/40e05f90ef5809590e1c6ade70692424 %}
+<details>
+ <summary>WAT 文件</summary>
+ {% gist gythialy/40e05f90ef5809590e1c6ade70692424 %}
+</details>
+
 
 ## VM 实现
 

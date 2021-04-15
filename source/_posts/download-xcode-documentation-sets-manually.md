@@ -2,7 +2,7 @@ title: 手动下载 XCode 文档和模拟器
 date: 2016-03-26 23:04:45
 categories: Notes
 tags:
-- OS X
+- macOS
 - XCode
 ---
 ## 缘起

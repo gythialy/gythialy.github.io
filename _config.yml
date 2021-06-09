@@ -90,22 +90,6 @@ algolia:
   indexName: 'blog'
   chunkSize: 5000
 
-# JavaScript 3D library.
-# Dependencies: https://github.com/next-theme/hexo-next-three
-three:
-  enable: true
-  defer: true
-  cdn:
-  waves:
-    enable: false
-    cdn:
-  lines:
-    enable: true
-    cdn:
-  sphere:
-    enable: false
-    cdn:
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

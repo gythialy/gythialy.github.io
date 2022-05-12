@@ -22,7 +22,6 @@ jobs:
     - name: prepare build env
       env:
         GH_ACTION_DEPLOY_KEY: ${{ secrets.GH_ACTION_DEPLOY_KEY }}
-        NEXT_VERSION: v8.7.1
       run: |
         mkdir -p ~/.ssh/
         echo "$GH_ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
@@ -32,12 +31,6 @@ jobs:
         git config --global user.email 'gythialy@users.noreply.github.com'
         npm i -g hexo-cli
         npm i
-        git clone --branch ${NEXT_VERSION} --depth=10  git@github.com:next-theme/hexo-theme-next.git themes/next
-        git checkout -b ${NEXT_VERSION}
-        # git clone git@github.com:next-theme/theme-next-fancybox3  --depth=1 themes/next/source/lib/fancybox
-        git clone git@github.com:next-theme/theme-next-pace --depth=1 themes/next/source/lib/pace
     - name: deploy to github 
-      env:
-        HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
       run: |
-        hexo generate && hexo algolia && hexo deploy
+        hexo generate && hexo deploy

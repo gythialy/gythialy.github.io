@@ -1,3 +1,12 @@
+# ---------------------------------------------------------------
+# Theme Core Configuration Settings
+# See: https://theme-next.js.org/docs/theme-settings/
+# ---------------------------------------------------------------
+
+# Allow to cache content generation.
+cache:
+  enable: true
+
 # Remove unnecessary files after hexo generate.
 minify: true
 
@@ -13,7 +22,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.njk
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  # style: source/_data/styles.styl
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -92,17 +101,6 @@ footer:
 
   # Powered by Hexo & NexT
   powered: true
-
-  # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
-  beian:
-    enable: false
-    icp:
-    # The digit in the num of gongan beian.
-    gongan_id:
-    # The full num of gongan beian.
-    gongan_num:
-    # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
-    gongan_icon_url:
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
@@ -206,15 +204,19 @@ google_site_verification: rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE
 # You may need to install the corresponding dependency packages
 # ---------------------------------------------------------------
 
-# FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
-# For more information: https://fancyapps.com/fancybox
-fancybox: true
+# A JavaScript library for zooming images like Medium.
+# Warning: Do not enable both `fancybox` and `mediumzoom`.
+# For more information: https://medium-zoom.francoischalifour.com
+mediumzoom: false
+
+# Vanilla JavaScript plugin for lazyloading images.
+# For more information: https://apoorv.pro/lozad.js/demo/
+lazyload: true
 
 # Pangu Support
 # For more information: https://github.com/vinta/pangu.js
 # Server-side plugin: https://github.com/next-theme/hexo-pangu
 pangu: true
-
 
 # ---------------------------------------------------------------
 # Comments Settings
@@ -232,7 +234,7 @@ comments:
   storage: true
   # Lazyload all comment systems.
   lazyload: false
-  # Modify texts or order for any navs, here are some examples.
+  # Modify texts or order for any naves, here are some examples.
   nav:
     #disqus:
     #  text: Load Disqus
@@ -268,26 +270,19 @@ google_analytics:
 # See: https://theme-next.js.org/docs/third-party-services/search-services
 # ---------------------------------------------------------------
 
-# Algolia Search
-# For more information: https://www.algolia.com
-algolia_search:
-  enable: true
-  hits:
-    per_page: 10
-
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
   # Show top n results per article, show all results by setting to -1
   top_n_per_article: 10
   # Unescape html strings to the readable one.
-  unescape: false
+  unescape: true
   # Preload the search data when the page loads.
-  preload: false
+  preload: true
 
 # ---------------------------------------------------------------
 # Animation Settings

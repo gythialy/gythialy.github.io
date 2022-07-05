@@ -25,7 +25,7 @@ categories: Notes
 4.  在 `/etc/fstab` 最后添加配置实现自动挂载
     ```
     # /etc/fstab
-    /$smb_server/share /mnt/local_share cifs credentials=/home/$user/.smbcredentials,uid=1000,gid=1000,iocharset=utf8 0 0
+    //$smb_server/share /mnt/local_share cifs credentials=/home/$user/.smbcredentials,uid=1000,gid=1000,iocharset=utf8 0 0
     ```
     > 注：`$smb_server` 为 SMB 服务器地址，`$user` 为当前用户名，`uid/gid` 为当前用户的 `uid` 和 `gid`，可以通过 `id $(whoami)` 查看
 

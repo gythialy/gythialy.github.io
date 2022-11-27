@@ -244,13 +244,36 @@ comments:
 
 # Utterances
 # For more information: https://utteranc.es
-utterances:
+# utterances:
+#   enable: false
+#   repo: gythialy/gythialy.github.io
+#   # Available values: pathname | url | title | og:title
+#   issue_term: pathname
+#   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
+#   theme: github-light
+
+giscus:
   enable: true
-  repo: gythialy/gythialy.github.io
+  repo: gythialy/gythialy.github.io # Github repository name
+  repo_id: MDEwOlJlcG9zaXRvcnk0MjIyNDYzNQ== # Github repository id
+  category: General # Github discussion category
+  category_id: DIC_kwDOAoRL-84CSxue # Github discussion category id
   # Available values: pathname | url | title | og:title
-  issue_term: pathname
-  # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
-  theme: github-light
+  mapping: pathname
+  # Available values: 0 | 1 
+  reactions_enabled: 1
+   # Available values: 0 | 1 
+  emit_metadata: 1
+  # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
+  theme: light
+  # Available values: en | zh-C
+  lang: en
+  # Available value: anonymous
+  crossorigin: anonymous
+  # Place the comment box above the comments
+  input_position: bottom
+  # Load the comments lazily
+  loading: lazy
 
 # ---------------------------------------------------------------
 # Statistics and Analytics

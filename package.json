@@ -6,7 +6,7 @@
     "version": "6.3.0"
   },
   "dependencies": {
-    "eslint": "^8.32.0",
+    "eslint": "^8.33.0",
     "hexo": "^6.3.0",
     "hexo-deployer-git": "^3.0.0",
     "hexo-generator-archive": "^2.0.0",
@@ -15,13 +15,13 @@
     "hexo-generator-index": "^3.0.0",
     "hexo-generator-searchdb": "^1.4.1",
     "hexo-generator-tag": "^2.0.0",
-    "hexo-next-giscus": "^1.0.3",
+    "hexo-next-giscus": "^1.1.0",
     "hexo-next-three": "github:next-theme/hexo-next-three",
     "hexo-pangu": "^0.2.2",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
-    "hexo-theme-next": "^8.14.1"
+    "hexo-theme-next": "^8.14.2"
   }
 }

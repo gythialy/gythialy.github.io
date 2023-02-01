@@ -10,7 +10,7 @@ date: 2023-02-01 13:54:58
 
 ## 缘起
 
-偶尔出差的时候，需要访问家里的网络，办公室已经有一台服务器使用了[Zerotier](https://zerotier.com/)网络，索性就把家里的路由也加到网络里面，这样的话，就可以同时访问公司和家里的网络了。因为办公室那台是我控制的，所以不会出现其他同事会进入到家庭网络的情况。
+偶尔出差的时候，需要访问家里的网络，办公室已经有一台服务器使用了[Zerotier][zerotier]网络，索性就把家里的路由也加到网络里面，这样的话，就可以同时访问公司和家里的网络了。因为办公室那台是我控制的，所以不会出现其他同事会进入到家庭网络的情况。
 
 ZeroTier是一款软件定义网络（SDN）解决方案，可以帮助企业快速部署和管理全球虚拟网络。它使用一个分布式的虚拟交换机来连接所有的节点，无需物理交换机或配置复杂的VPN。ZeroTier可以在任何地方部署，包括云、数据中心、家庭和办公室。它还可以与其他SDN解决方案集成，如OpenFlow和Cisco ACI。ZeroTier还可以通过多个平台使用，包括Windows、macOS、Linux、Android和iOS。
 
@@ -47,7 +47,7 @@ services:
 
 ### 授权自己的接入点
 
-因为设置成了private network，所以默认是无法加入这个网络的，可以在 Zerotier 的[网络管理界面](https://my.zerotier.com/network/)看到哪些点，然后在auth上勾选一下，就授权了这个点接入了。
+因为设置成了private network，所以默认是无法加入这个网络的，可以在 Zerotier 的[网络管理界面][network]看到哪些点，然后在auth上勾选一下，就授权了这个点接入了。
 
 ### 设置分配IP的网段
 
@@ -58,7 +58,7 @@ services:
 在 菜单 `VPN/Zerotier` 中填入刚才在网页上生成的 Network ID，保存并应用即可，正常情况下 Zerotier 的服务应该就启动起来了。
 ![](SCR-20230201-iuv.png)
 
-启动完成后，在 Zerotier 的网络管理界面授权通过，至此路由就应该连接到了 Zerotier 网络。
+启动完成后，在 Zerotier 的[网络管理界面][network]授权通过，至此路由就应该连接到了 Zerotier 网络。
 
 ### 设置 Zerotier Moon
 
@@ -81,7 +81,7 @@ c8a68837ae -      LEAF      -1 RELAY
 
 ### 设置 Zerotier 的路由表
 
-在 Zerotier 的[网络管理界面]中添加路由表，我的路由表如下：
+在 Zerotier 的[网络管理界面][network]中添加路由表，我的路由表如下：
 
 ```
 10.147.17.0/24 (LAN)
@@ -98,4 +98,7 @@ c8a68837ae -      LEAF      -1 RELAY
 
 在 OpenWRT 上配置好 Zerotier 后，路由后的所有设备都可以直接访问 `10.147.17.x` 段的服务，无需做其他配置。在出差的时候，在本地启动 Zerotier 服务后，也可以直接访问家中的 `192.168.5.x` 的服务，比如 NAS 之类的。
 
----EOF---
+[zerotier]:https://zerotier.com/ "Zerotier"
+[network]:https://my.zerotier.com/network/ "Zerotier 网络管理界面"
+
+`---EOF---`

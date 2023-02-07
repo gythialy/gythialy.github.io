@@ -4,11 +4,13 @@ tags:
   - Zsh
   - sheldon
 categories: Notes
+date: 2023-02-07 11:45:48
 ---
+
 
 ## 介绍
 
-之前一直{% post_link zsh-config 使用 antigen 管理 Zsh 配置 %}，由于 antigen 已经很久不更新了，最后一次代码提交为 2019年，就切换到了[sheldon](https://github.com/rossmacarthur/sheldon)。
+之前一直使用{% post_link zsh-config 使用 antigen 管理 Zsh 配置 %}，由于 antigen 已经很就不更新了，最后一次代码提交为 2019，就切换到了 [sheldon](https://github.com/rossmacarthur/sheldon)。
 
 sheldon 是 Rust 编写的 Zsh 包管理器，特性如下：
 
@@ -24,7 +26,8 @@ sheldon 是 Rust 编写的 Zsh 包管理器，特性如下：
 - Shell agnostic, with sensible defaults for Zsh.
 - Super-fast plugin loading and parallel installation. See [benchmarks](https://github.com/rossmacarthur/zsh-plugin-manager-benchmark).
 - Config file using [TOML](https://toml.io/) syntax.
-- Clean `~/.zshrc` or `~/.bashrc` (just add 1 line).
+- Clean ~/.zshrc or ~/.bashrc (just add 1 line).
+
 
 ## 安装
 

@@ -1,7 +1,7 @@
 ---
 title: 使用 antigen 管理 Zsh 配置
 tags:
-  - zsh
+  - Zsh
   - antigen
 categories: Notes
 date: 2018-08-06 09:46:53

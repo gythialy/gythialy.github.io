@@ -58,7 +58,7 @@ ArrayBuffer(浏览器 WASM 虚拟机实现），大小可变。本质上是连�
 
 ## 生命周期
 
-![wasm lifecycle](/uploads/wasm_1/wasm_lifecycle.png)
+![wasm lifecycle](wasm_lifecycle.png)
 
 1. 通过工具链把其他语言 (C++、Go、 Rust) 编译成 WebAssembly 汇编格式 `.wasm` 文件
 2. 在网页中使用 `fetch`、`XMLHttpRequest` 等获取 `wasm` 文件
@@ -68,7 +68,7 @@ ArrayBuffer(浏览器 WASM 虚拟机实现），大小可变。本质上是连�
 
 ## 虚拟机体系
 
-![wasm vm system](/uploads/wasm_1/wasm_system.png)
+![wasm vm system](wasm_system.png)
 
 WebAssembly 模块在运行时由以下几部分组成，如上图所示
 

@@ -71,5 +71,5 @@ antigen apply
 
 antigen 完全支持 oh-my-zsh, 第三方的插件或者主题通过 `antigen bundle` 的方式加载，非常方便。
 
-![](/uploads/antigen_zsh_snapshot.png)
+![](antigen_zsh_snapshot.png)
 `---EOF---`

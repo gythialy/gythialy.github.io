@@ -1,0 +1,4 @@
+---
+title: fish-config
+tags:
+---

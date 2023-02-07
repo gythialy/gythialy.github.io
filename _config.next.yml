@@ -59,7 +59,7 @@ menu:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: /uploads/avatar.png
+  url: /images/octocat-14.png
   # If true, the avatar will be dispalyed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.

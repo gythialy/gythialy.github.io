@@ -129,7 +129,7 @@ curl -skS https://bootstrap.pypa.io/get-pip.py | python
 
 - 与 ConEmu 集成  
     `%userprofile%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe`
-    ![ConEmu Settings](/uploads/conemu_1.png)
+    ![ConEmu Settings](conemu_1.png)
 
 - X64  
     官方对于 64 位的[解释](https://github.com/babun/babun/wiki/64-bit)。懒人也可以直接使用这个 [PR](https://github.com/babun/babun/pull/545) 编译的[分发包](https://people.mozilla.org/%7Enchen/babun/babun-1.2.1-x86_64-dist.zip)。有兴趣的也可以通过我合并的 [x64 分支](https://github.com/gythialy/babun/tree/support-64-bit) 自行构建。
@@ -140,7 +140,7 @@ curl -skS https://bootstrap.pypa.io/get-pip.py | python
 
 最终配置效果：
 
-![babun](/uploads/babun.png)
+![babun](babun.png)
 
 [babun]:https://babun.github.io
 

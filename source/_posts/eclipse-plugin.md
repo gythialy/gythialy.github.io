@@ -26,7 +26,7 @@ tags:
 
 <escape><!-- more --></escape>
 
-> 注： 如果安装了 [Marketplace Client](https://www.eclipse.org/mpc/) 可直接导入[配置](/uploads/eclipse-jee.p2f)而无需手动添加。具体步骤为：File->Import/Install/Install Software Items from File，然后选中配置文件即可。
+> 注： 如果安装了 [Marketplace Client](https://www.eclipse.org/mpc/) 可直接导入[配置](eclipse-jee.p2f)而无需手动添加。具体步骤为：File->Import/Install/Install Software Items from File，然后选中配置文件即可。
 
 ### 配置
 
@@ -34,19 +34,19 @@ tags:
 
   `Java/Content Assint/Auto Activation/Auto activation triggers for java` 为 `.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ(, @`
 
-  ![](/uploads/Snipaste_2018-02-07_14-12-26.png)
+  ![](Snipaste_2018-02-07_14-12-26.png)
 
 - 字体设置
 
   `General/Appearance/Colors and Fonts`  设置字体
 
-  ![](/uploads/Snipaste_2018-02-07_14-19-06.png)
+  ![](Snipaste_2018-02-07_14-19-06.png)
 
 - 文件编码
 
   文件编码默认为 GBK，可通过 `General/Workspace/Text file encoding/Other` 选中 `UTF-8` 修改
 
-  ![](/uploads/Snipaste_2018-02-07_14-45-09.png)
+  ![](Snipaste_2018-02-07_14-45-09.png)
 
 
 `---EOF---`

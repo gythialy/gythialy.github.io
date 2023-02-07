@@ -99,11 +99,11 @@ network={
 - `sudo service cups start` 启动 cups 服务
 - 在浏览器通过 `http://raspberry_pi_ip:631` 应该就可以添加打印机了
 - 这时候在系统里面添加打印机应该就能发现
-    ![](/uploads/snapshot_cups_printers.png)
+    ![](snapshot_cups_printers.png)
 
 ## VNC 登录
 
-- 开启 VNC server后, 可以通过 `brew cask install vnc-viewer` 安装 VNC client。
+- 开启 VNC server后, 可以通过 `brew install --cask vnc-viewer` 安装 VNC client。
 - 在 VNC Viewer中添加树莓派的 IP 地址即可登录树莓派的桌面
 
 ## 后记

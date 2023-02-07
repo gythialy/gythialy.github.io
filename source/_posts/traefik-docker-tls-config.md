@@ -26,7 +26,7 @@ date: 2018-08-05 19:13:54
 - 支持 WebSocket 和 HTTP/2。
 
 借用官网的图，一图以蔽之
-![](/uploads/traefik_architecture.png)
+![](traefik_architecture.png)
 
 <escape><!-- more --></escape>
 ## 需求

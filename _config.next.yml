@@ -109,11 +109,11 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: tomorrow-night
+    light: github
+    dark: github-dark
   prism:
-    light: prism
-    dark: prism-dark
+    light: prism-material-light
+    dark: prism-material-dark
   # Add copy button on codeblock
   copy_button:
     enable: true

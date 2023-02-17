@@ -24,15 +24,16 @@ custom_file_path:
   #mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
 
+
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
-#scheme: Mist
-scheme: Pisces
-#scheme: Gemini
+# scheme: Muse
+scheme: Mist
+# scheme: Pisces
+# scheme: Gemini
 
 # Dark Mode
 darkmode: true
@@ -43,28 +44,30 @@ darkmode: true
 # ---------------------------------------------------------------
 
 # Usage: `Key: /link/ || icon`
-# Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.
+# Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-sensitive.
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
   #about: /about/ || fa fa-user
   tags: /tags/ || fa fa-tags
-  #categories: /categories/ || fa fa-th
+  # categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
-  #sitemap: /sitemap.xml || fa fa-sitemapfa fa-sitemap
+  # sitemap: /sitemap.xml || fa fa-sitemapfa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
   url: /images/octocat-14.png
-  # If true, the avatar will be dispalyed in circle.
+  # If true, the avatar will be displayed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
+# Posts / Categories / Tags in sidebar.
+site_state: true
 
 # Social Links
 # Usage: `Key: permalink || icon`
@@ -72,19 +75,19 @@ avatar:
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/gythialy || fab fa-github
-  E-Mail: mailto:gythialy.koo+blog@gmail.com || fa fa-envelope
+  # E-Mail: mailto:gythialy.koo+blog@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   Twitter: https://twitter.com/gythialy || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
-  #YouTube: https://youtube.com/yourname || fab fa-youtube
+  # YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
   RSS: https://feeds.feedburner.com/gythialy || fa fa-rss
 
 footer:
-  # Specify the date when the site was setup. If not defined, current year will be used.
+  # Specify the year when the site was setup. If not defined, current year will be used.
   since: 2014
 
   # Icon between year and copyright info.
@@ -102,18 +105,15 @@ footer:
   # Powered by Hexo & NexT
   powered: true
 
-# Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: true
-
 codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: github
-    dark: github-dark
+    light: default
+    dark: stackoverflow-dark
   prism:
-    light: prism-material-light
-    dark: prism-material-dark
+    light: prism
+    dark: prism-dark
   # Add copy button on codeblock
   copy_button:
     enable: true
@@ -123,8 +123,11 @@ codeblock:
 # Reading progress bar
 reading_progress:
   enable: true
+  # Available values: left | right
+  start_at: left
   # Available values: top | bottom
   position: top
+  reversed: false
   color: "#37c6c0"
   height: 3px
 
@@ -179,12 +182,13 @@ font:
     external: true
     family: PT Mono
 
+
 # ---------------------------------------------------------------
 # SEO Settings
 # See: https://theme-next.js.org/docs/theme-settings/seo
 # ---------------------------------------------------------------
 
-# If true, site-subtitle will be added to index page.
+# If true, site-subtitle will be added to the title of index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)
 index_with_subtitle: false
 
@@ -194,86 +198,29 @@ exturl: true
 exturl_icon: true
 
 # Google Webmaster tools verification.
-# See: https://www.google.com/webmasters
+# See: https://developers.google.com/search
 google_site_verification: rbk-6gYUgGYEao_ZzQaHQbqVrkh6AncfDse_HhnKwrE
 
 # ---------------------------------------------------------------
 # Third Party Plugins & Services Settings
 # See: https://theme-next.js.org/docs/third-party-services/
 # More plugins: https://github.com/next-theme/awesome-next
-# You may need to install the corresponding dependency packages
+# ---------------------------------------------------------------
 # ---------------------------------------------------------------
 
-# A JavaScript library for zooming images like Medium.
+# Medium Zoom is a JavaScript library for zooming images like Medium.
 # Warning: Do not enable both `fancybox` and `mediumzoom`.
 # For more information: https://medium-zoom.francoischalifour.com
-mediumzoom: false
+mediumzoom: true
 
 # Vanilla JavaScript plugin for lazyloading images.
 # For more information: https://apoorv.pro/lozad.js/demo/
 lazyload: true
 
-# Pangu Support
+# Automatically insert whitespace between CJK and half-width characters.
 # For more information: https://github.com/vinta/pangu.js
 # Server-side plugin: https://github.com/next-theme/hexo-pangu
 pangu: true
-
-# ---------------------------------------------------------------
-# Comments Settings
-# See: https://theme-next.js.org/docs/third-party-services/comments
-# ---------------------------------------------------------------
-
-# Multiple Comment System Support
-comments:
-  # Available values: tabs | buttons
-  style: tabs
-  # Choose a comment system to be displayed by default.
-  # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active: utterances
-  # Setting `true` means remembering the comment system selected by the visitor.
-  storage: true
-  # Lazyload all comment systems.
-  lazyload: false
-  # Modify texts or order for any naves, here are some examples.
-  nav:
-    #disqus:
-    #  text: Load Disqus
-    #  order: -1
-    #gitalk:
-    #  order: -2
-
-# Utterances
-# For more information: https://utteranc.es
-# utterances:
-#   enable: false
-#   repo: gythialy/gythialy.github.io
-#   # Available values: pathname | url | title | og:title
-#   issue_term: pathname
-#   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
-#   theme: github-light
-
-giscus:
-  enable: true
-  repo: gythialy/gythialy.github.io # Github repository name
-  repo_id: MDEwOlJlcG9zaXRvcnk0MjIyNDYzNQ== # Github repository id
-  category: General # Github discussion category
-  category_id: DIC_kwDOAoRL-84CSxue # Github discussion category id
-  # Available values: pathname | url | title | og:title
-  mapping: pathname
-  # Available values: 0 | 1 
-  reactions_enabled: 1
-   # Available values: 0 | 1 
-  emit_metadata: 1
-  # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
-  theme: preferred-color-scheme
-  # Available values: en | zh-C
-  lang: en
-  # Available value: anonymous
-  crossorigin: anonymous
-  # Place the comment box above the comments
-  input_position: bottom
-  # Load the comments lazily
-  loading: lazy
 
 # ---------------------------------------------------------------
 # Statistics and Analytics
@@ -307,57 +254,27 @@ local_search:
   # Preload the search data when the page loads.
   preload: true
 
-# ---------------------------------------------------------------
-# Animation Settings
-# ---------------------------------------------------------------
-
-# Use Animate.css to animate everything.
-# For more information: https://animate.style
-motion:
+# https://github.com/next-theme/hexo-next-giscus
+giscus:
   enable: true
-  async: false
-  transition:
-    # All available transition variants: https://theme-next.js.org/animate/
-    post_block: fadeIn
-    post_header: fadeInDown
-    post_body: fadeInDown
-    coll_header: fadeInLeft
-    # Only for Pisces | Gemini.
-    sidebar: fadeInUp
+  repo: gythialy/gythialy.github.io # Github repository name
+  repo_id: MDEwOlJlcG9zaXRvcnk0MjIyNDYzNQ== # Github repository id
+  category: General # Github discussion category
+  category_id: DIC_kwDOAoRL-84CSxue # Github discussion category id
+  # Available values: pathname | url | title | og:title
+  mapping: pathname
+  # Available values: 0 | 1 
+  reactions_enabled: 1
+   # Available values: 0 | 1 
+  emit_metadata: 1
+  # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
+  theme: preferred-color-scheme
+  # Available values: en | zh-C
+  lang: en
+  # Available value: anonymous
+  crossorigin: anonymous
+  # Place the comment box above the comments
+  input_position: bottom
+  # Load the comments lazily
+  loading: lazy
 
-# Progress bar in the top during page loading.
-# For more information: https://github.com/CodeByZach/pace
-pace:
-  enable: true
-  # Themes list:
-  # black | blue | green | orange | pink | purple | red | silver | white | yellow
-  color: blue
-  # All available themes:
-  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
-  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
-  theme: minimal
-
-# Canvas ribbon
-# For more information: https://github.com/hustcc/ribbon.js
-canvas_ribbon:
-  enable: false
-  size: 300 # The width of the ribbon
-  alpha: 0.6 # The transparency of the ribbon
-  zIndex: -1 # The display level of the ribbon
-
-
-# JavaScript 3D library.
-# Dependencies: https://github.com/next-theme/hexo-next-three
-three:
-  enable: true
-  defer: true
-  cdn:
-  waves:
-    enable: false
-    cdn:
-  lines:
-    enable: true
-    cdn:
-  sphere:
-    enable: false
-    cdn:

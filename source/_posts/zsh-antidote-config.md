@@ -50,7 +50,7 @@ date: 2023-02-18 17:44:47
   github.com/zdharma-continuum/fast-syntax-highlighting kind:defer
   # github.com/zsh-users/zsh-history-substring-search
   ```
-- 在 `.zshrc` 中添加下面的内容，修改 `.zsh_plugin.txt` 中的内容后会自动更新
+- 在 `.zshrc` 中添加下面的内容，以后修改 `.zsh_plugin.txt` 中的内容后会自动更新
   ```
   # ~/.zshrc
   # Set the name of the static .zsh plugins file antidote will generate.

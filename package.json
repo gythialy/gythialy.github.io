@@ -21,7 +21,7 @@
     "hexo-pangu": "^0.2.2",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.1.0",
-    "hexo-renderer-stylus": "^2.1.0",
+    "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-next": "^8.17.0",
     "medium-zoom": "^1.0.8"

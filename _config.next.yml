@@ -17,6 +17,7 @@ custom_file_path:
   #header: source/_data/header.njk
   #sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
+  #postBodyStart: source/_data/post-body-start.njk
   #postBodyEnd: source/_data/post-body-end.njk
   #footer: source/_data/footer.njk
   #bodyEnd: source/_data/body-end.njk
@@ -100,6 +101,7 @@ footer:
     color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
+  # Set to `false` to disable the copyright statement.
   copyright:
 
   # Powered by Hexo & NexT
@@ -119,6 +121,10 @@ codeblock:
     enable: true
     # Available values: default | flat | mac
     style: flat
+  # Fold code block
+  fold:
+    enable: true
+    height: 500
 
 # Reading progress bar
 reading_progress:

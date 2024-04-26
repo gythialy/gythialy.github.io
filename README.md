@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/gythialy/gythialy.github.io/workflows/Main%20workflow/badge.svg)](https://github.com/gythialy/gythialy.github.io/actions)
+[![Hexo deploy](https://github.com/gythialy/gythialy.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/gythialy/gythialy.github.io/actions/workflows/deploy.yml)
 
 # LICENSE
 

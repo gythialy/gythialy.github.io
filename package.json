@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "7.0.0"
+    "version": "7.2.0"
+  },
+  "scripts": {
+    "build": "hexo clean && hexo generate"
   },
   "dependencies": {
     "eslint": "^9.1.1",
     "hexo": "^7.2.0",
-    "hexo-deployer-git": "^4.0.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-feed": "^3.0.0",

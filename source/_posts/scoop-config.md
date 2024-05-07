@@ -38,7 +38,7 @@ tags:
     scoop bucket add versions
     ```
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 ## 使用
 

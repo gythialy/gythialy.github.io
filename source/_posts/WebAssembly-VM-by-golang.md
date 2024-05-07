@@ -49,7 +49,7 @@ date: 2020-06-12 10:27:06
           pub fn qlcchain_storage_write(key: *const u8, klen: u32, val: *const u8, vlen: u32);
       }
   ```
-<escape><!-- more --></escape>
+<!-- more -->
 
 ## WASM 二进制
 

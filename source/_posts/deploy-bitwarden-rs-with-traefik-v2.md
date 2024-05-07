@@ -34,7 +34,7 @@ tags:
   - 静态配置: 启动的时候加载。包括 Entrypoints、Provider 连接信息
   - 动态配置: 运行时可动态读取改变的。包括 Routes、Services、Middlewares、Certificates
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 ## docker-compose
 

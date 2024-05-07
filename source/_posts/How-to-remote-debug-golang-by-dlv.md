@@ -36,7 +36,7 @@ tags:
   ```bash
   docker build -f docker/Dockerfile.debug -t qlcchain/go-qlc:debug  .
   ```
-<escape><!-- more --></escape>
+<!-- more -->
 
 - STEP3: 启动 docker 容器并绑定端口
 

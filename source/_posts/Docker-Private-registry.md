@@ -17,7 +17,7 @@ tags:
 
 官方 registry 比较简单，没有 UI 界面；Portus 其实也是基于官方 registry ，可以理解为官方增强版，同时提供了[部署的示例](https://github.com/SUSE/Portus/tree/master/examples)；Harbor，nexus 等都比较重量级，部署比较麻烦，这里暂时不考虑。由于我们的使用场景非常简单，所有选用官方 registry 镜像如何部署私有服务器。下面简单介绍下如何配置。
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 ### 官方 Registry
 

@@ -28,7 +28,7 @@ date: 2018-08-05 19:13:54
 借用官网的图，一图以蔽之
 ![](traefik_architecture.png)
 
-<escape><!-- more --></escape>
+<!-- more -->
 ## 需求
 
 使用场景作为一个基于 [Angular](https://angular.io/) 的单页 App，与后端 Server通过 RESTful 接口通信，前后端都需要提供 https 支持。使用场景很简单，暂时也没有负载均衡。

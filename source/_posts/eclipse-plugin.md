@@ -24,7 +24,7 @@ tags:
 | [SpotBugs](https://github.com/spotbugs/spotbugs)             | 代码静态检查                                                 | [![Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client](https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png)](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=3519199 "Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client") |
 | [TestNG](http://testng.org/doc/eclipse.html)                 | 测试框架                                                     | [![Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client](https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png)](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1549 "Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client") |
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 > 注： 如果安装了 [Marketplace Client](https://www.eclipse.org/mpc/) 可直接导入[配置](eclipse-jee.p2f)而无需手动添加。具体步骤为：File->Import/Install/Install Software Items from File，然后选中配置文件即可。
 

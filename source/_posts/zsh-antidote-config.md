@@ -10,7 +10,14 @@ date: 2023-02-18 17:44:47
 
 之前介绍了使用[antigen](zsh-config) 和 [sheldon](zsh-sheldon-config) 管理 Zsh 配置，由于 antigen 已经停止维护了，后面就有了[antibody](https://getantibody/antibody)，但是这个也停止维护了，最终就有了继任者 [antidote](https://github.com/mattmc3/antidote)，这几个使用上都大同小异。
 
-- macOS 使用 `brew install antidote` 安装，其他平台使用 `git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote` 安装
+- 安装
+
+  ```bash
+  # macOS 使用 
+  brew install antidote
+  # 其他平台
+  git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
+  ```
 
 - 在 `$HOME` 目录添加 `.zsh_plugins.txt` 来定义需要使用的插件
   ```

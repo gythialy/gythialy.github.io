@@ -24,7 +24,7 @@ date: 2019-04-06 11:23:37
 	a function call or refers to other variables.
 	Note that before Go 1.5 this option took two separate arguments.
 
-<escape><!-- more --></escape>
+<!-- more -->
 #### example1
 
 版本号等变量定义在 `main.go` 中

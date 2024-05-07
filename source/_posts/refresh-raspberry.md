@@ -18,7 +18,7 @@ date: 2019-11-28 13:54:55
 - [官网](https://www.raspberrypi.org/downloads/raspbian/) 下载最新的镜像
 - 可以通过 `dd` 把镜像复制到 SD 卡中，具体方法参考 [官方指南](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
 - 也可以通过 [Etcher](https://www.balena.io/etcher/)，`brew cask install balenaetcher` 即可，傻瓜式操作
-<escape><!-- more --></escape>
+<!-- more -->
 ### 配置 WIFI
 
 在 `boot` 分区，创建文件 `wpa_supplicant.conf`，内容为

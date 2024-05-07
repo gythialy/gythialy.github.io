@@ -38,7 +38,7 @@ Wireguard 有两种模式，一直是内核态，一种是用户态。可以通�
   sudo echo "iptable_raw" | sudo tee /etc/modules-load.d/iptable_raw.conf
   ```
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 ## Docker Compose 文件
 

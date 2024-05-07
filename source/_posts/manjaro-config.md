@@ -32,7 +32,7 @@ date: 2018-06-25 13:14:45
 - Linux
     `sudo dd bs=4M if=/path/to/manjaro.iso of=/dev/sd[drive letter] status=progress`  [drive letter] 为 U 盘盘符。
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 ### 关闭安全启动
 

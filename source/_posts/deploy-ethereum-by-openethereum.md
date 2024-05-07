@@ -52,7 +52,7 @@ services:
         max-size: "2m"
         max-file: "10"
 ```
-<escape><!-- more --></escape>
+<!-- more -->
 
 ## 运行
 

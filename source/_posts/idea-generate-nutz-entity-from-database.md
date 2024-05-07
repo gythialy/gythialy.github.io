@@ -19,7 +19,7 @@ tags:
 
     ![Scratches](/uploads/Snipaste_2018-02-07_15-53-39.png)
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 - 把下面的代码复制到刚才创建的文件中
 

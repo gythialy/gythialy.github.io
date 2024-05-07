@@ -51,7 +51,7 @@ tags:
 
 > 注：Docker 以及 Docker Compose 的安装，官方文档讲得非常清晰，在此不再赘述。
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 
 ## `docker-compose.yml` 文件

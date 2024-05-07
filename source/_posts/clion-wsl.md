@@ -32,7 +32,7 @@ sudo ln -sf /mnt/c/User/<windows user name> /home/goreng
 # 更改访问租信息
 sudo chown -R goreng:goreng /home/goreng
 ```
-<escape><!-- more --></escape>
+<!-- more -->
 
 > `goreng` 为 WSL 用户名
 

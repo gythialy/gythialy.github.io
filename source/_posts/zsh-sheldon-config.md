@@ -59,7 +59,7 @@ github = "chriskempson/base16-shell"
 #               └─ GitHub user or organization
 ```
 
-<escape><!-- more --></escape>
+<!-- more -->
 
 ### 参考配置
 

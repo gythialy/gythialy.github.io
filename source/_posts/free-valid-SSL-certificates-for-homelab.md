@@ -29,7 +29,7 @@ date: 2024-01-16 15:03:20
 #### 没有域名
 
 通过 [DuckDNS](https://www.duckdns.org/) 注册账号，然后添加域名记录，比如 `homelab001`，IP 地址设为 `192.168.1.32`，最终的域名为 `https://jellyfin.homelab001.duckdns.org`
-<escape><!-- more --></escape>
+<!-- more -->
 
 ### 反向代理
 

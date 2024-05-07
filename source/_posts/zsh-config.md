@@ -25,7 +25,7 @@ Zsh 具有以下主要特点：
 
 虽然说 Zsh 是开箱即用，但是为了更好用，还是需要一些定制化的配置。之前一直使用 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), oh-my-zsh 把主题、插件等都是一起管理的，但是很多其他的主题和插件，且都是由不同的作者开发的，这样的话，管理起来就比较麻烦。[antigen](https://github.com/zsh-users/antigen) 就是针对此问题，应运而生。
 
-<escape><!-- more --></escape>
+<!-- more -->
 ## 安装
 
 ```bash

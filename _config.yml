@@ -92,12 +92,12 @@ search:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: git@github.com:gythialy/gythialy.github.io.git
-  branch: master
-  name: gythialy
-  email: gythialy@users.noreply.github.com
+# deploy:
+#   type: git
+#   repo: git@github.com:gythialy/gythialy.github.io.git
+#   branch: master
+#   name: gythialy
+#   email: gythialy@users.noreply.github.com
 
 filter_optimize:
   enable: true

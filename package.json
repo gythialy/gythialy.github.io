@@ -32,5 +32,9 @@
   },
   "devDependencies": {
     "hexo-related-posts": "^1.5.2"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
   }
 }

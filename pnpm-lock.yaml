@@ -12,8 +12,8 @@ importers:
         specifier: ^9.6.0
         version: 9.6.0
       hexo:
-        specifier: ^7.2.0
-        version: 7.2.0(chokidar@3.6.0)
+        specifier: ^7.3.0
+        version: 7.3.0(chokidar@3.6.0)
       hexo-generator-archive:
         specifier: ^2.0.0
         version: 2.0.0
@@ -71,7 +71,7 @@ importers:
     devDependencies:
       hexo-related-posts:
         specifier: ^1.5.2
-        version: 1.5.2(chalk@4.1.2)(hexo@7.2.0(chokidar@3.6.0))
+        version: 1.5.2(chalk@4.1.2)(hexo@7.3.0(chokidar@3.6.0))
 
 packages:
 
@@ -724,8 +724,8 @@ packages:
     resolution: {integrity: sha512-YvGngXijE2muEh5L/VI4Fmjqb+/yAkmY+VuyhWVoRwQu1X7bmWodsfYRXX7CUYhi5LqsvH8FAe/yBW1+f6ZX4Q==}
     engines: {node: '>=14'}
 
-  hexo@7.2.0:
-    resolution: {integrity: sha512-RYIzl7jfG0i2jH/k5IZg4C1anyHfmKHNUsBKIn9LU0V3iQ0WQrwuOLFDJwaZDenqmzHYJhAVCGAkrBDfF/IlVg==}
+  hexo@7.3.0:
+    resolution: {integrity: sha512-dOe8mzBKrvjubW5oBmyhcnQDpC+M2xmAMLae5K+o+SkHxyvAhShkS2VQZoTsOLIJKY6xilv7dzCjCvE7ol/NHQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2015,10 +2015,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  hexo-related-posts@1.5.2(chalk@4.1.2)(hexo@7.2.0(chokidar@3.6.0)):
+  hexo-related-posts@1.5.2(chalk@4.1.2)(hexo@7.3.0(chokidar@3.6.0)):
     dependencies:
       chalk: 4.1.2
-      hexo: 7.2.0(chokidar@3.6.0)
+      hexo: 7.3.0(chokidar@3.6.0)
       natural: 2.4.5
 
   hexo-renderer-ejs@2.0.0:
@@ -2095,7 +2095,7 @@ snapshots:
       prismjs: 1.29.0
       strip-indent: 3.0.0
 
-  hexo@7.2.0(chokidar@3.6.0):
+  hexo@7.3.0(chokidar@3.6.0):
     dependencies:
       abbrev: 2.0.0
       archy: 1.0.0

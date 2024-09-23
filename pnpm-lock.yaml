@@ -40,7 +40,7 @@ importers:
         version: 1.3.0
       hexo-next-three:
         specifier: github:next-theme/hexo-next-three
-        version: https://codeload.github.com/next-theme/hexo-next-three/tar.gz/e602c3266d8731fd9e59d152ed8353c8d630c2df
+        version: git+https://git@github.com:next-theme/hexo-next-three.git#e602c3266d8731fd9e59d152ed8353c8d630c2df
       hexo-optimize:
         specifier: ^3.3.0
         version: 3.3.0
@@ -63,8 +63,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       hexo-theme-next:
-        specifier: ^8.20.0
-        version: 8.20.0
+        specifier: ^8.21.0
+        version: 8.21.0
       medium-zoom:
         specifier: ^1.1.0
         version: 1.1.0
@@ -673,8 +673,8 @@ packages:
   hexo-next-giscus@1.3.0:
     resolution: {integrity: sha512-2Btg3zWffTYgGj494OjPwtmG5gZUMoNrd7c4LKwdZQwROG7u1kF5ZBlROs4ngwellpM4fSS5dTh2nyZtcq8lnA==}
 
-  hexo-next-three@https://codeload.github.com/next-theme/hexo-next-three/tar.gz/e602c3266d8731fd9e59d152ed8353c8d630c2df:
-    resolution: {tarball: https://codeload.github.com/next-theme/hexo-next-three/tar.gz/e602c3266d8731fd9e59d152ed8353c8d630c2df}
+  hexo-next-three@git+https://git@github.com:next-theme/hexo-next-three.git#e602c3266d8731fd9e59d152ed8353c8d630c2df:
+    resolution: {commit: e602c3266d8731fd9e59d152ed8353c8d630c2df, repo: git@github.com:next-theme/hexo-next-three.git, type: git}
     version: 2.2.0
 
   hexo-optimize@3.3.0:
@@ -713,8 +713,8 @@ packages:
     resolution: {integrity: sha512-jMTosxYsxrTi5bKgM9rO7ySAMyfLihbnSPRYzom/kwI5sMsSa1meYbP59y6fCrB8FdVpLNjj1mak2iyUZW1XhA==}
     engines: {node: '>=14'}
 
-  hexo-theme-next@8.20.0:
-    resolution: {integrity: sha512-cLKE32mP6B2E84+4XUXOgZhaI+srndHAviVpDaz8S7fj4OTnRchWg1anbhpZTFAgMO0NSRs4A0kT61eXY3l/Gg==}
+  hexo-theme-next@8.21.0:
+    resolution: {integrity: sha512-O0xKsX73QJSOfPs8R+Kd1sFbJQhy0Od3NsoN5uR717IXjK4xn2w9x+GlSijEfh96JkhCIQOOPS5xBtzsfpjE6A==}
 
   hexo-util@2.5.0:
     resolution: {integrity: sha512-l0zkqcg2524KPO84HQe0JROpPlCM/dEnCJaJrZ1qsq+3+/YxhDa0zxiGtUVY1dtrWzOK/V11Zj+UEklhGP8Jeg==}
@@ -1999,7 +1999,7 @@ snapshots:
     dependencies:
       '@next-theme/utils': 1.3.0
 
-  hexo-next-three@https://codeload.github.com/next-theme/hexo-next-three/tar.gz/e602c3266d8731fd9e59d152ed8353c8d630c2df:
+  hexo-next-three@git+https://git@github.com:next-theme/hexo-next-three.git#e602c3266d8731fd9e59d152ed8353c8d630c2df:
     dependencies:
       '@next-theme/utils': 1.3.0
       terser: 5.32.0
@@ -2071,7 +2071,7 @@ snapshots:
     dependencies:
       hexo-util: 3.3.0
 
-  hexo-theme-next@8.20.0: {}
+  hexo-theme-next@8.21.0: {}
 
   hexo-util@2.5.0:
     dependencies:

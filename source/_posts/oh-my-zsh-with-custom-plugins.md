@@ -45,4 +45,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 ```
 
+```bash
+# 设置别名更新 omz 插件
+alias update-omz-plugins='[ -n "$ZSH_CUSTOM" ] && [ -d "$ZSH_CUSTOM" ] && find "$ZSH_CUSTOM" -type d -name ".git" -exec sh -c "cd \"{}\"/../ && echo Updating {} && git pull --rebase" \;'
+```
+
 ```---EOF---```

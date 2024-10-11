@@ -130,10 +130,10 @@ echo 'eval "$(zellij setup --generate-auto-start zsh)"' >> ~/.zshrc
 
 ## 总结
 
-Zellij 相对于 tmux 来说几乎是开箱即用，对于没有负责需求的用户来说非常友好。Alacritty 虽然启动速度很快，对于相同的配置来说，启动速度比 iTerm2 肉眼可见地快，但是开发者对社区的响应很慢，对不少 PR 也是视而不见。
+Zellij 相对于 tmux 来说几乎是开箱即用，对于没有复杂需求的用户来说非常友好。Alacritty 虽然启动速度很快，对于相同的配置来说，启动速度比 iTerm2 肉眼可见地快，但是开发者对社区的响应很慢，对不少 PR 也是视而不见。
 
 最终效果：
 
 ![](SCR-20240505-jrkl.png)
 
-```---EOF---```
+`---EOF---`

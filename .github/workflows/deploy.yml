@@ -12,34 +12,44 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js (.tool-versions)
-        uses: actions/setup-node@v4
+
+      - name: Read .tool-versions
+        id: tool-versions
+        run: echo "BUN_VERSION=$(grep '^bun' .tool-versions | awk '{print $2}')" >> $GITHUB_OUTPUT
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version-file: ".tool-versions"
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+          bun-version: ${{ steps.tool-versions.outputs.BUN_VERSION }}
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
         with:
-          version: 9
-          run_install: false
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-bun-
+
       - name: Install Dependencies
-        run: pnpm install
+        run: bun install
+
+      - name: Cache Hexo public folder
+        uses: actions/cache@v4
+        with:
+          path: public
+          key: ${{ runner.os }}-hexo-public-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-hexo-public-
+
       - name: Build
-        run: pnpm run build
+        run: bun run build
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+          retention-days: 30
+
   deploy:
     needs: build
     permissions:

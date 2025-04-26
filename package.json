@@ -9,7 +9,7 @@
     "build": "hexo clean && hexo generate"
   },
   "dependencies": {
-    "eslint": "^9.23.0",
+    "eslint": "^9.25.1",
     "hexo": "^7.3.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",

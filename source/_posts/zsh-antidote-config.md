@@ -8,7 +8,7 @@ categories: Notes
 date: 2023-02-18 17:44:47
 ---
 
-之前介绍了使用[antigen](zsh-config) 和 [sheldon](zsh-sheldon-config) 管理 Zsh 配置，由于 antigen 已经停止维护了，后面就有了[antibody](https://getantibody/antibody)，但是这个也停止维护了，最终就有了继任者 [antidote](https://github.com/mattmc3/antidote)，这几个使用上都大同小异。
+之前介绍了使用 {% post_link zsh-config antigen %} 和 {% post_link zsh-sheldon-config sheldon %} 管理 Zsh 配置，由于 antigen 已经停止维护了，后面就有了 [antibody](https://getantibody/antibody)，但是这个也停止维护了，最终就有了继任者 [antidote](https://github.com/mattmc3/antidote)，这几个使用上都大同小异。
 
 - 安装
 

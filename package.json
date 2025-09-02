@@ -9,7 +9,7 @@
     "build": "hexo clean && hexo generate"
   },
   "dependencies": {
-    "eslint": "^9.30.1",
+    "eslint": "^9.34.0",
     "hexo": "^7.3.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
@@ -21,13 +21,13 @@
     "hexo-next-giscus": "^1.3.0",
     "hexo-next-three": "github:next-theme/hexo-next-three",
     "hexo-optimize": "^3.4.0",
-    "hexo-pangu": "^0.4.0",
+    "hexo-pangu": "^0.4.1",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^7.0.1",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
     "hexo-tag-embed": "^1.0.0",
-    "hexo-theme-next": "^8.23.1",
+    "hexo-theme-next": "^8.24.1",
     "medium-zoom": "^1.1.0"
   },
   "devDependencies": {
@@ -36,5 +36,8 @@
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"
-  }
+  },
+  "trustedDependencies": [
+    "hexo-util"
+  ]
 }

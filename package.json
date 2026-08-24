@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "hexo-related-posts": "^1.6.2",
-    "oxfmt": "^0.63.0",
+    "oxfmt": "^0.64.0",
     "oxlint": "^1.77.0"
   },
   "engines": {
